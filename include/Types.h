@@ -15,6 +15,8 @@ typedef signed short int16_t;
 typedef signed int int32_t;
 typedef signed long long int64_t;
 
+typedef void *uintptr_t;
+
 #define NULL ((void *)0)
 
 namespace std
@@ -195,6 +197,18 @@ namespace std
     };
 
     template <typename T>
+    struct is_ptr
+    {
+        static const bool value = false;
+    };
+
+    template <typename T>
+    struct is_ptr<T *>
+    {
+        static const bool value = true;
+    };
+
+    template <typename T>
     using remove_reference_t = typename remove_reference<T>::type;
 
     template <typename T>
@@ -214,6 +228,12 @@ namespace std
 
     template <typename T>
     concept EnumType = is_enum_v<T>;
+
+    template <typename T>
+    static const bool is_ptr_v = is_ptr<T>::value;
+
+    template <typename T>
+    concept PtrType = is_ptr_v<T>;
 
 }
 

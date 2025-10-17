@@ -4,6 +4,7 @@
 
 #include "Types.h"
 #include "Utils.h"
+#include "Console.h"
 
 namespace Kernel
 {
@@ -55,11 +56,18 @@ namespace Kernel
 
     public:
         void initialize(void *startAddr, void *endAddr);
+
         template <typename T>
         T *allocate(size_t size)
             requires(!std::is_same_v<std::remove_all_extents_t<T>, void>)
         {
             return reinterpret_cast<T *>(allocate(size * sizeof(T)));
+        }
+
+        template <typename T>
+        T *reallocate(T *ptr, size_t size)
+        {
+            return reinterpret_cast<T *>(reallocate(reinterpret_cast<void *>(ptr), size * sizeof(T)));
         }
 
         template <typename T>
@@ -70,7 +78,24 @@ namespace Kernel
         }
 
         void *allocate(size_t size);
+        void *reallocate(void *ptr, size_t size);
         void free(void *ptr);
+
+        void printBlocks() const
+        {
+            Block *block = m_head;
+            while (block)
+            {
+                Console::print("Block: %p\n", block);
+                Console::print(" Size: %d\n", block->size());
+                Console::print(" Used: ");
+                if (block->isUsed())
+                    Console::print("true\n");
+                else
+                    Console::print("false\n");
+                block = block->next;
+            }
+        }
 
     private:
         static size_t align(size_t size) { return (size + 7) & ~7; }

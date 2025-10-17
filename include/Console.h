@@ -228,6 +228,17 @@ namespace Kernel
                             putChar(*str, Attributes::WhiteOnBlack);
                         }
                         break;
+                    case 'p':
+                        if constexpr (std::is_ptr_v<std::remove_all_extents_t<T>>)
+                        {
+                            putNumHex(reinterpret_cast<uint64_t>(val), Attributes::WhiteOnBlack);
+                        }
+                        else
+                        {
+                            putChar('%', Attributes::WhiteOnBlack);
+                            putChar(*str, Attributes::WhiteOnBlack);
+                        }
+                        break;
                     case 's':
                         if constexpr (std::is_same_v<std::remove_reference_t<std::remove_volatile_t<T>>, const char *>)
                         {

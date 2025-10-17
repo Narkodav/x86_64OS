@@ -4,39 +4,6 @@
 #include "Console.h"
 #include "Heap.h"
 
-// __kernel_start = .;
-
-// .boot :
-// {
-// 	KEEP(*(.multiboot_header))
-// }
-
-// .text : {
-//     __text_start = .;
-//     *(.text)
-//     __text_end = .;
-// }
-
-// .data : {
-//     __data_start = .;
-//     *(.data)
-//     __data_end = .;
-// }
-
-// .rodata : {
-//     __rodata_start = .;
-//     *(.rodata)
-//     __rodata_end = .;
-// }
-
-// .bss : {
-//     __bss_start = .;
-//     *(.bss)
-//     __bss_end = .;
-// }
-
-// __kernel_end = .;
-
 extern "C"
 {
     extern uint8_t stack_bottom[];
@@ -193,17 +160,15 @@ namespace Kernel
 
         // this is an array stored in the first availible memory region
         // these regions will be used by the os for dynamic allocation
-        static inline size_t s_heapCount = 0;
-        static inline HeapLinkedList *s_heaps = nullptr;
+
+        static inline AvailibleMemoryRegion *s_availibleRegions; // first one is kernel reserved
+        static inline uint64_t s_availibleRegionCount;
 
     public:
-        static void initialise(uint64_t multibootInfoAddr);
-
-        static HeapLinkedList &getHeap(size_t index);
-        static size_t getHeapCount();
+        static HeapLinkedList initialise(uint64_t multibootInfoAddr);
 
     private:
-        static void parseMemoryMapTag();
+        static HeapLinkedList parseMemoryMapTag();
     };
 }
 

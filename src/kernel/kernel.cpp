@@ -78,21 +78,29 @@ extern "C" void kernel_main(uint64_t multibootInfoAddr)
         InterruptManager::InterruptVector::irqSystemTimer,
         handleTimerInterrupt);
 
-    MemoryMap::initialise(multibootInfoAddr);
+    auto kernelHeap = MemoryMap::initialise(multibootInfoAddr);
 
-    Console::putString("64-bit Kernel Booted Successfully!\n");
+    Console::print("64-bit Kernel Booted Successfully!\n");
 
-    // auto heap = MemoryMap::getHeap(0);
-    // size_t *dynamicData = heap.allocate<size_t>(12);
-
-    // for (size_t i = 0; i < 12; ++i)
-    //     dynamicData[i] = i;
-
-    // for (size_t i = 0; i < 12; ++i)
-    //     Console::print("Dynamically allocated value: %d\n", dynamicData[i]);
-
-    // heap.free(dynamicData);
-
+    size_t **dynamicDatas = kernelHeap.allocate<size_t *>(12);
+    if (dynamicDatas == nullptr)
+    {
+        Console::print("Failed to allocate memory\n");
+        while (1)
+            ;
+    }
+    for (size_t i = 0; i < 12; ++i)
+    {
+        dynamicDatas[i] = kernelHeap.allocate<size_t>(100);
+        for (size_t j = 0; j < 100; ++j)
+            dynamicDatas[i][j] = i;
+    }
+    kernelHeap.printBlocks();
+    for (size_t i = 0; i < 12; ++i)
+    {
+        kernelHeap.free(dynamicDatas[i]);
+    }
+    kernelHeap.free(dynamicDatas);
     while (1)
     {
         // uint8_t status = inByte(0x64);
