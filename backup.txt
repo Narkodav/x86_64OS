@@ -1,0 +1,174 @@
+# Makefile for OS Project
+CC = gcc
+CXX = g++
+ASM = nasm
+LD = ld
+
+# Directories
+KERNEL_DIR = Kernel
+BUILD_DIR = build
+RELEASE_BUILD_DIR = $(BUILD_DIR)/release
+DEBUG_BUILD_DIR = $(BUILD_DIR)/debug
+ISO_DIR = isodir/boot
+
+# Release flags (no debug symbols, with optimizations)
+CFLAGS_RELEASE = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c -ffreestanding -fno-exceptions -fno-rtti -O2 -fno-omit-frame-pointer
+CFLAGSNOWARNING_RELEASE = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -c -ffreestanding -fno-exceptions -fno-rtti -O2 -fno-omit-frame-pointer
+ASMFLAGS_RELEASE = -f elf32
+LDFLAGS_RELEASE = -m elf_i386 -T linker.ld
+
+# Debug flags (with debug symbols, no optimizations)
+CFLAGS_DEBUG = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c -ffreestanding -fno-exceptions -fno-rtti -O0 -ggdb3 -g3
+CFLAGSNOWARNING_DEBUG = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -Wall -Wextra -c -ffreestanding -fno-exceptions -fno-rtti -O0 -ggdb3 -g3
+ASMFLAGS_DEBUG = -f elf32 -g
+LDFLAGS_DEBUG = -m elf_i386 -T linker.ld -g
+
+# Source files
+C_SOURCES = $(wildcard $(KERNEL_DIR)/*.cpp)
+ASM_SOURCES = $(wildcard $(KERNEL_DIR)/*.asm)
+
+# Object files
+C_OBJECTS_RELEASE = $(C_SOURCES:$(KERNEL_DIR)/%.cpp=$(RELEASE_BUILD_DIR)/%.o)
+ASM_OBJECTS_RELEASE = $(ASM_SOURCES:$(KERNEL_DIR)/%.asm=$(RELEASE_BUILD_DIR)/%.o)
+OBJECTS_RELEASE = $(C_OBJECTS_RELEASE) $(ASM_OBJECTS_RELEASE)
+
+C_OBJECTS_DEBUG = $(C_SOURCES:$(KERNEL_DIR)/%.cpp=$(DEBUG_BUILD_DIR)/%.o)
+ASM_OBJECTS_DEBUG = $(ASM_SOURCES:$(KERNEL_DIR)/%.asm=$(DEBUG_BUILD_DIR)/%.o)
+OBJECTS_DEBUG = $(C_OBJECTS_DEBUG) $(ASM_OBJECTS_DEBUG)
+
+# Targets
+KERNEL_ELF_RELEASE = $(RELEASE_BUILD_DIR)/kernel.elf
+KERNEL_BIN_RELEASE = $(RELEASE_BUILD_DIR)/kernel.bin
+KERNEL_ELF_DEBUG = $(DEBUG_BUILD_DIR)/kernel.elf
+KERNEL_BIN_DEBUG = $(DEBUG_BUILD_DIR)/kernel.bin
+ISO_KERNEL = $(ISO_DIR)/kernel.bin
+
+.PHONY: all clean clean-all run debug release iso
+
+all: release
+
+release: $(KERNEL_BIN_RELEASE)
+
+debug: $(KERNEL_ELF_DEBUG)
+
+# Clean object files before building
+clean-objects:
+	rm -f $(RELEASE_BUILD_DIR)/*.o
+	rm -f $(RELEASE_BUILD_DIR)/*.bin
+	rm -f $(RELEASE_BUILD_DIR)/*.elf
+	rm -f $(DEBUG_BUILD_DIR)/*.o
+	rm -f $(DEBUG_BUILD_DIR)/*.bin
+	rm -f $(DEBUG_BUILD_DIR)/*.elf
+
+# Main build targets
+iso: clean-objects $(ISO_KERNEL) grub.cfg
+	grub-mkrescue -o my_os.iso isodir
+
+# Create kernel binary for ISO from RELEASE build
+$(ISO_KERNEL): $(KERNEL_BIN_RELEASE) | $(ISO_DIR)
+	cp $(KERNEL_BIN_RELEASE) $(ISO_KERNEL)
+
+# Create flat binary from ELF (for GRUB) - RELEASE
+$(KERNEL_BIN_RELEASE): $(KERNEL_ELF_RELEASE)
+	objcopy -O binary $(KERNEL_ELF_RELEASE) $(KERNEL_BIN_RELEASE)
+
+# Link kernel ELF - RELEASE
+$(KERNEL_ELF_RELEASE): $(OBJECTS_RELEASE) | $(RELEASE_BUILD_DIR)
+	$(LD) $(LDFLAGS_RELEASE) -o $@ $^
+
+# Create flat binary from ELF - DEBUG
+$(KERNEL_BIN_DEBUG): $(KERNEL_ELF_DEBUG)
+	objcopy -O binary $(KERNEL_ELF_DEBUG) $(KERNEL_BIN_DEBUG)
+
+# Link kernel ELF - DEBUG
+$(KERNEL_ELF_DEBUG): $(OBJECTS_DEBUG) | $(DEBUG_BUILD_DIR)
+	$(LD) $(LDFLAGS_DEBUG) -o $@ $^
+
+# Compile assembly files - RELEASE
+$(RELEASE_BUILD_DIR)/%.o: $(KERNEL_DIR)/%.asm | $(RELEASE_BUILD_DIR)
+	$(ASM) $(ASMFLAGS_RELEASE) -o $@ $<
+
+# Compile C++ files - RELEASE
+$(RELEASE_BUILD_DIR)/%.o: $(KERNEL_DIR)/%.cpp | $(RELEASE_BUILD_DIR)
+	$(CXX) $(CFLAGSNOWARNING_RELEASE) -o $@ $<
+
+# Compile assembly files - DEBUG
+$(DEBUG_BUILD_DIR)/%.o: $(KERNEL_DIR)/%.asm | $(DEBUG_BUILD_DIR)
+	$(ASM) $(ASMFLAGS_DEBUG) -o $@ $<
+
+# Compile C++ files - DEBUG
+$(DEBUG_BUILD_DIR)/%.o: $(KERNEL_DIR)/%.cpp | $(DEBUG_BUILD_DIR)
+	$(CXX) $(CFLAGSNOWARNING_DEBUG) -o $@ $<
+
+# Create directories
+$(DEBUG_BUILD_DIR):
+	mkdir -p $(DEBUG_BUILD_DIR)
+
+$(RELEASE_BUILD_DIR):
+	mkdir -p $(RELEASE_BUILD_DIR)
+
+$(ISO_DIR):
+	mkdir -p $(ISO_DIR)
+
+# Create GRUB config
+grub.cfg: | $(ISO_DIR)
+	mkdir -p isodir/boot/grub
+	echo 'menuentry "my_os" { multiboot /boot/kernel.bin; boot }' > isodir/boot/grub/grub.cfg
+
+# Run targets - use RELEASE build
+run: iso
+	qemu-system-x86_64 -cdrom my_os.iso
+
+# Debug targets - use DEBUG build
+debug-elf: $(KERNEL_ELF_DEBUG)
+	@echo "Starting QEMU with GDB server on port 1234..."
+	@echo "In another terminal, run: make gdb-elf"
+	qemu-system-i386 -kernel $(KERNEL_ELF_DEBUG) -s -S -no-reboot
+
+debug-iso: debug
+	@echo "Creating debug ISO..."
+	cp $(KERNEL_BIN_DEBUG) $(ISO_KERNEL)
+	@echo "Starting QEMU with GDB server on port 1234..."
+	@echo "In another terminal, run: make gdb-iso"
+	qemu-system-i386 -cdrom my_os.iso -s -S -no-reboot
+
+# GDB targets
+gdb-elf: $(KERNEL_ELF_DEBUG)
+	@echo "Starting GDB for 32-bit kernel..."
+	gdb -ex "set architecture i386" -ex "target remote localhost:1234" -ex "break kmain" -ex "continue" $(KERNEL_ELF_DEBUG)
+
+gdb-iso: $(KERNEL_ELF_DEBUG)
+	@echo "Note: You may need to manually load symbols after GRUB boots"
+	@echo "Find kernel load address and use: add-symbol-file $(KERNEL_ELF_DEBUG) 0xADDRESS"
+	gdb -ex "set architecture i386" -ex "target remote localhost:1234" $(KERNEL_ELF_DEBUG)
+
+# Quick debug (starts both QEMU and GDB automatically)
+quick-debug: $(KERNEL_ELF_DEBUG)
+	@echo "Starting QEMU in background..."
+	@qemu-system-i386 -kernel $(KERNEL_ELF_DEBUG) -s -S -no-reboot -daemonize
+	@sleep 2
+	@echo "Starting GDB..."
+	gdb -ex "set architecture i386" -ex "target remote localhost:1234" -ex "break kmain" -ex "continue" $(KERNEL_ELF_DEBUG)
+
+# Check if kernels have debug symbols
+check-debug: $(KERNEL_ELF_DEBUG)
+	@echo "Checking DEBUG build for debug symbols..."
+	readelf -S $(KERNEL_ELF_DEBUG) | grep debug || echo "No debug sections found in DEBUG build!"
+
+check-release: $(KERNEL_ELF_RELEASE)
+	@echo "Checking RELEASE build for debug symbols..."
+	readelf -S $(KERNEL_ELF_RELEASE) | grep debug && echo "WARNING: Debug symbols in RELEASE build!" || echo "RELEASE build clean - no debug symbols"
+
+clean:
+	rm -rf $(DEBUG_BUILD_DIR) $(RELEASE_BUILD_DIR) my_os.iso isodir
+
+clean-all: clean
+
+# Show build info
+info:
+	@echo "C++ Sources: $(C_SOURCES)"
+	@echo "ASM Sources: $(ASM_SOURCES)" 
+	@echo "Release Objects: $(OBJECTS_RELEASE)"
+	@echo "Debug Objects: $(OBJECTS_DEBUG)"
+	@echo "Release Kernel ELF: $(KERNEL_ELF_RELEASE)"
+	@echo "Debug Kernel ELF: $(KERNEL_ELF_DEBUG)"

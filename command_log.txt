@@ -1,0 +1,29 @@
+narkodav@DESKTOP-I491DGA:/mnt/c/users/user/my_os$ nasm -f elf32 kernel_entry.asm -o kernel_entry.o
+narkodav@DESKTOP-I491DGA:/mnt/c/users/user/my_os$ gcc -m32 -ffreestanding -c kernel.c -o kernel.o
+narkodav@DESKTOP-I491DGA:/mnt/c/users/user/my_os$ ld -m elf_i386 -T linker.ld -o kernel.bin kernel_entry.o kernel.o
+ld: warning: kernel_entry.o: missing .note.GNU-stack section implies executable stack
+ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+ld: warning: kernel.bin has a LOAD segment with RWX permissions
+narkodav@DESKTOP-I491DGA:/mnt/c/users/user/my_os$ mkdir -p isodir/boot/grub
+narkodav@DESKTOP-I491DGA:/mnt/c/users/user/my_os$ cp kernel.bin isodir/boot/
+narkodav@DESKTOP-I491DGA:/mnt/c/users/user/my_os$ echo 'menuentry "my_os" {
+>     multiboot /boot/kernel.bin
+>     boot
+> }' > isodir/boot/grub/grub.cfg
+narkodav@DESKTOP-I491DGA:/mnt/c/users/user/my_os$ grub-mkrescue -o my_os.iso isodir
+xorriso 1.5.6 : RockRidge filesystem manipulator, libburnia project.
+
+Drive current: -outdev 'stdio:my_os.iso'
+Media current: stdio file, overwriteable
+Media status : is blank
+Media summary: 0 sessions, 0 data blocks, 0 data, 16.7g free
+Added to ISO image: directory '/'='/tmp/grub.lEeZfp'
+xorriso : UPDATE :     295 files added in 1 seconds
+Added to ISO image: directory '/'='/mnt/c/users/user/my_os/isodir'
+xorriso : UPDATE :     299 files added in 1 seconds
+xorriso : NOTE : Copying to System Area: 512 bytes from file '/usr/lib/grub/i386-pc/boot_hybrid.img'
+ISO image produced: 2504 sectors
+Written to medium : 2504 sectors at LBA 0
+Writing to 'stdio:my_os.iso' completed successfully.
+
+narkodav@DESKTOP-I491DGA:/mnt/c/users/user/my_os$ qemu-system-x86_64 -cdrom my_os.iso

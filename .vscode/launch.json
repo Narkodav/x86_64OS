@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run Kernel",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}",
+            "preLaunchTask": "build and run kernel",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug Kernel", 
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}",
+            "preLaunchTask": "build and debug kernel",
+            "console": "integratedTerminal"
+        }
+    ]
+}
