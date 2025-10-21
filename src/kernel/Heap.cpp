@@ -1,10 +1,8 @@
 #include "../../include/Heap.h"
 namespace Kernel
 {
-
-    void HeapLinkedList::initialize(void *startAddr, void *endAddr)
+    void HeapLinkedList::initialize(void *startAddr, void *endAddr) volatile
     {
-        asm volatile("nop");
         m_startAddr = startAddr;
         m_endAddr = endAddr;
         m_usedSize = sizeof(Block);
@@ -117,7 +115,9 @@ namespace Kernel
         size_t blockSize = block->size();
         m_usedSize -= blockSize;
         m_allocatedSize -= blockSize;
+        asm volatile("" ::: "memory");
         m_availibleSize += blockSize;
+        asm volatile("" ::: "memory");
         while (block->prev != nullptr && !block->prev->isUsed())
         {
             block->prev->next = block->next;

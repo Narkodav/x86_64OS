@@ -6,7 +6,7 @@
 	.globl	_ZN6Kernel7Console20updateHardwareCursorEv
 	.type	_ZN6Kernel7Console20updateHardwareCursorEv, @function
 _ZN6Kernel7Console20updateHardwareCursorEv:
-.LFB17:
+.LFB20:
 	.file 1 "src/kernel/Console.cpp"
 	.loc 1 11 5 view -0
 	.cfi_startproc
@@ -61,14 +61,14 @@ _ZN6Kernel7Console20updateHardwareCursorEv:
 /NO_APP
 	ret
 	.cfi_endproc
-.LFE17:
+.LFE20:
 	.size	_ZN6Kernel7Console20updateHardwareCursorEv, .-_ZN6Kernel7Console20updateHardwareCursorEv
 	.align 2
 	.globl	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE
 	.type	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE, @function
 _ZN6Kernel7Console9writeCharEmhNS0_10AttributesE:
 .LVL1:
-.LFB18:
+.LFB21:
 	.loc 1 25 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 26 9 view .LVU14
@@ -88,272 +88,116 @@ _ZN6Kernel7Console9writeCharEmhNS0_10AttributesE:
 	.loc 1 28 5 view .LVU21
 	ret
 	.cfi_endproc
-.LFE18:
+.LFE21:
 	.size	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE, .-_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE
-	.align 2
-	.globl	_ZN6Kernel7Console11writeStringEPKcmNS0_10AttributesE
-	.type	_ZN6Kernel7Console11writeStringEPKcmNS0_10AttributesE, @function
-_ZN6Kernel7Console11writeStringEPKcmNS0_10AttributesE:
-.LVL3:
-.LFB19:
-	.loc 1 34 5 is_stmt 1 view -0
-	.cfi_startproc
-	.loc 1 35 9 view .LVU23
-.LBB2:
-	.loc 1 35 35 discriminator 1 view .LVU24
-	.loc 1 35 33 is_stmt 0 discriminator 1 view .LVU25
-	movzbl	(%rdi), %eax
-	.loc 1 35 35 discriminator 1 view .LVU26
-	testb	%al, %al
-	je	.L8
-.LBE2:
-	.loc 1 34 5 view .LVU27
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	pushq	%r13
-	pushq	%r12
-	pushq	%rbx
-	subq	$8, %rsp
-	.cfi_offset 13, -24
-	.cfi_offset 12, -32
-	.cfi_offset 3, -40
-	movq	%rdi, %r12
-	movl	%edx, %r13d
-.LBB3:
-	.loc 1 35 35 discriminator 1 view .LVU28
-	movq	%rsi, %rbx
-	.loc 1 35 33 discriminator 1 view .LVU29
-	subq	%rsi, %r12
-.LVL4:
-.L5:
-	.loc 1 36 13 is_stmt 1 view .LVU30
-	.loc 1 36 22 is_stmt 0 view .LVU31
-	movzbl	%al, %esi
-	movl	%r13d, %edx
-	movq	%rbx, %rdi
-	call	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE
-.LVL5:
-	.loc 1 35 9 is_stmt 1 discriminator 3 view .LVU32
-	.loc 1 35 35 discriminator 1 view .LVU33
-	addq	$1, %rbx
-	.loc 1 35 33 is_stmt 0 discriminator 1 view .LVU34
-	movzbl	(%r12,%rbx), %eax
-	.loc 1 35 35 discriminator 1 view .LVU35
-	testb	%al, %al
-	jne	.L5
-.LBE3:
-	.loc 1 37 5 view .LVU36
-	addq	$8, %rsp
-	popq	%rbx
-	.cfi_restore 3
-	popq	%r12
-	.cfi_restore 12
-	popq	%r13
-	.cfi_restore 13
-.LVL6:
-	.loc 1 37 5 view .LVU37
-	popq	%rbp
-	.cfi_restore 6
-	.cfi_def_cfa 7, 8
-	ret
-.LVL7:
-.L8:
-	.loc 1 37 5 view .LVU38
-	ret
-	.cfi_endproc
-.LFE19:
-	.size	_ZN6Kernel7Console11writeStringEPKcmNS0_10AttributesE, .-_ZN6Kernel7Console11writeStringEPKcmNS0_10AttributesE
-	.align 2
-	.globl	_ZN6Kernel7Console11writeStringEPVKcmNS0_10AttributesE
-	.type	_ZN6Kernel7Console11writeStringEPVKcmNS0_10AttributesE, @function
-_ZN6Kernel7Console11writeStringEPVKcmNS0_10AttributesE:
-.LVL8:
-.LFB20:
-	.loc 1 43 5 is_stmt 1 view -0
-	.cfi_startproc
-	.loc 1 44 9 view .LVU40
-.LBB4:
-	.loc 1 44 35 discriminator 1 view .LVU41
-	.loc 1 44 33 is_stmt 0 discriminator 1 view .LVU42
-	movzbl	(%rdi), %eax
-	.loc 1 44 35 discriminator 1 view .LVU43
-	testb	%al, %al
-	je	.L16
-.LBE4:
-	.loc 1 43 5 view .LVU44
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	pushq	%r13
-	pushq	%r12
-	pushq	%rbx
-	subq	$8, %rsp
-	.cfi_offset 13, -24
-	.cfi_offset 12, -32
-	.cfi_offset 3, -40
-	movl	%edx, %r13d
-.LBB5:
-	.loc 1 44 33 discriminator 1 view .LVU45
-	movq	%rdi, %rbx
-	.loc 1 45 22 view .LVU46
-	subq	%rdi, %rsi
-.LVL9:
-	.loc 1 45 22 view .LVU47
-	movq	%rsi, %r12
-.LVL10:
-.L13:
-	.loc 1 45 13 is_stmt 1 view .LVU48
-	.loc 1 45 44 is_stmt 0 view .LVU49
-	movzbl	(%rbx), %esi
-	.loc 1 45 22 view .LVU50
-	movzbl	%sil, %esi
-	leaq	(%r12,%rbx), %rdi
-	movl	%r13d, %edx
-	call	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE
-.LVL11:
-	.loc 1 44 9 is_stmt 1 discriminator 3 view .LVU51
-	.loc 1 44 35 discriminator 1 view .LVU52
-	.loc 1 44 33 is_stmt 0 discriminator 1 view .LVU53
-	addq	$1, %rbx
-	movzbl	(%rbx), %eax
-	.loc 1 44 35 discriminator 1 view .LVU54
-	testb	%al, %al
-	jne	.L13
-.LBE5:
-	.loc 1 46 5 view .LVU55
-	addq	$8, %rsp
-	popq	%rbx
-	.cfi_restore 3
-	popq	%r12
-	.cfi_restore 12
-	popq	%r13
-	.cfi_restore 13
-.LVL12:
-	.loc 1 46 5 view .LVU56
-	popq	%rbp
-	.cfi_restore 6
-	.cfi_def_cfa 7, 8
-	ret
-.LVL13:
-.L16:
-	.loc 1 46 5 view .LVU57
-	ret
-	.cfi_endproc
-.LFE20:
-	.size	_ZN6Kernel7Console11writeStringEPVKcmNS0_10AttributesE, .-_ZN6Kernel7Console11writeStringEPVKcmNS0_10AttributesE
 	.align 2
 	.globl	_ZN6Kernel7Console9setCursorENS0_9CursorPosE
 	.type	_ZN6Kernel7Console9setCursorENS0_9CursorPosE, @function
 _ZN6Kernel7Console9setCursorENS0_9CursorPosE:
-.LVL14:
-.LFB21:
-	.loc 1 49 5 is_stmt 1 view -0
+.LVL3:
+.LFB22:
+	.loc 1 31 5 is_stmt 1 view -0
 	.cfi_startproc
-	.loc 1 49 5 is_stmt 0 view .LVU59
+	.loc 1 31 5 is_stmt 0 view .LVU23
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	.loc 1 50 9 is_stmt 1 view .LVU60
-	.loc 1 50 23 is_stmt 0 view .LVU61
+	.loc 1 32 9 is_stmt 1 view .LVU24
+	.loc 1 32 23 is_stmt 0 view .LVU25
 	movq	%rdi, _ZN6Kernel7Console11s_cursorPosE(%rip)
-	.loc 1 51 9 is_stmt 1 view .LVU62
-	.loc 1 51 23 is_stmt 0 view .LVU63
+	.loc 1 33 9 is_stmt 1 view .LVU26
+	.loc 1 33 23 is_stmt 0 view .LVU27
 	movq	%rsi, _ZN6Kernel7Console11s_cursorPosE+8(%rip)
-	.loc 1 52 9 is_stmt 1 view .LVU64
-	.loc 1 52 29 is_stmt 0 view .LVU65
+	.loc 1 34 9 is_stmt 1 view .LVU28
+	.loc 1 34 29 is_stmt 0 view .LVU29
 	call	_ZN6Kernel7Console20updateHardwareCursorEv
-.LVL15:
-	.loc 1 53 5 view .LVU66
+.LVL4:
+	.loc 1 35 5 view .LVU30
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE21:
+.LFE22:
 	.size	_ZN6Kernel7Console9setCursorENS0_9CursorPosE, .-_ZN6Kernel7Console9setCursorENS0_9CursorPosE
 	.align 2
 	.globl	_ZN6Kernel7Console5clearEhNS0_10AttributesE
 	.type	_ZN6Kernel7Console5clearEhNS0_10AttributesE, @function
 _ZN6Kernel7Console5clearEhNS0_10AttributesE:
-.LVL16:
-.LFB25:
-	.loc 1 123 5 is_stmt 1 view -0
+.LVL5:
+.LFB24:
+	.loc 1 67 5 is_stmt 1 view -0
 	.cfi_startproc
-	.loc 1 123 5 is_stmt 0 view .LVU68
+	.loc 1 67 5 is_stmt 0 view .LVU32
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	.loc 1 124 9 is_stmt 1 view .LVU69
-.LVL17:
-.LBB6:
-	.loc 1 124 30 discriminator 1 view .LVU70
-.LBE6:
-	.loc 1 123 5 is_stmt 0 view .LVU71
+	.loc 1 68 9 is_stmt 1 view .LVU33
+.LVL6:
+.LBB2:
+	.loc 1 68 30 discriminator 1 view .LVU34
+.LBE2:
+	.loc 1 67 5 is_stmt 0 view .LVU35
 	movl	$0, %eax
-.LVL18:
-.L22:
-.LBB7:
-	.loc 1 126 13 is_stmt 1 view .LVU72
-	.loc 1 126 27 is_stmt 0 view .LVU73
+.LVL7:
+.L6:
+.LBB3:
+	.loc 1 70 13 is_stmt 1 view .LVU36
+	.loc 1 70 27 is_stmt 0 view .LVU37
 	movq	%rax, %rdx
 	addq	_ZN6Kernel7Console12s_vgaAddressE(%rip), %rdx
-	.loc 1 126 39 view .LVU74
+	.loc 1 70 39 view .LVU38
 	movb	%dil, (%rdx)
-	.loc 1 127 13 is_stmt 1 view .LVU75
-	.loc 1 127 27 is_stmt 0 view .LVU76
+	.loc 1 71 13 is_stmt 1 view .LVU39
+	.loc 1 71 27 is_stmt 0 view .LVU40
 	movq	%rax, %rdx
 	addq	_ZN6Kernel7Console12s_vgaAddressE(%rip), %rdx
-	.loc 1 127 34 view .LVU77
+	.loc 1 71 34 view .LVU41
 	movb	%sil, 1(%rdx)
-	.loc 1 124 9 is_stmt 1 discriminator 3 view .LVU78
-	.loc 1 124 30 discriminator 1 view .LVU79
+	.loc 1 68 9 is_stmt 1 discriminator 3 view .LVU42
+	.loc 1 68 30 discriminator 1 view .LVU43
 	addq	$2, %rax
 	cmpq	$4000, %rax
-	jne	.L22
-	.loc 1 124 30 is_stmt 0 discriminator 1 view .LVU80
-.LBE7:
-	.loc 1 129 9 is_stmt 1 view .LVU81
-	.loc 1 129 18 is_stmt 0 view .LVU82
+	jne	.L6
+	.loc 1 68 30 is_stmt 0 discriminator 1 view .LVU44
+.LBE3:
+	.loc 1 73 9 is_stmt 1 view .LVU45
+	.loc 1 73 18 is_stmt 0 view .LVU46
 	movl	$0, %edi
-.LVL19:
-	.loc 1 129 18 view .LVU83
+.LVL8:
+	.loc 1 73 18 view .LVU47
 	movl	$0, %esi
-.LVL20:
-	.loc 1 129 18 view .LVU84
+.LVL9:
+	.loc 1 73 18 view .LVU48
 	call	_ZN6Kernel7Console9setCursorENS0_9CursorPosE
-.LVL21:
-	.loc 1 130 5 view .LVU85
+.LVL10:
+	.loc 1 74 5 view .LVU49
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE25:
+.LFE24:
 	.size	_ZN6Kernel7Console5clearEhNS0_10AttributesE, .-_ZN6Kernel7Console5clearEhNS0_10AttributesE
 	.align 2
 	.globl	_ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE
 	.type	_ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE, @function
 _ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE:
-.LVL22:
-.LFB29:
-	.loc 1 165 5 is_stmt 1 view -0
+.LVL11:
+.LFB28:
+	.loc 1 109 5 is_stmt 1 view -0
 	.cfi_startproc
-	.loc 1 166 9 view .LVU87
-.LBB8:
-	.loc 1 166 39 discriminator 1 view .LVU88
+	.loc 1 110 9 view .LVU51
+.LBB4:
+	.loc 1 110 39 discriminator 1 view .LVU52
 	cmpq	%rsi, %rdi
-	jnb	.L30
-.LBE8:
-	.loc 1 165 5 is_stmt 0 view .LVU89
+	jnb	.L14
+.LBE4:
+	.loc 1 109 5 is_stmt 0 view .LVU53
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -370,347 +214,347 @@ _ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE:
 	movq	%rdi, %rbx
 	movq	%rsi, %r13
 	movl	%ecx, %r14d
-.LBB9:
-	.loc 1 167 22 view .LVU90
+.LBB5:
+	.loc 1 111 22 view .LVU54
 	movzbl	%dl, %r12d
-.LVL23:
-.L27:
-	.loc 1 167 13 is_stmt 1 view .LVU91
-	.loc 1 167 22 is_stmt 0 view .LVU92
+.LVL12:
+.L11:
+	.loc 1 111 13 is_stmt 1 view .LVU55
+	.loc 1 111 22 is_stmt 0 view .LVU56
 	movl	%r14d, %edx
 	movl	%r12d, %esi
 	movq	%rbx, %rdi
 	call	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE
-.LVL24:
-	.loc 1 166 9 is_stmt 1 discriminator 3 view .LVU93
+.LVL13:
+	.loc 1 110 9 is_stmt 1 discriminator 3 view .LVU57
 	addq	$1, %rbx
-.LVL25:
-	.loc 1 166 39 discriminator 1 view .LVU94
+.LVL14:
+	.loc 1 110 39 discriminator 1 view .LVU58
 	cmpq	%rbx, %r13
-	jne	.L27
-.LBE9:
-	.loc 1 168 5 is_stmt 0 view .LVU95
+	jne	.L11
+.LBE5:
+	.loc 1 112 5 is_stmt 0 view .LVU59
 	popq	%rbx
 	.cfi_restore 3
-.LVL26:
-	.loc 1 168 5 view .LVU96
+.LVL15:
+	.loc 1 112 5 view .LVU60
 	popq	%r12
 	.cfi_restore 12
-.LVL27:
-	.loc 1 168 5 view .LVU97
+.LVL16:
+	.loc 1 112 5 view .LVU61
 	popq	%r13
 	.cfi_restore 13
-.LVL28:
-	.loc 1 168 5 view .LVU98
+.LVL17:
+	.loc 1 112 5 view .LVU62
 	popq	%r14
 	.cfi_restore 14
-.LVL29:
-	.loc 1 168 5 view .LVU99
+.LVL18:
+	.loc 1 112 5 view .LVU63
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
 	ret
-.LVL30:
-.L30:
-	.loc 1 168 5 view .LVU100
+.LVL19:
+.L14:
+	.loc 1 112 5 view .LVU64
 	ret
 	.cfi_endproc
-.LFE29:
+.LFE28:
 	.size	_ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE, .-_ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE
 	.align 2
 	.globl	_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE
 	.type	_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE, @function
 _ZN6Kernel7Console9clearLineEmhNS0_10AttributesE:
-.LVL31:
-.LFB27:
-	.loc 1 145 5 is_stmt 1 view -0
+.LVL20:
+.LFB26:
+	.loc 1 89 5 is_stmt 1 view -0
 	.cfi_startproc
-	.loc 1 145 5 is_stmt 0 view .LVU102
+	.loc 1 89 5 is_stmt 0 view .LVU66
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	movl	%edx, %ecx
-	.loc 1 146 9 is_stmt 1 view .LVU103
-	.loc 1 146 16 is_stmt 0 view .LVU104
+	.loc 1 90 9 is_stmt 1 view .LVU67
+	.loc 1 90 16 is_stmt 0 view .LVU68
 	leaq	(%rdi,%rdi,4), %rdi
-.LVL32:
-	.loc 1 146 16 view .LVU105
+.LVL21:
+	.loc 1 90 16 view .LVU69
 	salq	$4, %rdi
-.LVL33:
-	.loc 1 147 9 is_stmt 1 view .LVU106
-	.loc 1 148 9 view .LVU107
-	.loc 1 148 18 is_stmt 0 view .LVU108
+.LVL22:
+	.loc 1 91 9 is_stmt 1 view .LVU70
+	.loc 1 92 9 view .LVU71
+	.loc 1 92 18 is_stmt 0 view .LVU72
 	movzbl	%sil, %edx
-.LVL34:
-	.loc 1 147 16 view .LVU109
+.LVL23:
+	.loc 1 91 16 view .LVU73
 	leaq	80(%rdi), %rsi
-.LVL35:
-	.loc 1 148 18 view .LVU110
+.LVL24:
+	.loc 1 92 18 view .LVU74
 	call	_ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE
-.LVL36:
-	.loc 1 149 5 view .LVU111
-	popq	%rbp
-	.cfi_restore 6
-	.cfi_def_cfa 7, 8
-	ret
-	.cfi_endproc
-.LFE27:
-	.size	_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE, .-_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE
-	.align 2
-	.globl	_ZN6Kernel7Console9clearLineEhNS0_10AttributesE
-	.type	_ZN6Kernel7Console9clearLineEhNS0_10AttributesE, @function
-_ZN6Kernel7Console9clearLineEhNS0_10AttributesE:
-.LVL37:
-.LFB26:
-	.loc 1 136 5 is_stmt 1 view -0
-	.cfi_startproc
-	.loc 1 136 5 is_stmt 0 view .LVU113
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	movl	%esi, %edx
-	.loc 1 137 9 is_stmt 1 view .LVU114
-	.loc 1 137 31 is_stmt 0 view .LVU115
-	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 137 18 view .LVU116
-	movzbl	%dil, %esi
-.LVL38:
-	.loc 1 137 18 view .LVU117
-	movq	%rax, %rdi
-.LVL39:
-	.loc 1 137 18 view .LVU118
-	call	_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE
-.LVL40:
-	.loc 1 138 9 is_stmt 1 view .LVU119
-	.loc 1 138 35 is_stmt 0 view .LVU120
-	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rsi
-	.loc 1 138 18 view .LVU121
-	movl	$0, %edi
-	call	_ZN6Kernel7Console9setCursorENS0_9CursorPosE
-.LVL41:
-	.loc 1 139 5 view .LVU122
+.LVL25:
+	.loc 1 93 5 view .LVU75
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
 .LFE26:
+	.size	_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE, .-_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE
+	.align 2
+	.globl	_ZN6Kernel7Console9clearLineEhNS0_10AttributesE
+	.type	_ZN6Kernel7Console9clearLineEhNS0_10AttributesE, @function
+_ZN6Kernel7Console9clearLineEhNS0_10AttributesE:
+.LVL26:
+.LFB25:
+	.loc 1 80 5 is_stmt 1 view -0
+	.cfi_startproc
+	.loc 1 80 5 is_stmt 0 view .LVU77
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movl	%esi, %edx
+	.loc 1 81 9 is_stmt 1 view .LVU78
+	.loc 1 81 31 is_stmt 0 view .LVU79
+	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
+	.loc 1 81 18 view .LVU80
+	movzbl	%dil, %esi
+.LVL27:
+	.loc 1 81 18 view .LVU81
+	movq	%rax, %rdi
+.LVL28:
+	.loc 1 81 18 view .LVU82
+	call	_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE
+.LVL29:
+	.loc 1 82 9 is_stmt 1 view .LVU83
+	.loc 1 82 35 is_stmt 0 view .LVU84
+	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rsi
+	.loc 1 82 18 view .LVU85
+	movl	$0, %edi
+	call	_ZN6Kernel7Console9setCursorENS0_9CursorPosE
+.LVL30:
+	.loc 1 83 5 view .LVU86
+	popq	%rbp
+	.cfi_restore 6
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE25:
 	.size	_ZN6Kernel7Console9clearLineEhNS0_10AttributesE, .-_ZN6Kernel7Console9clearLineEhNS0_10AttributesE
 	.align 2
 	.globl	_ZN6Kernel7Console9clearSpanENS0_9CursorPosEmhNS0_10AttributesE
 	.type	_ZN6Kernel7Console9clearSpanENS0_9CursorPosEmhNS0_10AttributesE, @function
 _ZN6Kernel7Console9clearSpanENS0_9CursorPosEmhNS0_10AttributesE:
-.LVL42:
-.LFB28:
-	.loc 1 155 5 is_stmt 1 view -0
+.LVL31:
+.LFB27:
+	.loc 1 99 5 is_stmt 1 view -0
 	.cfi_startproc
-	.loc 1 155 5 is_stmt 0 view .LVU124
+	.loc 1 99 5 is_stmt 0 view .LVU88
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	movq	%rdi, %rax
-	.loc 1 156 9 is_stmt 1 view .LVU125
-	.loc 1 156 35 is_stmt 0 view .LVU126
+	.loc 1 100 9 is_stmt 1 view .LVU89
+	.loc 1 100 35 is_stmt 0 view .LVU90
 	leaq	(%rsi,%rsi,4), %rdi
-.LVL43:
-	.loc 1 156 35 view .LVU127
+.LVL32:
+	.loc 1 100 35 view .LVU91
 	salq	$4, %rdi
-	.loc 1 156 16 view .LVU128
+	.loc 1 100 16 view .LVU92
 	addq	%rax, %rdi
-.LVL44:
-	.loc 1 157 9 is_stmt 1 view .LVU129
-	.loc 1 158 9 view .LVU130
-	.loc 1 158 18 is_stmt 0 view .LVU131
+.LVL33:
+	.loc 1 101 9 is_stmt 1 view .LVU93
+	.loc 1 102 9 view .LVU94
+	.loc 1 102 18 is_stmt 0 view .LVU95
 	movzbl	%cl, %eax
-	.loc 1 157 16 view .LVU132
+	.loc 1 101 16 view .LVU96
 	leaq	(%rdi,%rdx), %rsi
-.LVL45:
-	.loc 1 158 18 view .LVU133
+.LVL34:
+	.loc 1 102 18 view .LVU97
 	movl	%r8d, %ecx
-.LVL46:
-	.loc 1 158 18 view .LVU134
+.LVL35:
+	.loc 1 102 18 view .LVU98
 	movl	%eax, %edx
-.LVL47:
-	.loc 1 158 18 view .LVU135
+.LVL36:
+	.loc 1 102 18 view .LVU99
 	call	_ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE
-.LVL48:
-	.loc 1 159 5 view .LVU136
+.LVL37:
+	.loc 1 103 5 view .LVU100
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE28:
+.LFE27:
 	.size	_ZN6Kernel7Console9clearSpanENS0_9CursorPosEmhNS0_10AttributesE, .-_ZN6Kernel7Console9clearSpanENS0_9CursorPosEmhNS0_10AttributesE
 	.align 2
 	.globl	_ZN6Kernel7Console10scrollDownEm
 	.type	_ZN6Kernel7Console10scrollDownEm, @function
 _ZN6Kernel7Console10scrollDownEm:
-.LVL49:
-.LFB30:
-	.loc 1 171 5 is_stmt 1 view -0
+.LVL38:
+.LFB29:
+	.loc 1 115 5 is_stmt 1 view -0
 	.cfi_startproc
-	.loc 1 171 5 is_stmt 0 view .LVU138
+	.loc 1 115 5 is_stmt 0 view .LVU102
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	movq	%rdi, %r8
-	.loc 1 172 9 is_stmt 1 view .LVU139
-.LVL50:
-.LBB10:
-	.loc 1 172 30 discriminator 1 view .LVU140
-	.loc 1 172 48 is_stmt 0 discriminator 1 view .LVU141
+	.loc 1 116 9 is_stmt 1 view .LVU103
+.LVL39:
+.LBB6:
+	.loc 1 116 30 discriminator 1 view .LVU104
+	.loc 1 116 48 is_stmt 0 discriminator 1 view .LVU105
 	movl	$25, %r11d
 	subq	%rdi, %r11
-	.loc 1 172 30 discriminator 1 view .LVU142
+	.loc 1 116 30 discriminator 1 view .LVU106
 	cmpq	$25, %rdi
-	je	.L40
+	je	.L24
 	leaq	5(%rdi,%rdi,4), %rdi
-.LVL51:
-	.loc 1 172 30 discriminator 1 view .LVU143
+.LVL40:
+	.loc 1 116 30 discriminator 1 view .LVU107
 	salq	$5, %rdi
-	.loc 1 172 21 view .LVU144
+	.loc 1 116 21 view .LVU108
 	movl	$0, %r10d
 	imulq	$-160, %r8, %r9
-.LVL52:
-.L42:
-.LBB11:
-	.loc 1 174 13 is_stmt 1 view .LVU145
-	.loc 1 175 13 view .LVU146
-	.loc 1 176 13 view .LVU147
-.LBB12:
-	.loc 1 176 34 discriminator 1 view .LVU148
+.LVL41:
+.L26:
+.LBB7:
+	.loc 1 118 13 is_stmt 1 view .LVU109
+	.loc 1 119 13 view .LVU110
+	.loc 1 120 13 view .LVU111
+.LBB8:
+	.loc 1 120 34 discriminator 1 view .LVU112
 	leaq	-160(%rdi), %rax
-.LVL53:
-.L41:
-	.loc 1 178 17 view .LVU149
-	.loc 1 178 75 is_stmt 0 view .LVU150
+.LVL42:
+.L25:
+	.loc 1 122 17 view .LVU113
+	.loc 1 122 75 is_stmt 0 view .LVU114
 	movq	_ZN6Kernel7Console12s_vgaAddressE(%rip), %rdx
 	leaq	(%rdx,%rax), %rsi
-	.loc 1 178 39 view .LVU151
+	.loc 1 122 39 view .LVU115
 	leaq	(%rax,%r9), %rcx
 	addq	%rcx, %rdx
-	.loc 1 178 77 view .LVU152
+	.loc 1 122 77 view .LVU116
 	movzbl	(%rsi), %esi
-	.loc 1 178 51 view .LVU153
+	.loc 1 122 51 view .LVU117
 	movb	%sil, (%rdx)
-	.loc 1 179 17 is_stmt 1 view .LVU154
-	.loc 1 179 70 is_stmt 0 view .LVU155
+	.loc 1 123 17 is_stmt 1 view .LVU118
+	.loc 1 123 70 is_stmt 0 view .LVU119
 	movq	_ZN6Kernel7Console12s_vgaAddressE(%rip), %rdx
 	leaq	(%rdx,%rax), %rsi
-	.loc 1 179 39 view .LVU156
+	.loc 1 123 39 view .LVU120
 	addq	%rcx, %rdx
-	.loc 1 179 72 view .LVU157
+	.loc 1 123 72 view .LVU121
 	movzbl	1(%rsi), %ecx
-	.loc 1 179 46 view .LVU158
+	.loc 1 123 46 view .LVU122
 	movb	%cl, 1(%rdx)
-	.loc 1 176 13 is_stmt 1 discriminator 3 view .LVU159
-	.loc 1 176 34 discriminator 1 view .LVU160
+	.loc 1 120 13 is_stmt 1 discriminator 3 view .LVU123
+	.loc 1 120 34 discriminator 1 view .LVU124
 	addq	$2, %rax
 	cmpq	%rdi, %rax
-	jne	.L41
-.LBE12:
-.LBE11:
-	.loc 1 172 9 discriminator 2 view .LVU161
+	jne	.L25
+.LBE8:
+.LBE7:
+	.loc 1 116 9 discriminator 2 view .LVU125
 	addq	$1, %r10
-.LVL54:
-	.loc 1 172 30 discriminator 1 view .LVU162
+.LVL43:
+	.loc 1 116 30 discriminator 1 view .LVU126
 	addq	$160, %rdi
 	cmpq	%r11, %r10
-	jb	.L42
-.LVL55:
-	.loc 1 172 30 is_stmt 0 discriminator 1 view .LVU163
-.LBE10:
-.LBB13:
-	.loc 1 182 30 is_stmt 1 discriminator 1 view .LVU164
+	jb	.L26
+.LVL44:
+	.loc 1 116 30 is_stmt 0 discriminator 1 view .LVU127
+.LBE6:
+.LBB9:
+	.loc 1 126 30 is_stmt 1 discriminator 1 view .LVU128
 	testq	%r8, %r8
-	je	.L43
-.LVL56:
-.L40:
-	.loc 1 182 30 is_stmt 0 discriminator 1 view .LVU165
-.LBE13:
-.LBB16:
-	.loc 1 172 21 view .LVU166
+	je	.L27
+.LVL45:
+.L24:
+	.loc 1 126 30 is_stmt 0 discriminator 1 view .LVU129
+.LBE9:
+.LBB12:
+	.loc 1 116 21 view .LVU130
 	movl	$4000, %ecx
 	movl	$0, %esi
-.L45:
-.LVL57:
-	.loc 1 172 21 view .LVU167
-.LBE16:
-.LBB17:
-.LBB14:
-	.loc 1 184 13 is_stmt 1 view .LVU168
-	.loc 1 185 13 view .LVU169
-.LBB15:
-	.loc 1 185 34 discriminator 1 view .LVU170
+.L29:
+.LVL46:
+	.loc 1 116 21 view .LVU131
+.LBE12:
+.LBB13:
+.LBB10:
+	.loc 1 128 13 is_stmt 1 view .LVU132
+	.loc 1 129 13 view .LVU133
+.LBB11:
+	.loc 1 129 34 discriminator 1 view .LVU134
 	leaq	-160(%rcx), %rax
-.LVL58:
-.L44:
-	.loc 1 187 17 view .LVU171
-	.loc 1 187 39 is_stmt 0 view .LVU172
+.LVL47:
+.L28:
+	.loc 1 131 17 view .LVU135
+	.loc 1 131 39 is_stmt 0 view .LVU136
 	movq	%rax, %rdx
 	addq	_ZN6Kernel7Console12s_vgaAddressE(%rip), %rdx
-	.loc 1 187 51 view .LVU173
+	.loc 1 131 51 view .LVU137
 	movb	$0, (%rdx)
-	.loc 1 188 17 is_stmt 1 view .LVU174
-	.loc 1 188 39 is_stmt 0 view .LVU175
+	.loc 1 132 17 is_stmt 1 view .LVU138
+	.loc 1 132 39 is_stmt 0 view .LVU139
 	movq	%rax, %rdx
 	addq	_ZN6Kernel7Console12s_vgaAddressE(%rip), %rdx
-	.loc 1 188 46 view .LVU176
+	.loc 1 132 46 view .LVU140
 	movb	$0, 1(%rdx)
-	.loc 1 185 13 is_stmt 1 discriminator 3 view .LVU177
-	.loc 1 185 34 discriminator 1 view .LVU178
+	.loc 1 129 13 is_stmt 1 discriminator 3 view .LVU141
+	.loc 1 129 34 discriminator 1 view .LVU142
 	addq	$2, %rax
 	cmpq	%rcx, %rax
-	jne	.L44
-.LBE15:
-.LBE14:
-	.loc 1 182 9 discriminator 2 view .LVU179
+	jne	.L28
+.LBE11:
+.LBE10:
+	.loc 1 126 9 discriminator 2 view .LVU143
 	addq	$1, %rsi
-.LVL59:
-	.loc 1 182 30 discriminator 1 view .LVU180
+.LVL48:
+	.loc 1 126 30 discriminator 1 view .LVU144
 	subq	$160, %rcx
 	cmpq	%rsi, %r8
-	jne	.L45
-.LVL60:
-.L43:
-	.loc 1 182 30 is_stmt 0 discriminator 1 view .LVU181
-.LBE17:
-	.loc 1 191 9 is_stmt 1 view .LVU182
-	.loc 1 191 32 is_stmt 0 view .LVU183
+	jne	.L29
+.LVL49:
+.L27:
+	.loc 1 126 30 is_stmt 0 discriminator 1 view .LVU145
+.LBE13:
+	.loc 1 135 9 is_stmt 1 view .LVU146
+	.loc 1 135 32 is_stmt 0 view .LVU147
 	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rdi
-	.loc 1 191 47 view .LVU184
+	.loc 1 135 47 view .LVU148
 	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rsi
-	.loc 1 191 49 view .LVU185
+	.loc 1 135 49 view .LVU149
 	subq	%r8, %rsi
-	.loc 1 191 18 view .LVU186
+	.loc 1 135 18 view .LVU150
 	call	_ZN6Kernel7Console9setCursorENS0_9CursorPosE
-.LVL61:
-	.loc 1 192 5 view .LVU187
+.LVL50:
+	.loc 1 136 5 view .LVU151
 	popq	%rbp
 	.cfi_restore 6
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-.LFE30:
+.LFE29:
 	.size	_ZN6Kernel7Console10scrollDownEm, .-_ZN6Kernel7Console10scrollDownEm
 	.align 2
 	.globl	_ZN6Kernel7Console7putCharEhNS0_10AttributesE
 	.type	_ZN6Kernel7Console7putCharEhNS0_10AttributesE, @function
 _ZN6Kernel7Console7putCharEhNS0_10AttributesE:
-.LVL62:
-.LFB22:
-	.loc 1 56 5 is_stmt 1 view -0
+.LVL51:
+.LFB23:
+	.loc 1 38 5 is_stmt 1 view -0
 	.cfi_startproc
-	.loc 1 56 5 is_stmt 0 view .LVU189
+	.loc 1 38 5 is_stmt 0 view .LVU153
 	pushq	%rbp
 	.cfi_def_cfa_offset 16
 	.cfi_offset 6, -16
@@ -721,361 +565,94 @@ _ZN6Kernel7Console7putCharEhNS0_10AttributesE:
 	.cfi_offset 3, -24
 	movl	%edi, %ebx
 	movl	%esi, %edx
-	.loc 1 57 9 is_stmt 1 view .LVU190
-	.loc 1 57 34 is_stmt 0 view .LVU191
+	.loc 1 39 9 is_stmt 1 view .LVU154
+	.loc 1 39 34 is_stmt 0 view .LVU155
 	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 57 67 view .LVU192
+	.loc 1 39 67 view .LVU156
 	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rcx
-.LVL63:
-	.loc 1 58 9 is_stmt 1 view .LVU193
-	.loc 1 58 18 is_stmt 0 view .LVU194
+.LVL52:
+	.loc 1 40 9 is_stmt 1 view .LVU157
+	.loc 1 40 18 is_stmt 0 view .LVU158
 	movzbl	%dil, %esi
-.LVL64:
-	.loc 1 57 36 view .LVU195
+.LVL53:
+	.loc 1 39 36 view .LVU159
 	leaq	(%rax,%rax,4), %rdi
-.LVL65:
-	.loc 1 57 36 view .LVU196
+.LVL54:
+	.loc 1 39 36 view .LVU160
 	salq	$4, %rdi
-	.loc 1 57 67 view .LVU197
+	.loc 1 39 67 view .LVU161
 	addq	%rcx, %rdi
-	.loc 1 58 18 view .LVU198
+	.loc 1 40 18 view .LVU162
 	call	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE
-.LVL66:
-	.loc 1 59 9 is_stmt 1 view .LVU199
+.LVL55:
+	.loc 1 41 9 is_stmt 1 view .LVU163
 	cmpb	$10, %bl
-	je	.L56
-	.loc 1 66 13 view .LVU200
-	.loc 1 66 27 is_stmt 0 view .LVU201
+	je	.L40
+	.loc 1 48 13 view .LVU164
+	.loc 1 48 27 is_stmt 0 view .LVU165
 	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rax
-	.loc 1 66 13 view .LVU202
+	.loc 1 48 13 view .LVU166
 	addq	$1, %rax
 	movq	%rax, _ZN6Kernel7Console11s_cursorPosE(%rip)
-	.loc 1 67 13 is_stmt 1 view .LVU203
-	.loc 1 67 29 is_stmt 0 view .LVU204
+	.loc 1 49 13 is_stmt 1 view .LVU167
+	.loc 1 49 29 is_stmt 0 view .LVU168
 	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rax
-	.loc 1 67 13 view .LVU205
+	.loc 1 49 13 view .LVU169
 	cmpq	$79, %rax
-	jbe	.L53
-	.loc 1 69 17 is_stmt 1 view .LVU206
-	.loc 1 69 31 is_stmt 0 view .LVU207
+	jbe	.L37
+	.loc 1 51 17 is_stmt 1 view .LVU170
+	.loc 1 51 31 is_stmt 0 view .LVU171
 	movq	$0, _ZN6Kernel7Console11s_cursorPosE(%rip)
-	.loc 1 70 17 is_stmt 1 view .LVU208
-	.loc 1 70 31 is_stmt 0 view .LVU209
+	.loc 1 52 17 is_stmt 1 view .LVU172
+	.loc 1 52 31 is_stmt 0 view .LVU173
 	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 70 17 view .LVU210
+	.loc 1 52 17 view .LVU174
 	addq	$1, %rax
 	movq	%rax, _ZN6Kernel7Console11s_cursorPosE+8(%rip)
-	jmp	.L53
-.L56:
-	.loc 1 61 13 is_stmt 1 view .LVU211
-	.loc 1 61 27 is_stmt 0 view .LVU212
+	jmp	.L37
+.L40:
+	.loc 1 43 13 is_stmt 1 view .LVU175
+	.loc 1 43 27 is_stmt 0 view .LVU176
 	movq	$0, _ZN6Kernel7Console11s_cursorPosE(%rip)
-	.loc 1 62 13 is_stmt 1 view .LVU213
-	.loc 1 62 27 is_stmt 0 view .LVU214
+	.loc 1 44 13 is_stmt 1 view .LVU177
+	.loc 1 44 27 is_stmt 0 view .LVU178
 	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 62 13 view .LVU215
+	.loc 1 44 13 view .LVU179
 	addq	$1, %rax
 	movq	%rax, _ZN6Kernel7Console11s_cursorPosE+8(%rip)
-.L53:
-	.loc 1 74 9 is_stmt 1 view .LVU216
-	.loc 1 74 25 is_stmt 0 view .LVU217
+.L37:
+	.loc 1 56 9 is_stmt 1 view .LVU180
+	.loc 1 56 25 is_stmt 0 view .LVU181
 	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 74 9 view .LVU218
+	.loc 1 56 9 view .LVU182
 	cmpq	$24, %rax
-	ja	.L57
-.L54:
-	.loc 1 77 9 is_stmt 1 view .LVU219
-	.loc 1 77 29 is_stmt 0 view .LVU220
+	ja	.L41
+.L38:
+	.loc 1 59 9 is_stmt 1 view .LVU183
+	.loc 1 59 29 is_stmt 0 view .LVU184
 	call	_ZN6Kernel7Console20updateHardwareCursorEv
-.LVL67:
-	.loc 1 78 5 view .LVU221
+.LVL56:
+	.loc 1 60 5 view .LVU185
 	movq	-8(%rbp), %rbx
-.LVL68:
-	.loc 1 78 5 view .LVU222
+.LVL57:
+	.loc 1 60 5 view .LVU186
 	leave
 	.cfi_remember_state
 	.cfi_restore 6
 	.cfi_restore 3
 	.cfi_def_cfa 7, 8
 	ret
-.L57:
+.L41:
 	.cfi_restore_state
-	.loc 1 75 13 is_stmt 1 view .LVU223
-	.loc 1 75 23 is_stmt 0 view .LVU224
+	.loc 1 57 13 is_stmt 1 view .LVU187
+	.loc 1 57 23 is_stmt 0 view .LVU188
 	movl	$1, %edi
 	call	_ZN6Kernel7Console10scrollDownEm
-.LVL69:
-	jmp	.L54
-	.cfi_endproc
-.LFE22:
-	.size	_ZN6Kernel7Console7putCharEhNS0_10AttributesE, .-_ZN6Kernel7Console7putCharEhNS0_10AttributesE
-	.align 2
-	.globl	_ZN6Kernel7Console9putStringEPKcNS0_10AttributesE
-	.type	_ZN6Kernel7Console9putStringEPKcNS0_10AttributesE, @function
-_ZN6Kernel7Console9putStringEPKcNS0_10AttributesE:
-.LVL70:
-.LFB23:
-	.loc 1 82 5 is_stmt 1 view -0
-	.cfi_startproc
-	.loc 1 82 5 is_stmt 0 view .LVU226
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	pushq	%r12
-	pushq	%rbx
-	.cfi_offset 12, -24
-	.cfi_offset 3, -32
-	movq	%rdi, %rbx
-	movl	%esi, %r12d
-	.loc 1 83 9 is_stmt 1 view .LVU227
-.LVL71:
-.LBB18:
-	.loc 1 83 35 discriminator 1 view .LVU228
-	.loc 1 83 33 is_stmt 0 discriminator 1 view .LVU229
-	movzbl	(%rdi), %esi
-.LVL72:
-	.loc 1 83 35 discriminator 1 view .LVU230
-	testb	%sil, %sil
-	jne	.L62
-.LVL73:
-.L59:
-	.loc 1 83 35 discriminator 1 view .LVU231
-.LBE18:
-	.loc 1 96 9 is_stmt 1 view .LVU232
-	.loc 1 96 29 is_stmt 0 view .LVU233
-	call	_ZN6Kernel7Console20updateHardwareCursorEv
-.LVL74:
-	.loc 1 97 5 view .LVU234
-	popq	%rbx
-	.cfi_remember_state
-	.cfi_restore 3
-	popq	%r12
-	.cfi_restore 12
-.LVL75:
-	.loc 1 97 5 view .LVU235
-	popq	%rbp
-	.cfi_restore 6
-	.cfi_def_cfa 7, 8
-	ret
-.LVL76:
-.L60:
-	.cfi_restore_state
-.LBB21:
-.LBB19:
-	.loc 1 90 17 is_stmt 1 view .LVU236
-	.loc 1 90 31 is_stmt 0 view .LVU237
-	movq	$0, _ZN6Kernel7Console11s_cursorPosE(%rip)
-	.loc 1 91 17 is_stmt 1 view .LVU238
-	.loc 1 91 31 is_stmt 0 view .LVU239
-	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 91 17 view .LVU240
-	addq	$1, %rax
-	movq	%rax, _ZN6Kernel7Console11s_cursorPosE+8(%rip)
-	.loc 1 92 17 is_stmt 1 view .LVU241
-	.loc 1 92 33 is_stmt 0 view .LVU242
-	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 92 17 view .LVU243
-	cmpq	$24, %rax
-	ja	.L65
-.L61:
-.LBE19:
-	.loc 1 83 9 is_stmt 1 discriminator 2 view .LVU244
-.LVL77:
-	.loc 1 83 35 discriminator 1 view .LVU245
-	.loc 1 83 33 is_stmt 0 discriminator 1 view .LVU246
-	addq	$1, %rbx
-	movzbl	(%rbx), %esi
-	.loc 1 83 35 discriminator 1 view .LVU247
-	testb	%sil, %sil
-	je	.L59
-.LVL78:
-.L62:
-.LBB20:
-	.loc 1 85 13 is_stmt 1 view .LVU248
-	.loc 1 85 38 is_stmt 0 view .LVU249
-	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 85 71 view .LVU250
-	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rdx
-.LVL79:
-	.loc 1 86 13 is_stmt 1 view .LVU251
-	.loc 1 86 22 is_stmt 0 view .LVU252
-	movzbl	%sil, %esi
-	.loc 1 85 40 view .LVU253
-	leaq	(%rax,%rax,4), %rdi
-	salq	$4, %rdi
-	.loc 1 85 71 view .LVU254
-	addq	%rdx, %rdi
-	.loc 1 86 22 view .LVU255
-	movl	%r12d, %edx
-.LVL80:
-	.loc 1 86 22 view .LVU256
-	call	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE
-.LVL81:
-	.loc 1 87 13 is_stmt 1 view .LVU257
-	.loc 1 87 27 is_stmt 0 view .LVU258
-	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rax
-	.loc 1 87 13 view .LVU259
-	addq	$1, %rax
-	movq	%rax, _ZN6Kernel7Console11s_cursorPosE(%rip)
-	.loc 1 88 13 is_stmt 1 view .LVU260
-	.loc 1 88 29 is_stmt 0 view .LVU261
-	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rax
-	.loc 1 88 49 view .LVU262
-	cmpq	$79, %rax
-	ja	.L60
-	.loc 1 88 49 discriminator 2 view .LVU263
-	cmpb	$10, (%rbx)
-	jne	.L61
-	jmp	.L60
-.L65:
-	.loc 1 93 21 is_stmt 1 view .LVU264
-	.loc 1 93 31 is_stmt 0 view .LVU265
-	movl	$1, %edi
-	call	_ZN6Kernel7Console10scrollDownEm
-.LVL82:
-	jmp	.L61
-.LBE20:
-.LBE21:
+.LVL58:
+	jmp	.L38
 	.cfi_endproc
 .LFE23:
-	.size	_ZN6Kernel7Console9putStringEPKcNS0_10AttributesE, .-_ZN6Kernel7Console9putStringEPKcNS0_10AttributesE
-	.align 2
-	.globl	_ZN6Kernel7Console9putStringEPVKcNS0_10AttributesE
-	.type	_ZN6Kernel7Console9putStringEPVKcNS0_10AttributesE, @function
-_ZN6Kernel7Console9putStringEPVKcNS0_10AttributesE:
-.LVL83:
-.LFB24:
-	.loc 1 101 5 is_stmt 1 view -0
-	.cfi_startproc
-	.loc 1 101 5 is_stmt 0 view .LVU267
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	pushq	%r12
-	pushq	%rbx
-	.cfi_offset 12, -24
-	.cfi_offset 3, -32
-	movq	%rdi, %rbx
-	movl	%esi, %r12d
-	.loc 1 102 9 is_stmt 1 view .LVU268
-.LVL84:
-.LBB22:
-	.loc 1 102 35 discriminator 1 view .LVU269
-	.loc 1 102 33 is_stmt 0 discriminator 1 view .LVU270
-	movzbl	(%rdi), %eax
-	.loc 1 102 35 discriminator 1 view .LVU271
-	testb	%al, %al
-	jne	.L70
-.LVL85:
-.L67:
-	.loc 1 102 35 discriminator 1 view .LVU272
-.LBE22:
-	.loc 1 115 9 is_stmt 1 view .LVU273
-	.loc 1 115 29 is_stmt 0 view .LVU274
-	call	_ZN6Kernel7Console20updateHardwareCursorEv
-.LVL86:
-	.loc 1 116 5 view .LVU275
-	popq	%rbx
-	.cfi_remember_state
-	.cfi_restore 3
-	popq	%r12
-	.cfi_restore 12
-.LVL87:
-	.loc 1 116 5 view .LVU276
-	popq	%rbp
-	.cfi_restore 6
-	.cfi_def_cfa 7, 8
-	ret
-.LVL88:
-.L68:
-	.cfi_restore_state
-.LBB25:
-.LBB23:
-	.loc 1 109 17 is_stmt 1 view .LVU277
-	.loc 1 109 31 is_stmt 0 view .LVU278
-	movq	$0, _ZN6Kernel7Console11s_cursorPosE(%rip)
-	.loc 1 110 17 is_stmt 1 view .LVU279
-	.loc 1 110 31 is_stmt 0 view .LVU280
-	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 110 17 view .LVU281
-	addq	$1, %rax
-	movq	%rax, _ZN6Kernel7Console11s_cursorPosE+8(%rip)
-	.loc 1 111 17 is_stmt 1 view .LVU282
-	.loc 1 111 33 is_stmt 0 view .LVU283
-	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 111 17 view .LVU284
-	cmpq	$24, %rax
-	ja	.L73
-.L69:
-.LBE23:
-	.loc 1 102 9 is_stmt 1 discriminator 2 view .LVU285
-.LVL89:
-	.loc 1 102 35 discriminator 1 view .LVU286
-	.loc 1 102 33 is_stmt 0 discriminator 1 view .LVU287
-	addq	$1, %rbx
-	movzbl	(%rbx), %eax
-	.loc 1 102 35 discriminator 1 view .LVU288
-	testb	%al, %al
-	je	.L67
-.LVL90:
-.L70:
-.LBB24:
-	.loc 1 104 13 is_stmt 1 view .LVU289
-	.loc 1 104 38 is_stmt 0 view .LVU290
-	movq	_ZN6Kernel7Console11s_cursorPosE+8(%rip), %rax
-	.loc 1 104 71 view .LVU291
-	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rdx
-.LVL91:
-	.loc 1 105 13 is_stmt 1 view .LVU292
-	.loc 1 105 33 is_stmt 0 view .LVU293
-	movzbl	(%rbx), %esi
-	.loc 1 105 22 view .LVU294
-	movzbl	%sil, %esi
-	.loc 1 104 40 view .LVU295
-	leaq	(%rax,%rax,4), %rdi
-	salq	$4, %rdi
-	.loc 1 104 71 view .LVU296
-	addq	%rdx, %rdi
-	.loc 1 105 22 view .LVU297
-	movl	%r12d, %edx
-.LVL92:
-	.loc 1 105 22 view .LVU298
-	call	_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE
-.LVL93:
-	.loc 1 106 13 is_stmt 1 view .LVU299
-	.loc 1 106 27 is_stmt 0 view .LVU300
-	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rax
-	.loc 1 106 13 view .LVU301
-	addq	$1, %rax
-	movq	%rax, _ZN6Kernel7Console11s_cursorPosE(%rip)
-	.loc 1 107 13 is_stmt 1 view .LVU302
-	.loc 1 107 29 is_stmt 0 view .LVU303
-	movq	_ZN6Kernel7Console11s_cursorPosE(%rip), %rax
-	.loc 1 107 49 view .LVU304
-	cmpq	$79, %rax
-	ja	.L68
-	.loc 1 107 57 discriminator 2 view .LVU305
-	movzbl	(%rbx), %eax
-	.loc 1 107 49 discriminator 2 view .LVU306
-	cmpb	$10, %al
-	jne	.L69
-	jmp	.L68
-.L73:
-	.loc 1 112 21 is_stmt 1 view .LVU307
-	.loc 1 112 31 is_stmt 0 view .LVU308
-	movl	$1, %edi
-	call	_ZN6Kernel7Console10scrollDownEm
-.LVL94:
-	jmp	.L69
-.LBE24:
-.LBE25:
-	.cfi_endproc
-.LFE24:
-	.size	_ZN6Kernel7Console9putStringEPVKcNS0_10AttributesE, .-_ZN6Kernel7Console9putStringEPVKcNS0_10AttributesE
+	.size	_ZN6Kernel7Console7putCharEhNS0_10AttributesE, .-_ZN6Kernel7Console7putCharEhNS0_10AttributesE
 	.globl	_ZN6Kernel7Console11s_cursorPosE
 	.section	.bss
 	.align 16
@@ -1110,13 +687,13 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.file 3 "src/kernel/../../include/Console.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0xbfc
+	.long	0x91f
 	.value	0x5
 	.byte	0x1
 	.byte	0x8
 	.long	.Ldebug_abbrev0
-	.uleb128 0x1f
-	.long	.LASF529
+	.uleb128 0x1e
+	.long	.LASF524
 	.byte	0x21
 	.long	.LASF0
 	.long	.LASF1
@@ -1124,90 +701,98 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.quad	.Letext0-.Ltext0
 	.long	.Ldebug_line0
 	.long	.Ldebug_macro0
-	.uleb128 0x1c
+	.uleb128 0x17
 	.long	.LASF438
 	.byte	0x5
 	.long	0x41
-	.uleb128 0xd
+	.uleb128 0xa
 	.long	0x32
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x8
 	.byte	0x7
 	.long	.LASF436
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x8
 	.byte	0x5
 	.long	.LASF437
-	.uleb128 0x1c
+	.uleb128 0x17
 	.long	.LASF439
 	.byte	0x8
 	.long	0x59
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x1
 	.byte	0x8
 	.long	.LASF440
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x2
 	.byte	0x7
 	.long	.LASF441
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x4
 	.byte	0x7
 	.long	.LASF442
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x8
 	.byte	0x7
 	.long	.LASF443
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x1
 	.byte	0x6
 	.long	.LASF444
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x2
 	.byte	0x5
 	.long	.LASF445
-	.uleb128 0x20
+	.uleb128 0x1f
 	.byte	0x4
 	.byte	0x5
 	.string	"int"
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x8
 	.byte	0x5
 	.long	.LASF446
-	.uleb128 0x21
+	.uleb128 0x20
 	.string	"std"
 	.byte	0x2
 	.byte	0x16
 	.byte	0xb
-	.long	0xab
+	.long	0xb9
+	.uleb128 0x21
+	.long	.LASF486
+	.byte	0x2
+	.byte	0x89
+	.byte	0x1e
+	.long	0xc0
+	.byte	0x1
+	.byte	0x3
 	.uleb128 0x22
-	.long	.LASF521
+	.long	.LASF516
 	.byte	0x2
 	.byte	0x49
 	.byte	0x17
-	.long	0xb2
+	.long	0xc0
 	.byte	0x1
 	.byte	0
-	.uleb128 0x7
+	.uleb128 0x5
 	.byte	0x1
 	.byte	0x2
 	.long	.LASF447
-	.uleb128 0xd
-	.long	0xab
+	.uleb128 0xa
+	.long	0xb9
 	.uleb128 0x23
 	.long	.LASF448
 	.byte	0x3
 	.byte	0x7
 	.byte	0xb
-	.long	0x3f1
+	.long	0x391
 	.uleb128 0x24
-	.long	.LASF530
+	.long	.LASF525
 	.byte	0x1
 	.byte	0x3
 	.byte	0x9
 	.byte	0xb
 	.uleb128 0x25
-	.long	.LASF531
+	.long	.LASF526
 	.byte	0x7
 	.byte	0x1
 	.long	0x4f
@@ -1215,533 +800,484 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0xc
 	.byte	0x14
 	.byte	0x1
-	.long	0x194
-	.uleb128 0x2
+	.long	0x1a2
+	.uleb128 0x1
 	.long	.LASF449
 	.byte	0
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF450
 	.byte	0x1
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF451
 	.byte	0x2
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF452
 	.byte	0x3
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF453
 	.byte	0x4
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF454
 	.byte	0x5
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF455
 	.byte	0x6
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF456
 	.byte	0x7
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF457
 	.byte	0x8
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF458
 	.byte	0x9
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF459
 	.byte	0xa
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF460
 	.byte	0xb
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF461
 	.byte	0xc
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF462
 	.byte	0xd
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF463
 	.byte	0xe
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF464
 	.byte	0xf
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF465
 	.byte	0x10
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF466
 	.byte	0x1f
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF467
 	.byte	0x20
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF468
 	.byte	0x2f
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF469
 	.byte	0x30
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF470
 	.byte	0x3f
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF471
 	.byte	0x40
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF472
 	.byte	0x4f
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF473
 	.byte	0x50
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF474
 	.byte	0x5f
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF475
 	.byte	0x60
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF476
 	.byte	0x6f
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF477
 	.byte	0x70
-	.uleb128 0x2
+	.uleb128 0x1
 	.long	.LASF478
 	.byte	0x7f
 	.byte	0
-	.uleb128 0x16
+	.uleb128 0x11
 	.long	.LASF479
 	.byte	0x10
 	.byte	0x2e
-	.long	0x1b2
-	.uleb128 0x1d
+	.long	0x1c0
+	.uleb128 0x18
 	.string	"x"
 	.byte	0x30
 	.long	0x32
 	.byte	0
-	.uleb128 0x1d
+	.uleb128 0x18
 	.string	"y"
 	.byte	0x31
 	.long	0x32
 	.byte	0x8
 	.byte	0
-	.uleb128 0x17
-	.long	0x194
-	.uleb128 0xd
-	.long	0x1b2
-	.uleb128 0x16
+	.uleb128 0x19
+	.long	0x1a2
+	.uleb128 0xa
+	.long	0x1c0
+	.uleb128 0x11
 	.long	.LASF480
 	.byte	0x10
 	.byte	0x34
-	.long	0x1e0
-	.uleb128 0x10
+	.long	0x1ee
+	.uleb128 0xb
 	.long	.LASF481
 	.byte	0x36
 	.byte	0x14
 	.long	0x32
 	.byte	0
-	.uleb128 0x10
+	.uleb128 0xb
 	.long	.LASF482
 	.byte	0x37
 	.byte	0x14
 	.long	0x32
 	.byte	0x8
 	.byte	0
-	.uleb128 0xd
-	.long	0x1bc
-	.uleb128 0x16
+	.uleb128 0xa
+	.long	0x1ca
+	.uleb128 0x11
 	.long	.LASF483
 	.byte	0x2
 	.byte	0x3a
-	.long	0x209
-	.uleb128 0x10
+	.long	0x217
+	.uleb128 0xb
 	.long	.LASF484
 	.byte	0x3c
 	.byte	0x15
 	.long	0x4f
 	.byte	0
-	.uleb128 0x10
+	.uleb128 0xb
 	.long	.LASF485
 	.byte	0x3d
 	.byte	0x18
-	.long	0xcc
+	.long	0xda
 	.byte	0x1
 	.byte	0
-	.uleb128 0x17
-	.long	0x1e5
-	.uleb128 0x11
-	.long	.LASF486
+	.uleb128 0x19
+	.long	0x1f3
+	.uleb128 0xc
+	.long	.LASF487
 	.byte	0x41
 	.byte	0x22
+	.long	.LASF489
+	.long	0x391
+	.uleb128 0xc
 	.long	.LASF488
-	.long	0x3f1
-	.uleb128 0x11
-	.long	.LASF487
 	.byte	0x42
 	.byte	0x1d
-	.long	.LASF489
-	.long	0x1e0
-	.uleb128 0x11
 	.long	.LASF490
+	.long	0x1ee
+	.uleb128 0xc
+	.long	.LASF491
 	.byte	0x43
 	.byte	0x1d
-	.long	.LASF491
-	.long	0x3c
-	.uleb128 0x11
 	.long	.LASF492
+	.long	0x3c
+	.uleb128 0xc
+	.long	.LASF493
 	.byte	0x44
 	.byte	0x23
-	.long	.LASF493
-	.long	0x1b2
+	.long	.LASF494
+	.long	0x1c0
 	.uleb128 0x26
-	.long	.LASF532
+	.long	.LASF527
 	.byte	0x3
 	.byte	0x46
 	.byte	0x15
-	.long	.LASF533
-	.uleb128 0xb
-	.long	.LASF494
+	.long	.LASF528
+	.uleb128 0x1a
+	.long	.LASF495
 	.byte	0x49
-	.long	.LASF496
-	.long	0x274
-	.uleb128 0x1
-	.long	0x32
-	.uleb128 0x1
-	.long	0x4f
-	.uleb128 0x1
-	.long	0xcc
-	.byte	0
-	.uleb128 0xb
-	.long	.LASF495
-	.byte	0x4a
 	.long	.LASF497
-	.long	0x292
-	.uleb128 0x1
-	.long	0x3f6
-	.uleb128 0x1
+	.long	0x282
+	.uleb128 0x2
 	.long	0x32
-	.uleb128 0x1
-	.long	0xcc
+	.uleb128 0x2
+	.long	0x4f
+	.uleb128 0x2
+	.long	0xda
 	.byte	0
-	.uleb128 0xb
-	.long	.LASF495
-	.byte	0x4b
+	.uleb128 0x1a
+	.long	.LASF496
+	.byte	0x54
 	.long	.LASF498
-	.long	0x2b0
-	.uleb128 0x1
-	.long	0x40c
-	.uleb128 0x1
-	.long	0x32
-	.uleb128 0x1
-	.long	0xcc
+	.long	0x29b
+	.uleb128 0x2
+	.long	0x4f
+	.uleb128 0x2
+	.long	0xda
 	.byte	0
-	.uleb128 0xb
+	.uleb128 0x8
 	.long	.LASF499
-	.byte	0x4e
+	.value	0x147
+	.long	.LASF501
+	.long	0x2b5
+	.uleb128 0x2
+	.long	0x4f
+	.uleb128 0x2
+	.long	0xda
+	.byte	0
+	.uleb128 0x8
 	.long	.LASF500
-	.long	0x2c9
-	.uleb128 0x1
-	.long	0x4f
-	.uleb128 0x1
-	.long	0xcc
-	.byte	0
-	.uleb128 0xb
-	.long	.LASF501
-	.byte	0x4f
+	.value	0x148
 	.long	.LASF502
-	.long	0x2e2
-	.uleb128 0x1
-	.long	0x3f6
-	.uleb128 0x1
-	.long	0xcc
+	.long	0x2cf
+	.uleb128 0x2
+	.long	0x4f
+	.uleb128 0x2
+	.long	0xda
 	.byte	0
-	.uleb128 0xb
-	.long	.LASF501
-	.byte	0x50
+	.uleb128 0x8
+	.long	.LASF500
+	.value	0x14a
 	.long	.LASF503
-	.long	0x2fb
-	.uleb128 0x1
-	.long	0x40c
-	.uleb128 0x1
-	.long	0xcc
+	.long	0x2ee
+	.uleb128 0x2
+	.long	0x32
+	.uleb128 0x2
+	.long	0x4f
+	.uleb128 0x2
+	.long	0xda
 	.byte	0
-	.uleb128 0xc
+	.uleb128 0x8
 	.long	.LASF504
-	.value	0x121
+	.value	0x14d
+	.long	.LASF505
+	.long	0x312
+	.uleb128 0x2
+	.long	0x1a2
+	.uleb128 0x2
+	.long	0x32
+	.uleb128 0x2
+	.long	0x4f
+	.uleb128 0x2
+	.long	0xda
+	.byte	0
+	.uleb128 0x8
+	.long	.LASF504
+	.value	0x150
 	.long	.LASF506
-	.long	0x315
-	.uleb128 0x1
+	.long	0x336
+	.uleb128 0x2
+	.long	0x32
+	.uleb128 0x2
+	.long	0x32
+	.uleb128 0x2
 	.long	0x4f
-	.uleb128 0x1
-	.long	0xcc
+	.uleb128 0x2
+	.long	0xda
 	.byte	0
-	.uleb128 0xc
-	.long	.LASF505
-	.value	0x122
+	.uleb128 0x8
 	.long	.LASF507
-	.long	0x32f
-	.uleb128 0x1
-	.long	0x4f
-	.uleb128 0x1
-	.long	0xcc
-	.byte	0
-	.uleb128 0xc
-	.long	.LASF505
-	.value	0x124
+	.value	0x153
 	.long	.LASF508
-	.long	0x34e
-	.uleb128 0x1
-	.long	0x32
-	.uleb128 0x1
-	.long	0x4f
-	.uleb128 0x1
-	.long	0xcc
+	.long	0x34b
+	.uleb128 0x2
+	.long	0x1a2
 	.byte	0
-	.uleb128 0xc
+	.uleb128 0x12
 	.long	.LASF509
-	.value	0x127
-	.long	.LASF510
-	.long	0x372
-	.uleb128 0x1
-	.long	0x194
-	.uleb128 0x1
-	.long	0x32
-	.uleb128 0x1
-	.long	0x4f
-	.uleb128 0x1
-	.long	0xcc
-	.byte	0
-	.uleb128 0xc
-	.long	.LASF509
-	.value	0x12a
-	.long	.LASF511
-	.long	0x396
-	.uleb128 0x1
-	.long	0x32
-	.uleb128 0x1
-	.long	0x32
-	.uleb128 0x1
-	.long	0x4f
-	.uleb128 0x1
-	.long	0xcc
-	.byte	0
-	.uleb128 0xc
-	.long	.LASF512
-	.value	0x12d
-	.long	.LASF513
-	.long	0x3ab
-	.uleb128 0x1
-	.long	0x194
-	.byte	0
-	.uleb128 0x18
-	.long	.LASF514
-	.value	0x12e
+	.value	0x154
 	.byte	0x2a
-	.long	.LASF516
-	.long	0x411
-	.uleb128 0x18
-	.long	.LASF515
-	.value	0x12f
+	.long	.LASF511
+	.long	0x397
+	.uleb128 0x12
+	.long	.LASF510
+	.value	0x155
 	.byte	0x1e
-	.long	.LASF517
-	.long	0x416
-	.uleb128 0x18
-	.long	.LASF518
-	.value	0x130
+	.long	.LASF512
+	.long	0x39c
+	.uleb128 0x12
+	.long	.LASF513
+	.value	0x156
 	.byte	0x1e
-	.long	.LASF519
-	.long	0x41b
+	.long	.LASF514
+	.long	0x3a1
 	.uleb128 0x27
-	.long	.LASF534
+	.long	.LASF529
 	.byte	0x3
-	.value	0x132
+	.value	0x158
 	.byte	0x15
-	.long	.LASF535
+	.long	.LASF530
 	.byte	0x1
-	.uleb128 0x1
+	.uleb128 0x2
 	.long	0x32
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x19
-	.long	0x209
-	.uleb128 0x19
-	.long	0x402
-	.uleb128 0x7
+	.uleb128 0x28
+	.byte	0x8
+	.long	0x217
+	.uleb128 0x13
+	.long	0x1c5
+	.uleb128 0x13
+	.long	0x1ee
+	.uleb128 0x13
+	.long	0x3c
+	.uleb128 0x5
 	.byte	0x1
 	.byte	0x6
-	.long	.LASF520
+	.long	.LASF515
 	.uleb128 0xd
-	.long	0x3fb
-	.uleb128 0x17
-	.long	0x402
-	.uleb128 0x19
-	.long	0x407
-	.uleb128 0x1a
-	.long	0x1b7
-	.uleb128 0x1a
-	.long	0x1e0
-	.uleb128 0x1a
-	.long	0x3c
-	.uleb128 0x12
-	.long	0x20e
+	.long	0x21c
 	.byte	0x5
 	.byte	0x20
 	.uleb128 0x9
 	.byte	0x3
 	.quad	_ZN6Kernel7Console12s_vgaAddressE
-	.uleb128 0x12
-	.long	0x21d
+	.uleb128 0xd
+	.long	0x22b
 	.byte	0x6
 	.byte	0x1b
 	.uleb128 0x9
 	.byte	0x3
 	.quad	_ZN6Kernel7Console8s_extentE
-	.uleb128 0x12
-	.long	0x22c
+	.uleb128 0xd
+	.long	0x23a
 	.byte	0x7
 	.byte	0x12
 	.uleb128 0x9
 	.byte	0x3
 	.quad	_ZN6Kernel7Console16s_windowCapacityE
-	.uleb128 0x12
-	.long	0x23b
+	.uleb128 0xd
+	.long	0x249
 	.byte	0x8
 	.byte	0x21
 	.uleb128 0x9
 	.byte	0x3
 	.quad	_ZN6Kernel7Console11s_cursorPosE
-	.uleb128 0x28
+	.uleb128 0x1b
 	.long	0x9d
+	.uleb128 0x1b
+	.long	0xab
 	.uleb128 0x6
-	.long	0x3db
-	.byte	0xaa
-	.quad	.LFB30
-	.quad	.LFE30-.LFB30
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x564
-	.uleb128 0x3
-	.long	.LASF522
-	.byte	0xaa
-	.byte	0x25
-	.long	0x32
-	.long	.LLST36
-	.long	.LVUS36
-	.uleb128 0xe
-	.long	.LLRL37
-	.long	0x4fc
-	.uleb128 0x5
-	.string	"i"
-	.byte	0xac
-	.byte	0x15
-	.long	0x32
-	.long	.LLST38
-	.long	.LVUS38
-	.uleb128 0x13
-	.quad	.LBB11
-	.quad	.LBE11-.LBB11
-	.uleb128 0x1b
-	.string	"src"
-	.byte	0xae
-	.long	0x32
-	.uleb128 0x1b
-	.string	"dst"
-	.byte	0xaf
-	.long	0x32
-	.uleb128 0x13
-	.quad	.LBB12
-	.quad	.LBE12-.LBB12
-	.uleb128 0x5
-	.string	"j"
-	.byte	0xb0
-	.byte	0x19
-	.long	0x32
-	.long	.LLST39
-	.long	.LVUS39
-	.byte	0
-	.byte	0
-	.byte	0
-	.uleb128 0xe
-	.long	.LLRL40
-	.long	0x556
-	.uleb128 0x5
-	.string	"i"
-	.byte	0xb6
-	.byte	0x15
-	.long	0x32
-	.long	.LLST41
-	.long	.LVUS41
-	.uleb128 0x13
-	.quad	.LBB14
-	.quad	.LBE14-.LBB14
-	.uleb128 0x1b
-	.string	"dst"
-	.byte	0xb8
-	.long	0x32
-	.uleb128 0x13
-	.quad	.LBB15
-	.quad	.LBE15-.LBB15
-	.uleb128 0x5
-	.string	"j"
-	.byte	0xb9
-	.byte	0x19
-	.long	0x32
-	.long	.LLST42
-	.long	.LVUS42
-	.byte	0
-	.byte	0
-	.byte	0
-	.uleb128 0x9
-	.quad	.LVL61
-	.long	0xa3b
-	.byte	0
-	.uleb128 0x6
-	.long	0x372
-	.byte	0xa1
+	.long	0x37b
+	.byte	0x72
 	.quad	.LFB29
 	.quad	.LFE29-.LFB29
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x604
+	.long	0x4f6
 	.uleb128 0x3
-	.long	.LASF523
-	.byte	0xa1
-	.byte	0x24
+	.long	.LASF517
+	.byte	0x72
+	.byte	0x25
 	.long	0x32
-	.long	.LLST17
-	.long	.LVUS17
-	.uleb128 0x3
-	.long	.LASF524
-	.byte	0xa1
-	.byte	0x37
-	.long	0x32
-	.long	.LLST18
-	.long	.LVUS18
-	.uleb128 0x3
-	.long	.LASF525
-	.byte	0xa1
-	.byte	0x49
-	.long	0x4f
-	.long	.LLST19
-	.long	.LVUS19
-	.uleb128 0x3
-	.long	.LASF485
-	.byte	0xa3
-	.byte	0x28
-	.long	0xcc
-	.long	.LLST20
-	.long	.LVUS20
-	.uleb128 0xf
-	.long	.LLRL21
-	.uleb128 0x5
+	.long	.LLST26
+	.long	.LVUS26
+	.uleb128 0x14
+	.long	.LLRL27
+	.long	0x48e
+	.uleb128 0x7
 	.string	"i"
-	.byte	0xa6
+	.byte	0x74
 	.byte	0x15
 	.long	0x32
-	.long	.LLST22
-	.long	.LVUS22
-	.uleb128 0x8
-	.quad	.LVL24
-	.long	0xb89
+	.long	.LLST28
+	.long	.LVUS28
+	.uleb128 0xe
+	.quad	.LBB7
+	.quad	.LBE7-.LBB7
+	.uleb128 0x15
+	.string	"src"
+	.byte	0x76
+	.long	0x32
+	.uleb128 0x15
+	.string	"dst"
+	.byte	0x77
+	.long	0x32
+	.uleb128 0xe
+	.quad	.LBB8
+	.quad	.LBE8-.LBB8
+	.uleb128 0x7
+	.string	"j"
+	.byte	0x78
+	.byte	0x19
+	.long	0x32
+	.long	.LLST29
+	.long	.LVUS29
+	.byte	0
+	.byte	0
+	.byte	0
+	.uleb128 0x14
+	.long	.LLRL30
+	.long	0x4e8
+	.uleb128 0x7
+	.string	"i"
+	.byte	0x7e
+	.byte	0x15
+	.long	0x32
+	.long	.LLST31
+	.long	.LVUS31
+	.uleb128 0xe
+	.quad	.LBB10
+	.quad	.LBE10-.LBB10
+	.uleb128 0x15
+	.string	"dst"
+	.byte	0x80
+	.long	0x32
+	.uleb128 0xe
+	.quad	.LBB11
+	.quad	.LBE11-.LBB11
+	.uleb128 0x7
+	.string	"j"
+	.byte	0x81
+	.byte	0x19
+	.long	0x32
+	.long	.LLST32
+	.long	.LVUS32
+	.byte	0
+	.byte	0
+	.byte	0
+	.uleb128 0x9
+	.quad	.LVL50
+	.long	0x86f
+	.byte	0
+	.uleb128 0x6
+	.long	0x312
+	.byte	0x69
+	.quad	.LFB28
+	.quad	.LFE28-.LFB28
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x596
+	.uleb128 0x3
+	.long	.LASF518
+	.byte	0x69
+	.byte	0x24
+	.long	0x32
+	.long	.LLST7
+	.long	.LVUS7
+	.uleb128 0x3
+	.long	.LASF519
+	.byte	0x69
+	.byte	0x37
+	.long	0x32
+	.long	.LLST8
+	.long	.LVUS8
+	.uleb128 0x3
+	.long	.LASF520
+	.byte	0x69
+	.byte	0x49
+	.long	0x4f
+	.long	.LLST9
+	.long	.LVUS9
+	.uleb128 0x3
+	.long	.LASF485
+	.byte	0x6b
+	.byte	0x28
+	.long	0xda
+	.long	.LLST10
+	.long	.LVUS10
+	.uleb128 0x29
+	.long	.LLRL11
+	.uleb128 0x7
+	.string	"i"
+	.byte	0x6e
+	.byte	0x15
+	.long	0x32
+	.long	.LLST12
+	.long	.LVUS12
+	.uleb128 0xf
+	.quad	.LVL13
+	.long	0x8ac
 	.uleb128 0x4
 	.uleb128 0x1
 	.byte	0x55
@@ -1764,56 +1300,56 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0
 	.byte	0
 	.uleb128 0x6
-	.long	0x34e
-	.byte	0x97
-	.quad	.LFB28
-	.quad	.LFE28-.LFB28
+	.long	0x2ee
+	.byte	0x5f
+	.quad	.LFB27
+	.quad	.LFE27-.LFB27
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x6b0
-	.uleb128 0xa
+	.long	0x642
+	.uleb128 0x16
 	.string	"pos"
-	.byte	0x97
+	.byte	0x5f
 	.byte	0x27
-	.long	0x194
-	.long	.LLST30
-	.long	.LVUS30
+	.long	0x1a2
+	.long	.LLST20
+	.long	.LVUS20
 	.uleb128 0x3
-	.long	.LASF526
-	.byte	0x97
+	.long	.LASF521
+	.byte	0x5f
 	.byte	0x33
 	.long	0x32
-	.long	.LLST31
-	.long	.LVUS31
+	.long	.LLST21
+	.long	.LVUS21
 	.uleb128 0x3
-	.long	.LASF525
-	.byte	0x97
+	.long	.LASF520
+	.byte	0x5f
 	.byte	0x43
 	.long	0x4f
-	.long	.LLST32
-	.long	.LVUS32
+	.long	.LLST22
+	.long	.LVUS22
 	.uleb128 0x3
 	.long	.LASF485
-	.byte	0x99
+	.byte	0x61
 	.byte	0x28
-	.long	0xcc
-	.long	.LLST33
-	.long	.LVUS33
-	.uleb128 0x14
-	.long	.LASF523
-	.byte	0x9c
+	.long	0xda
+	.long	.LLST23
+	.long	.LVUS23
+	.uleb128 0x10
+	.long	.LASF518
+	.byte	0x64
 	.long	0x32
-	.long	.LLST34
-	.long	.LVUS34
-	.uleb128 0x14
-	.long	.LASF524
-	.byte	0x9d
+	.long	.LLST24
+	.long	.LVUS24
+	.uleb128 0x10
+	.long	.LASF519
+	.byte	0x65
 	.long	0x32
-	.long	.LLST35
-	.long	.LVUS35
-	.uleb128 0x8
-	.quad	.LVL48
-	.long	0x564
+	.long	.LLST25
+	.long	.LVUS25
+	.uleb128 0xf
+	.quad	.LVL37
+	.long	0x4f6
 	.uleb128 0x4
 	.uleb128 0x1
 	.byte	0x51
@@ -1834,49 +1370,49 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0
 	.byte	0
 	.uleb128 0x6
-	.long	0x32f
-	.byte	0x8d
-	.quad	.LFB27
-	.quad	.LFE27-.LFB27
+	.long	0x2cf
+	.byte	0x55
+	.quad	.LFB26
+	.quad	.LFE26-.LFB26
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x769
+	.long	0x6fb
 	.uleb128 0x3
-	.long	.LASF527
-	.byte	0x8d
+	.long	.LASF522
+	.byte	0x55
 	.byte	0x24
 	.long	0x32
-	.long	.LLST23
-	.long	.LVUS23
+	.long	.LLST13
+	.long	.LVUS13
 	.uleb128 0x3
-	.long	.LASF525
-	.byte	0x8d
+	.long	.LASF520
+	.byte	0x55
 	.byte	0x32
 	.long	0x4f
-	.long	.LLST24
-	.long	.LVUS24
+	.long	.LLST14
+	.long	.LVUS14
 	.uleb128 0x3
 	.long	.LASF485
-	.byte	0x8f
+	.byte	0x57
 	.byte	0x28
-	.long	0xcc
-	.long	.LLST25
-	.long	.LVUS25
-	.uleb128 0x14
-	.long	.LASF523
-	.byte	0x92
+	.long	0xda
+	.long	.LLST15
+	.long	.LVUS15
+	.uleb128 0x10
+	.long	.LASF518
+	.byte	0x5a
 	.long	0x32
-	.long	.LLST26
-	.long	.LVUS26
-	.uleb128 0x14
-	.long	.LASF524
-	.byte	0x93
+	.long	.LLST16
+	.long	.LVUS16
+	.uleb128 0x10
+	.long	.LASF519
+	.byte	0x5b
 	.long	0x32
-	.long	.LLST27
-	.long	.LVUS27
-	.uleb128 0x8
-	.quad	.LVL36
-	.long	0x564
+	.long	.LLST17
+	.long	.LVUS17
+	.uleb128 0xf
+	.quad	.LVL25
+	.long	0x4f6
 	.uleb128 0x4
 	.uleb128 0x1
 	.byte	0x55
@@ -1929,257 +1465,123 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0
 	.byte	0
 	.uleb128 0x6
-	.long	0x315
-	.byte	0x84
-	.quad	.LFB26
-	.quad	.LFE26-.LFB26
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0x7dc
-	.uleb128 0x3
-	.long	.LASF525
-	.byte	0x84
-	.byte	0x25
-	.long	0x4f
-	.long	.LLST28
-	.long	.LVUS28
-	.uleb128 0x3
-	.long	.LASF485
-	.byte	0x86
-	.byte	0x28
-	.long	0xcc
-	.long	.LLST29
-	.long	.LVUS29
-	.uleb128 0x15
-	.quad	.LVL40
-	.long	0x6b0
-	.long	0x7ce
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x54
-	.uleb128 0x6
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x8
-	.byte	0xff
-	.byte	0x1a
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x51
-	.uleb128 0x3
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0
-	.uleb128 0x9
-	.quad	.LVL41
-	.long	0xa3b
-	.byte	0
-	.uleb128 0x6
-	.long	0x2fb
-	.byte	0x76
+	.long	0x2b5
+	.byte	0x4c
 	.quad	.LFB25
 	.quad	.LFE25-.LFB25
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x847
+	.long	0x76e
 	.uleb128 0x3
-	.long	.LASF525
-	.byte	0x77
-	.byte	0x11
+	.long	.LASF520
+	.byte	0x4c
+	.byte	0x25
 	.long	0x4f
-	.long	.LLST13
-	.long	.LVUS13
+	.long	.LLST18
+	.long	.LVUS18
 	.uleb128 0x3
 	.long	.LASF485
-	.byte	0x79
-	.byte	0x14
-	.long	0xcc
-	.long	.LLST14
-	.long	.LVUS14
-	.uleb128 0xe
-	.long	.LLRL15
-	.long	0x839
-	.uleb128 0x5
-	.string	"i"
-	.byte	0x7c
-	.byte	0x15
-	.long	0x32
-	.long	.LLST16
-	.long	.LVUS16
+	.byte	0x4e
+	.byte	0x28
+	.long	0xda
+	.long	.LLST19
+	.long	.LVUS19
+	.uleb128 0x1c
+	.quad	.LVL29
+	.long	0x642
+	.long	0x760
+	.uleb128 0x4
+	.uleb128 0x1
+	.byte	0x54
+	.uleb128 0x6
+	.byte	0xa3
+	.uleb128 0x1
+	.byte	0x55
+	.byte	0x8
+	.byte	0xff
+	.byte	0x1a
+	.uleb128 0x4
+	.uleb128 0x1
+	.byte	0x51
+	.uleb128 0x3
+	.byte	0xa3
+	.uleb128 0x1
+	.byte	0x54
 	.byte	0
 	.uleb128 0x9
-	.quad	.LVL21
-	.long	0xa3b
+	.quad	.LVL30
+	.long	0x86f
 	.byte	0
 	.uleb128 0x6
-	.long	0x2e2
-	.byte	0x63
+	.long	0x29b
+	.byte	0x3e
 	.quad	.LFB24
 	.quad	.LFE24-.LFB24
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x8f6
-	.uleb128 0xa
-	.string	"str"
-	.byte	0x63
-	.byte	0x32
-	.long	0x40c
-	.long	.LLST52
-	.long	.LVUS52
+	.long	0x7d9
+	.uleb128 0x3
+	.long	.LASF520
+	.byte	0x3f
+	.byte	0x11
+	.long	0x4f
+	.long	.LLST3
+	.long	.LVUS3
 	.uleb128 0x3
 	.long	.LASF485
-	.byte	0x63
-	.byte	0x42
-	.long	0xcc
-	.long	.LLST53
-	.long	.LVUS53
-	.uleb128 0xe
-	.long	.LLRL54
-	.long	0x8e8
-	.uleb128 0x5
+	.byte	0x41
+	.byte	0x14
+	.long	0xda
+	.long	.LLST4
+	.long	.LVUS4
+	.uleb128 0x14
+	.long	.LLRL5
+	.long	0x7cb
+	.uleb128 0x7
 	.string	"i"
-	.byte	0x66
+	.byte	0x44
 	.byte	0x15
 	.long	0x32
-	.long	.LLST55
-	.long	.LVUS55
-	.uleb128 0xf
-	.long	.LLRL56
-	.uleb128 0x5
-	.string	"pos"
-	.byte	0x68
-	.byte	0x14
-	.long	0x32
-	.long	.LLST57
-	.long	.LVUS57
-	.uleb128 0x15
-	.quad	.LVL93
-	.long	0xb89
-	.long	0x8d3
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x51
-	.uleb128 0x2
-	.byte	0x7c
-	.sleb128 0
-	.byte	0
-	.uleb128 0x8
-	.quad	.LVL94
-	.long	0x469
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x55
-	.uleb128 0x1
-	.byte	0x31
-	.byte	0
-	.byte	0
+	.long	.LLST6
+	.long	.LVUS6
 	.byte	0
 	.uleb128 0x9
-	.quad	.LVL86
-	.long	0xbd1
+	.quad	.LVL10
+	.long	0x86f
 	.byte	0
 	.uleb128 0x6
-	.long	0x2c9
-	.byte	0x50
+	.long	0x282
+	.byte	0x25
 	.quad	.LFB23
 	.quad	.LFE23-.LFB23
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x9a5
-	.uleb128 0xa
-	.string	"str"
-	.byte	0x50
-	.byte	0x29
-	.long	0x3f6
-	.long	.LLST46
-	.long	.LVUS46
-	.uleb128 0x3
-	.long	.LASF485
-	.byte	0x50
-	.byte	0x39
-	.long	0xcc
-	.long	.LLST47
-	.long	.LVUS47
-	.uleb128 0xe
-	.long	.LLRL48
-	.long	0x997
-	.uleb128 0x5
-	.string	"i"
-	.byte	0x53
-	.byte	0x15
-	.long	0x32
-	.long	.LLST49
-	.long	.LVUS49
-	.uleb128 0xf
-	.long	.LLRL50
-	.uleb128 0x5
-	.string	"pos"
-	.byte	0x55
-	.byte	0x14
-	.long	0x32
-	.long	.LLST51
-	.long	.LVUS51
-	.uleb128 0x15
-	.quad	.LVL81
-	.long	0xb89
-	.long	0x982
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x51
-	.uleb128 0x2
-	.byte	0x7c
-	.sleb128 0
-	.byte	0
-	.uleb128 0x8
-	.quad	.LVL82
-	.long	0x469
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x55
-	.uleb128 0x1
-	.byte	0x31
-	.byte	0
-	.byte	0
-	.byte	0
-	.uleb128 0x9
-	.quad	.LVL74
-	.long	0xbd1
-	.byte	0
-	.uleb128 0x6
-	.long	0x2b0
-	.byte	0x37
-	.quad	.LFB22
-	.quad	.LFE22-.LFB22
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0xa3b
-	.uleb128 0xa
+	.long	0x86f
+	.uleb128 0x16
 	.string	"c"
-	.byte	0x37
+	.byte	0x25
 	.byte	0x23
 	.long	0x4f
-	.long	.LLST43
-	.long	.LVUS43
+	.long	.LLST33
+	.long	.LVUS33
 	.uleb128 0x3
 	.long	.LASF485
-	.byte	0x37
+	.byte	0x25
 	.byte	0x31
-	.long	0xcc
-	.long	.LLST44
-	.long	.LVUS44
-	.uleb128 0x5
+	.long	0xda
+	.long	.LLST34
+	.long	.LVUS34
+	.uleb128 0x7
 	.string	"pos"
-	.byte	0x39
+	.byte	0x27
 	.byte	0x10
 	.long	0x32
-	.long	.LLST45
-	.long	.LVUS45
-	.uleb128 0x15
-	.quad	.LVL66
-	.long	0xb89
-	.long	0xa1a
+	.long	.LLST35
+	.long	.LVUS35
+	.uleb128 0x1c
+	.quad	.LVL55
+	.long	0x8ac
+	.long	0x84e
 	.uleb128 0x4
 	.uleb128 0x1
 	.byte	0x54
@@ -2198,11 +1600,11 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0x54
 	.byte	0
 	.uleb128 0x9
-	.quad	.LVL67
-	.long	0xbd1
-	.uleb128 0x8
-	.quad	.LVL69
-	.long	0x469
+	.quad	.LVL56
+	.long	0x8f4
+	.uleb128 0xf
+	.quad	.LVL58
+	.long	0x3fb
 	.uleb128 0x4
 	.uleb128 0x1
 	.byte	0x55
@@ -2211,177 +1613,62 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0
 	.byte	0
 	.uleb128 0x6
-	.long	0x396
-	.byte	0x30
+	.long	0x336
+	.byte	0x1e
+	.quad	.LFB22
+	.quad	.LFE22-.LFB22
+	.uleb128 0x1
+	.byte	0x9c
+	.long	0x8ac
+	.uleb128 0x16
+	.string	"pos"
+	.byte	0x1e
+	.byte	0x27
+	.long	0x1a2
+	.long	.LLST2
+	.long	.LVUS2
+	.uleb128 0x9
+	.quad	.LVL4
+	.long	0x8f4
+	.byte	0
+	.uleb128 0x6
+	.long	0x264
+	.byte	0x17
 	.quad	.LFB21
 	.quad	.LFE21-.LFB21
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0xa78
-	.uleb128 0xa
-	.string	"pos"
-	.byte	0x30
-	.byte	0x27
-	.long	0x194
-	.long	.LLST12
-	.long	.LVUS12
-	.uleb128 0x9
-	.quad	.LVL15
-	.long	0xbd1
-	.byte	0
-	.uleb128 0x6
-	.long	0x292
-	.byte	0x27
-	.quad	.LFB20
-	.quad	.LFE20-.LFB20
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0xb02
-	.uleb128 0xa
-	.string	"str"
-	.byte	0x27
-	.byte	0x34
-	.long	0x40c
-	.long	.LLST7
-	.long	.LVUS7
+	.long	0x8f4
 	.uleb128 0x3
 	.long	.LASF523
-	.byte	0x27
-	.byte	0x40
-	.long	0x32
-	.long	.LLST8
-	.long	.LVUS8
-	.uleb128 0x3
-	.long	.LASF485
-	.byte	0x29
-	.byte	0x2a
-	.long	0xcc
-	.long	.LLST9
-	.long	.LVUS9
-	.uleb128 0xf
-	.long	.LLRL10
-	.uleb128 0x5
-	.string	"i"
-	.byte	0x2c
-	.byte	0x15
-	.long	0x32
-	.long	.LLST11
-	.long	.LVUS11
-	.uleb128 0x8
-	.quad	.LVL11
-	.long	0xb89
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x55
-	.uleb128 0x5
-	.byte	0x73
-	.sleb128 0
-	.byte	0x7c
-	.sleb128 0
-	.byte	0x22
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x51
-	.uleb128 0x2
-	.byte	0x7d
-	.sleb128 0
-	.byte	0
-	.byte	0
-	.byte	0
-	.uleb128 0x6
-	.long	0x274
-	.byte	0x1e
-	.quad	.LFB19
-	.quad	.LFE19-.LFB19
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0xb89
-	.uleb128 0xa
-	.string	"str"
-	.byte	0x1e
-	.byte	0x2b
-	.long	0x3f6
-	.long	.LLST2
-	.long	.LVUS2
-	.uleb128 0x3
-	.long	.LASF523
-	.byte	0x1e
-	.byte	0x37
-	.long	0x32
-	.long	.LLST3
-	.long	.LVUS3
-	.uleb128 0x3
-	.long	.LASF485
-	.byte	0x20
-	.byte	0x2a
-	.long	0xcc
-	.long	.LLST4
-	.long	.LVUS4
-	.uleb128 0xf
-	.long	.LLRL5
-	.uleb128 0x5
-	.string	"i"
-	.byte	0x23
-	.byte	0x15
-	.long	0x32
-	.long	.LLST6
-	.long	.LVUS6
-	.uleb128 0x8
-	.quad	.LVL5
-	.long	0xb89
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x55
-	.uleb128 0x2
-	.byte	0x73
-	.sleb128 0
-	.uleb128 0x4
-	.uleb128 0x1
-	.byte	0x51
-	.uleb128 0x2
-	.byte	0x7d
-	.sleb128 0
-	.byte	0
-	.byte	0
-	.byte	0
-	.uleb128 0x6
-	.long	0x256
-	.byte	0x17
-	.quad	.LFB18
-	.quad	.LFE18-.LFB18
-	.uleb128 0x1
-	.byte	0x9c
-	.long	0xbd1
-	.uleb128 0x3
-	.long	.LASF528
 	.byte	0x17
 	.byte	0x24
 	.long	0x32
 	.long	.LLST1
 	.long	.LVUS1
-	.uleb128 0x1e
+	.uleb128 0x1d
 	.long	.LASF484
 	.byte	0x33
 	.long	0x4f
 	.uleb128 0x1
 	.byte	0x54
-	.uleb128 0x1e
+	.uleb128 0x1d
 	.long	.LASF485
 	.byte	0x49
-	.long	0xcc
+	.long	0xda
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0
-	.uleb128 0x29
-	.long	0x24a
+	.uleb128 0x2a
+	.long	0x258
 	.byte	0x1
 	.byte	0xa
 	.byte	0xa
-	.quad	.LFB17
-	.quad	.LFE17-.LFB17
+	.quad	.LFB20
+	.quad	.LFE20-.LFB20
 	.uleb128 0x1
 	.byte	0x9c
-	.uleb128 0x5
+	.uleb128 0x7
 	.string	"pos"
 	.byte	0xc
 	.byte	0x10
@@ -2393,19 +1680,19 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.section	.debug_abbrev,"",@progbits
 .Ldebug_abbrev0:
 	.uleb128 0x1
-	.uleb128 0x5
-	.byte	0
-	.uleb128 0x49
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x2
 	.uleb128 0x28
 	.byte	0
 	.uleb128 0x3
 	.uleb128 0xe
 	.uleb128 0x1c
 	.uleb128 0xb
+	.byte	0
+	.byte	0
+	.uleb128 0x2
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x49
+	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x3
@@ -2438,23 +1725,14 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0
 	.byte	0
 	.uleb128 0x5
-	.uleb128 0x34
+	.uleb128 0x24
 	.byte	0
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0x3e
+	.uleb128 0xb
 	.uleb128 0x3
-	.uleb128 0x8
-	.uleb128 0x3a
-	.uleb128 0x21
-	.sleb128 1
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0xb
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x2
-	.uleb128 0x17
-	.uleb128 0x2137
-	.uleb128 0x17
+	.uleb128 0xe
 	.byte	0
 	.byte	0
 	.uleb128 0x6
@@ -2483,36 +1761,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0
 	.byte	0
 	.uleb128 0x7
-	.uleb128 0x24
-	.byte	0
-	.uleb128 0xb
-	.uleb128 0xb
-	.uleb128 0x3e
-	.uleb128 0xb
-	.uleb128 0x3
-	.uleb128 0xe
-	.byte	0
-	.byte	0
-	.uleb128 0x8
-	.uleb128 0x48
-	.byte	0x1
-	.uleb128 0x7d
-	.uleb128 0x1
-	.uleb128 0x7f
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x9
-	.uleb128 0x48
-	.byte	0
-	.uleb128 0x7d
-	.uleb128 0x1
-	.uleb128 0x7f
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0xa
-	.uleb128 0x5
+	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
 	.uleb128 0x8
@@ -2531,33 +1780,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0xb
-	.uleb128 0x2e
-	.byte	0x1
-	.uleb128 0x3f
-	.uleb128 0x19
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0x21
-	.sleb128 3
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0x21
-	.sleb128 21
-	.uleb128 0x6e
-	.uleb128 0xe
-	.uleb128 0x32
-	.uleb128 0x21
-	.sleb128 1
-	.uleb128 0x3c
-	.uleb128 0x19
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0xc
+	.uleb128 0x8
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2583,30 +1806,23 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0xd
+	.uleb128 0x9
+	.uleb128 0x48
+	.byte	0
+	.uleb128 0x7d
+	.uleb128 0x1
+	.uleb128 0x7f
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0xa
 	.uleb128 0x26
 	.byte	0
 	.uleb128 0x49
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0xe
 	.uleb128 0xb
-	.byte	0x1
-	.uleb128 0x55
-	.uleb128 0x17
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0xf
-	.uleb128 0xb
-	.byte	0x1
-	.uleb128 0x55
-	.uleb128 0x17
-	.byte	0
-	.byte	0
-	.uleb128 0x10
 	.uleb128 0xd
 	.byte	0
 	.uleb128 0x3
@@ -2624,7 +1840,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x11
+	.uleb128 0xc
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -2646,7 +1862,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x12
+	.uleb128 0xd
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x47
@@ -2662,7 +1878,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x13
+	.uleb128 0xe
 	.uleb128 0xb
 	.byte	0x1
 	.uleb128 0x11
@@ -2671,7 +1887,16 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x7
 	.byte	0
 	.byte	0
-	.uleb128 0x14
+	.uleb128 0xf
+	.uleb128 0x48
+	.byte	0x1
+	.uleb128 0x7d
+	.uleb128 0x1
+	.uleb128 0x7f
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x10
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -2692,18 +1917,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0x15
-	.uleb128 0x48
-	.byte	0x1
-	.uleb128 0x7d
-	.uleb128 0x1
-	.uleb128 0x7f
-	.uleb128 0x13
-	.uleb128 0x1
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x16
+	.uleb128 0x11
 	.uleb128 0x13
 	.byte	0x1
 	.uleb128 0x3
@@ -2725,14 +1939,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x17
-	.uleb128 0x35
-	.byte	0
-	.uleb128 0x49
-	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x18
+	.uleb128 0x12
 	.uleb128 0x2e
 	.byte	0
 	.uleb128 0x3f
@@ -2757,17 +1964,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x19
-	.uleb128 0xf
-	.byte	0
-	.uleb128 0xb
-	.uleb128 0x21
-	.sleb128 8
-	.uleb128 0x49
 	.uleb128 0x13
-	.byte	0
-	.byte	0
-	.uleb128 0x1a
 	.uleb128 0x10
 	.byte	0
 	.uleb128 0xb
@@ -2777,7 +1974,16 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1b
+	.uleb128 0x14
+	.uleb128 0xb
+	.byte	0x1
+	.uleb128 0x55
+	.uleb128 0x17
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x15
 	.uleb128 0x34
 	.byte	0
 	.uleb128 0x3
@@ -2794,7 +2000,27 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1c
+	.uleb128 0x16
+	.uleb128 0x5
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0x8
+	.uleb128 0x3a
+	.uleb128 0x21
+	.sleb128 1
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x2
+	.uleb128 0x17
+	.uleb128 0x2137
+	.uleb128 0x17
+	.byte	0
+	.byte	0
+	.uleb128 0x17
 	.uleb128 0x16
 	.byte	0
 	.uleb128 0x3
@@ -2811,7 +2037,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1d
+	.uleb128 0x18
 	.uleb128 0xd
 	.byte	0
 	.uleb128 0x3
@@ -2830,7 +2056,58 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x1e
+	.uleb128 0x19
+	.uleb128 0x35
+	.byte	0
+	.uleb128 0x49
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1a
+	.uleb128 0x2e
+	.byte	0x1
+	.uleb128 0x3f
+	.uleb128 0x19
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0x21
+	.sleb128 3
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0x21
+	.sleb128 21
+	.uleb128 0x6e
+	.uleb128 0xe
+	.uleb128 0x32
+	.uleb128 0x21
+	.sleb128 1
+	.uleb128 0x3c
+	.uleb128 0x19
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1b
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x47
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1c
+	.uleb128 0x48
+	.byte	0x1
+	.uleb128 0x7d
+	.uleb128 0x1
+	.uleb128 0x7f
+	.uleb128 0x13
+	.uleb128 0x1
+	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x1d
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -2849,7 +2126,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x1f
+	.uleb128 0x1e
 	.uleb128 0x11
 	.byte	0x1
 	.uleb128 0x25
@@ -2870,7 +2147,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0x20
+	.uleb128 0x1f
 	.uleb128 0x24
 	.byte	0
 	.uleb128 0xb
@@ -2881,7 +2158,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x8
 	.byte	0
 	.byte	0
-	.uleb128 0x21
+	.uleb128 0x20
 	.uleb128 0x39
 	.byte	0x1
 	.uleb128 0x3
@@ -2894,6 +2171,27 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0xb
 	.uleb128 0x1
 	.uleb128 0x13
+	.byte	0
+	.byte	0
+	.uleb128 0x21
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0xb
+	.uleb128 0x3b
+	.uleb128 0xb
+	.uleb128 0x39
+	.uleb128 0xb
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x3c
+	.uleb128 0x19
+	.uleb128 0x1c
+	.uleb128 0xb
+	.uleb128 0x20
+	.uleb128 0xb
 	.byte	0
 	.byte	0
 	.uleb128 0x22
@@ -3011,13 +2309,22 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0
 	.byte	0
 	.uleb128 0x28
-	.uleb128 0x34
+	.uleb128 0xf
 	.byte	0
-	.uleb128 0x47
+	.uleb128 0xb
+	.uleb128 0xb
+	.uleb128 0x49
 	.uleb128 0x13
 	.byte	0
 	.byte	0
 	.uleb128 0x29
+	.uleb128 0xb
+	.byte	0x1
+	.uleb128 0x55
+	.uleb128 0x17
+	.byte	0
+	.byte	0
+	.uleb128 0x2a
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x47
@@ -3047,251 +2354,251 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0
 	.long	0
 .Ldebug_loc0:
-.LVUS36:
+.LVUS26:
 	.uleb128 0
-	.uleb128 .LVU143
-	.uleb128 .LVU143
-	.uleb128 .LVU187
-	.uleb128 .LVU187
+	.uleb128 .LVU107
+	.uleb128 .LVU107
+	.uleb128 .LVU151
+	.uleb128 .LVU151
 	.uleb128 0
-.LLST36:
+.LLST26:
 	.byte	0x4
-	.uleb128 .LVL49-.Ltext0
-	.uleb128 .LVL51-.Ltext0
+	.uleb128 .LVL38-.Ltext0
+	.uleb128 .LVL40-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x4
-	.uleb128 .LVL51-.Ltext0
-	.uleb128 .LVL61-1-.Ltext0
+	.uleb128 .LVL40-.Ltext0
+	.uleb128 .LVL50-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x58
 	.byte	0x4
-	.uleb128 .LVL61-1-.Ltext0
-	.uleb128 .LFE30-.Ltext0
+	.uleb128 .LVL50-1-.Ltext0
+	.uleb128 .LFE29-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x9f
 	.byte	0
-.LVUS38:
-	.uleb128 .LVU140
-	.uleb128 .LVU145
-	.uleb128 .LVU145
-	.uleb128 .LVU165
-.LLST38:
+.LVUS28:
+	.uleb128 .LVU104
+	.uleb128 .LVU109
+	.uleb128 .LVU109
+	.uleb128 .LVU129
+.LLST28:
 	.byte	0x4
-	.uleb128 .LVL50-.Ltext0
-	.uleb128 .LVL52-.Ltext0
+	.uleb128 .LVL39-.Ltext0
+	.uleb128 .LVL41-.Ltext0
 	.uleb128 0x2
 	.byte	0x30
 	.byte	0x9f
 	.byte	0x4
-	.uleb128 .LVL52-.Ltext0
-	.uleb128 .LVL56-.Ltext0
+	.uleb128 .LVL41-.Ltext0
+	.uleb128 .LVL45-.Ltext0
 	.uleb128 0x1
 	.byte	0x5a
 	.byte	0
-.LVUS39:
-	.uleb128 .LVU148
-	.uleb128 .LVU149
-.LLST39:
+.LVUS29:
+	.uleb128 .LVU112
+	.uleb128 .LVU113
+.LLST29:
 	.byte	0x4
-	.uleb128 .LVL52-.Ltext0
-	.uleb128 .LVL53-.Ltext0
+	.uleb128 .LVL41-.Ltext0
+	.uleb128 .LVL42-.Ltext0
 	.uleb128 0x2
 	.byte	0x30
 	.byte	0x9f
 	.byte	0
-.LVUS41:
-	.uleb128 .LVU163
-	.uleb128 .LVU165
-	.uleb128 .LVU167
-	.uleb128 .LVU181
-.LLST41:
+.LVUS31:
+	.uleb128 .LVU127
+	.uleb128 .LVU129
+	.uleb128 .LVU131
+	.uleb128 .LVU145
+.LLST31:
 	.byte	0x4
-	.uleb128 .LVL55-.Ltext0
-	.uleb128 .LVL56-.Ltext0
+	.uleb128 .LVL44-.Ltext0
+	.uleb128 .LVL45-.Ltext0
 	.uleb128 0x2
 	.byte	0x30
 	.byte	0x9f
 	.byte	0x4
-	.uleb128 .LVL57-.Ltext0
-	.uleb128 .LVL60-.Ltext0
+	.uleb128 .LVL46-.Ltext0
+	.uleb128 .LVL49-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
-.LVUS42:
-	.uleb128 .LVU170
-	.uleb128 .LVU171
-.LLST42:
+.LVUS32:
+	.uleb128 .LVU134
+	.uleb128 .LVU135
+.LLST32:
 	.byte	0x4
-	.uleb128 .LVL57-.Ltext0
-	.uleb128 .LVL58-.Ltext0
+	.uleb128 .LVL46-.Ltext0
+	.uleb128 .LVL47-.Ltext0
 	.uleb128 0x2
 	.byte	0x30
 	.byte	0x9f
 	.byte	0
-.LVUS17:
+.LVUS7:
 	.uleb128 0
-	.uleb128 .LVU91
-	.uleb128 .LVU91
-	.uleb128 .LVU100
-	.uleb128 .LVU100
+	.uleb128 .LVU55
+	.uleb128 .LVU55
+	.uleb128 .LVU64
+	.uleb128 .LVU64
 	.uleb128 0
-.LLST17:
+.LLST7:
 	.byte	0x4
-	.uleb128 .LVL22-.Ltext0
-	.uleb128 .LVL23-.Ltext0
+	.uleb128 .LVL11-.Ltext0
+	.uleb128 .LVL12-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x4
-	.uleb128 .LVL23-.Ltext0
-	.uleb128 .LVL30-.Ltext0
+	.uleb128 .LVL12-.Ltext0
+	.uleb128 .LVL19-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x9f
 	.byte	0x4
-	.uleb128 .LVL30-.Ltext0
-	.uleb128 .LFE29-.Ltext0
+	.uleb128 .LVL19-.Ltext0
+	.uleb128 .LFE28-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
-.LVUS18:
+.LVUS8:
 	.uleb128 0
-	.uleb128 .LVU91
-	.uleb128 .LVU91
-	.uleb128 .LVU98
-	.uleb128 .LVU98
-	.uleb128 .LVU100
-	.uleb128 .LVU100
+	.uleb128 .LVU55
+	.uleb128 .LVU55
+	.uleb128 .LVU62
+	.uleb128 .LVU62
+	.uleb128 .LVU64
+	.uleb128 .LVU64
 	.uleb128 0
-.LLST18:
+.LLST8:
 	.byte	0x4
-	.uleb128 .LVL22-.Ltext0
-	.uleb128 .LVL23-.Ltext0
+	.uleb128 .LVL11-.Ltext0
+	.uleb128 .LVL12-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x4
-	.uleb128 .LVL23-.Ltext0
-	.uleb128 .LVL28-.Ltext0
+	.uleb128 .LVL12-.Ltext0
+	.uleb128 .LVL17-.Ltext0
 	.uleb128 0x1
 	.byte	0x5d
 	.byte	0x4
-	.uleb128 .LVL28-.Ltext0
-	.uleb128 .LVL30-.Ltext0
+	.uleb128 .LVL17-.Ltext0
+	.uleb128 .LVL19-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x9f
 	.byte	0x4
-	.uleb128 .LVL30-.Ltext0
-	.uleb128 .LFE29-.Ltext0
+	.uleb128 .LVL19-.Ltext0
+	.uleb128 .LFE28-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
-.LVUS19:
+.LVUS9:
 	.uleb128 0
-	.uleb128 .LVU91
-	.uleb128 .LVU91
-	.uleb128 .LVU97
-	.uleb128 .LVU97
-	.uleb128 .LVU100
-	.uleb128 .LVU100
+	.uleb128 .LVU55
+	.uleb128 .LVU55
+	.uleb128 .LVU61
+	.uleb128 .LVU61
+	.uleb128 .LVU64
+	.uleb128 .LVU64
 	.uleb128 0
-.LLST19:
+.LLST9:
 	.byte	0x4
-	.uleb128 .LVL22-.Ltext0
-	.uleb128 .LVL23-.Ltext0
+	.uleb128 .LVL11-.Ltext0
+	.uleb128 .LVL12-.Ltext0
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0x4
-	.uleb128 .LVL23-.Ltext0
-	.uleb128 .LVL27-.Ltext0
+	.uleb128 .LVL12-.Ltext0
+	.uleb128 .LVL16-.Ltext0
 	.uleb128 0x1
 	.byte	0x5c
 	.byte	0x4
-	.uleb128 .LVL27-.Ltext0
-	.uleb128 .LVL30-.Ltext0
+	.uleb128 .LVL16-.Ltext0
+	.uleb128 .LVL19-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0x9f
 	.byte	0x4
-	.uleb128 .LVL30-.Ltext0
-	.uleb128 .LFE29-.Ltext0
+	.uleb128 .LVL19-.Ltext0
+	.uleb128 .LFE28-.Ltext0
 	.uleb128 0x1
 	.byte	0x51
+	.byte	0
+.LVUS10:
+	.uleb128 0
+	.uleb128 .LVU55
+	.uleb128 .LVU55
+	.uleb128 .LVU63
+	.uleb128 .LVU63
+	.uleb128 .LVU64
+	.uleb128 .LVU64
+	.uleb128 0
+.LLST10:
+	.byte	0x4
+	.uleb128 .LVL11-.Ltext0
+	.uleb128 .LVL12-.Ltext0
+	.uleb128 0x1
+	.byte	0x52
+	.byte	0x4
+	.uleb128 .LVL12-.Ltext0
+	.uleb128 .LVL18-.Ltext0
+	.uleb128 0x1
+	.byte	0x5e
+	.byte	0x4
+	.uleb128 .LVL18-.Ltext0
+	.uleb128 .LVL19-.Ltext0
+	.uleb128 0x4
+	.byte	0xa3
+	.uleb128 0x1
+	.byte	0x52
+	.byte	0x9f
+	.byte	0x4
+	.uleb128 .LVL19-.Ltext0
+	.uleb128 .LFE28-.Ltext0
+	.uleb128 0x1
+	.byte	0x52
+	.byte	0
+.LVUS12:
+	.uleb128 .LVU52
+	.uleb128 .LVU55
+	.uleb128 .LVU55
+	.uleb128 .LVU60
+	.uleb128 .LVU64
+	.uleb128 0
+.LLST12:
+	.byte	0x4
+	.uleb128 .LVL11-.Ltext0
+	.uleb128 .LVL12-.Ltext0
+	.uleb128 0x1
+	.byte	0x55
+	.byte	0x4
+	.uleb128 .LVL12-.Ltext0
+	.uleb128 .LVL15-.Ltext0
+	.uleb128 0x1
+	.byte	0x53
+	.byte	0x4
+	.uleb128 .LVL19-.Ltext0
+	.uleb128 .LFE28-.Ltext0
+	.uleb128 0x1
+	.byte	0x55
 	.byte	0
 .LVUS20:
 	.uleb128 0
 	.uleb128 .LVU91
-	.uleb128 .LVU91
-	.uleb128 .LVU99
-	.uleb128 .LVU99
-	.uleb128 .LVU100
-	.uleb128 .LVU100
-	.uleb128 0
 .LLST20:
 	.byte	0x4
-	.uleb128 .LVL22-.Ltext0
-	.uleb128 .LVL23-.Ltext0
-	.uleb128 0x1
-	.byte	0x52
-	.byte	0x4
-	.uleb128 .LVL23-.Ltext0
-	.uleb128 .LVL29-.Ltext0
-	.uleb128 0x1
-	.byte	0x5e
-	.byte	0x4
-	.uleb128 .LVL29-.Ltext0
-	.uleb128 .LVL30-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x52
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL30-.Ltext0
-	.uleb128 .LFE29-.Ltext0
-	.uleb128 0x1
-	.byte	0x52
-	.byte	0
-.LVUS22:
-	.uleb128 .LVU88
-	.uleb128 .LVU91
-	.uleb128 .LVU91
-	.uleb128 .LVU96
-	.uleb128 .LVU100
-	.uleb128 0
-.LLST22:
-	.byte	0x4
-	.uleb128 .LVL22-.Ltext0
-	.uleb128 .LVL23-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x4
-	.uleb128 .LVL23-.Ltext0
-	.uleb128 .LVL26-.Ltext0
-	.uleb128 0x1
-	.byte	0x53
-	.byte	0x4
-	.uleb128 .LVL30-.Ltext0
-	.uleb128 .LFE29-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0
-.LVUS30:
-	.uleb128 0
-	.uleb128 .LVU127
-.LLST30:
-	.byte	0x4
-	.uleb128 .LVL42-.Ltext0
-	.uleb128 .LVL43-.Ltext0
+	.uleb128 .LVL31-.Ltext0
+	.uleb128 .LVL32-.Ltext0
 	.uleb128 0x6
 	.byte	0x55
 	.byte	0x93
@@ -3300,92 +2607,92 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0x93
 	.uleb128 0x8
 	.byte	0
-.LVUS31:
+.LVUS21:
 	.uleb128 0
-	.uleb128 .LVU135
-	.uleb128 .LVU135
+	.uleb128 .LVU99
+	.uleb128 .LVU99
 	.uleb128 0
-.LLST31:
+.LLST21:
 	.byte	0x4
-	.uleb128 .LVL42-.Ltext0
-	.uleb128 .LVL47-.Ltext0
+	.uleb128 .LVL31-.Ltext0
+	.uleb128 .LVL36-.Ltext0
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0x4
-	.uleb128 .LVL47-.Ltext0
-	.uleb128 .LFE28-.Ltext0
+	.uleb128 .LVL36-.Ltext0
+	.uleb128 .LFE27-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0x9f
 	.byte	0
-.LVUS32:
+.LVUS22:
 	.uleb128 0
-	.uleb128 .LVU134
-	.uleb128 .LVU134
-	.uleb128 .LVU136
-	.uleb128 .LVU136
+	.uleb128 .LVU98
+	.uleb128 .LVU98
+	.uleb128 .LVU100
+	.uleb128 .LVU100
 	.uleb128 0
-.LLST32:
+.LLST22:
 	.byte	0x4
-	.uleb128 .LVL42-.Ltext0
-	.uleb128 .LVL46-.Ltext0
+	.uleb128 .LVL31-.Ltext0
+	.uleb128 .LVL35-.Ltext0
 	.uleb128 0x1
 	.byte	0x52
 	.byte	0x4
-	.uleb128 .LVL46-.Ltext0
-	.uleb128 .LVL48-1-.Ltext0
+	.uleb128 .LVL35-.Ltext0
+	.uleb128 .LVL37-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0x4
-	.uleb128 .LVL48-1-.Ltext0
-	.uleb128 .LFE28-.Ltext0
+	.uleb128 .LVL37-1-.Ltext0
+	.uleb128 .LFE27-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x52
 	.byte	0x9f
 	.byte	0
-.LVUS33:
+.LVUS23:
 	.uleb128 0
-	.uleb128 .LVU136
-	.uleb128 .LVU136
+	.uleb128 .LVU100
+	.uleb128 .LVU100
 	.uleb128 0
-.LLST33:
+.LLST23:
 	.byte	0x4
-	.uleb128 .LVL42-.Ltext0
-	.uleb128 .LVL48-1-.Ltext0
+	.uleb128 .LVL31-.Ltext0
+	.uleb128 .LVL37-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x58
 	.byte	0x4
-	.uleb128 .LVL48-1-.Ltext0
-	.uleb128 .LFE28-.Ltext0
+	.uleb128 .LVL37-1-.Ltext0
+	.uleb128 .LFE27-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x58
 	.byte	0x9f
 	.byte	0
-.LVUS34:
-	.uleb128 .LVU129
-	.uleb128 .LVU136
-.LLST34:
+.LVUS24:
+	.uleb128 .LVU93
+	.uleb128 .LVU100
+.LLST24:
 	.byte	0x4
-	.uleb128 .LVL44-.Ltext0
-	.uleb128 .LVL48-1-.Ltext0
+	.uleb128 .LVL33-.Ltext0
+	.uleb128 .LVL37-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
-.LVUS35:
-	.uleb128 .LVU130
-	.uleb128 .LVU133
-	.uleb128 .LVU133
-	.uleb128 .LVU136
-.LLST35:
+.LVUS25:
+	.uleb128 .LVU94
+	.uleb128 .LVU97
+	.uleb128 .LVU97
+	.uleb128 .LVU100
+.LLST25:
 	.byte	0x4
-	.uleb128 .LVL44-.Ltext0
-	.uleb128 .LVL45-.Ltext0
+	.uleb128 .LVL33-.Ltext0
+	.uleb128 .LVL34-.Ltext0
 	.uleb128 0x6
 	.byte	0x75
 	.sleb128 0
@@ -3394,99 +2701,99 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0x22
 	.byte	0x9f
 	.byte	0x4
-	.uleb128 .LVL45-.Ltext0
-	.uleb128 .LVL48-1-.Ltext0
+	.uleb128 .LVL34-.Ltext0
+	.uleb128 .LVL37-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
-.LVUS23:
+.LVUS13:
 	.uleb128 0
-	.uleb128 .LVU105
-	.uleb128 .LVU105
+	.uleb128 .LVU69
+	.uleb128 .LVU69
 	.uleb128 0
-.LLST23:
+.LLST13:
 	.byte	0x4
-	.uleb128 .LVL31-.Ltext0
-	.uleb128 .LVL32-.Ltext0
+	.uleb128 .LVL20-.Ltext0
+	.uleb128 .LVL21-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x4
-	.uleb128 .LVL32-.Ltext0
-	.uleb128 .LFE27-.Ltext0
+	.uleb128 .LVL21-.Ltext0
+	.uleb128 .LFE26-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x9f
 	.byte	0
-.LVUS24:
+.LVUS14:
 	.uleb128 0
-	.uleb128 .LVU110
-	.uleb128 .LVU110
-	.uleb128 .LVU111
-	.uleb128 .LVU111
+	.uleb128 .LVU74
+	.uleb128 .LVU74
+	.uleb128 .LVU75
+	.uleb128 .LVU75
 	.uleb128 0
-.LLST24:
+.LLST14:
 	.byte	0x4
-	.uleb128 .LVL31-.Ltext0
-	.uleb128 .LVL35-.Ltext0
+	.uleb128 .LVL20-.Ltext0
+	.uleb128 .LVL24-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x4
-	.uleb128 .LVL35-.Ltext0
-	.uleb128 .LVL36-1-.Ltext0
+	.uleb128 .LVL24-.Ltext0
+	.uleb128 .LVL25-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0x4
-	.uleb128 .LVL36-1-.Ltext0
-	.uleb128 .LFE27-.Ltext0
+	.uleb128 .LVL25-1-.Ltext0
+	.uleb128 .LFE26-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x9f
 	.byte	0
-.LVUS25:
+.LVUS15:
 	.uleb128 0
-	.uleb128 .LVU109
-	.uleb128 .LVU109
-	.uleb128 .LVU111
-	.uleb128 .LVU111
+	.uleb128 .LVU73
+	.uleb128 .LVU73
+	.uleb128 .LVU75
+	.uleb128 .LVU75
 	.uleb128 0
-.LLST25:
+.LLST15:
 	.byte	0x4
-	.uleb128 .LVL31-.Ltext0
-	.uleb128 .LVL34-.Ltext0
+	.uleb128 .LVL20-.Ltext0
+	.uleb128 .LVL23-.Ltext0
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0x4
-	.uleb128 .LVL34-.Ltext0
-	.uleb128 .LVL36-1-.Ltext0
+	.uleb128 .LVL23-.Ltext0
+	.uleb128 .LVL25-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x52
 	.byte	0x4
-	.uleb128 .LVL36-1-.Ltext0
-	.uleb128 .LFE27-.Ltext0
+	.uleb128 .LVL25-1-.Ltext0
+	.uleb128 .LFE26-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0x9f
 	.byte	0
-.LVUS26:
-	.uleb128 .LVU106
-	.uleb128 .LVU111
-	.uleb128 .LVU111
+.LVUS16:
+	.uleb128 .LVU70
+	.uleb128 .LVU75
+	.uleb128 .LVU75
 	.uleb128 0
-.LLST26:
+.LLST16:
 	.byte	0x4
-	.uleb128 .LVL33-.Ltext0
-	.uleb128 .LVL36-1-.Ltext0
+	.uleb128 .LVL22-.Ltext0
+	.uleb128 .LVL25-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x4
-	.uleb128 .LVL36-1-.Ltext0
-	.uleb128 .LFE27-.Ltext0
+	.uleb128 .LVL25-1-.Ltext0
+	.uleb128 .LFE26-.Ltext0
 	.uleb128 0xc
 	.byte	0xa3
 	.uleb128 0x1
@@ -3501,29 +2808,29 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0x24
 	.byte	0x9f
 	.byte	0
-.LVUS27:
-	.uleb128 .LVU107
-	.uleb128 .LVU110
-	.uleb128 .LVU110
-	.uleb128 .LVU111
-	.uleb128 .LVU111
+.LVUS17:
+	.uleb128 .LVU71
+	.uleb128 .LVU74
+	.uleb128 .LVU74
+	.uleb128 .LVU75
+	.uleb128 .LVU75
 	.uleb128 0
-.LLST27:
+.LLST17:
 	.byte	0x4
-	.uleb128 .LVL33-.Ltext0
-	.uleb128 .LVL35-.Ltext0
+	.uleb128 .LVL22-.Ltext0
+	.uleb128 .LVL24-.Ltext0
 	.uleb128 0x4
 	.byte	0x75
 	.sleb128 80
 	.byte	0x9f
 	.byte	0x4
-	.uleb128 .LVL35-.Ltext0
-	.uleb128 .LVL36-1-.Ltext0
+	.uleb128 .LVL24-.Ltext0
+	.uleb128 .LVL25-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x4
-	.uleb128 .LVL36-1-.Ltext0
-	.uleb128 .LFE27-.Ltext0
+	.uleb128 .LVL25-1-.Ltext0
+	.uleb128 .LFE26-.Ltext0
 	.uleb128 0xe
 	.byte	0xa3
 	.uleb128 0x1
@@ -3540,73 +2847,26 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 0x50
 	.byte	0x9f
 	.byte	0
-.LVUS28:
+.LVUS18:
 	.uleb128 0
-	.uleb128 .LVU118
-	.uleb128 .LVU118
-	.uleb128 .LVU119
-	.uleb128 .LVU119
-	.uleb128 0
-.LLST28:
-	.byte	0x4
-	.uleb128 .LVL37-.Ltext0
-	.uleb128 .LVL39-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x4
-	.uleb128 .LVL39-.Ltext0
-	.uleb128 .LVL40-1-.Ltext0
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x4
-	.uleb128 .LVL40-1-.Ltext0
-	.uleb128 .LFE26-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x9f
-	.byte	0
-.LVUS29:
-	.uleb128 0
-	.uleb128 .LVU117
-	.uleb128 .LVU117
-	.uleb128 .LVU119
-	.uleb128 .LVU119
-	.uleb128 0
-.LLST29:
-	.byte	0x4
-	.uleb128 .LVL37-.Ltext0
-	.uleb128 .LVL38-.Ltext0
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x4
-	.uleb128 .LVL38-.Ltext0
-	.uleb128 .LVL40-1-.Ltext0
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0x4
-	.uleb128 .LVL40-1-.Ltext0
-	.uleb128 .LFE26-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x9f
-	.byte	0
-.LVUS13:
-	.uleb128 0
+	.uleb128 .LVU82
+	.uleb128 .LVU82
 	.uleb128 .LVU83
 	.uleb128 .LVU83
 	.uleb128 0
-.LLST13:
+.LLST18:
 	.byte	0x4
-	.uleb128 .LVL16-.Ltext0
-	.uleb128 .LVL19-.Ltext0
+	.uleb128 .LVL26-.Ltext0
+	.uleb128 .LVL28-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x4
-	.uleb128 .LVL19-.Ltext0
+	.uleb128 .LVL28-.Ltext0
+	.uleb128 .LVL29-1-.Ltext0
+	.uleb128 0x1
+	.byte	0x54
+	.byte	0x4
+	.uleb128 .LVL29-1-.Ltext0
 	.uleb128 .LFE25-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
@@ -3614,327 +2874,160 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0x55
 	.byte	0x9f
 	.byte	0
-.LVUS14:
+.LVUS19:
 	.uleb128 0
-	.uleb128 .LVU84
-	.uleb128 .LVU84
-	.uleb128 .LVU85
-	.uleb128 .LVU85
+	.uleb128 .LVU81
+	.uleb128 .LVU81
+	.uleb128 .LVU83
+	.uleb128 .LVU83
 	.uleb128 0
-.LLST14:
+.LLST19:
 	.byte	0x4
-	.uleb128 .LVL16-.Ltext0
-	.uleb128 .LVL20-.Ltext0
+	.uleb128 .LVL26-.Ltext0
+	.uleb128 .LVL27-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x4
-	.uleb128 .LVL20-.Ltext0
-	.uleb128 .LVL21-1-.Ltext0
+	.uleb128 .LVL27-.Ltext0
+	.uleb128 .LVL29-1-.Ltext0
+	.uleb128 0x1
+	.byte	0x51
+	.byte	0x4
+	.uleb128 .LVL29-1-.Ltext0
+	.uleb128 .LFE25-.Ltext0
+	.uleb128 0x4
+	.byte	0xa3
+	.uleb128 0x1
+	.byte	0x54
+	.byte	0x9f
+	.byte	0
+.LVUS3:
+	.uleb128 0
+	.uleb128 .LVU47
+	.uleb128 .LVU47
+	.uleb128 0
+.LLST3:
+	.byte	0x4
+	.uleb128 .LVL5-.Ltext0
+	.uleb128 .LVL8-.Ltext0
+	.uleb128 0x1
+	.byte	0x55
+	.byte	0x4
+	.uleb128 .LVL8-.Ltext0
+	.uleb128 .LFE24-.Ltext0
+	.uleb128 0x4
+	.byte	0xa3
+	.uleb128 0x1
+	.byte	0x55
+	.byte	0x9f
+	.byte	0
+.LVUS4:
+	.uleb128 0
+	.uleb128 .LVU48
+	.uleb128 .LVU48
+	.uleb128 .LVU49
+	.uleb128 .LVU49
+	.uleb128 0
+.LLST4:
+	.byte	0x4
+	.uleb128 .LVL5-.Ltext0
+	.uleb128 .LVL9-.Ltext0
+	.uleb128 0x1
+	.byte	0x54
+	.byte	0x4
+	.uleb128 .LVL9-.Ltext0
+	.uleb128 .LVL10-1-.Ltext0
 	.uleb128 0x2
 	.byte	0x71
 	.sleb128 1
 	.byte	0x4
-	.uleb128 .LVL21-1-.Ltext0
-	.uleb128 .LFE25-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x9f
-	.byte	0
-.LVUS16:
-	.uleb128 .LVU70
-	.uleb128 .LVU72
-.LLST16:
-	.byte	0x4
-	.uleb128 .LVL17-.Ltext0
-	.uleb128 .LVL18-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0
-.LVUS52:
-	.uleb128 0
-	.uleb128 .LVU272
-	.uleb128 .LVU272
-	.uleb128 0
-.LLST52:
-	.byte	0x4
-	.uleb128 .LVL83-.Ltext0
-	.uleb128 .LVL85-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x4
-	.uleb128 .LVL85-.Ltext0
+	.uleb128 .LVL10-1-.Ltext0
 	.uleb128 .LFE24-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
-	.byte	0x55
-	.byte	0x9f
-	.byte	0
-.LVUS53:
-	.uleb128 0
-	.uleb128 .LVU272
-	.uleb128 .LVU272
-	.uleb128 .LVU276
-	.uleb128 .LVU276
-	.uleb128 .LVU277
-	.uleb128 .LVU277
-	.uleb128 0
-.LLST53:
-	.byte	0x4
-	.uleb128 .LVL83-.Ltext0
-	.uleb128 .LVL85-.Ltext0
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x4
-	.uleb128 .LVL85-.Ltext0
-	.uleb128 .LVL87-.Ltext0
-	.uleb128 0x1
-	.byte	0x5c
-	.byte	0x4
-	.uleb128 .LVL87-.Ltext0
-	.uleb128 .LVL88-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
 	.byte	0x54
 	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL88-.Ltext0
-	.uleb128 .LFE24-.Ltext0
-	.uleb128 0x1
-	.byte	0x5c
 	.byte	0
-.LVUS55:
-	.uleb128 .LVU269
-	.uleb128 .LVU272
-	.uleb128 .LVU277
-	.uleb128 .LVU286
-	.uleb128 .LVU286
-	.uleb128 .LVU289
-	.uleb128 .LVU289
-	.uleb128 0
-.LLST55:
+.LVUS6:
+	.uleb128 .LVU34
+	.uleb128 .LVU36
+.LLST6:
 	.byte	0x4
-	.uleb128 .LVL84-.Ltext0
-	.uleb128 .LVL85-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL88-.Ltext0
-	.uleb128 .LVL89-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL89-.Ltext0
-	.uleb128 .LVL90-.Ltext0
-	.uleb128 0x2
-	.byte	0x31
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL90-.Ltext0
-	.uleb128 .LFE24-.Ltext0
+	.uleb128 .LVL6-.Ltext0
+	.uleb128 .LVL7-.Ltext0
 	.uleb128 0x2
 	.byte	0x30
 	.byte	0x9f
 	.byte	0
-.LVUS57:
-	.uleb128 .LVU292
-	.uleb128 .LVU298
-.LLST57:
-	.byte	0x4
-	.uleb128 .LVL91-.Ltext0
-	.uleb128 .LVL92-.Ltext0
-	.uleb128 0x9
-	.byte	0x70
-	.sleb128 0
-	.byte	0x8
-	.byte	0x50
-	.byte	0x1e
-	.byte	0x71
-	.sleb128 0
-	.byte	0x22
-	.byte	0x9f
-	.byte	0
-.LVUS46:
+.LVUS33:
 	.uleb128 0
-	.uleb128 .LVU231
-	.uleb128 .LVU231
+	.uleb128 .LVU160
+	.uleb128 .LVU160
+	.uleb128 .LVU163
+	.uleb128 .LVU163
+	.uleb128 .LVU186
+	.uleb128 .LVU186
 	.uleb128 0
-.LLST46:
+.LLST33:
 	.byte	0x4
-	.uleb128 .LVL70-.Ltext0
-	.uleb128 .LVL73-.Ltext0
+	.uleb128 .LVL51-.Ltext0
+	.uleb128 .LVL54-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x4
-	.uleb128 .LVL73-.Ltext0
-	.uleb128 .LFE23-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x9f
-	.byte	0
-.LVUS47:
-	.uleb128 0
-	.uleb128 .LVU230
-	.uleb128 .LVU230
-	.uleb128 .LVU235
-	.uleb128 .LVU235
-	.uleb128 .LVU236
-	.uleb128 .LVU236
-	.uleb128 0
-.LLST47:
-	.byte	0x4
-	.uleb128 .LVL70-.Ltext0
-	.uleb128 .LVL72-.Ltext0
+	.uleb128 .LVL54-.Ltext0
+	.uleb128 .LVL55-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x4
-	.uleb128 .LVL72-.Ltext0
-	.uleb128 .LVL75-.Ltext0
-	.uleb128 0x1
-	.byte	0x5c
-	.byte	0x4
-	.uleb128 .LVL75-.Ltext0
-	.uleb128 .LVL76-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL76-.Ltext0
-	.uleb128 .LFE23-.Ltext0
-	.uleb128 0x1
-	.byte	0x5c
-	.byte	0
-.LVUS49:
-	.uleb128 .LVU228
-	.uleb128 .LVU231
-	.uleb128 .LVU236
-	.uleb128 .LVU245
-	.uleb128 .LVU245
-	.uleb128 .LVU248
-	.uleb128 .LVU248
-	.uleb128 0
-.LLST49:
-	.byte	0x4
-	.uleb128 .LVL71-.Ltext0
-	.uleb128 .LVL73-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL76-.Ltext0
-	.uleb128 .LVL77-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL77-.Ltext0
-	.uleb128 .LVL78-.Ltext0
-	.uleb128 0x2
-	.byte	0x31
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL78-.Ltext0
-	.uleb128 .LFE23-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0
-.LVUS51:
-	.uleb128 .LVU251
-	.uleb128 .LVU256
-.LLST51:
-	.byte	0x4
-	.uleb128 .LVL79-.Ltext0
-	.uleb128 .LVL80-.Ltext0
-	.uleb128 0x9
-	.byte	0x70
-	.sleb128 0
-	.byte	0x8
-	.byte	0x50
-	.byte	0x1e
-	.byte	0x71
-	.sleb128 0
-	.byte	0x22
-	.byte	0x9f
-	.byte	0
-.LVUS43:
-	.uleb128 0
-	.uleb128 .LVU196
-	.uleb128 .LVU196
-	.uleb128 .LVU199
-	.uleb128 .LVU199
-	.uleb128 .LVU222
-	.uleb128 .LVU222
-	.uleb128 0
-.LLST43:
-	.byte	0x4
-	.uleb128 .LVL62-.Ltext0
-	.uleb128 .LVL65-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x4
-	.uleb128 .LVL65-.Ltext0
-	.uleb128 .LVL66-1-.Ltext0
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x4
-	.uleb128 .LVL66-1-.Ltext0
-	.uleb128 .LVL68-.Ltext0
+	.uleb128 .LVL55-1-.Ltext0
+	.uleb128 .LVL57-.Ltext0
 	.uleb128 0x1
 	.byte	0x53
 	.byte	0x4
-	.uleb128 .LVL68-.Ltext0
-	.uleb128 .LFE22-.Ltext0
+	.uleb128 .LVL57-.Ltext0
+	.uleb128 .LFE23-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0x9f
 	.byte	0
-.LVUS44:
+.LVUS34:
 	.uleb128 0
-	.uleb128 .LVU195
-	.uleb128 .LVU195
-	.uleb128 .LVU199
-	.uleb128 .LVU199
+	.uleb128 .LVU159
+	.uleb128 .LVU159
+	.uleb128 .LVU163
+	.uleb128 .LVU163
 	.uleb128 0
-.LLST44:
+.LLST34:
 	.byte	0x4
-	.uleb128 .LVL62-.Ltext0
-	.uleb128 .LVL64-.Ltext0
+	.uleb128 .LVL51-.Ltext0
+	.uleb128 .LVL53-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x4
-	.uleb128 .LVL64-.Ltext0
-	.uleb128 .LVL66-1-.Ltext0
+	.uleb128 .LVL53-.Ltext0
+	.uleb128 .LVL55-1-.Ltext0
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0x4
-	.uleb128 .LVL66-1-.Ltext0
-	.uleb128 .LFE22-.Ltext0
+	.uleb128 .LVL55-1-.Ltext0
+	.uleb128 .LFE23-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0x9f
 	.byte	0
-.LVUS45:
-	.uleb128 .LVU193
-	.uleb128 .LVU199
-.LLST45:
+.LVUS35:
+	.uleb128 .LVU157
+	.uleb128 .LVU163
+.LLST35:
 	.byte	0x4
-	.uleb128 .LVL63-.Ltext0
-	.uleb128 .LVL66-1-.Ltext0
+	.uleb128 .LVL52-.Ltext0
+	.uleb128 .LVL55-1-.Ltext0
 	.uleb128 0x9
 	.byte	0x70
 	.sleb128 0
@@ -3946,13 +3039,13 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0x22
 	.byte	0x9f
 	.byte	0
-.LVUS12:
+.LVUS2:
 	.uleb128 0
-	.uleb128 .LVU66
-.LLST12:
+	.uleb128 .LVU30
+.LLST2:
 	.byte	0x4
-	.uleb128 .LVL14-.Ltext0
-	.uleb128 .LVL15-1-.Ltext0
+	.uleb128 .LVL3-.Ltext0
+	.uleb128 .LVL4-1-.Ltext0
 	.uleb128 0x6
 	.byte	0x55
 	.byte	0x93
@@ -3960,220 +3053,6 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0x54
 	.byte	0x93
 	.uleb128 0x8
-	.byte	0
-.LVUS7:
-	.uleb128 0
-	.uleb128 .LVU48
-	.uleb128 .LVU48
-	.uleb128 .LVU57
-	.uleb128 .LVU57
-	.uleb128 0
-.LLST7:
-	.byte	0x4
-	.uleb128 .LVL8-.Ltext0
-	.uleb128 .LVL10-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x4
-	.uleb128 .LVL10-.Ltext0
-	.uleb128 .LVL13-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL13-.Ltext0
-	.uleb128 .LFE20-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0
-.LVUS8:
-	.uleb128 0
-	.uleb128 .LVU47
-	.uleb128 .LVU47
-	.uleb128 .LVU57
-	.uleb128 .LVU57
-	.uleb128 0
-.LLST8:
-	.byte	0x4
-	.uleb128 .LVL8-.Ltext0
-	.uleb128 .LVL9-.Ltext0
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x4
-	.uleb128 .LVL9-.Ltext0
-	.uleb128 .LVL13-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL13-.Ltext0
-	.uleb128 .LFE20-.Ltext0
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0
-.LVUS9:
-	.uleb128 0
-	.uleb128 .LVU48
-	.uleb128 .LVU48
-	.uleb128 .LVU56
-	.uleb128 .LVU56
-	.uleb128 .LVU57
-	.uleb128 .LVU57
-	.uleb128 0
-.LLST9:
-	.byte	0x4
-	.uleb128 .LVL8-.Ltext0
-	.uleb128 .LVL10-.Ltext0
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0x4
-	.uleb128 .LVL10-.Ltext0
-	.uleb128 .LVL12-.Ltext0
-	.uleb128 0x1
-	.byte	0x5d
-	.byte	0x4
-	.uleb128 .LVL12-.Ltext0
-	.uleb128 .LVL13-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL13-.Ltext0
-	.uleb128 .LFE20-.Ltext0
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0
-.LVUS11:
-	.uleb128 .LVU41
-	.uleb128 .LVU48
-	.uleb128 .LVU57
-	.uleb128 0
-.LLST11:
-	.byte	0x4
-	.uleb128 .LVL8-.Ltext0
-	.uleb128 .LVL10-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL13-.Ltext0
-	.uleb128 .LFE20-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0
-.LVUS2:
-	.uleb128 0
-	.uleb128 .LVU30
-	.uleb128 .LVU30
-	.uleb128 .LVU38
-	.uleb128 .LVU38
-	.uleb128 0
-.LLST2:
-	.byte	0x4
-	.uleb128 .LVL3-.Ltext0
-	.uleb128 .LVL4-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x4
-	.uleb128 .LVL4-.Ltext0
-	.uleb128 .LVL7-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL7-.Ltext0
-	.uleb128 .LFE19-.Ltext0
-	.uleb128 0x1
-	.byte	0x55
-	.byte	0
-.LVUS3:
-	.uleb128 0
-	.uleb128 .LVU30
-	.uleb128 .LVU30
-	.uleb128 .LVU38
-	.uleb128 .LVU38
-	.uleb128 0
-.LLST3:
-	.byte	0x4
-	.uleb128 .LVL3-.Ltext0
-	.uleb128 .LVL4-.Ltext0
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x4
-	.uleb128 .LVL4-.Ltext0
-	.uleb128 .LVL7-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL7-.Ltext0
-	.uleb128 .LFE19-.Ltext0
-	.uleb128 0x1
-	.byte	0x54
-	.byte	0
-.LVUS4:
-	.uleb128 0
-	.uleb128 .LVU30
-	.uleb128 .LVU30
-	.uleb128 .LVU37
-	.uleb128 .LVU37
-	.uleb128 .LVU38
-	.uleb128 .LVU38
-	.uleb128 0
-.LLST4:
-	.byte	0x4
-	.uleb128 .LVL3-.Ltext0
-	.uleb128 .LVL4-.Ltext0
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0x4
-	.uleb128 .LVL4-.Ltext0
-	.uleb128 .LVL6-.Ltext0
-	.uleb128 0x1
-	.byte	0x5d
-	.byte	0x4
-	.uleb128 .LVL6-.Ltext0
-	.uleb128 .LVL7-.Ltext0
-	.uleb128 0x4
-	.byte	0xa3
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL7-.Ltext0
-	.uleb128 .LFE19-.Ltext0
-	.uleb128 0x1
-	.byte	0x51
-	.byte	0
-.LVUS6:
-	.uleb128 .LVU24
-	.uleb128 .LVU30
-	.uleb128 .LVU38
-	.uleb128 0
-.LLST6:
-	.byte	0x4
-	.uleb128 .LVL3-.Ltext0
-	.uleb128 .LVL4-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
-	.byte	0x4
-	.uleb128 .LVL7-.Ltext0
-	.uleb128 .LFE19-.Ltext0
-	.uleb128 0x2
-	.byte	0x30
-	.byte	0x9f
 	.byte	0
 .LVUS1:
 	.uleb128 0
@@ -4188,7 +3067,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL2-.Ltext0
-	.uleb128 .LFE18-.Ltext0
+	.uleb128 .LFE21-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
@@ -4201,7 +3080,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 .LLST0:
 	.byte	0x4
 	.uleb128 .LVL0-.Ltext0
-	.uleb128 .LFE17-.Ltext0
+	.uleb128 .LFE20-.Ltext0
 	.uleb128 0x1
 	.byte	0x52
 	.byte	0
@@ -4234,7 +3113,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 .LBB3-.Ltext0
 	.uleb128 .LBE3-.Ltext0
 	.byte	0
-.LLRL10:
+.LLRL11:
 	.byte	0x4
 	.uleb128 .LBB4-.Ltext0
 	.uleb128 .LBE4-.Ltext0
@@ -4242,69 +3121,21 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.uleb128 .LBB5-.Ltext0
 	.uleb128 .LBE5-.Ltext0
 	.byte	0
-.LLRL15:
+.LLRL27:
 	.byte	0x4
 	.uleb128 .LBB6-.Ltext0
 	.uleb128 .LBE6-.Ltext0
 	.byte	0x4
-	.uleb128 .LBB7-.Ltext0
-	.uleb128 .LBE7-.Ltext0
+	.uleb128 .LBB12-.Ltext0
+	.uleb128 .LBE12-.Ltext0
 	.byte	0
-.LLRL21:
-	.byte	0x4
-	.uleb128 .LBB8-.Ltext0
-	.uleb128 .LBE8-.Ltext0
+.LLRL30:
 	.byte	0x4
 	.uleb128 .LBB9-.Ltext0
 	.uleb128 .LBE9-.Ltext0
-	.byte	0
-.LLRL37:
-	.byte	0x4
-	.uleb128 .LBB10-.Ltext0
-	.uleb128 .LBE10-.Ltext0
-	.byte	0x4
-	.uleb128 .LBB16-.Ltext0
-	.uleb128 .LBE16-.Ltext0
-	.byte	0
-.LLRL40:
 	.byte	0x4
 	.uleb128 .LBB13-.Ltext0
 	.uleb128 .LBE13-.Ltext0
-	.byte	0x4
-	.uleb128 .LBB17-.Ltext0
-	.uleb128 .LBE17-.Ltext0
-	.byte	0
-.LLRL48:
-	.byte	0x4
-	.uleb128 .LBB18-.Ltext0
-	.uleb128 .LBE18-.Ltext0
-	.byte	0x4
-	.uleb128 .LBB21-.Ltext0
-	.uleb128 .LBE21-.Ltext0
-	.byte	0
-.LLRL50:
-	.byte	0x4
-	.uleb128 .LBB19-.Ltext0
-	.uleb128 .LBE19-.Ltext0
-	.byte	0x4
-	.uleb128 .LBB20-.Ltext0
-	.uleb128 .LBE20-.Ltext0
-	.byte	0
-.LLRL54:
-	.byte	0x4
-	.uleb128 .LBB22-.Ltext0
-	.uleb128 .LBE22-.Ltext0
-	.byte	0x4
-	.uleb128 .LBB25-.Ltext0
-	.uleb128 .LBE25-.Ltext0
-	.byte	0
-.LLRL56:
-	.byte	0x4
-	.uleb128 .LBB23-.Ltext0
-	.uleb128 .LBE23-.Ltext0
-	.byte	0x4
-	.uleb128 .LBB24-.Ltext0
-	.uleb128 .LBE24-.Ltext0
 	.byte	0
 .Ldebug_ranges3:
 	.section	.debug_macro,"",@progbits
@@ -5652,7 +4483,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__DBL_MAX__ double(1.79769313486231570814527423731704357e+308L)"
 .LASF316:
 	.string	"__FLT64_HAS_QUIET_NAN__ 1"
-.LASF489:
+.LASF490:
 	.string	"_ZN6Kernel7Console8s_extentE"
 .LASF273:
 	.string	"__FLT16_MIN_10_EXP__ (-4)"
@@ -5666,21 +4497,21 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__cpp_namespace_attributes 201411L"
 .LASF360:
 	.string	"__FLT64X_EPSILON__ 1.08420217248550443400745280086994171e-19F64x"
+.LASF486:
+	.string	"is_same_v"
 .LASF166:
 	.string	"__UINTMAX_MAX__ 0xffffffffffffffffUL"
 .LASF203:
 	.string	"__INT_FAST16_WIDTH__ 32"
 .LASF72:
 	.string	"__UINT_FAST32_TYPE__ unsigned int"
-.LASF502:
-	.string	"_ZN6Kernel7Console9putStringEPKcNS0_10AttributesE"
 .LASF411:
 	.string	"__amd64 1"
 .LASF212:
 	.string	"__INTPTR_MAX__ 0x7fffffffffffffffL"
 .LASF286:
 	.string	"__FLT32_MANT_DIG__ 24"
-.LASF493:
+.LASF494:
 	.string	"_ZN6Kernel7Console11s_cursorPosE"
 .LASF193:
 	.string	"__UINT8_C(c) c"
@@ -5722,11 +4553,9 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__cpp_hex_float 201603L"
 .LASF124:
 	.string	"__cpp_conditional_explicit 201806L"
-.LASF38:
-	.string	"__GNUC_WIDE_EXECUTION_CHARSET_NAME \"UTF-32LE\""
 .LASF301:
 	.string	"__FLT32_IS_IEC_60559__ 1"
-.LASF491:
+.LASF492:
 	.string	"_ZN6Kernel7Console16s_windowCapacityE"
 .LASF147:
 	.string	"__LONG_MAX__ 0x7fffffffffffffffL"
@@ -5746,7 +4575,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__ORDER_BIG_ENDIAN__ 4321"
 .LASF402:
 	.string	"__GCC_CONSTRUCTIVE_SIZE 64"
-.LASF510:
+.LASF505:
 	.string	"_ZN6Kernel7Console9clearSpanENS0_9CursorPosEmhNS0_10AttributesE"
 .LASF199:
 	.string	"__UINT64_C(c) c ## UL"
@@ -5804,7 +4633,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__SCHAR_MAX__ 0x7f"
 .LASF37:
 	.string	"__GNUC_EXECUTION_CHARSET_NAME \"UTF-8\""
-.LASF525:
+.LASF520:
 	.string	"clearValue"
 .LASF303:
 	.string	"__FLT64_DIG__ 15"
@@ -5812,7 +4641,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__ATOMIC_RELAXED 0"
 .LASF269:
 	.string	"__LDBL_IS_IEC_60559__ 1"
-.LASF508:
+.LASF503:
 	.string	"_ZN6Kernel7Console9clearLineEmhNS0_10AttributesE"
 .LASF347:
 	.string	"__FLT32X_HAS_INFINITY__ 1"
@@ -5848,7 +4677,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT32_HAS_DENORM__ 1"
 .LASF386:
 	.string	"__GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1"
-.LASF488:
+.LASF489:
 	.string	"_ZN6Kernel7Console12s_vgaAddressE"
 .LASF352:
 	.string	"__FLT64X_MIN_EXP__ (-16381)"
@@ -5868,7 +4697,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__UINTMAX_C(c) c ## UL"
 .LASF459:
 	.string	"LightGreenOnBlack"
-.LASF528:
+.LASF523:
 	.string	"index"
 .LASF214:
 	.string	"__UINTPTR_MAX__ 0xffffffffffffffffUL"
@@ -5896,23 +4725,23 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__BFLT16_DIG__ 2"
 .LASF172:
 	.string	"__INT8_MAX__ 0x7f"
-.LASF515:
+.LASF510:
 	.string	"getExtent"
-.LASF486:
+.LASF487:
 	.string	"s_vgaAddress"
 .LASF322:
 	.string	"__FLT128_MAX_EXP__ 16384"
 .LASF350:
 	.string	"__FLT64X_MANT_DIG__ 64"
-.LASF522:
+.LASF517:
 	.string	"lines"
 .LASF345:
 	.string	"__FLT32X_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F32x"
 .LASF108:
 	.string	"__cpp_range_based_for 201603L"
-.LASF530:
+.LASF525:
 	.string	"Console"
-.LASF496:
+.LASF497:
 	.string	"_ZN6Kernel7Console9writeCharEmhNS0_10AttributesE"
 .LASF27:
 	.string	"__SIZEOF_LONG_DOUBLE__ 16"
@@ -5936,7 +4765,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__LDBL_MAX_EXP__ 16384"
 .LASF44:
 	.string	"__INTMAX_TYPE__ long int"
-.LASF523:
+.LASF518:
 	.string	"startIndex"
 .LASF74:
 	.string	"__INTPTR_TYPE__ long int"
@@ -5950,7 +4779,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__cpp_concepts 202002L"
 .LASF191:
 	.string	"__INT_LEAST64_WIDTH__ 64"
-.LASF490:
+.LASF491:
 	.string	"s_windowCapacity"
 .LASF307:
 	.string	"__FLT64_MAX_10_EXP__ 308"
@@ -5962,8 +4791,6 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__SIZEOF_PTRDIFF_T__ 8"
 .LASF52:
 	.string	"__INT32_TYPE__ int"
-.LASF339:
-	.string	"__FLT32X_MAX_10_EXP__ 308"
 .LASF362:
 	.string	"__FLT64X_HAS_DENORM__ 1"
 .LASF413:
@@ -6018,15 +4845,13 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT32_HAS_INFINITY__ 1"
 .LASF378:
 	.string	"__BFLT16_HAS_DENORM__ 1"
-.LASF531:
+.LASF526:
 	.string	"Attributes"
 .LASF30:
 	.string	"__BIGGEST_ALIGNMENT__ 16"
-.LASF314:
-	.string	"__FLT64_HAS_DENORM__ 1"
 .LASF148:
 	.string	"__LONG_LONG_MAX__ 0x7fffffffffffffffLL"
-.LASF504:
+.LASF499:
 	.string	"clear"
 .LASF63:
 	.string	"__UINT_LEAST16_TYPE__ short unsigned int"
@@ -6044,8 +4869,6 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT16_MAX_EXP__ 16"
 .LASF138:
 	.string	"__cpp_aligned_new 201606L"
-.LASF495:
-	.string	"writeString"
 .LASF439:
 	.string	"uint8_t"
 .LASF3:
@@ -6070,13 +4893,11 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__LDBL_MAX__ 1.18973149535723176502126385303097021e+4932L"
 .LASF209:
 	.string	"__UINT_FAST16_MAX__ 0xffffffffU"
-.LASF498:
-	.string	"_ZN6Kernel7Console11writeStringEPVKcmNS0_10AttributesE"
 .LASF228:
 	.string	"__FLT_MAX__ 3.40282346638528859811704183484516925e+38F"
 .LASF240:
 	.string	"__DBL_MIN_10_EXP__ (-307)"
-.LASF520:
+.LASF515:
 	.string	"char"
 .LASF256:
 	.string	"__LDBL_MIN_10_EXP__ (-4931)"
@@ -6086,10 +4907,10 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT32_DIG__ 6"
 .LASF143:
 	.string	"__GXX_ABI_VERSION 1018"
-.LASF524:
+.LASF519:
 	.string	"endIndex"
-.LASF503:
-	.string	"_ZN6Kernel7Console9putStringEPVKcNS0_10AttributesE"
+.LASF314:
+	.string	"__FLT64_HAS_DENORM__ 1"
 .LASF100:
 	.string	"__cpp_variable_templates 201304L"
 .LASF422:
@@ -6108,6 +4929,8 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT64X_MAX__ 1.18973149535723176502126385303097021e+4932F64x"
 .LASF327:
 	.string	"__FLT128_MIN__ 3.36210314311209350626267781732175260e-4932F128"
+.LASF236:
+	.string	"__FLT_IS_IEC_60559__ 1"
 .LASF189:
 	.string	"__INT_LEAST64_MAX__ 0x7fffffffffffffffL"
 .LASF182:
@@ -6118,9 +4941,9 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__UINT16_MAX__ 0xffff"
 .LASF69:
 	.string	"__INT_FAST64_TYPE__ long int"
-.LASF492:
+.LASF493:
 	.string	"s_cursorPos"
-.LASF532:
+.LASF527:
 	.string	"updateHardwareCursor"
 .LASF168:
 	.string	"__INTMAX_WIDTH__ 64"
@@ -6154,7 +4977,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT32X_DIG__ 15"
 .LASF86:
 	.string	"__cpp_decltype 200707L"
-.LASF514:
+.LASF509:
 	.string	"getCursor"
 .LASF334:
 	.string	"__FLT32X_MANT_DIG__ 53"
@@ -6164,7 +4987,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__cpp_decltype_auto 201304L"
 .LASF446:
 	.string	"long long int"
-.LASF526:
+.LASF521:
 	.string	"length"
 .LASF93:
 	.string	"__cpp_nsdmi 200809L"
@@ -6178,15 +5001,13 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FINITE_MATH_ONLY__ 0"
 .LASF279:
 	.string	"__FLT16_MIN__ 6.10351562500000000000000000000000000e-5F16"
-.LASF255:
-	.string	"__LDBL_MIN_EXP__ (-16381)"
 .LASF309:
 	.string	"__FLT64_MAX__ 1.79769313486231570814527423731704357e+308F64"
 .LASF115:
 	.string	"__cpp_structured_bindings 201606L"
 .LASF419:
 	.string	"__GCC_ASM_FLAG_OUTPUTS__ 1"
-.LASF517:
+.LASF512:
 	.string	"_ZN6Kernel7Console9getExtentEv"
 .LASF198:
 	.string	"__UINT_LEAST64_MAX__ 0xffffffffffffffffUL"
@@ -6326,7 +5147,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__UINTMAX_TYPE__ long unsigned int"
 .LASF282:
 	.string	"__FLT16_HAS_DENORM__ 1"
-.LASF494:
+.LASF495:
 	.string	"writeChar"
 .LASF105:
 	.string	"__cpp_enumerator_attributes 201411L"
@@ -6340,7 +5161,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"LightGrayOnBlack"
 .LASF145:
 	.string	"__SHRT_MAX__ 0x7fff"
-.LASF500:
+.LASF498:
 	.string	"_ZN6Kernel7Console7putCharEhNS0_10AttributesE"
 .LASF118:
 	.string	"__cpp_nontype_template_parameter_auto 201606L"
@@ -6350,8 +5171,8 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__cpp_aggregate_paren_init 201902L"
 .LASF227:
 	.string	"__FLT_DECIMAL_DIG__ 9"
-.LASF236:
-	.string	"__FLT_IS_IEC_60559__ 1"
+.LASF255:
+	.string	"__LDBL_MIN_EXP__ (-16381)"
 .LASF161:
 	.string	"__WINT_WIDTH__ 32"
 .LASF359:
@@ -6374,7 +5195,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT64X_MIN_10_EXP__ (-4931)"
 .LASF337:
 	.string	"__FLT32X_MIN_10_EXP__ (-307)"
-.LASF499:
+.LASF496:
 	.string	"putChar"
 .LASF437:
 	.string	"long int"
@@ -6388,7 +5209,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__BFLT16_MIN__ 1.17549435082228750796873653722224568e-38BF16"
 .LASF355:
 	.string	"__FLT64X_MAX_10_EXP__ 4932"
-.LASF516:
+.LASF511:
 	.string	"_ZN6Kernel7Console9getCursorEv"
 .LASF358:
 	.string	"__FLT64X_NORM_MAX__ 1.18973149535723176502126385303097021e+4932F64x"
@@ -6412,21 +5233,21 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__WCHAR_TYPE__ int"
 .LASF46:
 	.string	"__CHAR8_TYPE__ unsigned char"
-.LASF533:
+.LASF528:
 	.string	"_ZN6Kernel7Console20updateHardwareCursorEv"
-.LASF529:
+.LASF524:
 	.string	"GNU C++20 13.2.0 -mno-red-zone -mcmodel=kernel -mtune=generic -march=x86-64 -g -ggdb3 -O1 -std=c++20 -ffreestanding -fno-exceptions -fno-rtti -fno-builtin -fno-stack-protector -fpermissive"
-.LASF506:
+.LASF501:
 	.string	"_ZN6Kernel7Console5clearEhNS0_10AttributesE"
 .LASF480:
 	.string	"Extent"
-.LASF535:
+.LASF530:
 	.string	"_ZN6Kernel7Console10scrollDownEm"
 .LASF210:
 	.string	"__UINT_FAST32_MAX__ 0xffffffffU"
 .LASF109:
 	.string	"__cpp_if_constexpr 201606L"
-.LASF513:
+.LASF508:
 	.string	"_ZN6Kernel7Console9setCursorENS0_9CursorPosE"
 .LASF129:
 	.string	"__cpp_nontype_template_parameter_class 201806L"
@@ -6446,13 +5267,13 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__SSE2_MATH__ 1"
 .LASF310:
 	.string	"__FLT64_NORM_MAX__ 1.79769313486231570814527423731704357e+308F64"
-.LASF511:
+.LASF506:
 	.string	"_ZN6Kernel7Console9clearSpanEmmhNS0_10AttributesE"
 .LASF165:
 	.string	"__INTMAX_C(c) c ## L"
 .LASF116:
 	.string	"__cpp_variadic_using 201611L"
-.LASF509:
+.LASF504:
 	.string	"clearSpan"
 .LASF369:
 	.string	"__BFLT16_MIN_10_EXP__ (-37)"
@@ -6462,7 +5283,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__SIZEOF_POINTER__ 8"
 .LASF312:
 	.string	"__FLT64_EPSILON__ 2.22044604925031308084726333618164062e-16F64"
-.LASF507:
+.LASF502:
 	.string	"_ZN6Kernel7Console9clearLineEhNS0_10AttributesE"
 .LASF91:
 	.string	"__cpp_initializer_lists 200806L"
@@ -6472,17 +5293,17 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__WCHAR_MAX__ 0x7fffffff"
 .LASF221:
 	.string	"__FLT_MANT_DIG__ 24"
-.LASF518:
+.LASF513:
 	.string	"getWindowCapacity"
 .LASF260:
 	.string	"__LDBL_DECIMAL_DIG__ 21"
 .LASF403:
 	.string	"__GCC_ATOMIC_POINTER_LOCK_FREE 2"
-.LASF521:
+.LASF516:
 	.string	"is_integral_v"
 .LASF430:
 	.string	"__SEG_FS 1"
-.LASF505:
+.LASF500:
 	.string	"clearLine"
 .LASF380:
 	.string	"__BFLT16_HAS_QUIET_NAN__ 1"
@@ -6492,7 +5313,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__GCC_ATOMIC_CHAR32_T_LOCK_FREE 2"
 .LASF77:
 	.string	"__DEPRECATED 1"
-.LASF487:
+.LASF488:
 	.string	"s_extent"
 .LASF29:
 	.string	"__CHAR_BIT__ 8"
@@ -6528,11 +5349,11 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT_MIN__ 1.17549435082228750796873653722224568e-38F"
 .LASF123:
 	.string	"__cpp_constexpr_in_decltype 201711L"
-.LASF527:
+.LASF522:
 	.string	"line"
 .LASF219:
 	.string	"__DEC_EVAL_METHOD__ 2"
-.LASF519:
+.LASF514:
 	.string	"_ZN6Kernel7Console17getWindowCapacityEv"
 .LASF94:
 	.string	"__cpp_inheriting_constructors 201511L"
@@ -6544,8 +5365,8 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__INT8_TYPE__ signed char"
 .LASF188:
 	.string	"__INT_LEAST32_WIDTH__ 32"
-.LASF501:
-	.string	"putString"
+.LASF38:
+	.string	"__GNUC_WIDE_EXECUTION_CHARSET_NAME \"UTF-32LE\""
 .LASF270:
 	.string	"__FLT16_MANT_DIG__ 11"
 .LASF220:
@@ -6584,7 +5405,7 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"Kernel"
 .LASF190:
 	.string	"__INT64_C(c) c ## L"
-.LASF534:
+.LASF529:
 	.string	"scrollDown"
 .LASF68:
 	.string	"__INT_FAST32_TYPE__ int"
@@ -6626,12 +5447,12 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__INT_WIDTH__ 32"
 .LASF329:
 	.string	"__FLT128_DENORM_MIN__ 6.47517511943802511092443895822764655e-4966F128"
-.LASF512:
+.LASF507:
 	.string	"setCursor"
 .LASF201:
 	.string	"__INT_FAST8_WIDTH__ 32"
-.LASF497:
-	.string	"_ZN6Kernel7Console11writeStringEPKcmNS0_10AttributesE"
+.LASF476:
+	.string	"WhiteOnBrown"
 .LASF223:
 	.string	"__FLT_MIN_EXP__ (-125)"
 .LASF416:
@@ -6652,8 +5473,8 @@ _ZN6Kernel7Console12s_vgaAddressE:
 	.string	"__FLT64_DENORM_MIN__ 4.94065645841246544176568792868221372e-324F64"
 .LASF196:
 	.string	"__UINT_LEAST32_MAX__ 0xffffffffU"
-.LASF476:
-	.string	"WhiteOnBrown"
+.LASF339:
+	.string	"__FLT32X_MAX_10_EXP__ 308"
 .LASF249:
 	.string	"__DBL_HAS_DENORM__ 1"
 .LASF275:

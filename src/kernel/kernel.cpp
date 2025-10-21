@@ -66,9 +66,9 @@ extern "C" void kernel_main(uint64_t multibootInfoAddr)
 
     Console::clear();
 
-    Console::print("Stack bottom: %x\n", stack_bottom);
-    Console::print("Stack top: %x\n", stack_top);
-    Console::print("Stack size: %x\n", stack_top - stack_bottom);
+    Console::print("Stack bottom: %p\n", stack_bottom);
+    Console::print("Stack top: %p\n", stack_top);
+    Console::print("Stack size: %x\n", reinterpret_cast<uint64_t>(reinterpret_cast<void *>(stack_top - stack_bottom)));
 
     InterruptManager::initialize();
     InterruptManager::registerInterruptCallback(
@@ -78,11 +78,15 @@ extern "C" void kernel_main(uint64_t multibootInfoAddr)
         InterruptManager::InterruptVector::irqSystemTimer,
         handleTimerInterrupt);
 
-    auto kernelHeap = MemoryMap::initialise(multibootInfoAddr);
+    HeapLinkedList kernelHeap;
+    MemoryMap::initialise(multibootInfoAddr, kernelHeap);
 
     Console::print("64-bit Kernel Booted Successfully!\n");
 
     size_t **dynamicDatas = kernelHeap.allocate<size_t *>(12);
+
+    Console::print("Allocated memory: %p\n", dynamicDatas);
+
     if (dynamicDatas == nullptr)
     {
         Console::print("Failed to allocate memory\n");

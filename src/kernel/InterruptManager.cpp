@@ -177,10 +177,14 @@ namespace Kernel
 
     void InterruptManager::handleException(InterruptFrame &frame)
     {
-        Kernel::Console::putString("Interrupt: ", Kernel::Console::Attributes::RedOnBlack);
-        Kernel::Console::putString(s_exceptionMessages[frame.interrupt_number], Kernel::Console::Attributes::RedOnBlack);
-        Kernel::Console::putChar('\n', Kernel::Console::Attributes::RedOnBlack);
-        asm volatile("cli \n hlt");
+        Console::print("Interrupt: %s\n", Console::Attributes::RedOnBlack,
+                       s_exceptionMessages[frame.interrupt_number]);
+        Console::print("  RIP: %x\n", frame.rip);
+        Console::print("  CS:  %x\n", frame.cs);
+        Console::print("  RFLAGS: %x\n", frame.rflags);
+        Console::print("  RSP: %x\n", frame.rsp);
+        Console::print("  SS:  %x\n", frame.ss);
+        Console::print("  Error Code: %x\n", frame.error_code);
     }
 
     void InterruptManager::registerInterruptCallback(uint8_t index, InterruptHandler handler)
@@ -198,6 +202,7 @@ namespace Kernel
 extern "C" void isr_handler(Kernel::InterruptFrame *frame)
 {
     Kernel::InterruptManager::handleInterrupt(*frame);
+    asm volatile("cli \n hlt");
 }
 
 extern "C" void irq_handler(Kernel::InterruptFrame *frame)

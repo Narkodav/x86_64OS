@@ -71,13 +71,37 @@ namespace Kernel
 
     public:
         static void writeChar(size_t index, uint8_t character, Attributes attr = Attributes::WhiteOnBlack);
-        static void writeString(const char *str, size_t startIndex = 0, Attributes attr = Attributes::WhiteOnBlack);
-        static void writeString(volatile const char *str, size_t startIndex = 0, Attributes attr = Attributes::WhiteOnBlack);
+
+        template <typename T>
+        static void writeString(T *str, size_t startIndex = 0, Attributes attr = Attributes::WhiteOnBlack)
+            requires std::is_same_v<std::remove_all_extents_t<T>, char> || std::is_same_v<std::remove_all_extents_t<T>, uint8_t>
+        {
+            for (size_t i = 0; str[i] != '\0'; ++i)
+                writeChar(startIndex + i, str[i], attr);
+        }
 
         // updates the cursor
         static void putChar(uint8_t c, Attributes attr = Attributes::WhiteOnBlack);
-        static void putString(const char *str, Attributes attr = Attributes::WhiteOnBlack);
-        static void putString(volatile const char *str, Attributes attr = Attributes::WhiteOnBlack);
+
+        template <typename T>
+        static void putString(T *str, Attributes attr = Attributes::WhiteOnBlack)
+            requires std::is_same_v<std::remove_all_extents_t<T>, char> || std::is_same_v<std::remove_all_extents_t<T>, uint8_t>
+        {
+            for (size_t i = 0; str[i] != '\0'; ++i)
+            {
+                size_t pos = s_cursorPos.y * s_extent.width + s_cursorPos.x;
+                writeChar(pos, str[i], attr);
+                ++s_cursorPos.x;
+                if (s_cursorPos.x >= s_extent.width || str[i] == '\n')
+                {
+                    s_cursorPos.x = 0;
+                    ++s_cursorPos.y;
+                    if (s_cursorPos.y >= s_extent.height)
+                        scrollDown(1);
+                }
+            }
+            updateHardwareCursor();
+        }
 
         template <std::IntegralType T>
         static void putNumBin(T val, Attributes attr = Attributes::WhiteOnBlack)
@@ -170,7 +194,7 @@ namespace Kernel
 
     private:
         template <typename T, typename... Ts>
-        static void printImpl(const char *str, T &&val, Ts &&...vals)
+        static void printImpl(const char *str, Attributes attr, T &&val, Ts &&...vals)
         {
             while (*str)
             {
@@ -178,7 +202,7 @@ namespace Kernel
                 {
                     if (*(++str) == '%')
                     {
-                        putChar('%', Attributes::WhiteOnBlack);
+                        putChar('%', attr);
                         ++str;
                         continue;
                     }
@@ -187,85 +211,86 @@ namespace Kernel
                     case 'd':
                         if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
                         {
-                            putNumDec(val, Attributes::WhiteOnBlack);
+                            putNumDec(val, attr);
                         }
                         else
                         {
-                            putChar('%', Attributes::WhiteOnBlack);
-                            putChar(*str, Attributes::WhiteOnBlack);
+                            putChar('%', attr);
+                            putChar(*str, attr);
                         }
                         break;
                     case 'b':
                         if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
                         {
-                            putNumBin(val, Attributes::WhiteOnBlack);
+                            putNumBin(val, attr);
                         }
                         else
                         {
-                            putChar('%', Attributes::WhiteOnBlack);
-                            putChar(*str, Attributes::WhiteOnBlack);
+                            putChar('%', attr);
+                            putChar(*str, attr);
                         }
                         break;
                     case 'x':
                         if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
                         {
-                            putNumHex(val, Attributes::WhiteOnBlack);
+                            putNumHex(val, attr);
                         }
                         else
                         {
-                            putChar('%', Attributes::WhiteOnBlack);
-                            putChar(*str, Attributes::WhiteOnBlack);
+                            putChar('%', attr);
+                            putChar(*str, attr);
                         }
                         break;
                     case 'c':
                         if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char>)
                         {
-                            putChar(val, Attributes::WhiteOnBlack);
+                            putChar(val, attr);
                         }
                         else
                         {
-                            putChar('%', Attributes::WhiteOnBlack);
-                            putChar(*str, Attributes::WhiteOnBlack);
+                            putChar('%', attr);
+                            putChar(*str, attr);
                         }
                         break;
                     case 'p':
                         if constexpr (std::is_ptr_v<std::remove_all_extents_t<T>>)
                         {
-                            putNumHex(reinterpret_cast<uint64_t>(val), Attributes::WhiteOnBlack);
+                            putNumHex(reinterpret_cast<uint64_t>(val), attr);
                         }
                         else
                         {
-                            putChar('%', Attributes::WhiteOnBlack);
-                            putChar(*str, Attributes::WhiteOnBlack);
+                            putChar('%', attr);
+                            putChar(*str, attr);
                         }
                         break;
                     case 's':
-                        if constexpr (std::is_same_v<std::remove_reference_t<std::remove_volatile_t<T>>, const char *>)
+                        if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char *> ||
+                                      std::is_same_v<std::remove_all_extents_t<T>, uint8_t *>)
                         {
-                            putString(val, Attributes::WhiteOnBlack);
+                            putString(val, attr);
                         }
                         else
                         {
-                            putChar('%', Attributes::WhiteOnBlack);
-                            putChar(*str, Attributes::WhiteOnBlack);
+                            putChar('%', attr);
+                            putChar(*str, attr);
                         }
                         break;
                     default:
-                        putChar('%', Attributes::WhiteOnBlack);
-                        putChar(*str, Attributes::WhiteOnBlack);
+                        putChar('%', attr);
+                        putChar(*str, attr);
                         ++str;
                         continue;
                     }
                     ++str;
                     if constexpr (sizeof...(vals) > 0)
-                        printImpl(str, vals...);
+                        printImpl(str, attr, vals...);
                     else
-                        putString(str);
+                        putString(str, attr);
                     return;
                 }
                 else
                 {
-                    putChar(*str, Attributes::WhiteOnBlack);
+                    putChar(*str, attr);
                 }
                 ++str;
             }
@@ -277,11 +302,24 @@ namespace Kernel
         {
             if constexpr (sizeof...(vals) == 0)
             {
-                putString(str);
+                putString(str, Attributes::WhiteOnBlack);
             }
             else
             {
-                printImpl(str, vals...);
+                printImpl(str, Attributes::WhiteOnBlack, vals...);
+            }
+        }
+
+        template <typename... Ts>
+        static void print(const char *str, Attributes atr, Ts... vals)
+        {
+            if constexpr (sizeof...(vals) == 0)
+            {
+                putString(str, atr);
+            }
+            else
+            {
+                printImpl(str, atr, vals...);
             }
         }
 

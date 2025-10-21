@@ -99,12 +99,6 @@ namespace Kernel
         } __attribute__((packed));
 
     public:
-        struct AvailibleMemoryRegion
-        {
-            uint64_t startAddr;
-            uint64_t length;
-        };
-
         struct KernelMemoryRegion
         {
             uint64_t kernelStartAddr;
@@ -133,42 +127,23 @@ namespace Kernel
         static const char *s_multibootTagNames[static_cast<uint32_t>(TagType::Num)];
         static const char *s_multibootMemoryTypeNames[static_cast<uint32_t>(MultibootMemoryType::Num)];
 
-        static inline const KernelMemoryRegion s_kernelMemoryRegion = {
-            .kernelStartAddr = reinterpret_cast<uint64_t>(__kernel_start),
-            .kernelEndAddr = reinterpret_cast<uint64_t>(__kernel_end),
+        static const KernelMemoryRegion s_kernelMemoryRegion;
 
-            .multibootHeaderStartAddr = reinterpret_cast<uint64_t>(__multiboot_header_start),
-            .multibootHeaderEndAddr = reinterpret_cast<uint64_t>(__multiboot_header_end),
-
-            .textStartAddr = reinterpret_cast<uint64_t>(__text_start),
-            .textEndAddr = reinterpret_cast<uint64_t>(__text_end),
-
-            .dataStartAddr = reinterpret_cast<uint64_t>(__data_start),
-            .dataEndAddr = reinterpret_cast<uint64_t>(__data_end),
-
-            .rodataStartAddr = reinterpret_cast<uint64_t>(__rodata_start),
-            .rodataEndAddr = reinterpret_cast<uint64_t>(__rodata_end),
-
-            .bssStartAddr = reinterpret_cast<uint64_t>(__bss_start),
-            .bssdataEndAddr = reinterpret_cast<uint64_t>(__bss_end),
-
-            .stackTopAddr = reinterpret_cast<uint64_t>(stack_top),
-            .stackBottomAddr = reinterpret_cast<uint64_t>(stack_bottom)};
-
-        static inline MultibootHeader *s_multibootHeader = nullptr;
-        static inline MultibootTagMmap *s_multibootMmapTag = nullptr; // the memory map tag
+        static MultibootHeader *s_multibootHeader;
+        static MultibootTagMmap *s_multibootMmapTag; // the memory map tag
+        static uint64_t s_kernelEndDynamic;          // the memory map tag
 
         // this is an array stored in the first availible memory region
         // these regions will be used by the os for dynamic allocation
 
-        static inline AvailibleMemoryRegion *s_availibleRegions; // first one is kernel reserved
-        static inline uint64_t s_availibleRegionCount;
+        static MultibootMmapEntry **s_availibleRegionEntries; // first one is kernel reserved
+        static uint64_t s_availibleRegionCount;
 
     public:
-        static HeapLinkedList initialise(uint64_t multibootInfoAddr);
+        static void initialise(uint64_t multibootInfoAddr, HeapLinkedList &heap);
 
     private:
-        static HeapLinkedList parseMemoryMapTag();
+        static void parseMemoryMapTag(HeapLinkedList &heap);
     };
 }
 

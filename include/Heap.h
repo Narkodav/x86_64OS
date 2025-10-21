@@ -50,12 +50,12 @@ namespace Kernel
         Block *m_head __attribute__((aligned(8)));
         void *m_startAddr __attribute__((aligned(8)));
         void *m_endAddr __attribute__((aligned(8)));
-        size_t m_usedSize __attribute__((aligned(8)));
-        size_t m_availibleSize __attribute__((aligned(8))); // user availible size
-        size_t m_allocatedSize __attribute__((aligned(8))); // user allocated memory size
+        volatile size_t m_usedSize __attribute__((aligned(8)));
+        volatile size_t m_availibleSize __attribute__((aligned(8))); // user availible size
+        volatile size_t m_allocatedSize __attribute__((aligned(8))); // user allocated memory size
 
     public:
-        void initialize(void *startAddr, void *endAddr);
+        void initialize(void *startAddr, void *endAddr) volatile;
 
         template <typename T>
         T *allocate(size_t size)

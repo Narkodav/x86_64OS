@@ -27,24 +27,6 @@ namespace Kernel
         s_vgaAddress[index].attr = attr;
     }
 
-    void Console::writeString(const char *str, size_t startIndex //= 0
-                              ,
-                              Attributes attr //= Attributes::WhiteOnBlack
-    )
-    {
-        for (size_t i = 0; str[i] != '\0'; ++i)
-            writeChar(startIndex + i, str[i], attr);
-    }
-
-    void Console::writeString(volatile const char *str, size_t startIndex //= 0
-                              ,
-                              Attributes attr //= Attributes::WhiteOnBlack
-    )
-    {
-        for (size_t i = 0; str[i] != '\0'; ++i)
-            writeChar(startIndex + i, str[i], attr);
-    }
-
     void Console::setCursor(CursorPos pos)
     {
         s_cursorPos.x = pos.x;
@@ -74,44 +56,6 @@ namespace Kernel
         if (s_cursorPos.y >= s_extent.height)
             scrollDown(1);
 
-        updateHardwareCursor();
-    }
-
-    void Console::putString(const char *str, Attributes attr //= Attributes::WhiteOnBlack
-    )
-    {
-        for (size_t i = 0; str[i] != '\0'; ++i)
-        {
-            size_t pos = s_cursorPos.y * s_extent.width + s_cursorPos.x;
-            writeChar(pos, str[i], attr);
-            ++s_cursorPos.x;
-            if (s_cursorPos.x >= s_extent.width || str[i] == '\n')
-            {
-                s_cursorPos.x = 0;
-                ++s_cursorPos.y;
-                if (s_cursorPos.y >= s_extent.height)
-                    scrollDown(1);
-            }
-        }
-        updateHardwareCursor();
-    }
-
-    void Console::putString(volatile const char *str, Attributes attr //= Attributes::WhiteOnBlack
-    )
-    {
-        for (size_t i = 0; str[i] != '\0'; ++i)
-        {
-            size_t pos = s_cursorPos.y * s_extent.width + s_cursorPos.x;
-            writeChar(pos, str[i], attr);
-            ++s_cursorPos.x;
-            if (s_cursorPos.x >= s_extent.width || str[i] == '\n')
-            {
-                s_cursorPos.x = 0;
-                ++s_cursorPos.y;
-                if (s_cursorPos.y >= s_extent.height)
-                    scrollDown(1);
-            }
-        }
         updateHardwareCursor();
     }
 

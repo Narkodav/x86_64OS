@@ -34,7 +34,38 @@ namespace Kernel
         "ACPI NVS",
         "Bad RAM"};
 
-    HeapLinkedList MemoryMap::initialise(uint64_t multibootInfoAddr)
+    const MemoryMap::KernelMemoryRegion MemoryMap::s_kernelMemoryRegion = {
+        .kernelStartAddr = reinterpret_cast<uint64_t>(__kernel_start),
+        .kernelEndAddr = reinterpret_cast<uint64_t>(__kernel_end),
+
+        .multibootHeaderStartAddr = reinterpret_cast<uint64_t>(__multiboot_header_start),
+        .multibootHeaderEndAddr = reinterpret_cast<uint64_t>(__multiboot_header_end),
+
+        .textStartAddr = reinterpret_cast<uint64_t>(__text_start),
+        .textEndAddr = reinterpret_cast<uint64_t>(__text_end),
+
+        .dataStartAddr = reinterpret_cast<uint64_t>(__data_start),
+        .dataEndAddr = reinterpret_cast<uint64_t>(__data_end),
+
+        .rodataStartAddr = reinterpret_cast<uint64_t>(__rodata_start),
+        .rodataEndAddr = reinterpret_cast<uint64_t>(__rodata_end),
+
+        .bssStartAddr = reinterpret_cast<uint64_t>(__bss_start),
+        .bssdataEndAddr = reinterpret_cast<uint64_t>(__bss_end),
+
+        .stackTopAddr = reinterpret_cast<uint64_t>(stack_top),
+        .stackBottomAddr = reinterpret_cast<uint64_t>(stack_bottom)};
+
+    MemoryMap::MultibootHeader *MemoryMap::s_multibootHeader = nullptr;
+    MemoryMap::MultibootTagMmap *MemoryMap::s_multibootMmapTag = nullptr; // the memory map tag
+    uint64_t MemoryMap::s_kernelEndDynamic;
+
+    // this is an array stored in the first availible memory region
+    // these regions will be used by the os for dynamic allocation
+    MemoryMap::MultibootMmapEntry **MemoryMap::s_availibleRegionEntries; // first one is kernel reserved
+    uint64_t MemoryMap::s_availibleRegionCount;
+
+    void MemoryMap::initialise(uint64_t multibootInfoAddr, HeapLinkedList &heap)
     {
         Console::print("Memory Map : Initialising\n");
 
@@ -46,7 +77,15 @@ namespace Kernel
         Console::print("Multiboot info address: %x\n", multibootInfoAddr);
         s_multibootHeader = reinterpret_cast<MultibootHeader *>(multibootInfoAddr);
         MultibootTag *tag = reinterpret_cast<MultibootTag *>(multibootInfoAddr + sizeof(MultibootHeader));
-        HeapLinkedList heap;
+
+        if (s_kernelMemoryRegion.kernelEndAddr < reinterpret_cast<uint64_t>(s_multibootHeader + s_multibootHeader->totalSize))
+        {
+            s_kernelEndDynamic = reinterpret_cast<uint64_t>(s_multibootHeader + s_multibootHeader->totalSize);
+        }
+        else
+            s_kernelEndDynamic = s_kernelMemoryRegion.kernelEndAddr;
+
+        Console::print("Multiboot header end: %p\n", s_multibootHeader + s_multibootHeader->totalSize);
 
         while (tag->type != TagType::End)
         {
@@ -57,7 +96,7 @@ namespace Kernel
             if (tag->type == TagType::Mmap)
             {
                 s_multibootMmapTag = reinterpret_cast<MultibootTagMmap *>(tag);
-                heap = parseMemoryMapTag();
+                parseMemoryMapTag(heap);
                 break;
             }
             // Move to next tag (aligned to 8 bytes)
@@ -67,13 +106,13 @@ namespace Kernel
         {
             Console::print("Memory Map : No memory map tag found\n");
         }
-        return heap;
     }
 
-    HeapLinkedList MemoryMap::parseMemoryMapTag()
+    void MemoryMap::parseMemoryMapTag(HeapLinkedList &heap)
     {
         s_availibleRegionCount = 0;
-        s_availibleRegions = reinterpret_cast<AvailibleMemoryRegion *>((s_kernelMemoryRegion.kernelEndAddr + 7) & ~7);
+        s_availibleRegionEntries = reinterpret_cast<MultibootMmapEntry **>((s_kernelEndDynamic + 7) & ~7);
+
         // Calculate number of entries
         uint32_t dataSize = s_multibootMmapTag->tag.size - sizeof(MultibootTagMmap);
         uint32_t entrySize = s_multibootMmapTag->entrySize;
@@ -84,16 +123,21 @@ namespace Kernel
         size_t regionAfterKernel = 0;
 
         MultibootMmapEntry *entry = reinterpret_cast<MultibootMmapEntry *>(s_multibootMmapTag + 1);
+        Console::print("Entry storage ptr: %p\n", &entry);
+
         uint32_t i = 0;
         for (; i < entryCount; ++i)
         {
+            Console::print("Entry ptr: %p\n", entry);
+            Console::print("s_availibleRegions ptr: %p\n", s_availibleRegionEntries);
+            Console::print("s_availibleRegions ptr ptr: %p\n", &s_availibleRegionEntries);
+            Console::print("s_availibleRegionCount ptr: %p\n", &s_availibleRegionCount);
+
             if (entry->type == MultibootMemoryType::Available)
             {
-                s_availibleRegions[s_availibleRegionCount].startAddr = entry->addr;
-                s_availibleRegions[s_availibleRegionCount].length = entry->len;
-                if (entry->addr <= s_kernelMemoryRegion.kernelEndAddr)
+                s_availibleRegionEntries[s_availibleRegionCount] = entry;
+                if (entry->addr <= s_kernelEndDynamic)
                     regionAfterKernel = s_availibleRegionCount;
-                ++s_availibleRegionCount;
             }
             if (entry->len < 1024)
                 Console::print("Region %d: %x - %x (%d B) [%s]\n",
@@ -121,15 +165,12 @@ namespace Kernel
         }
 
         Console::print("Initilialising kernel heap\n");
-        uint64_t startAddr = (reinterpret_cast<uint64_t>(s_availibleRegions) + s_availibleRegionCount * sizeof(AvailibleMemoryRegion) + 7) & ~7;
-        uint64_t endAddr = s_availibleRegions[regionAfterKernel].length + s_availibleRegions[regionAfterKernel].startAddr;
+        uint64_t startAddr = (reinterpret_cast<uint64_t>(s_availibleRegionEntries) + s_availibleRegionCount * sizeof(s_availibleRegionEntries) + 7) & ~7;
+        uint64_t endAddr = s_availibleRegionEntries[regionAfterKernel]->len + s_availibleRegionEntries[regionAfterKernel]->addr;
 
         Console::print("Kernel heap start addr %x\n", startAddr);
         Console::print("Kernel heap end addr %x\n", endAddr);
-
-        HeapLinkedList heap;
         heap.initialize(reinterpret_cast<void *>(startAddr),
                         reinterpret_cast<void *>(endAddr));
-        return heap;
     }
 }
