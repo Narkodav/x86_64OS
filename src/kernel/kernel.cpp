@@ -2,12 +2,17 @@
 #include "../../include/InterruptManager.h"
 #include "../../include/Console.h"
 #include "../../include/MemoryMap.h"
+#include "../../include/Keyboard.h"
+#include "../../include/Timer.h"
 
 extern "C" void __cxa_pure_virtual()
 {
     while (1)
         ;
 }
+
+extern "C" void halt();
+extern "C" void start();
 
 // void* operator new(size_t size) { return nullptr; }
 // void* operator new[](size_t size) { return nullptr; }
@@ -28,15 +33,6 @@ void handleTimerInterrupt(Kernel::InterruptFrame &frame)
 {
     using namespace Kernel;
     // Console::putString("Timer Interrupt\n");
-}
-
-void handleKeyboardInterrupt(Kernel::InterruptFrame &frame)
-{
-    using namespace Kernel;
-    uint8_t scancode = inByte(0x60);
-    Console::putString("Key pressed: ");
-    Console::putNumBin(scancode);
-    Console::putChar('\n');
 }
 
 extern "C" void kernel_main(uint64_t multibootInfoAddr)
@@ -66,14 +62,17 @@ extern "C" void kernel_main(uint64_t multibootInfoAddr)
 
     Console::clear();
 
+    Console::print("Kernel start address: %p\n", reinterpret_cast<void *>(__kernel_start));
+    Console::print("Start address: %p\n", reinterpret_cast<void *>(start));
+
     Console::print("Stack bottom: %p\n", stack_bottom);
     Console::print("Stack top: %p\n", stack_top);
     Console::print("Stack size: %x\n", reinterpret_cast<uint64_t>(reinterpret_cast<void *>(stack_top - stack_bottom)));
 
     InterruptManager::initialize();
-    InterruptManager::registerInterruptCallback(
-        InterruptManager::InterruptVector::irqKeyboard,
-        handleKeyboardInterrupt);
+    Keyboard::initialise();
+    Timer::initialise();
+
     InterruptManager::registerInterruptCallback(
         InterruptManager::InterruptVector::irqSystemTimer,
         handleTimerInterrupt);
@@ -105,6 +104,10 @@ extern "C" void kernel_main(uint64_t multibootInfoAddr)
         kernelHeap.free(dynamicDatas[i]);
     }
     kernelHeap.free(dynamicDatas);
+
+    Console::print("\n");
+    kernelHeap.printBlocks();
+
     while (1)
     {
         // uint8_t status = inByte(0x64);

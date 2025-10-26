@@ -3,6 +3,7 @@
 #include "Types.h"
 #include "Console.h"
 #include "Heap.h"
+#include "Utils.h"
 
 extern "C"
 {
@@ -26,6 +27,8 @@ extern "C"
 
     extern uint8_t __bss_start[];
     extern uint8_t __bss_end[];
+
+    extern void load_page_tables(uint64_t *pml4_physical);
 }
 
 namespace Kernel
@@ -123,9 +126,32 @@ namespace Kernel
             uint64_t stackBottomAddr;
         };
 
+        enum class PageFlags : uint64_t
+        {
+            Present = 0x1,
+            Writable = 0x2,
+            User = 0x4,
+            WriteThrough = 0x8,
+            CacheDisable = 0x10,
+            Accessed = 0x20,
+            Dirty = 0x40,
+            Huge = 0x80,
+            Global = 0x100,
+            NoExecute = 0x8000000000000000ULL,
+
+            Kernel = (Present | Writable),
+            UserRw = (Present | Writable | User),
+            UserRo = (Present | User),
+        };
+
     private:
         static const char *s_multibootTagNames[static_cast<uint32_t>(TagType::Num)];
         static const char *s_multibootMemoryTypeNames[static_cast<uint32_t>(MultibootMemoryType::Num)];
+        static inline const uint64_t s_1B = 1;             // 1 B
+        static inline const uint64_t s_1KB = s_1B * 1024;  // 1 KB
+        static inline const uint64_t s_1MB = s_1KB * 1024; // 1 KB
+        static inline const uint64_t s_1GB = s_1MB * 1024; // 1 KB
+        static inline const uint64_t s_1TB = s_1GB * 1024; // 1 KB
 
         static const KernelMemoryRegion s_kernelMemoryRegion;
 
@@ -142,8 +168,31 @@ namespace Kernel
     public:
         static void initialise(uint64_t multibootInfoAddr, HeapLinkedList &heap);
 
+        // x86-64 Virtual Address Breakdown (48-bit addressing):
+        // [63:48] - Sign extension (unused, must match bit 47)
+        // [47:39] - PML4 index  (9 bits, 512 entries) - Level 1
+        // [38:30] - PDPT index  (9 bits, 512 entries) - Level 2
+        // [29:21] - PD index    (9 bits, 512 entries) - Level 3
+        // [20:12] - PT index    (9 bits, 512 entries) - Level 4
+        // [11:0]  - Page offset (12 bits, 4KB pages)
+
+        // For 2MB pages (skip PT level):
+        // [47:39] - PML4 index  (9 bits)
+        // [38:30] - PDPT index  (9 bits)
+        // [29:21] - PD index    (9 bits)
+        // [20:0]  - Page offset (21 bits, 2MB pages)
+
+        // For 1GB pages (skip PD and PT levels):
+        // [47:39] - PML4 index  (9 bits)
+        // [38:30] - PDPT index  (9 bits)
+        // [29:0]  - Page offset (30 bits, 1GB pages)
+
+        static void map128TbIdentity(uint64_t *PML4, uint64_t *PDPT, uint32_t flags = 0);
+
     private:
         static void parseMemoryMapTag(HeapLinkedList &heap);
+
+        static bool supportsGb1Pages();
     };
 }
 

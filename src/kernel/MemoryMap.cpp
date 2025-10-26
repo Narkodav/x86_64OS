@@ -67,6 +67,13 @@ namespace Kernel
 
     void MemoryMap::initialise(uint64_t multibootInfoAddr, HeapLinkedList &heap)
     {
+        if (!supportsGb1Pages())
+        {
+            Console::print("Memory Map : GB1 pages not supported\n");
+            // panic probably
+            return;
+        }
+
         Console::print("Memory Map : Initialising\n");
 
         Console::print("Kernel memory region:\n");
@@ -172,5 +179,40 @@ namespace Kernel
         Console::print("Kernel heap end addr %x\n", endAddr);
         heap.initialize(reinterpret_cast<void *>(startAddr),
                         reinterpret_cast<void *>(endAddr));
+    }
+
+    bool MemoryMap::supportsGb1Pages()
+    {
+        uint32_t eax, ebx, ecx, edx;
+        cpuid(0x80000001, &eax, &ebx, &ecx, &edx);
+        return (edx & (1 << 26)) != 0; // PDPE1GB bit
+    }
+
+    // this is inefficient and useless currently, will fix later
+    void MemoryMap::map128TbIdentity(uint64_t *PML4, uint64_t *PDPT, uint32_t flags //= 0
+    )
+    {
+        auto pageSize = s_1GB;
+        uint64_t addr = 0x0; //& ~(pageSize - 1);
+        // uint64_t physAddr = 0x0; //& ~(pageSize - 1);
+        size_t pages = (s_1TB * 128 - 1) / pageSize + 1;
+
+        for (size_t i = 0; i < pages; i++)
+        {
+            // Extract indices for two levels
+            size_t l1Index = (addr >> 39) & 0x1FF; // Bits 47-39
+            size_t l2Index = (addr >> 30) & 0x1FF; // Bits 38-30
+
+            if (!(PML4[l1Index] & static_cast<uint64_t>(PageFlags::Present)))
+            {
+                PML4[l1Index] = (uint64_t)PDPT[l1Index * 512] | static_cast<uint64_t>(PageFlags::Present) | static_cast<uint64_t>(PageFlags::Writable);
+            }
+
+            PDPT[l1Index * 512 + l2Index] = addr | flags | static_cast<uint64_t>(PageFlags::Present) | static_cast<uint64_t>(PageFlags::Writable) | static_cast<uint64_t>(PageFlags::Huge);
+
+            addr += pageSize;
+        }
+
+        load_page_tables(PML4);
     }
 }

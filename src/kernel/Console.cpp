@@ -4,6 +4,8 @@ namespace Kernel
 {
     volatile Console::VgaChar *Console::s_vgaAddress = reinterpret_cast<volatile Console::VgaChar *>(0xB8000);
     const Console::Extent Console::s_extent = {80, 25};
+    const size_t Console::s_bufferLineCount = 6000;
+    volatile Console::VgaChar Console::s_charBuffer[s_extent.width * s_bufferLineCount];
     const size_t Console::s_windowCapacity = s_extent.width * s_extent.height;
     volatile Console::CursorPos Console::s_cursorPos = {0, 0};
 
@@ -133,5 +135,20 @@ namespace Kernel
             }
         }
         setCursor({s_cursorPos.x, s_cursorPos.y - lines});
+    }
+
+    uint64_t Console::cursorPosToIndex(CursorPos pos)
+    {
+        return pos.y * s_extent.width + pos.x;
+    }
+
+    void Console::flushToVga(size_t lineIndex)
+    {
+        size_t index = lineIndex * s_extent.width;
+        for (size_t i = index; i < s_windowCapacity; ++i)
+        {
+            s_vgaAddress[i - index].character = s_charBuffer[i].character;
+            s_vgaAddress[i - index].attr = s_charBuffer[i].attr;
+        }
     }
 }

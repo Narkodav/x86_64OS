@@ -14,6 +14,7 @@ SECTIONS
     .text : ALIGN(4096) {
         __text_start = .;
         *(.text)
+        *(.text.utility)
         *(.text.*)
         __text_end = .;
     }

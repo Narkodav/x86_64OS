@@ -129,28 +129,28 @@ namespace Kernel
     void InterruptManager::remapPic()
     {
         // Save masks
-        uint8_t mask1 = inByte(0x21);
-        uint8_t mask2 = inByte(0xA1);
+        uint8_t mask1 = port_in_byte(0x21);
+        uint8_t mask2 = port_in_byte(0xA1);
 
         // Start initialization
-        outByte(0x20, 0x11); // Master PIC: ICW1
-        outByte(0xA0, 0x11); // Slave PIC: ICW1
+        port_out_byte(0x20, 0x11); // Master PIC: ICW1
+        port_out_byte(0xA0, 0x11); // Slave PIC: ICW1
 
         // Set vector offsets
-        outByte(0x21, 0x20); // Master PIC: IRQ 0-7 → interrupts 32-39
-        outByte(0xA1, 0x28); // Slave PIC: IRQ 8-15 → interrupts 40-47
+        port_out_byte(0x21, 0x20); // Master PIC: IRQ 0-7 → interrupts 32-39
+        port_out_byte(0xA1, 0x28); // Slave PIC: IRQ 8-15 → interrupts 40-47
 
         // Configure cascade
-        outByte(0x21, 0x04); // Master PIC: slave at IRQ2
-        outByte(0xA1, 0x02); // Slave PIC: cascade identity
+        port_out_byte(0x21, 0x04); // Master PIC: slave at IRQ2
+        port_out_byte(0xA1, 0x02); // Slave PIC: cascade identity
 
         // Set mode
-        outByte(0x21, 0x01); // Master PIC: 8086 mode
-        outByte(0xA1, 0x01); // Slave PIC: 8086 mode
+        port_out_byte(0x21, 0x01); // Master PIC: 8086 mode
+        port_out_byte(0xA1, 0x01); // Slave PIC: 8086 mode
 
         // Restore masks
-        outByte(0x21, 0x0);
-        outByte(0xA1, 0x0);
+        port_out_byte(0x21, 0x0);
+        port_out_byte(0xA1, 0x0);
     }
 
     void InterruptManager::initialize()
@@ -162,17 +162,6 @@ namespace Kernel
     inline void InterruptManager::handleInterrupt(InterruptFrame &frame)
     {
         s_interruptHandlers[frame.interrupt_number](frame);
-
-        //__asm__ __volatile__("cli; hlt");
-        /*         Kernel::Console::putString(s_exceptionMessages[regs.intNo]);
-                Kernel::Console::putChar('\n');
-
-                if (regs.intNo >= 40)
-                    Kernel::portByteOut(0xA0, 0x20); // slave
-                Kernel::portByteOut(0x20, 0x20);     // master
-
-                if (s_interruptHandlers[regs.intNo] != nullptr)
-                    s_interruptHandlers[regs.intNo](regs); */
     }
 
     void InterruptManager::handleException(InterruptFrame &frame)
@@ -205,12 +194,25 @@ extern "C" void isr_handler(Kernel::InterruptFrame *frame)
     asm volatile("cli \n hlt");
 }
 
-extern "C" void irq_handler(Kernel::InterruptFrame *frame)
+// extern "C" void irq_handler(Kernel::InterruptFrame *frame)
+// {
+//     Kernel::InterruptManager::handleInterrupt(*frame);
+//     if (frame->interrupt_number >= 40)
+//     {
+//         port_out_byte(0xA0, 0x20); // Send EOI to slave PIC
+//     }
+//     port_out_byte(0x20, 0x20); // Send EOI to master PIC
+// }
+
+extern "C" void master_irq_handler(Kernel::InterruptFrame *frame)
 {
     Kernel::InterruptManager::handleInterrupt(*frame);
-    if (frame->interrupt_number >= 40)
-    {
-        Kernel::outByte(0xA0, 0x20); // Send EOI to slave PIC
-    }
-    Kernel::outByte(0x20, 0x20); // Send EOI to master PIC
+    port_out_byte(0x20, 0x20); // EOI to master
+}
+
+extern "C" void slave_irq_handler(Kernel::InterruptFrame *frame)
+{
+    Kernel::InterruptManager::handleInterrupt(*frame);
+    port_out_byte(0xA0, 0x20); // EOI to slave
+    port_out_byte(0x20, 0x20); // EOI to master
 }

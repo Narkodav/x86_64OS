@@ -7,7 +7,7 @@
 	.type	_ZNV6Kernel14HeapLinkedList10initializeEPvS1_, @function
 _ZNV6Kernel14HeapLinkedList10initializeEPvS1_:
 .LVL0:
-.LFB37:
+.LFB56:
 	.file 1 "src/kernel/Heap.cpp"
 	.loc 1 5 5 view -0
 	.cfi_startproc
@@ -34,12 +34,12 @@ _ZNV6Kernel14HeapLinkedList10initializeEPvS1_:
 .LBB84:
 .LBI84:
 	.file 3 "src/kernel/../../include/Utils.h"
-	.loc 3 45 14 view .LVU12
+	.loc 3 47 14 view .LVU12
 .LBB85:
-	.loc 3 47 21 is_stmt 0 view .LVU13
+	.loc 3 49 21 is_stmt 0 view .LVU13
 	andq	$-2, 16(%rax)
 .LVL2:
-	.loc 3 47 21 view .LVU14
+	.loc 3 49 21 view .LVU14
 .LBE85:
 .LBE84:
 .LBE83:
@@ -65,14 +65,14 @@ _ZNV6Kernel14HeapLinkedList10initializeEPvS1_:
 	.loc 1 16 5 view .LVU25
 	ret
 	.cfi_endproc
-.LFE37:
+.LFE56:
 	.size	_ZNV6Kernel14HeapLinkedList10initializeEPvS1_, .-_ZNV6Kernel14HeapLinkedList10initializeEPvS1_
 	.align 2
 	.globl	_ZN6Kernel14HeapLinkedList8allocateEm
 	.type	_ZN6Kernel14HeapLinkedList8allocateEm, @function
 _ZN6Kernel14HeapLinkedList8allocateEm:
 .LVL4:
-.LFB38:
+.LFB57:
 	.loc 1 19 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 19 5 is_stmt 0 view .LVU27
@@ -146,12 +146,12 @@ _ZN6Kernel14HeapLinkedList8allocateEm:
 	.loc 2 28 35 view .LVU52
 .LBB91:
 .LBI91:
-	.loc 3 49 14 view .LVU53
+	.loc 3 51 14 view .LVU53
 .LBB92:
-	.loc 3 51 21 is_stmt 0 view .LVU54
+	.loc 3 53 21 is_stmt 0 view .LVU54
 	movq	16(%rax), %rdi
 .LVL13:
-	.loc 3 51 21 view .LVU55
+	.loc 3 53 21 view .LVU55
 .LBE92:
 .LBE91:
 .LBE90:
@@ -169,13 +169,13 @@ _ZN6Kernel14HeapLinkedList8allocateEm:
 	.loc 2 31 17 view .LVU59
 .LBB95:
 .LBI95:
-	.loc 3 41 14 view .LVU60
+	.loc 3 43 14 view .LVU60
 .LBB96:
-	.loc 3 43 21 is_stmt 0 view .LVU61
+	.loc 3 45 21 is_stmt 0 view .LVU61
 	orq	$1, %rdi
 	movq	%rdi, 16(%rax)
 .LVL15:
-	.loc 3 43 21 view .LVU62
+	.loc 3 45 21 view .LVU62
 .LBE96:
 .LBE95:
 .LBE94:
@@ -222,12 +222,12 @@ _ZN6Kernel14HeapLinkedList8allocateEm:
 	.loc 2 35 17 view .LVU82
 .LBB100:
 .LBI100:
-	.loc 3 45 14 view .LVU83
+	.loc 3 47 14 view .LVU83
 .LBB101:
-	.loc 3 47 21 is_stmt 0 view .LVU84
+	.loc 3 49 21 is_stmt 0 view .LVU84
 	andq	$-2, 16(%rdx)
 .LVL20:
-	.loc 3 47 21 view .LVU85
+	.loc 3 49 21 view .LVU85
 .LBE101:
 .LBE100:
 .LBE99:
@@ -302,14 +302,14 @@ _ZN6Kernel14HeapLinkedList8allocateEm:
 	.loc 1 51 5 view .LVU110
 	ret
 	.cfi_endproc
-.LFE38:
+.LFE57:
 	.size	_ZN6Kernel14HeapLinkedList8allocateEm, .-_ZN6Kernel14HeapLinkedList8allocateEm
 	.align 2
 	.globl	_ZN6Kernel14HeapLinkedList4freeEPv
 	.type	_ZN6Kernel14HeapLinkedList4freeEPv, @function
 _ZN6Kernel14HeapLinkedList4freeEPv:
 .LVL28:
-.LFB40:
+.LFB59:
 	.loc 1 112 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 112 5 is_stmt 0 view .LVU112
@@ -323,12 +323,12 @@ _ZN6Kernel14HeapLinkedList4freeEPv:
 	.loc 2 35 17 view .LVU116
 .LBB111:
 .LBI111:
-	.loc 3 45 14 view .LVU117
+	.loc 3 47 14 view .LVU117
 .LBB112:
-	.loc 3 47 21 is_stmt 0 view .LVU118
+	.loc 3 49 21 is_stmt 0 view .LVU118
 	andq	$-2, -16(%rsi)
 .LVL30:
-	.loc 3 47 21 view .LVU119
+	.loc 3 49 21 view .LVU119
 .LBE112:
 .LBE111:
 .LBE110:
@@ -383,8 +383,8 @@ _ZN6Kernel14HeapLinkedList4freeEPv:
 	.loc 2 28 35 view .LVU140
 .LBB116:
 .LBI116:
-	.loc 3 49 14 view .LVU141
-	.loc 3 49 14 is_stmt 0 view .LVU142
+	.loc 3 51 14 view .LVU141
+	.loc 3 51 14 is_stmt 0 view .LVU142
 .LBE116:
 .LBE115:
 	.loc 1 121 39 discriminator 1 view .LVU143
@@ -425,8 +425,8 @@ _ZN6Kernel14HeapLinkedList4freeEPv:
 	.loc 2 28 35 view .LVU158
 .LBB118:
 .LBI118:
-	.loc 3 49 14 view .LVU159
-	.loc 3 49 14 is_stmt 0 view .LVU160
+	.loc 3 51 14 view .LVU159
+	.loc 3 51 14 is_stmt 0 view .LVU160
 .LBE118:
 .LBE117:
 	.loc 1 127 39 discriminator 1 view .LVU161
@@ -455,14 +455,14 @@ _ZN6Kernel14HeapLinkedList4freeEPv:
 	.loc 1 132 5 view .LVU171
 	ret
 	.cfi_endproc
-.LFE40:
+.LFE59:
 	.size	_ZN6Kernel14HeapLinkedList4freeEPv, .-_ZN6Kernel14HeapLinkedList4freeEPv
 	.align 2
 	.globl	_ZN6Kernel14HeapLinkedList10reallocateEPvm
 	.type	_ZN6Kernel14HeapLinkedList10reallocateEPvm, @function
 _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 .LVL38:
-.LFB39:
+.LFB58:
 	.loc 1 54 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 54 5 is_stmt 0 view .LVU173
@@ -536,8 +536,8 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.loc 2 28 35 view .LVU193
 .LBB146:
 .LBI146:
-	.loc 3 49 14 view .LVU194
-	.loc 3 49 14 is_stmt 0 view .LVU195
+	.loc 3 51 14 view .LVU194
+	.loc 3 51 14 is_stmt 0 view .LVU195
 .LBE146:
 .LBE145:
 	.loc 1 77 36 discriminator 1 view .LVU196
@@ -605,12 +605,12 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.loc 2 35 17 view .LVU223
 .LBB151:
 .LBI151:
-	.loc 3 45 14 view .LVU224
+	.loc 3 47 14 view .LVU224
 .LBB152:
-	.loc 3 47 21 is_stmt 0 view .LVU225
+	.loc 3 49 21 is_stmt 0 view .LVU225
 	andq	$-2, 16(%rax)
 .LVL51:
-	.loc 3 47 21 view .LVU226
+	.loc 3 49 21 view .LVU226
 .LBE152:
 .LBE151:
 .LBE150:
@@ -704,12 +704,12 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.loc 2 35 17 view .LVU261
 .LBB128:
 .LBI128:
-	.loc 3 45 14 view .LVU262
+	.loc 3 47 14 view .LVU262
 .LBB129:
-	.loc 3 47 21 is_stmt 0 view .LVU263
+	.loc 3 49 21 is_stmt 0 view .LVU263
 	andq	$-2, 16(%rax)
 .LVL62:
-	.loc 3 47 21 view .LVU264
+	.loc 3 49 21 view .LVU264
 .LBE129:
 .LBE128:
 .LBE127:
@@ -860,18 +860,19 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 .LBE153:
 .LBE155:
 	.cfi_endproc
-.LFE39:
+.LFE58:
 	.size	_ZN6Kernel14HeapLinkedList10reallocateEPvm, .-_ZN6Kernel14HeapLinkedList10reallocateEPvm
 .Letext0:
 	.file 4 "src/kernel/../../include/Types.h"
+	.file 5 "src/kernel/../../include/Console.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
-	.long	0x1008
+	.long	0x100a
 	.value	0x5
 	.byte	0x1
 	.byte	0x8
 	.long	.Ldebug_abbrev0
-	.uleb128 0x29
+	.uleb128 0x2a
 	.long	.LASF521
 	.byte	0x21
 	.long	.LASF0
@@ -880,12 +881,12 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.quad	.Letext0-.Ltext0
 	.long	.Ldebug_line0
 	.long	.Ldebug_macro0
-	.uleb128 0x13
+	.uleb128 0x12
 	.long	.LASF440
 	.byte	0x5
 	.byte	0x17
 	.long	0x42
-	.uleb128 0x1a
+	.uleb128 0x1b
 	.long	0x32
 	.uleb128 0x7
 	.byte	0x8
@@ -895,7 +896,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x8
 	.byte	0x5
 	.long	.LASF439
-	.uleb128 0x13
+	.uleb128 0x12
 	.long	.LASF441
 	.byte	0x8
 	.byte	0x17
@@ -908,7 +909,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x2
 	.byte	0x7
 	.long	.LASF443
-	.uleb128 0x13
+	.uleb128 0x12
 	.long	.LASF444
 	.byte	0xa
 	.byte	0x16
@@ -917,7 +918,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x4
 	.byte	0x7
 	.long	.LASF445
-	.uleb128 0x13
+	.uleb128 0x12
 	.long	.LASF446
 	.byte	0xb
 	.byte	0x1c
@@ -934,7 +935,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x2
 	.byte	0x5
 	.long	.LASF449
-	.uleb128 0x2a
+	.uleb128 0x2b
 	.byte	0x4
 	.byte	0x5
 	.string	"int"
@@ -942,9 +943,9 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x8
 	.byte	0x5
 	.long	.LASF450
-	.uleb128 0x2b
-	.byte	0x8
 	.uleb128 0x2c
+	.byte	0x8
+	.uleb128 0x2d
 	.string	"std"
 	.byte	0x4
 	.byte	0x16
@@ -954,28 +955,30 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LASF453
 	.long	0x147
 	.byte	0x1
-	.uleb128 0xe
+	.uleb128 0x14
 	.long	.LASF451
-	.byte	0x49
 	.long	0x147
 	.byte	0x1
-	.uleb128 0xe
+	.uleb128 0x14
+	.long	.LASF451
+	.long	0x147
+	.byte	0x1
+	.uleb128 0x15
 	.long	.LASF452
-	.byte	0xe3
+	.value	0x16d
 	.long	0x147
 	.byte	0x1
-	.uleb128 0xe
+	.uleb128 0x14
 	.long	.LASF451
-	.byte	0x49
 	.long	0x147
 	.byte	0
 	.uleb128 0xc
 	.long	.LASF453
 	.long	0x147
 	.byte	0
-	.uleb128 0xe
+	.uleb128 0x15
 	.long	.LASF454
-	.byte	0xe9
+	.value	0x173
 	.long	0x147
 	.byte	0x1
 	.uleb128 0xc
@@ -986,18 +989,13 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LASF453
 	.long	0x147
 	.byte	0
-	.uleb128 0xe
-	.long	.LASF451
-	.byte	0x49
-	.long	0x147
-	.byte	0x1
 	.uleb128 0xc
 	.long	.LASF453
 	.long	0x147
 	.byte	0
-	.uleb128 0xe
+	.uleb128 0x15
 	.long	.LASF454
-	.byte	0xe9
+	.value	0x173
 	.long	0x147
 	.byte	0
 	.uleb128 0xc
@@ -1015,19 +1013,20 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LASF455
 	.uleb128 0x9
 	.long	0x140
-	.uleb128 0x1b
+	.uleb128 0x1c
 	.long	.LASF456
-	.byte	0x11
-	.long	0x365
-	.uleb128 0x2d
+	.byte	0x5
+	.byte	0x7
+	.long	0x366
+	.uleb128 0x2e
 	.long	.LASF522
 	.byte	0x30
 	.byte	0x8
 	.byte	0x2
 	.byte	0xc
 	.byte	0xb
-	.long	0x35a
-	.uleb128 0x2e
+	.long	0x35b
+	.uleb128 0x2f
 	.long	.LASF523
 	.byte	0x7
 	.byte	0x8
@@ -1036,210 +1035,210 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0xf
 	.byte	0x14
 	.byte	0x1
-	.long	0x17e
-	.uleb128 0x2f
+	.long	0x17f
+	.uleb128 0x30
 	.long	.LASF524
 	.byte	0x1
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x31
 	.long	.LASF525
 	.byte	0x20
 	.byte	0x2
 	.byte	0x14
 	.byte	0x10
 	.byte	0x1
-	.long	0x252
-	.uleb128 0xf
+	.long	0x253
+	.uleb128 0xe
 	.long	.LASF457
 	.byte	0x2
 	.byte	0x16
 	.byte	0x14
-	.long	0x533
+	.long	0x535
 	.byte	0
-	.uleb128 0xf
+	.uleb128 0xe
 	.long	.LASF458
 	.byte	0x2
 	.byte	0x17
 	.byte	0x14
-	.long	0x533
+	.long	0x535
 	.byte	0x8
-	.uleb128 0xf
+	.uleb128 0xe
 	.long	.LASF459
 	.byte	0x2
 	.byte	0x18
 	.byte	0x32
-	.long	0x376
+	.long	0x378
 	.byte	0x10
-	.uleb128 0xf
+	.uleb128 0xe
 	.long	.LASF460
 	.byte	0x2
 	.byte	0x19
 	.byte	0x16
 	.long	0x69
 	.byte	0x18
-	.uleb128 0xf
+	.uleb128 0xe
 	.long	.LASF461
 	.byte	0x2
 	.byte	0x1a
 	.byte	0x16
 	.long	0x69
 	.byte	0x1c
-	.uleb128 0x1c
+	.uleb128 0x1d
 	.long	.LASF466
 	.byte	0x1c
 	.byte	0x12
 	.long	.LASF468
 	.long	0x140
-	.long	0x1e4
-	.long	0x1ea
+	.long	0x1e5
+	.long	0x1eb
 	.uleb128 0x2
-	.long	0x53d
+	.long	0x53f
 	.byte	0
-	.uleb128 0x1d
+	.uleb128 0x1e
 	.long	.LASF462
 	.byte	0x1d
 	.long	.LASF464
-	.long	0x1fc
-	.long	0x202
+	.long	0x1fd
+	.long	0x203
 	.uleb128 0x2
-	.long	0x533
+	.long	0x535
 	.byte	0
-	.uleb128 0x1d
+	.uleb128 0x1e
 	.long	.LASF463
 	.byte	0x21
 	.long	.LASF465
-	.long	0x214
-	.long	0x21a
+	.long	0x215
+	.long	0x21b
 	.uleb128 0x2
-	.long	0x533
+	.long	0x535
 	.byte	0
-	.uleb128 0x1c
+	.uleb128 0x1d
 	.long	.LASF467
 	.byte	0x26
 	.byte	0x14
 	.long	.LASF469
 	.long	0x32
-	.long	0x231
-	.long	0x237
+	.long	0x232
+	.long	0x238
 	.uleb128 0x2
-	.long	0x533
+	.long	0x535
 	.byte	0
-	.uleb128 0x31
+	.uleb128 0x32
 	.long	.LASF470
 	.byte	0x2
 	.byte	0x2b
 	.byte	0x13
 	.long	.LASF471
 	.long	0xa9
-	.long	0x24b
+	.long	0x24c
 	.uleb128 0x2
-	.long	0x533
+	.long	0x535
 	.byte	0
 	.byte	0
 	.uleb128 0x9
-	.long	0x17e
-	.uleb128 0x10
+	.long	0x17f
+	.uleb128 0xf
 	.long	.LASF472
 	.byte	0x32
 	.byte	0x10
-	.long	0x533
+	.long	0x535
 	.byte	0
-	.uleb128 0x10
+	.uleb128 0xf
 	.long	.LASF473
 	.byte	0x33
 	.byte	0xf
 	.long	0xa9
 	.byte	0x8
-	.uleb128 0x10
+	.uleb128 0xf
 	.long	.LASF474
 	.byte	0x34
 	.byte	0xf
 	.long	0xa9
 	.byte	0x10
-	.uleb128 0x10
+	.uleb128 0xf
 	.long	.LASF475
 	.byte	0x35
 	.byte	0x19
 	.long	0x3d
 	.byte	0x18
-	.uleb128 0x10
+	.uleb128 0xf
 	.long	.LASF476
 	.byte	0x36
 	.byte	0x19
 	.long	0x3d
 	.byte	0x20
-	.uleb128 0x10
+	.uleb128 0xf
 	.long	.LASF477
 	.byte	0x37
 	.byte	0x19
 	.long	0x3d
 	.byte	0x28
-	.uleb128 0x11
+	.uleb128 0x10
 	.long	.LASF478
 	.byte	0x2
 	.byte	0x3a
 	.byte	0xe
 	.long	.LASF479
-	.long	0x2b3
-	.long	0x2c3
+	.long	0x2b4
+	.long	0x2c4
 	.uleb128 0x2
-	.long	0x547
+	.long	0x549
 	.uleb128 0x3
 	.long	0xa9
 	.uleb128 0x3
 	.long	0xa9
 	.byte	0
-	.uleb128 0x1e
+	.uleb128 0x1f
 	.long	.LASF480
 	.byte	0x50
 	.long	.LASF482
 	.long	0xa9
-	.long	0x2d9
-	.long	0x2e4
+	.long	0x2da
+	.long	0x2e5
 	.uleb128 0x2
-	.long	0x551
+	.long	0x553
 	.uleb128 0x3
 	.long	0x32
 	.byte	0
-	.uleb128 0x1e
+	.uleb128 0x1f
 	.long	.LASF481
 	.byte	0x51
 	.long	.LASF483
 	.long	0xa9
-	.long	0x2fa
-	.long	0x30a
+	.long	0x2fb
+	.long	0x30b
 	.uleb128 0x2
-	.long	0x551
+	.long	0x553
 	.uleb128 0x3
 	.long	0xa9
 	.uleb128 0x3
 	.long	0x32
 	.byte	0
-	.uleb128 0x11
+	.uleb128 0x10
 	.long	.LASF484
 	.byte	0x2
 	.byte	0x52
 	.byte	0xe
 	.long	.LASF485
-	.long	0x31e
-	.long	0x329
+	.long	0x31f
+	.long	0x32a
 	.uleb128 0x2
-	.long	0x551
+	.long	0x553
 	.uleb128 0x3
 	.long	0xa9
 	.byte	0
-	.uleb128 0x11
+	.uleb128 0x10
 	.long	.LASF486
 	.byte	0x2
 	.byte	0x54
 	.byte	0xe
 	.long	.LASF487
-	.long	0x33d
-	.long	0x343
+	.long	0x33e
+	.long	0x344
 	.uleb128 0x2
-	.long	0x55b
+	.long	0x55d
 	.byte	0
-	.uleb128 0x32
+	.uleb128 0x33
 	.long	.LASF507
 	.byte	0x2
 	.byte	0x65
@@ -1250,316 +1249,317 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	0x32
 	.byte	0
 	.byte	0
-	.uleb128 0x1a
-	.long	0x156
+	.uleb128 0x1b
+	.long	0x157
 	.uleb128 0x9
-	.long	0x156
+	.long	0x157
 	.byte	0
 	.uleb128 0x7
 	.byte	0x1
 	.byte	0x6
 	.long	.LASF488
-	.uleb128 0x1b
+	.uleb128 0x1c
 	.long	.LASF489
-	.byte	0x17
-	.long	0x50f
-	.uleb128 0x33
+	.byte	0x3
+	.byte	0x19
+	.long	0x511
+	.uleb128 0x34
 	.long	.LASF527
 	.byte	0x8
 	.byte	0x3
-	.byte	0x1a
+	.byte	0x1c
 	.byte	0xb
-	.long	0x509
-	.uleb128 0xf
+	.long	0x50b
+	.uleb128 0xe
 	.long	.LASF490
 	.byte	0x3
-	.byte	0x1d
+	.byte	0x1f
 	.byte	0xb
 	.long	0x86
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF491
-	.byte	0x3
-	.byte	0x20
-	.byte	0x9
-	.long	.LASF492
-	.long	0x3a4
-	.long	0x3aa
-	.uleb128 0x2
-	.long	0x50f
-	.byte	0
-	.uleb128 0x15
-	.long	.LASF493
-	.byte	0x21
-	.long	.LASF494
-	.long	0x3bc
-	.long	0x3c7
-	.uleb128 0x2
-	.long	0x50f
-	.uleb128 0x2
-	.long	0x9b
-	.byte	0
-	.uleb128 0x11
+	.uleb128 0x10
 	.long	.LASF491
 	.byte	0x3
 	.byte	0x22
 	.byte	0x9
-	.long	.LASF495
-	.long	0x3db
-	.long	0x3e6
+	.long	.LASF492
+	.long	0x3a6
+	.long	0x3ac
 	.uleb128 0x2
-	.long	0x50f
+	.long	0x511
+	.byte	0
+	.uleb128 0x16
+	.long	.LASF493
+	.byte	0x23
+	.long	.LASF494
+	.long	0x3be
+	.long	0x3c9
+	.uleb128 0x2
+	.long	0x511
+	.uleb128 0x2
+	.long	0x9b
+	.byte	0
+	.uleb128 0x10
+	.long	.LASF491
+	.byte	0x3
+	.byte	0x24
+	.byte	0x9
+	.long	.LASF495
+	.long	0x3dd
+	.long	0x3e8
+	.uleb128 0x2
+	.long	0x511
 	.uleb128 0x3
 	.long	0x86
 	.byte	0
-	.uleb128 0x15
-	.long	.LASF491
-	.byte	0x24
-	.long	.LASF496
-	.long	0x3f8
-	.long	0x403
-	.uleb128 0x2
-	.long	0x50f
-	.uleb128 0x3
-	.long	0x519
-	.byte	0
-	.uleb128 0x1f
-	.long	.LASF498
-	.byte	0x25
-	.long	.LASF499
-	.long	0x51e
-	.long	0x419
-	.long	0x424
-	.uleb128 0x2
-	.long	0x50f
-	.uleb128 0x3
-	.long	0x519
-	.byte	0
-	.uleb128 0x15
+	.uleb128 0x16
 	.long	.LASF491
 	.byte	0x26
-	.long	.LASF497
-	.long	0x436
-	.long	0x441
+	.long	.LASF496
+	.long	0x3fa
+	.long	0x405
 	.uleb128 0x2
-	.long	0x50f
+	.long	0x511
 	.uleb128 0x3
-	.long	0x523
-	.byte	0
-	.uleb128 0x1f
-	.long	.LASF498
-	.byte	0x27
-	.long	.LASF500
-	.long	0x51e
-	.long	0x457
-	.long	0x462
-	.uleb128 0x2
-	.long	0x50f
-	.uleb128 0x3
-	.long	0x523
+	.long	0x51b
 	.byte	0
 	.uleb128 0x20
-	.string	"set"
-	.byte	0x29
-	.long	.LASF503
-	.long	0x474
-	.long	0x47f
+	.long	.LASF498
+	.byte	0x27
+	.long	.LASF499
+	.long	0x520
+	.long	0x41b
+	.long	0x426
 	.uleb128 0x2
-	.long	0x50f
+	.long	0x511
 	.uleb128 0x3
-	.long	0x164
+	.long	0x51b
 	.byte	0
-	.uleb128 0x11
-	.long	.LASF501
-	.byte	0x3
-	.byte	0x2d
-	.byte	0xe
-	.long	.LASF502
-	.long	0x493
-	.long	0x49e
+	.uleb128 0x16
+	.long	.LASF491
+	.byte	0x28
+	.long	.LASF497
+	.long	0x438
+	.long	0x443
 	.uleb128 0x2
-	.long	0x50f
+	.long	0x511
 	.uleb128 0x3
-	.long	0x164
+	.long	0x525
+	.byte	0
+	.uleb128 0x20
+	.long	.LASF498
+	.byte	0x29
+	.long	.LASF500
+	.long	0x520
+	.long	0x459
+	.long	0x464
+	.uleb128 0x2
+	.long	0x511
+	.uleb128 0x3
+	.long	0x525
 	.byte	0
 	.uleb128 0x21
+	.string	"set"
+	.byte	0x2b
+	.long	.LASF503
+	.long	0x476
+	.long	0x481
+	.uleb128 0x2
+	.long	0x511
+	.uleb128 0x3
+	.long	0x165
+	.byte	0
+	.uleb128 0x10
+	.long	.LASF501
+	.byte	0x3
+	.byte	0x2f
+	.byte	0xe
+	.long	.LASF502
+	.long	0x495
+	.long	0x4a0
+	.uleb128 0x2
+	.long	0x511
+	.uleb128 0x3
+	.long	0x165
+	.byte	0
+	.uleb128 0x22
 	.string	"get"
-	.byte	0x31
+	.byte	0x33
 	.byte	0xe
 	.long	.LASF505
 	.long	0x140
-	.long	0x4b5
-	.long	0x4c0
+	.long	0x4b7
+	.long	0x4c2
 	.uleb128 0x2
-	.long	0x529
+	.long	0x52b
 	.uleb128 0x3
-	.long	0x164
+	.long	0x165
 	.byte	0
-	.uleb128 0x20
+	.uleb128 0x21
 	.string	"set"
-	.byte	0x35
+	.byte	0x37
 	.long	.LASF504
-	.long	0x4d2
-	.long	0x4dd
+	.long	0x4d4
+	.long	0x4df
 	.uleb128 0x2
-	.long	0x50f
+	.long	0x511
 	.uleb128 0x3
 	.long	0x86
 	.byte	0
-	.uleb128 0x21
+	.uleb128 0x22
 	.string	"get"
-	.byte	0x39
+	.byte	0x3b
 	.byte	0xb
 	.long	.LASF506
 	.long	0x86
-	.long	0x4f4
-	.long	0x4fa
+	.long	0x4f6
+	.long	0x4fc
 	.uleb128 0x2
-	.long	0x529
+	.long	0x52b
 	.byte	0
-	.uleb128 0x22
+	.uleb128 0x23
 	.string	"E"
-	.long	0x164
-	.uleb128 0x22
+	.long	0x165
+	.uleb128 0x23
 	.string	"T"
 	.long	0x86
 	.byte	0
 	.uleb128 0x9
-	.long	0x376
+	.long	0x378
 	.byte	0
 	.uleb128 0xa
-	.long	0x376
+	.long	0x378
 	.uleb128 0x9
-	.long	0x50f
-	.uleb128 0x23
-	.long	0x509
-	.uleb128 0x23
-	.long	0x376
-	.uleb128 0x34
+	.long	0x511
+	.uleb128 0x24
+	.long	0x50b
+	.uleb128 0x24
+	.long	0x378
+	.uleb128 0x35
 	.byte	0x8
-	.long	0x376
+	.long	0x378
 	.uleb128 0xa
-	.long	0x509
+	.long	0x50b
 	.uleb128 0x9
-	.long	0x529
+	.long	0x52b
 	.uleb128 0xa
-	.long	0x17e
+	.long	0x17f
 	.uleb128 0x9
-	.long	0x533
+	.long	0x535
 	.uleb128 0xa
-	.long	0x252
+	.long	0x253
 	.uleb128 0x9
-	.long	0x53d
+	.long	0x53f
 	.uleb128 0xa
-	.long	0x35a
+	.long	0x35b
 	.uleb128 0x9
-	.long	0x547
+	.long	0x549
 	.uleb128 0xa
-	.long	0x156
+	.long	0x157
 	.uleb128 0x9
-	.long	0x551
+	.long	0x553
 	.uleb128 0xa
-	.long	0x35f
+	.long	0x360
 	.uleb128 0x6
 	.long	0xb7
 	.uleb128 0x6
 	.long	0xc1
 	.uleb128 0x6
-	.long	0xcc
+	.long	0xcb
 	.uleb128 0x6
-	.long	0xd7
+	.long	0xd5
 	.uleb128 0x6
-	.long	0xe2
+	.long	0xe1
 	.uleb128 0x6
-	.long	0xec
+	.long	0xeb
 	.uleb128 0x6
-	.long	0xf7
+	.long	0xf5
 	.uleb128 0x6
 	.long	0x101
 	.uleb128 0x6
 	.long	0x10b
 	.uleb128 0x6
-	.long	0x116
+	.long	0x115
 	.uleb128 0x6
-	.long	0x120
+	.long	0x11f
 	.uleb128 0x6
 	.long	0x12b
 	.uleb128 0x6
 	.long	0x135
-	.uleb128 0x35
+	.uleb128 0x36
 	.long	.LASF508
 	.byte	0x3
 	.byte	0x8
 	.byte	0xb
 	.long	0xa9
-	.long	0x5c1
+	.long	0x5c3
 	.uleb128 0x3
 	.long	0xa9
 	.uleb128 0x3
-	.long	0x5c1
+	.long	0x5c3
 	.uleb128 0x3
 	.long	0x32
 	.byte	0
 	.uleb128 0xa
-	.long	0x5c6
-	.uleb128 0x36
-	.uleb128 0x12
-	.long	0x47f
-	.long	0x5d4
-	.long	0x5ea
+	.long	0x5c8
+	.uleb128 0x37
+	.uleb128 0x11
+	.long	0x481
+	.long	0x5d6
+	.long	0x5ec
 	.uleb128 0xb
 	.long	.LASF509
-	.long	0x514
-	.uleb128 0x14
+	.long	0x516
+	.uleb128 0x13
 	.long	.LASF510
 	.byte	0x3
-	.byte	0x2d
+	.byte	0x2f
 	.byte	0x16
-	.long	0x164
+	.long	0x165
 	.byte	0
-	.uleb128 0x12
-	.long	0x462
-	.long	0x5f7
-	.long	0x60d
+	.uleb128 0x11
+	.long	0x464
+	.long	0x5f9
+	.long	0x60f
 	.uleb128 0xb
 	.long	.LASF509
-	.long	0x514
-	.uleb128 0x14
+	.long	0x516
+	.uleb128 0x13
 	.long	.LASF510
 	.byte	0x3
-	.byte	0x29
+	.byte	0x2b
 	.byte	0x14
-	.long	0x164
+	.long	0x165
 	.byte	0
-	.uleb128 0x12
-	.long	0x49e
-	.long	0x61a
-	.long	0x630
+	.uleb128 0x11
+	.long	0x4a0
+	.long	0x61c
+	.long	0x632
 	.uleb128 0xb
 	.long	.LASF509
-	.long	0x52e
-	.uleb128 0x14
+	.long	0x530
+	.uleb128 0x13
 	.long	.LASF510
 	.byte	0x3
-	.byte	0x31
+	.byte	0x33
 	.byte	0x14
-	.long	0x164
+	.long	0x165
 	.byte	0
-	.uleb128 0x24
-	.long	0x30a
+	.uleb128 0x25
+	.long	0x30b
 	.byte	0x6f
-	.long	0x650
-	.quad	.LFB40
-	.quad	.LFE40-.LFB40
+	.long	0x652
+	.quad	.LFB59
+	.quad	.LFE59-.LFB59
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0x814
-	.uleb128 0x16
+	.long	0x816
+	.uleb128 0x17
 	.long	.LASF509
-	.long	0x556
+	.long	0x558
 	.long	.LLST25
 	.long	.LVUS25
-	.uleb128 0x25
+	.uleb128 0x26
 	.string	"ptr"
 	.byte	0x6f
 	.byte	0x25
@@ -1570,7 +1570,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LASF511
 	.byte	0x71
 	.byte	0x10
-	.long	0x533
+	.long	0x535
 	.long	.LLST27
 	.long	.LVUS27
 	.uleb128 0x5
@@ -1581,20 +1581,20 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LLST28
 	.long	.LVUS28
 	.uleb128 0x8
-	.long	0xfc9
+	.long	0xfcb
 	.quad	.LBI110
 	.byte	.LVU115
 	.quad	.LBB110
 	.quad	.LBE110-.LBB110
 	.byte	0x72
 	.byte	0x18
-	.long	0x708
+	.long	0x70a
 	.uleb128 0x1
-	.long	0xfd6
+	.long	0xfd8
 	.long	.LLST29
 	.long	.LVUS29
 	.uleb128 0x4
-	.long	0x5c7
+	.long	0x5c9
 	.quad	.LBI111
 	.byte	.LVU117
 	.quad	.LBB111
@@ -1603,44 +1603,44 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x23
 	.byte	0x1f
 	.uleb128 0x1
-	.long	0x5dd
+	.long	0x5df
 	.long	.LLST30
 	.long	.LVUS30
 	.uleb128 0x1
-	.long	0x5d4
+	.long	0x5d6
 	.long	.LLST31
 	.long	.LVUS31
 	.byte	0
 	.byte	0
 	.uleb128 0x8
-	.long	0xfb2
+	.long	0xfb4
 	.quad	.LBI113
 	.byte	.LVU121
 	.quad	.LBB113
 	.quad	.LBE113-.LBB113
 	.byte	0x73
 	.byte	0x27
-	.long	0x73a
+	.long	0x73c
 	.uleb128 0x1
-	.long	0xfbf
+	.long	0xfc1
 	.long	.LLST32
 	.long	.LVUS32
 	.byte	0
 	.uleb128 0x8
-	.long	0xff7
+	.long	0xff9
 	.quad	.LBI115
 	.byte	.LVU139
 	.quad	.LBB115
 	.quad	.LBE115-.LBB115
 	.byte	0x79
 	.byte	0x3e
-	.long	0x7a8
+	.long	0x7aa
 	.uleb128 0x1
-	.long	0x1001
+	.long	0x1003
 	.long	.LLST33
 	.long	.LVUS33
 	.uleb128 0x4
-	.long	0x60d
+	.long	0x60f
 	.quad	.LBI116
 	.byte	.LVU141
 	.quad	.LBB116
@@ -1649,17 +1649,17 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x1c
 	.byte	0x36
 	.uleb128 0x1
-	.long	0x623
+	.long	0x625
 	.long	.LLST34
 	.long	.LVUS34
 	.uleb128 0x1
-	.long	0x61a
+	.long	0x61c
 	.long	.LLST35
 	.long	.LVUS35
 	.byte	0
 	.byte	0
 	.uleb128 0x4
-	.long	0xff7
+	.long	0xff9
 	.quad	.LBI117
 	.byte	.LVU157
 	.quad	.LBB117
@@ -1668,11 +1668,11 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x7f
 	.byte	0x3e
 	.uleb128 0x1
-	.long	0x1001
+	.long	0x1003
 	.long	.LLST36
 	.long	.LVUS36
 	.uleb128 0x4
-	.long	0x60d
+	.long	0x60f
 	.quad	.LBI118
 	.byte	.LVU159
 	.quad	.LBB118
@@ -1681,39 +1681,39 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x1c
 	.byte	0x36
 	.uleb128 0x1
-	.long	0x623
+	.long	0x625
 	.long	.LLST37
 	.long	.LVUS37
 	.uleb128 0x1
-	.long	0x61a
+	.long	0x61c
 	.long	.LLST38
 	.long	.LVUS38
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x26
-	.long	0x2e4
+	.uleb128 0x27
+	.long	0x2e5
 	.byte	0x35
 	.long	0xa9
-	.long	0x838
-	.quad	.LFB39
-	.quad	.LFE39-.LFB39
+	.long	0x83a
+	.quad	.LFB58
+	.quad	.LFE58-.LFB58
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0xbe3
-	.uleb128 0x16
+	.long	0xbe5
+	.uleb128 0x17
 	.long	.LASF509
-	.long	0x556
+	.long	0x558
 	.long	.LLST39
 	.long	.LVUS39
-	.uleb128 0x25
+	.uleb128 0x26
 	.string	"ptr"
 	.byte	0x35
 	.byte	0x2c
 	.long	0xa9
 	.long	.LLST40
 	.long	.LVUS40
-	.uleb128 0x17
+	.uleb128 0x18
 	.long	.LASF467
 	.byte	0x35
 	.byte	0x38
@@ -1731,7 +1731,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LASF511
 	.byte	0x3a
 	.byte	0x10
-	.long	0x533
+	.long	0x535
 	.long	.LLST43
 	.long	.LVUS43
 	.uleb128 0x5
@@ -1748,32 +1748,32 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	0xa9
 	.long	.LLST45
 	.long	.LVUS45
-	.uleb128 0x18
+	.uleb128 0x19
 	.quad	.LBB126
 	.quad	.LBE126-.LBB126
-	.long	0x9c1
+	.long	0x9c3
 	.uleb128 0x5
 	.long	.LASF515
 	.byte	0x40
 	.byte	0x18
-	.long	0x533
+	.long	0x535
 	.long	.LLST48
 	.long	.LVUS48
 	.uleb128 0x8
-	.long	0xfc9
+	.long	0xfcb
 	.quad	.LBI127
 	.byte	.LVU260
 	.quad	.LBB127
 	.quad	.LBE127-.LBB127
 	.byte	0x46
 	.byte	0x26
-	.long	0x951
+	.long	0x953
 	.uleb128 0x1
-	.long	0xfd6
+	.long	0xfd8
 	.long	.LLST49
 	.long	.LVUS49
 	.uleb128 0x4
-	.long	0x5c7
+	.long	0x5c9
 	.quad	.LBI128
 	.byte	.LVU262
 	.quad	.LBB128
@@ -1782,43 +1782,43 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x23
 	.byte	0x1f
 	.uleb128 0x1
-	.long	0x5dd
+	.long	0x5df
 	.long	.LLST50
 	.long	.LVUS50
 	.uleb128 0x1
-	.long	0x5d4
+	.long	0x5d6
 	.long	.LLST51
 	.long	.LVUS51
 	.byte	0
 	.byte	0
-	.uleb128 0x27
-	.long	0xfb2
+	.uleb128 0x28
+	.long	0xfb4
 	.quad	.LBI130
 	.byte	.LVU267
 	.long	.LLRL52
 	.byte	0x47
 	.byte	0x40
-	.long	0x977
+	.long	0x979
 	.uleb128 0x1
-	.long	0xfbf
+	.long	0xfc1
 	.long	.LLST53
 	.long	.LVUS53
 	.byte	0
-	.uleb128 0x27
-	.long	0xfb2
+	.uleb128 0x28
+	.long	0xfb4
 	.quad	.LBI134
 	.byte	.LVU275
 	.long	.LLRL54
 	.byte	0x48
 	.byte	0x45
-	.long	0x99d
+	.long	0x99f
 	.uleb128 0x1
-	.long	0xfbf
+	.long	0xfc1
 	.long	.LLST55
 	.long	.LVUS55
 	.byte	0
-	.uleb128 0x37
-	.long	0xfb2
+	.uleb128 0x38
+	.long	0xfb4
 	.quad	.LBI138
 	.byte	.LVU283
 	.long	.LLRL56
@@ -1826,14 +1826,14 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x49
 	.byte	0x35
 	.uleb128 0x1
-	.long	0xfbf
+	.long	0xfc1
 	.long	.LLST57
 	.long	.LVUS57
 	.byte	0
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x29
 	.long	.LLRL62
-	.long	0xa6f
+	.long	0xa71
 	.uleb128 0x5
 	.long	.LASF516
 	.byte	0x4f
@@ -1845,18 +1845,18 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LASF515
 	.byte	0x50
 	.byte	0x14
-	.long	0x533
+	.long	0x535
 	.long	.LLST64
 	.long	.LVUS64
 	.uleb128 0x5
 	.long	.LASF517
 	.byte	0x5a
 	.byte	0x14
-	.long	0x533
+	.long	0x535
 	.long	.LLST65
 	.long	.LVUS65
 	.uleb128 0x4
-	.long	0xfc9
+	.long	0xfcb
 	.quad	.LBI150
 	.byte	.LVU222
 	.quad	.LBB150
@@ -1865,11 +1865,11 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x61
 	.byte	0x1f
 	.uleb128 0x1
-	.long	0xfd6
+	.long	0xfd8
 	.long	.LLST66
 	.long	.LVUS66
 	.uleb128 0x4
-	.long	0x5c7
+	.long	0x5c9
 	.quad	.LBI151
 	.byte	.LVU224
 	.quad	.LBB151
@@ -1878,59 +1878,59 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x23
 	.byte	0x1f
 	.uleb128 0x1
-	.long	0x5dd
+	.long	0x5df
 	.long	.LLST67
 	.long	.LVUS67
 	.uleb128 0x1
-	.long	0x5d4
+	.long	0x5d6
 	.long	.LLST68
 	.long	.LVUS68
 	.byte	0
 	.byte	0
 	.byte	0
 	.uleb128 0x8
-	.long	0xf7f
+	.long	0xf81
 	.quad	.LBI119
 	.byte	.LVU176
 	.quad	.LBB119
 	.quad	.LBE119-.LBB119
 	.byte	0x39
 	.byte	0x24
-	.long	0xaa1
+	.long	0xaa3
 	.uleb128 0x1
-	.long	0xf89
+	.long	0xf8b
 	.long	.LLST46
 	.long	.LVUS46
 	.byte	0
 	.uleb128 0x8
-	.long	0xfb2
+	.long	0xfb4
 	.quad	.LBI121
 	.byte	.LVU183
 	.quad	.LBB121
 	.quad	.LBE121-.LBB121
 	.byte	0x3b
 	.byte	0x27
-	.long	0xad3
+	.long	0xad5
 	.uleb128 0x1
-	.long	0xfbf
+	.long	0xfc1
 	.long	.LLST47
 	.long	.LVUS47
 	.byte	0
 	.uleb128 0x8
-	.long	0xff7
+	.long	0xff9
 	.quad	.LBI145
 	.byte	.LVU192
 	.quad	.LBB145
 	.quad	.LBE145-.LBB145
 	.byte	0x4d
 	.byte	0x3b
-	.long	0xb41
+	.long	0xb43
 	.uleb128 0x1
-	.long	0x1001
+	.long	0x1003
 	.long	.LLST58
 	.long	.LVUS58
 	.uleb128 0x4
-	.long	0x60d
+	.long	0x60f
 	.quad	.LBI146
 	.byte	.LVU194
 	.quad	.LBB146
@@ -1939,33 +1939,33 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x1c
 	.byte	0x36
 	.uleb128 0x1
-	.long	0x623
+	.long	0x625
 	.long	.LLST59
 	.long	.LVUS59
 	.uleb128 0x1
-	.long	0x61a
+	.long	0x61c
 	.long	.LLST60
 	.long	.LVUS60
 	.byte	0
 	.byte	0
 	.uleb128 0x8
-	.long	0xfb2
+	.long	0xfb4
 	.quad	.LBI147
 	.byte	.LVU197
 	.quad	.LBB147
 	.quad	.LBE147-.LBB147
 	.byte	0x4d
 	.byte	0x52
-	.long	0xb73
+	.long	0xb75
 	.uleb128 0x1
-	.long	0xfbf
+	.long	0xfc1
 	.long	.LLST61
 	.long	.LVUS61
 	.byte	0
-	.uleb128 0x19
+	.uleb128 0x1a
 	.quad	.LVL55
-	.long	0xbe3
-	.long	0xb8c
+	.long	0xbe5
+	.long	0xb8e
 	.uleb128 0xd
 	.uleb128 0x1
 	.byte	0x54
@@ -1974,10 +1974,10 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0
-	.uleb128 0x19
+	.uleb128 0x1a
 	.quad	.LVL68
-	.long	0xbe3
-	.long	0xba4
+	.long	0xbe5
+	.long	0xba6
 	.uleb128 0xd
 	.uleb128 0x1
 	.byte	0x55
@@ -1985,10 +1985,10 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x7c
 	.sleb128 0
 	.byte	0
-	.uleb128 0x19
+	.uleb128 0x1a
 	.quad	.LVL70
-	.long	0x5a1
-	.long	0xbc8
+	.long	0x5a3
+	.long	0xbca
 	.uleb128 0xd
 	.uleb128 0x1
 	.byte	0x55
@@ -2008,9 +2008,9 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x7e
 	.sleb128 0
 	.byte	0
-	.uleb128 0x38
+	.uleb128 0x39
 	.quad	.LVL71
-	.long	0x630
+	.long	0x632
 	.uleb128 0xd
 	.uleb128 0x1
 	.byte	0x55
@@ -2025,22 +2025,22 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.sleb128 0
 	.byte	0
 	.byte	0
-	.uleb128 0x26
-	.long	0x2c3
+	.uleb128 0x27
+	.long	0x2c4
 	.byte	0x12
 	.long	0xa9
-	.long	0xc07
-	.quad	.LFB38
-	.quad	.LFE38-.LFB38
+	.long	0xc09
+	.quad	.LFB57
+	.quad	.LFE57-.LFB57
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0xec7
-	.uleb128 0x16
+	.long	0xec9
+	.uleb128 0x17
 	.long	.LASF509
-	.long	0x556
+	.long	0x558
 	.long	.LLST4
 	.long	.LVUS4
-	.uleb128 0x17
+	.uleb128 0x18
 	.long	.LASF467
 	.byte	0x12
 	.byte	0x2b
@@ -2058,12 +2058,12 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LASF518
 	.byte	0x17
 	.byte	0x10
-	.long	0x533
+	.long	0x535
 	.long	.LLST7
 	.long	.LVUS7
-	.uleb128 0x28
+	.uleb128 0x29
 	.long	.LLRL9
-	.long	0xe97
+	.long	0xe99
 	.uleb128 0x5
 	.long	.LASF519
 	.byte	0x1b
@@ -2071,10 +2071,10 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	0x32
 	.long	.LLST10
 	.long	.LVUS10
-	.uleb128 0x18
+	.uleb128 0x19
 	.quad	.LBB93
 	.quad	.LBE93-.LBB93
-	.long	0xdf9
+	.long	0xdfb
 	.uleb128 0x5
 	.long	.LASF519
 	.byte	0x2a
@@ -2082,19 +2082,19 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	0x32
 	.long	.LLST14
 	.long	.LVUS14
-	.uleb128 0x18
+	.uleb128 0x19
 	.quad	.LBB98
 	.quad	.LBE98-.LBB98
-	.long	0xd29
+	.long	0xd2b
 	.uleb128 0x5
 	.long	.LASF517
 	.byte	0x21
 	.byte	0x1c
-	.long	0x533
+	.long	0x535
 	.long	.LLST18
 	.long	.LVUS18
 	.uleb128 0x4
-	.long	0xfc9
+	.long	0xfcb
 	.quad	.LBI99
 	.byte	.LVU81
 	.quad	.LBB99
@@ -2103,11 +2103,11 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x27
 	.byte	0x27
 	.uleb128 0x1
-	.long	0xfd6
+	.long	0xfd8
 	.long	.LLST19
 	.long	.LVUS19
 	.uleb128 0x4
-	.long	0x5c7
+	.long	0x5c9
 	.quad	.LBI100
 	.byte	.LVU83
 	.quad	.LBB100
@@ -2116,31 +2116,31 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x23
 	.byte	0x1f
 	.uleb128 0x1
-	.long	0x5dd
+	.long	0x5df
 	.long	.LLST20
 	.long	.LVUS20
 	.uleb128 0x1
-	.long	0x5d4
+	.long	0x5d6
 	.long	.LLST21
 	.long	.LVUS21
 	.byte	0
 	.byte	0
 	.byte	0
 	.uleb128 0x8
-	.long	0xfe0
+	.long	0xfe2
 	.quad	.LBI94
 	.byte	.LVU58
 	.quad	.LBB94
 	.quad	.LBE94-.LBB94
 	.byte	0x1e
 	.byte	0x22
-	.long	0xd97
+	.long	0xd99
 	.uleb128 0x1
-	.long	0xfed
+	.long	0xfef
 	.long	.LLST15
 	.long	.LVUS15
 	.uleb128 0x4
-	.long	0x5ea
+	.long	0x5ec
 	.quad	.LBI95
 	.byte	.LVU60
 	.quad	.LBB95
@@ -2149,31 +2149,31 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x1f
 	.byte	0x1d
 	.uleb128 0x1
-	.long	0x600
+	.long	0x602
 	.long	.LLST16
 	.long	.LVUS16
 	.uleb128 0x1
-	.long	0x5f7
+	.long	0x5f9
 	.long	.LLST17
 	.long	.LVUS17
 	.byte	0
 	.byte	0
 	.uleb128 0x8
-	.long	0xfb2
+	.long	0xfb4
 	.quad	.LBI102
 	.byte	.LVU90
 	.quad	.LBB102
 	.quad	.LBE102-.LBB102
 	.byte	0x2a
 	.byte	0x33
-	.long	0xdc9
+	.long	0xdcb
 	.uleb128 0x1
-	.long	0xfbf
+	.long	0xfc1
 	.long	.LLST22
 	.long	.LVUS22
 	.byte	0
 	.uleb128 0x4
-	.long	0xf96
+	.long	0xf98
 	.quad	.LBI104
 	.byte	.LVU102
 	.quad	.LBB104
@@ -2182,26 +2182,26 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x2e
 	.byte	0x25
 	.uleb128 0x1
-	.long	0xfa8
+	.long	0xfaa
 	.long	.LLST23
 	.long	.LVUS23
 	.byte	0
 	.byte	0
 	.uleb128 0x8
-	.long	0xff7
+	.long	0xff9
 	.quad	.LBI90
 	.byte	.LVU51
 	.quad	.LBB90
 	.quad	.LBE90-.LBB90
 	.byte	0x1c
 	.byte	0x21
-	.long	0xe67
+	.long	0xe69
 	.uleb128 0x1
-	.long	0x1001
+	.long	0x1003
 	.long	.LLST11
 	.long	.LVUS11
 	.uleb128 0x4
-	.long	0x60d
+	.long	0x60f
 	.quad	.LBI91
 	.byte	.LVU53
 	.quad	.LBB91
@@ -2210,17 +2210,17 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x1c
 	.byte	0x36
 	.uleb128 0x1
-	.long	0x623
+	.long	0x625
 	.long	.LLST12
 	.long	.LVUS12
 	.uleb128 0x1
-	.long	0x61a
+	.long	0x61c
 	.long	.LLST13
 	.long	.LVUS13
 	.byte	0
 	.byte	0
 	.uleb128 0x4
-	.long	0xfb2
+	.long	0xfb4
 	.quad	.LBI106
 	.byte	.LVU44
 	.quad	.LBB106
@@ -2229,13 +2229,13 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x1b
 	.byte	0x2f
 	.uleb128 0x1
-	.long	0xfbf
+	.long	0xfc1
 	.long	.LLST24
 	.long	.LVUS24
 	.byte	0
 	.byte	0
 	.uleb128 0x4
-	.long	0xf7f
+	.long	0xf81
 	.quad	.LBI86
 	.byte	.LVU29
 	.quad	.LBB86
@@ -2244,26 +2244,26 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x14
 	.byte	0x24
 	.uleb128 0x1
-	.long	0xf89
+	.long	0xf8b
 	.long	.LLST8
 	.long	.LVUS8
 	.byte	0
 	.byte	0
-	.uleb128 0x24
-	.long	0x29f
+	.uleb128 0x25
+	.long	0x2a0
 	.byte	0x4
-	.long	0xee7
-	.quad	.LFB37
-	.quad	.LFE37-.LFB37
+	.long	0xee9
+	.quad	.LFB56
+	.quad	.LFE56-.LFB56
 	.uleb128 0x1
 	.byte	0x9c
-	.long	0xf7f
-	.uleb128 0x39
+	.long	0xf81
+	.uleb128 0x3a
 	.long	.LASF509
-	.long	0x54c
+	.long	0x54e
 	.uleb128 0x1
 	.byte	0x55
-	.uleb128 0x3a
+	.uleb128 0x3b
 	.long	.LASF528
 	.byte	0x1
 	.byte	0x4
@@ -2271,7 +2271,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	0xa9
 	.uleb128 0x1
 	.byte	0x54
-	.uleb128 0x17
+	.uleb128 0x18
 	.long	.LASF520
 	.byte	0x4
 	.byte	0x3c
@@ -2279,7 +2279,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.long	.LLST0
 	.long	.LVUS0
 	.uleb128 0x4
-	.long	0xfc9
+	.long	0xfcb
 	.quad	.LBI83
 	.byte	.LVU10
 	.quad	.LBB83
@@ -2288,11 +2288,11 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0xa
 	.byte	0x19
 	.uleb128 0x1
-	.long	0xfd6
+	.long	0xfd8
 	.long	.LLST1
 	.long	.LVUS1
 	.uleb128 0x4
-	.long	0x5c7
+	.long	0x5c9
 	.quad	.LBI84
 	.byte	.LVU12
 	.quad	.LBB84
@@ -2301,68 +2301,68 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x23
 	.byte	0x1f
 	.uleb128 0x1
-	.long	0x5dd
+	.long	0x5df
 	.long	.LLST2
 	.long	.LVUS2
 	.uleb128 0x1
-	.long	0x5d4
+	.long	0x5d6
 	.long	.LLST3
 	.long	.LVUS3
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x3b
-	.long	0x343
+	.uleb128 0x3c
+	.long	0x344
 	.byte	0x3
-	.long	0xf96
-	.uleb128 0x14
+	.long	0xf98
+	.uleb128 0x13
 	.long	.LASF467
 	.byte	0x2
 	.byte	0x65
 	.byte	0x24
 	.long	0x32
 	.byte	0
-	.uleb128 0x3c
-	.long	0x237
-	.long	0xa9
-	.long	0xfa8
-	.byte	0x3
-	.long	0xfb2
-	.uleb128 0xb
-	.long	.LASF509
-	.long	0x538
-	.byte	0
-	.uleb128 0x12
-	.long	0x21a
-	.long	0xfbf
-	.long	0xfc9
-	.uleb128 0xb
-	.long	.LASF509
-	.long	0x538
-	.byte	0
-	.uleb128 0x12
-	.long	0x202
-	.long	0xfd6
-	.long	0xfe0
-	.uleb128 0xb
-	.long	.LASF509
-	.long	0x538
-	.byte	0
-	.uleb128 0x12
-	.long	0x1ea
-	.long	0xfed
-	.long	0xff7
-	.uleb128 0xb
-	.long	.LASF509
-	.long	0x538
-	.byte	0
 	.uleb128 0x3d
-	.long	0x1cd
-	.long	0x1001
+	.long	0x238
+	.long	0xa9
+	.long	0xfaa
+	.byte	0x3
+	.long	0xfb4
+	.uleb128 0xb
+	.long	.LASF509
+	.long	0x53a
+	.byte	0
+	.uleb128 0x11
+	.long	0x21b
+	.long	0xfc1
+	.long	0xfcb
+	.uleb128 0xb
+	.long	.LASF509
+	.long	0x53a
+	.byte	0
+	.uleb128 0x11
+	.long	0x203
+	.long	0xfd8
+	.long	0xfe2
+	.uleb128 0xb
+	.long	.LASF509
+	.long	0x53a
+	.byte	0
+	.uleb128 0x11
+	.long	0x1eb
+	.long	0xfef
+	.long	0xff9
+	.uleb128 0xb
+	.long	.LASF509
+	.long	0x53a
+	.byte	0
+	.uleb128 0x3e
+	.long	0x1ce
+	.long	0x1003
 	.byte	0x3
 	.uleb128 0xb
 	.long	.LASF509
-	.long	0x542
+	.long	0x544
 	.byte	0
 	.byte	0
 	.section	.debug_abbrev,"",@progbits
@@ -2515,7 +2515,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.sleb128 4
 	.uleb128 0x3b
 	.uleb128 0x21
-	.sleb128 137
+	.sleb128 253
 	.uleb128 0x39
 	.uleb128 0x21
 	.sleb128 30
@@ -2540,27 +2540,6 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0
 	.byte	0
 	.uleb128 0xe
-	.uleb128 0x34
-	.byte	0
-	.uleb128 0x3
-	.uleb128 0xe
-	.uleb128 0x3a
-	.uleb128 0x21
-	.sleb128 4
-	.uleb128 0x3b
-	.uleb128 0xb
-	.uleb128 0x39
-	.uleb128 0x21
-	.sleb128 23
-	.uleb128 0x49
-	.uleb128 0x13
-	.uleb128 0x3c
-	.uleb128 0x19
-	.uleb128 0x1c
-	.uleb128 0xb
-	.byte	0
-	.byte	0
-	.uleb128 0xf
 	.uleb128 0xd
 	.byte	0
 	.uleb128 0x3
@@ -2577,7 +2556,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x10
+	.uleb128 0xf
 	.uleb128 0xd
 	.byte	0
 	.uleb128 0x3
@@ -2598,7 +2577,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x11
+	.uleb128 0x10
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2624,7 +2603,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x12
+	.uleb128 0x11
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x47
@@ -2638,7 +2617,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x13
+	.uleb128 0x12
 	.uleb128 0x16
 	.byte	0
 	.uleb128 0x3
@@ -2654,7 +2633,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x14
+	.uleb128 0x13
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -2669,7 +2648,50 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
+	.uleb128 0x14
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0x21
+	.sleb128 4
+	.uleb128 0x3b
+	.uleb128 0x21
+	.sleb128 192
+	.uleb128 0x39
+	.uleb128 0x21
+	.sleb128 23
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x3c
+	.uleb128 0x19
+	.uleb128 0x1c
+	.uleb128 0xb
+	.byte	0
+	.byte	0
 	.uleb128 0x15
+	.uleb128 0x34
+	.byte	0
+	.uleb128 0x3
+	.uleb128 0xe
+	.uleb128 0x3a
+	.uleb128 0x21
+	.sleb128 4
+	.uleb128 0x3b
+	.uleb128 0x5
+	.uleb128 0x39
+	.uleb128 0x21
+	.sleb128 23
+	.uleb128 0x49
+	.uleb128 0x13
+	.uleb128 0x3c
+	.uleb128 0x19
+	.uleb128 0x1c
+	.uleb128 0xb
+	.byte	0
+	.byte	0
+	.uleb128 0x16
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2700,7 +2722,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x16
+	.uleb128 0x17
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -2715,7 +2737,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0x17
+	.uleb128 0x18
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -2735,7 +2757,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0x18
+	.uleb128 0x19
 	.uleb128 0xb
 	.byte	0x1
 	.uleb128 0x11
@@ -2746,7 +2768,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x19
+	.uleb128 0x1a
 	.uleb128 0x48
 	.byte	0x1
 	.uleb128 0x7d
@@ -2757,21 +2779,20 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1a
+	.uleb128 0x1b
 	.uleb128 0x35
 	.byte	0
 	.uleb128 0x49
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1b
+	.uleb128 0x1c
 	.uleb128 0x39
 	.byte	0x1
 	.uleb128 0x3
 	.uleb128 0xe
 	.uleb128 0x3a
-	.uleb128 0x21
-	.sleb128 3
+	.uleb128 0xb
 	.uleb128 0x3b
 	.uleb128 0xb
 	.uleb128 0x39
@@ -2781,7 +2802,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1c
+	.uleb128 0x1d
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2807,7 +2828,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1d
+	.uleb128 0x1e
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2832,7 +2853,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1e
+	.uleb128 0x1f
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2862,7 +2883,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x1f
+	.uleb128 0x20
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2895,7 +2916,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x20
+	.uleb128 0x21
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2923,7 +2944,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x21
+	.uleb128 0x22
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -2952,7 +2973,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x22
+	.uleb128 0x23
 	.uleb128 0x2f
 	.byte	0
 	.uleb128 0x3
@@ -2961,7 +2982,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x23
+	.uleb128 0x24
 	.uleb128 0x10
 	.byte	0
 	.uleb128 0xb
@@ -2971,7 +2992,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x24
+	.uleb128 0x25
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x47
@@ -2998,7 +3019,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x25
+	.uleb128 0x26
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -3018,7 +3039,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0x26
+	.uleb128 0x27
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x47
@@ -3047,7 +3068,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x27
+	.uleb128 0x28
 	.uleb128 0x1d
 	.byte	0x1
 	.uleb128 0x31
@@ -3069,7 +3090,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x28
+	.uleb128 0x29
 	.uleb128 0xb
 	.byte	0x1
 	.uleb128 0x55
@@ -3078,7 +3099,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x29
+	.uleb128 0x2a
 	.uleb128 0x11
 	.byte	0x1
 	.uleb128 0x25
@@ -3099,7 +3120,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x17
 	.byte	0
 	.byte	0
-	.uleb128 0x2a
+	.uleb128 0x2b
 	.uleb128 0x24
 	.byte	0
 	.uleb128 0xb
@@ -3110,14 +3131,14 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x8
 	.byte	0
 	.byte	0
-	.uleb128 0x2b
+	.uleb128 0x2c
 	.uleb128 0xf
 	.byte	0
 	.uleb128 0xb
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x2c
+	.uleb128 0x2d
 	.uleb128 0x39
 	.byte	0x1
 	.uleb128 0x3
@@ -3132,7 +3153,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2d
+	.uleb128 0x2e
 	.uleb128 0x2
 	.byte	0x1
 	.uleb128 0x3
@@ -3151,7 +3172,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2e
+	.uleb128 0x2f
 	.uleb128 0x4
 	.byte	0x1
 	.uleb128 0x3
@@ -3176,7 +3197,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x2f
+	.uleb128 0x30
 	.uleb128 0x28
 	.byte	0
 	.uleb128 0x3
@@ -3185,7 +3206,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x30
+	.uleb128 0x31
 	.uleb128 0x13
 	.byte	0x1
 	.uleb128 0x3
@@ -3204,7 +3225,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x31
+	.uleb128 0x32
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -3227,7 +3248,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x32
+	.uleb128 0x33
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -3248,7 +3269,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x19
 	.byte	0
 	.byte	0
-	.uleb128 0x33
+	.uleb128 0x34
 	.uleb128 0x2
 	.byte	0x1
 	.uleb128 0x3
@@ -3265,7 +3286,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x34
+	.uleb128 0x35
 	.uleb128 0x42
 	.byte	0
 	.uleb128 0xb
@@ -3274,7 +3295,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x35
+	.uleb128 0x36
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x3f
@@ -3295,12 +3316,12 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x36
+	.uleb128 0x37
 	.uleb128 0x26
 	.byte	0
 	.byte	0
 	.byte	0
-	.uleb128 0x37
+	.uleb128 0x38
 	.uleb128 0x1d
 	.byte	0x1
 	.uleb128 0x31
@@ -3319,7 +3340,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0xb
 	.byte	0
 	.byte	0
-	.uleb128 0x38
+	.uleb128 0x39
 	.uleb128 0x48
 	.byte	0x1
 	.uleb128 0x7d
@@ -3328,7 +3349,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x39
+	.uleb128 0x3a
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -3341,7 +3362,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x3a
+	.uleb128 0x3b
 	.uleb128 0x5
 	.byte	0
 	.uleb128 0x3
@@ -3358,7 +3379,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x18
 	.byte	0
 	.byte	0
-	.uleb128 0x3b
+	.uleb128 0x3c
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x47
@@ -3369,7 +3390,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x3c
+	.uleb128 0x3d
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x47
@@ -3384,7 +3405,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x13
 	.byte	0
 	.byte	0
-	.uleb128 0x3d
+	.uleb128 0x3e
 	.uleb128 0x2e
 	.byte	0x1
 	.uleb128 0x47
@@ -3417,7 +3438,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL33-.Ltext0
-	.uleb128 .LFE40-.Ltext0
+	.uleb128 .LFE59-.Ltext0
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0
@@ -3434,7 +3455,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x54
 	.byte	0x4
 	.uleb128 .LVL35-.Ltext0
-	.uleb128 .LFE40-.Ltext0
+	.uleb128 .LFE59-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
@@ -3456,7 +3477,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL31-.Ltext0
-	.uleb128 .LFE40-.Ltext0
+	.uleb128 .LFE59-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -3648,7 +3669,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL73-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE58-.Ltext0
 	.uleb128 0x1
 	.byte	0x5c
 	.byte	0
@@ -3706,7 +3727,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL73-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE58-.Ltext0
 	.uleb128 0x1
 	.byte	0x53
 	.byte	0
@@ -3740,7 +3761,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x51
 	.byte	0x4
 	.uleb128 .LVL55-1-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE58-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
@@ -3813,7 +3834,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL73-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE58-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
@@ -3879,7 +3900,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL73-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE58-.Ltext0
 	.uleb128 0x1
 	.byte	0x51
 	.byte	0
@@ -3903,7 +3924,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x5e
 	.byte	0x4
 	.uleb128 .LVL73-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE58-.Ltext0
 	.uleb128 0x1
 	.byte	0x5e
 	.byte	0
@@ -4010,7 +4031,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x58
 	.byte	0x4
 	.uleb128 .LVL73-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE58-.Ltext0
 	.uleb128 0x1
 	.byte	0x58
 	.byte	0
@@ -4027,7 +4048,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL73-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE58-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
@@ -4166,7 +4187,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x58
 	.byte	0x4
 	.uleb128 .LVL27-.Ltext0
-	.uleb128 .LFE38-.Ltext0
+	.uleb128 .LFE57-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
@@ -4192,7 +4213,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL7-.Ltext0
-	.uleb128 .LFE38-.Ltext0
+	.uleb128 .LFE57-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
@@ -4221,7 +4242,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL26-.Ltext0
-	.uleb128 .LFE38-.Ltext0
+	.uleb128 .LFE57-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
@@ -4476,7 +4497,7 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.byte	0x51
 	.byte	0x4
 	.uleb128 .LVL3-.Ltext0
-	.uleb128 .LFE37-.Ltext0
+	.uleb128 .LFE56-.Ltext0
 	.uleb128 0x4
 	.byte	0xa3
 	.uleb128 0x1
@@ -4607,7 +4628,6 @@ _ZN6Kernel14HeapLinkedList10reallocateEPvm:
 	.uleb128 0x3
 	.long	.LASF436
 	.byte	0x4
-	.file 5 "src/kernel/../../include/Console.h"
 	.byte	0x3
 	.uleb128 0x7
 	.uleb128 0x5

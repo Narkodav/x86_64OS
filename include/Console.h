@@ -3,6 +3,7 @@
 #define CONSOLE_H
 
 #include "Types.h"
+#include "Utils.h"
 
 namespace Kernel
 {
@@ -63,6 +64,9 @@ namespace Kernel
 
     private:
         static volatile VgaChar *s_vgaAddress;
+        static const Extent s_extent;
+        static const size_t s_bufferLineCount;
+        static volatile VgaChar s_charBuffer[];
         static const Extent s_extent;
         static const size_t s_windowCapacity;
         static volatile CursorPos s_cursorPos;
@@ -193,107 +197,122 @@ namespace Kernel
         }
 
     private:
-        template <typename T, typename... Ts>
-        static void printImpl(const char *str, Attributes attr, T &&val, Ts &&...vals)
+        template <typename... Ts>
+        static void printImpl(const char *str, Attributes attr, Ts &&...vals)
         {
-            while (*str)
-            {
-                if (*str == '%' && *(str + 1))
+            ([&](auto &&val)
+             {
+                using T = decltype(val);
+                while(*str != '\0')
                 {
-                    if (*(++str) == '%')
+                    if (*str == '%' && *(str + 1))
                     {
-                        putChar('%', attr);
+                        switch (*(++str))
+                        {
+                        case 'd':
+                            if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
+                            {
+                                putNumDec(val, attr);
+                            }
+                            else
+                            {
+                                putChar('%', attr);
+                                putChar(*str, attr);                                
+                            }
+                            break;
+                        case 'b':
+                            if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
+                            {
+                                putNumBin(val, attr);
+                            }
+                            else
+                            {
+                                putChar('%', attr);
+                                putChar(*str, attr);
+                            }
+                            break;
+                        case 'x':
+                            if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
+                            {
+                                putNumHex(val, attr);
+                            }
+                            else
+                            {
+                                putChar('%', attr);
+                                putChar(*str, attr);
+                            }
+                            break;
+                        case 'c':
+                            if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char>)
+                            {
+                                putChar(val, attr);
+                            }
+                            else
+                            {
+                                putChar('%', attr);
+                                putChar(*str, attr);
+                            }
+                            break;
+                        case 'p':
+                            if constexpr (std::is_ptr_v<std::remove_all_extents_t<T>>)
+                            {
+                                putNumHex((size_t)val, attr);
+                            }
+                            else
+                            {
+                                putChar('%', attr);
+                                putChar(*str, attr);
+                            }
+                            break;
+                        case 's': 
+                            if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char*>
+                                || std::is_same_v<std::remove_all_extents_t<T>, const char*>
+                                || std::is_array_v<std::remove_all_extents_t<T>>)
+                            {
+                                putString(val, attr);
+                            }
+                            else
+                            {
+                                putChar('%', attr);
+                                putChar(*str, attr);
+                            }
+                            break;
+                        case 'v':
+                            if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>) {
+                                putNumDec(val, attr);
+                            } else if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char>) {
+                                putChar(val, attr);
+                            } else if constexpr (std::is_ptr_v<std::remove_all_extents_t<T>>) {
+                                putNumHex(reinterpret_cast<uint64_t>(val), attr);
+                            } else if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char*>
+                                || std::is_same_v<std::remove_all_extents_t<T>, const char*>
+                                || std::is_array_v<std::remove_all_extents_t<T>>) {
+                                putString(val, attr);
+                            }
+                            else 
+                            {
+                                putChar('%', attr);
+                                putChar(*str, attr);
+                            }
+                            break;
+                        case '%':
+                            putChar('%', attr);
+                            break;
+                        default:
+                            putChar('%', attr);
+                            putChar(*str, attr);
+                            break;
+                        }
                         ++str;
-                        continue;
+                        return;
                     }
-                    switch (*(str))
+                    else
                     {
-                    case 'd':
-                        if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
-                        {
-                            putNumDec(val, attr);
-                        }
-                        else
-                        {
-                            putChar('%', attr);
-                            putChar(*str, attr);
-                        }
-                        break;
-                    case 'b':
-                        if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
-                        {
-                            putNumBin(val, attr);
-                        }
-                        else
-                        {
-                            putChar('%', attr);
-                            putChar(*str, attr);
-                        }
-                        break;
-                    case 'x':
-                        if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
-                        {
-                            putNumHex(val, attr);
-                        }
-                        else
-                        {
-                            putChar('%', attr);
-                            putChar(*str, attr);
-                        }
-                        break;
-                    case 'c':
-                        if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char>)
-                        {
-                            putChar(val, attr);
-                        }
-                        else
-                        {
-                            putChar('%', attr);
-                            putChar(*str, attr);
-                        }
-                        break;
-                    case 'p':
-                        if constexpr (std::is_ptr_v<std::remove_all_extents_t<T>>)
-                        {
-                            putNumHex(reinterpret_cast<uint64_t>(val), attr);
-                        }
-                        else
-                        {
-                            putChar('%', attr);
-                            putChar(*str, attr);
-                        }
-                        break;
-                    case 's':
-                        if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char *> ||
-                                      std::is_same_v<std::remove_all_extents_t<T>, uint8_t *>)
-                        {
-                            putString(val, attr);
-                        }
-                        else
-                        {
-                            putChar('%', attr);
-                            putChar(*str, attr);
-                        }
-                        break;
-                    default:
-                        putChar('%', attr);
                         putChar(*str, attr);
                         ++str;
-                        continue;
                     }
-                    ++str;
-                    if constexpr (sizeof...(vals) > 0)
-                        printImpl(str, attr, vals...);
-                    else
-                        putString(str, attr);
-                    return;
-                }
-                else
-                {
-                    putChar(*str, attr);
-                }
-                ++str;
-            }
+                } }(vals), ...);
+            putString(str, attr);
         }
 
     public:
@@ -342,6 +361,10 @@ namespace Kernel
         static const size_t &getWindowCapacity() { return s_windowCapacity; }
 
         static void scrollDown(size_t lines);
+
+        static uint64_t cursorPosToIndex(CursorPos pos);
+
+        static void flushToVga(size_t lineIndex);
     };
 } // namespace Kernel
 

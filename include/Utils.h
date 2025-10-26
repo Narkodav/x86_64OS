@@ -12,12 +12,14 @@ extern "C"
     char *strcpy(char *dest, const char *src);
     char *strmove(char *dest, const char *src);
     int strcmp(const char *str1, const char *str2);
-}
 
-namespace Kernel
-{
-    void outByte(uint16_t port, uint8_t value);
-    uint8_t inByte(uint16_t port);
+    extern void cpuid(uint32_t leaf, uint32_t *eax, uint32_t *ebx, uint32_t *ecx, uint32_t *edx);
+    extern uint64_t port_in_byte(uint16_t port);
+    extern void port_out_byte(uint16_t port, uint8_t value);
+    extern uint64_t port_in_word(uint16_t port);
+    extern void port_out_word(uint16_t port, uint16_t value);
+    extern uint64_t port_in_dword(uint16_t port);
+    extern void port_out_dword(uint16_t port, uint32_t value);
 }
 
 namespace Utils

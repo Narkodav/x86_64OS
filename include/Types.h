@@ -21,6 +21,22 @@ typedef void *uintptr_t;
 
 namespace std
 {
+    struct false_type
+    {
+        static constexpr bool value = false;
+    };
+
+    struct true_type
+    {
+        static constexpr bool value = true;
+    };
+
+    template <typename T>
+    struct type_identity
+    {
+        using type = T;
+    };
+
     template <typename T>
     class numeric_limits
     {
@@ -33,6 +49,26 @@ namespace std
         static constexpr size_t bits = 0;
         static constexpr bool is_signed = false;
         static constexpr bool is_integer = false;
+    };
+
+    template <typename T>
+    class numeric_limits<const T> : public numeric_limits<T>
+    {
+    };
+
+    template <typename T>
+    class numeric_limits<volatile T> : public numeric_limits<T>
+    {
+    };
+
+    template <typename T>
+    class numeric_limits<T &> : public numeric_limits<T>
+    {
+    };
+
+    template <typename T>
+    class numeric_limits<T &&> : public numeric_limits<T>
+    {
     };
 
     template <>
@@ -57,16 +93,99 @@ namespace std
         static constexpr int8_t min() noexcept { return -128; }
         static constexpr int8_t max() noexcept { return 127; }
         static constexpr int8_t lowest() noexcept { return min(); }
-        static constexpr size_t digits = 8;
+        static constexpr size_t digits = 7;
         static constexpr size_t bits = 8;
         static constexpr bool is_signed = true;
         static constexpr bool is_integer = true;
     };
 
-    template <typename T>
-    struct is_integral
+    template <>
+    class numeric_limits<uint16_t>
     {
-        static const bool value = false;
+    public:
+        static constexpr bool is_specialized = true;
+        static constexpr uint16_t min() noexcept { return 0; }
+        static constexpr uint16_t max() noexcept { return 0xFFFF; }
+        static constexpr uint16_t lowest() noexcept { return min(); }
+        static constexpr size_t digits = 16;
+        static constexpr size_t bits = 16;
+        static constexpr bool is_signed = false;
+        static constexpr bool is_integer = true;
+    };
+
+    template <>
+    class numeric_limits<int16_t>
+    {
+    public:
+        static constexpr bool is_specialized = true;
+        static constexpr int16_t min() noexcept { return -0x8000; }
+        static constexpr int16_t max() noexcept { return 0x7FFF; }
+        static constexpr int16_t lowest() noexcept { return min(); }
+        static constexpr size_t digits = 15;
+        static constexpr size_t bits = 16;
+        static constexpr bool is_signed = true;
+        static constexpr bool is_integer = true;
+    };
+
+    template <>
+    class numeric_limits<uint32_t>
+    {
+    public:
+        static constexpr bool is_specialized = true;
+        static constexpr uint32_t min() noexcept { return 0; }
+        static constexpr uint32_t max() noexcept { return 0xFFFFFFFF; }
+        static constexpr uint32_t lowest() noexcept { return min(); }
+        static constexpr size_t digits = 32;
+        static constexpr size_t bits = 32;
+        static constexpr bool is_signed = false;
+        static constexpr bool is_integer = true;
+    };
+
+    template <>
+    class numeric_limits<int32_t>
+    {
+    public:
+        static constexpr bool is_specialized = true;
+        static constexpr int32_t min() noexcept { return -0x80000000; }
+        static constexpr int32_t max() noexcept { return 0x7FFFFFFF; }
+        static constexpr int32_t lowest() noexcept { return min(); }
+        static constexpr size_t digits = 31;
+        static constexpr size_t bits = 32;
+        static constexpr bool is_signed = true;
+        static constexpr bool is_integer = true;
+    };
+
+    template <>
+    class numeric_limits<uint64_t>
+    {
+    public:
+        static constexpr bool is_specialized = true;
+        static constexpr uint64_t min() noexcept { return 0; }
+        static constexpr uint64_t max() noexcept { return 0xFFFFFFFFFFFFFFFF; }
+        static constexpr uint64_t lowest() noexcept { return min(); }
+        static constexpr size_t digits = 64;
+        static constexpr size_t bits = 64;
+        static constexpr bool is_signed = false;
+        static constexpr bool is_integer = true;
+    };
+
+    template <>
+    class numeric_limits<int64_t>
+    {
+    public:
+        static constexpr bool is_specialized = true;
+        static constexpr int64_t min() noexcept { return -0x8000000000000000; }
+        static constexpr int64_t max() noexcept { return 0x7FFFFFFFFFFFFFFF; }
+        static constexpr int64_t lowest() noexcept { return min(); }
+        static constexpr size_t digits = 63;
+        static constexpr size_t bits = 64;
+        static constexpr bool is_signed = true;
+        static constexpr bool is_integer = true;
+    };
+
+    template <typename T>
+    struct is_integral : public false_type
+    {
     };
 
     template <typename T>
@@ -76,118 +195,121 @@ namespace std
     concept IntegralType = is_integral_v<T>;
 
     template <>
-    struct is_integral<size_t>
+    struct is_integral<size_t> : public true_type
     {
-        static const bool value = true;
     };
+
     template <>
-    struct is_integral<uint8_t>
+    struct is_integral<uint8_t> : public true_type
     {
-        static const bool value = true;
     };
+
     template <>
-    struct is_integral<uint16_t>
+    struct is_integral<uint16_t> : public true_type
     {
-        static const bool value = true;
     };
+
     template <>
-    struct is_integral<uint32_t>
+    struct is_integral<uint32_t> : public true_type
     {
-        static const bool value = true;
     };
+
     template <>
-    struct is_integral<uint64_t>
+    struct is_integral<uint64_t> : public true_type
     {
-        static const bool value = true;
     };
+
     template <>
-    struct is_integral<int8_t>
+    struct is_integral<int8_t> : public true_type
     {
-        static const bool value = true;
     };
+
     template <>
-    struct is_integral<int16_t>
+    struct is_integral<int16_t> : public true_type
     {
-        static const bool value = true;
     };
+
     template <>
-    struct is_integral<int32_t>
+    struct is_integral<int32_t> : public true_type
     {
-        static const bool value = true;
     };
+
     template <>
-    struct is_integral<int64_t>
+    struct is_integral<int64_t> : public true_type
     {
-        static const bool value = true;
     };
 
     template <typename T1, typename T2>
-    struct is_same
+    struct is_same : public false_type
     {
-        static const bool value = false;
     };
 
     template <typename T>
-    struct is_same<T, T>
+    struct is_same<T, T> : public true_type
     {
-        static const bool value = true;
     };
 
     template <typename T1, typename T2>
     static inline const auto is_same_v = is_same<T1, T2>::value;
 
     template <typename T>
-    struct remove_reference
+    struct remove_reference : public type_identity<T>
     {
-        using type = T;
     };
 
     template <typename T>
-    struct remove_reference<T &>
+    struct remove_reference<T &> : public type_identity<T>
     {
-        using type = T;
     };
 
     template <typename T>
-    struct remove_reference<T &&>
+    struct remove_reference<T &&> : public type_identity<T>
     {
-        using type = T;
     };
 
     template <typename T>
-    struct remove_const
+    struct remove_const : public type_identity<T>
     {
-        using type = T;
     };
 
     template <typename T>
-    struct remove_const<const T>
+    struct remove_const<const T> : public type_identity<T>
     {
-        using type = T;
     };
 
     template <typename T>
-    struct remove_volatile
+    struct remove_volatile : public type_identity<T>
     {
-        using type = T;
     };
 
     template <typename T>
-    struct remove_volatile<volatile T>
+    struct remove_volatile<volatile T> : public type_identity<T>
     {
-        using type = T;
     };
 
     template <typename T>
-    struct remove_cv
+    struct remove_cv : public type_identity<typename remove_volatile<typename remove_const<T>::type>::type>
     {
-        using type = typename remove_volatile<typename remove_const<T>::type>::type;
     };
 
     template <typename T>
-    struct remove_all_extents
+    struct remove_array : public type_identity<T>
     {
-        using type = typename remove_volatile<typename remove_const<typename remove_reference<T>::type>::type>::type;
+    };
+
+    template <typename T, size_t N>
+    struct remove_array<T[N]> : public type_identity<T>
+    {
+    };
+
+    template <typename T>
+    struct remove_array<T[]> : public type_identity<T>
+    {
+    };
+
+    template <typename T>
+    struct remove_all_extents : public type_identity<typename remove_cv<typename remove_reference<T>::type>::type>
+    {
     };
 
     template <typename T>
@@ -197,16 +319,32 @@ namespace std
     };
 
     template <typename T>
-    struct is_ptr
+    struct is_ptr : public false_type
     {
-        static const bool value = false;
     };
 
     template <typename T>
-    struct is_ptr<T *>
+    struct is_ptr<T *> : public true_type
     {
-        static const bool value = true;
     };
+
+    template <typename T>
+    struct is_array : public false_type
+    {
+    };
+
+    template <typename T, size_t N>
+    struct is_array<T[N]> : public true_type
+    {
+    };
+
+    template <typename T>
+    struct is_array<T[]> : public true_type
+    {
+    };
+
+    template <typename T>
+    inline constexpr bool is_array_v = is_array<T>::value;
 
     template <typename T>
     using remove_reference_t = typename remove_reference<T>::type;

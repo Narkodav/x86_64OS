@@ -52,7 +52,10 @@ extern "C"
     isr_handler(Kernel::InterruptFrame *frame);
 
     __attribute__((used, noinline)) extern void
-    irq_handler(Kernel::InterruptFrame *frame);
+    master_irq_handler(Kernel::InterruptFrame *frame);
+
+    __attribute__((used, noinline)) extern void
+    slave_irq_handler(Kernel::InterruptFrame *frame);
 
     // hardware exceptions
     __attribute__((used, noinline)) extern void isr0();
@@ -171,7 +174,8 @@ namespace Kernel
 
     private:
         friend void ::isr_handler(Kernel::InterruptFrame *frame);
-        friend void ::irq_handler(Kernel::InterruptFrame *frame);
+        friend void ::master_irq_handler(Kernel::InterruptFrame *frame);
+        friend void ::slave_irq_handler(Kernel::InterruptFrame *frame);
 
         using IsrPtr_t = void (*)();
 

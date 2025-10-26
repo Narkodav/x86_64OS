@@ -39,6 +39,7 @@ cxx_flags = -ffreestanding -fno-exceptions -fno-rtti -fno-builtin -fno-stack-pro
 cxx_flags += -I$(src_dir) -O1 -std=c++20 -g -ggdb3 #-fno-strict-aliasing
 asm_flags = -f elf64
 ld_flags = -n
+qemu_flags = -m 8G -cpu EPYC -cdrom $(release_dir)/kernel.iso
 
 x86_64_asm_sources = $(shell find $(src_dir)/ -name *.asm)
 x86_64_asm_objects = $(patsubst $(src_dir)/%.asm, $(release_dir)/%.o, $(x86_64_asm_sources))
@@ -71,7 +72,7 @@ $(grub_cfg):
 
 .PHONY: build-x86_64
 
-build-x86_64: $(grub_cfg) $(objects)
+build-x86_64: clear $(grub_cfg) $(objects)
 	$(ld) $(ld_flags) -o $(release_dir)/kernel.bin -T $(ld_config) $(objects)
 	$(ld) $(ld_flags) -o $(release_dir)/kernel.elf -T $(ld_config) $(objects)
 	cp $(release_dir)/kernel.bin $(release_iso_dir)/boot/kernel.bin
@@ -82,23 +83,26 @@ build-x86_64: $(grub_cfg) $(objects)
 # 	cp $(release_dir)/kernel.bin $(release_iso_dir)/boot/kernel.bin
 # 	grub-mkrescue /usr/lib/grub/i386-pc -o $(release_dir)/kernel.iso $(release_iso_dir)	
 
-run: build-x86_64
-	qemu-system-x86_64 -m 8G -cdrom $(release_dir)/kernel.iso
-
-debug: build-x86_64
-	@echo "Starting QEMU in debug mode..."
-	@echo "In another terminal, run: make gdb"
-	qemu-system-x86_64 -s -S -cdrom $(release_dir)/kernel.iso
-
 clear:
 	rm -rf $(build_x86_64_dir)
+	
+run: clear build-x86_64
+	qemu-system-x86_64 $(qemu_flags)
+
+debug: clear build-x86_64
+	@echo "Starting QEMU in debug mode..."
+	@echo "In another terminal, run: make gdb"
+	qemu-system-x86_64 -s -S $(qemu_flags)
 
 gdb: 
 #	echo "target remote localhost:1234" > .gdbinit
 # 	ddd --debugger gdb $(release_dir)/kernel.elf
 	gdb $(release_dir)/kernel.elf
-	c
-	target remote localhost:1234
+#	c
+#	target remote localhost:1234
+
+bochs:
+	bochs -f bochs_config
 
 .PHONY: clear
 

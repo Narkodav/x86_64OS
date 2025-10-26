@@ -4,7 +4,8 @@ bits 64
 
 ; This function is defined in C. We will call it from our keyboard ISR.
 extern isr_handler
-extern irq_handler
+extern master_irq_handler
+extern slave_irq_handler
 
 ; Macro for ISRs without error code
 %macro ISR_NOERRCODE 1
@@ -25,13 +26,22 @@ isr%1:
     jmp isr_common
 %endmacro
 
-%macro IRQ 1
+%macro IRQ_MASTER 1
 global irq%1
 irq%1:
     cli
     push qword %1
     push qword %1 + 32
-    jmp irq_common
+    jmp master_irq_common
+%endmacro
+
+%macro IRQ_SLAVE 1
+global irq%1
+irq%1:
+    cli
+    push qword %1
+    push qword %1 + 32
+    jmp slave_irq_common
 %endmacro
 
 ; ISR_NOERRCODE 33       ; This will be IRQ1, the keyboard interrupt!
@@ -103,118 +113,86 @@ ISR_NOERRCODE 30
 ISR_NOERRCODE 31
 
 ; 32: IRQ0 - System Timer
-IRQ 0
+IRQ_MASTER 0
 ; 33: IRQ1 - Keyboard Controller
-IRQ 1
+IRQ_MASTER 1
 ; 34: IRQ2 - Cascade to IRQ9
-IRQ 2
+IRQ_MASTER 2
 ; 35: IRQ3 - COM2 (if present)
-IRQ 3
+IRQ_MASTER 3
 ; 36: IRQ4 - COM1 (if present)
-IRQ 4
+IRQ_MASTER 4
 ; 37: IRQ5 - LPT2 (if present) / Sound Card
-IRQ 5
+IRQ_MASTER 5
 ; 38: IRQ6 - Floppy Disk Controller
-IRQ 6
+IRQ_MASTER 6
 ; 39: IRQ7 - LPT1 / Spurious Interrupt
-IRQ 7
+IRQ_MASTER 7
 ; 40: IRQ8 - Real Time Clock
-IRQ 8
+IRQ_SLAVE 8
 ; 41: IRQ9 - ACPI / Legacy SCSI / NIC
-IRQ 9
+IRQ_SLAVE 9
 ; 42: IRQ10 - Available / SCSI / NIC
-IRQ 10
+IRQ_SLAVE 10
 ; 43: IRQ11 - Available / SCSI / NIC
-IRQ 11
+IRQ_SLAVE 11
 ; 44: IRQ12 - PS/2 Mouse
-IRQ 12
+IRQ_SLAVE 12
 ; 45: IRQ13 - FPU / Coprocessor / Inter-processor
-IRQ 13
+IRQ_SLAVE 13
 ; 46: IRQ14 - Primary ATA Hard Disk
-IRQ 14
+IRQ_SLAVE 14
 ; 47: IRQ15 - Secondary ATA Hard Disk
-IRQ 15
+IRQ_SLAVE 15
 
-; Common ISR stub - 64-bit version
+%macro COMMON_HANDLER 1
+    ; Save all registers
+    push rax
+    push rbx
+    push rcx
+    push rdx
+    push rsi
+    push rdi
+    push rbp
+    push r8
+    push r9
+    push r10
+    push r11
+    push r12
+    push r13
+    push r14
+    push r15
+    
+    mov rdi, rsp
+    call %1
+    
+    ; Restore all registers
+    pop r15
+    pop r14
+    pop r13
+    pop r12
+    pop r11
+    pop r10
+    pop r9
+    pop r8
+    pop rbp
+    pop rdi
+    pop rsi
+    pop rdx
+    pop rcx
+    pop rbx
+    pop rax
+    
+    add rsp, 16
+    iretq
+%endmacro
+
+; common stubs
 isr_common:
-    ; Save all registers
-    push rax
-    push rbx
-    push rcx
-    push rdx
-    push rsi
-    push rdi
-    push rbp
-    push r8
-    push r9
-    push r10
-    push r11
-    push r12
-    push r13
-    push r14
-    push r15
-    
-    mov rdi, rsp
-    call isr_handler
-    
-    ; Restore all registers
-    pop r15
-    pop r14
-    pop r13
-    pop r12
-    pop r11
-    pop r10
-    pop r9
-    pop r8
-    pop rbp
-    pop rdi
-    pop rsi
-    pop rdx
-    pop rcx
-    pop rbx
-    pop rax
-    
-    add rsp, 16  ; Clean up error code and interrupt number
-    iretq        ; 64-bit interrupt return
+    COMMON_HANDLER isr_handler
 
-; Common IRQ stub - 64-bit version
-irq_common:
-    ; Save all registers
-    push rax
-    push rbx
-    push rcx
-    push rdx
-    push rsi
-    push rdi
-    push rbp
-    push r8
-    push r9
-    push r10
-    push r11
-    push r12
-    push r13
-    push r14
-    push r15
-    
-    mov rdi, rsp
-    call irq_handler
-    
-    ; Restore all registers
-    pop r15
-    pop r14
-    pop r13
-    pop r12
-    pop r11
-    pop r10
-    pop r9
-    pop r8
-    pop rbp
-    pop rdi
-    pop rsi
-    pop rdx
-    pop rcx
-    pop rbx
-    pop rax
-    
-    add rsp, 16  ; Clean up IRQ number and interrupt number
-    iretq        ; 64-bit interrupt return
+master_irq_common:
+    COMMON_HANDLER master_irq_handler
+
+slave_irq_common:
+    COMMON_HANDLER slave_irq_handler
