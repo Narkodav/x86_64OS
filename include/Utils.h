@@ -24,7 +24,7 @@ extern "C"
 
 namespace Utils
 {
-    template <std::EnumType E, std::IntegralType T>
+    template <std::EnumType E, std::integral T>
     class FlagMap
     {
     private:

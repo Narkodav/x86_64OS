@@ -22,13 +22,6 @@ extern "C" void start();
 
 uint8_t counter = 0;
 
-void function(size_t &counter, size_t &limit)
-{
-    Kernel::Console::putString("function\n");
-    if (counter < limit)
-        function(++counter, limit);
-}
-
 void handleTimerInterrupt(Kernel::InterruptFrame &frame)
 {
     using namespace Kernel;
@@ -38,27 +31,6 @@ void handleTimerInterrupt(Kernel::InterruptFrame &frame)
 extern "C" void kernel_main(uint64_t multibootInfoAddr)
 {
     using namespace Kernel;
-
-    // Test basic functionality
-    // Console::clear();
-    // Console::putString("64-bit Kernel Booted Successfully!\n");
-    // Console::putString("VGA Console is working!\n",
-    //                    Console::Attributes::GreenOnBlack);
-
-    // // Test colors
-    // Console::putString("Error message\n",
-    //                    Console::Attributes::WhiteOnRed);
-
-    // for (size_t i = 0; i < Console::getWindowCapacity(); ++i)
-    //     Console::writeChar(i, '\0', Console::Attributes::BlackOnBlack);
-    // Console::setCursor({0, 0});
-
-    // Console::clear();
-
-    // Console::putString("64-bit Kernel Booted Successfully!\n");
-    // Console::setCursor({0, 0});
-    // Console::putString("Error message\n",
-    //                    Console::Attributes::WhiteOnRed);
 
     Console::clear();
 
@@ -108,18 +80,20 @@ extern "C" void kernel_main(uint64_t multibootInfoAddr)
     Console::print("\n");
     kernelHeap.printBlocks();
 
+    Keyboard::Event event;
+
     while (1)
     {
-        // uint8_t status = inByte(0x64);
-        // if (status & 0x01)
-        // {
-        //     uint8_t scancode = inByte(0x60);
-        //     Console::putString("Status: ");
-        //     Console::putNumBin(status);
-        //     Console::putChar('\n');
-        //     Console::putString("Scancode: ");
-        //     Console::putNumBin(scancode);
-        //     Console::putChar('\n');
-        // }
+        while (Keyboard::popEvent(event))
+        {
+            if (event.getKey() == Keyboard::Key::ArrowUp)
+            {
+                Console::scrollUp(1);
+            }
+            else if (event.getKey() == Keyboard::Key::ArrowDown)
+            {
+                Console::scrollDown(1);
+            }
+        }
     }
 }

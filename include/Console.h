@@ -4,6 +4,8 @@
 
 #include "Types.h"
 #include "Utils.h"
+#include "RollingWindow.h"
+#include "Array.h"
 
 namespace Kernel
 {
@@ -63,25 +65,40 @@ namespace Kernel
         } __attribute__((packed));
 
     private:
-        static volatile VgaChar *s_vgaAddress;
-        static const Extent s_extent;
-        static const size_t s_bufferLineCount;
-        static volatile VgaChar s_charBuffer[];
-        static const Extent s_extent;
-        static const size_t s_windowCapacity;
-        static volatile CursorPos s_cursorPos;
-
-        static void updateHardwareCursor();
+        static constexpr Extent s_extent = {80, 25};
+        using VgaScreen = VgaChar[s_extent.height][s_extent.width];
+        static inline volatile VgaScreen &s_vgaScreen = *reinterpret_cast<VgaScreen *>(0xB8000);
+        static constexpr size_t s_bufferLineCount = 2048;
+        static inline RollingWindow<Utils::Array<VgaChar, s_extent.width>, s_bufferLineCount> s_charBuffer;
+        static constexpr size_t s_windowCapacity = s_extent.width * s_extent.height;
+        static inline volatile CursorPos s_cursorPos = {0, 0};
+        static inline volatile size_t s_displayLine = 0;
+        static inline volatile bool s_cursorEnabled = false;
+        static inline volatile bool s_shouldFlush = false;
 
     public:
-        static void writeChar(size_t index, uint8_t character, Attributes attr = Attributes::WhiteOnBlack);
+        static void writeChar(size_t line, size_t pos, uint8_t character, Attributes attr = Attributes::WhiteOnBlack);
 
         template <typename T>
-        static void writeString(T *str, size_t startIndex = 0, Attributes attr = Attributes::WhiteOnBlack)
-            requires std::is_same_v<std::remove_all_extents_t<T>, char> || std::is_same_v<std::remove_all_extents_t<T>, uint8_t>
+        static void writeString(T *str, size_t line, size_t pos, Attributes attr = Attributes::WhiteOnBlack)
         {
-            for (size_t i = 0; str[i] != '\0'; ++i)
-                writeChar(startIndex + i, str[i], attr);
+            size_t len = strlen(str);
+            size_t strCount = 0;
+            for (; strCount < s_extent.width - pos; ++strCount)
+                writeChar(line, pos + strCount, str[strCount], attr);
+
+            size_t lastLine = line + len / s_extent.width;
+            for (size_t i = line + 1; i < lastLine; ++i)
+            {
+                for (size_t j = 0; j < s_extent.width; ++j, ++strCount)
+                {
+                    writeChar(i, j, str[strCount], attr);
+                }
+            }
+            for (size_t i = 0; i < len - strCount; ++i, ++strCount)
+            {
+                writeChar(lastLine, i, str[strCount], attr);
+            }
         }
 
         // updates the cursor
@@ -89,30 +106,18 @@ namespace Kernel
 
         template <typename T>
         static void putString(T *str, Attributes attr = Attributes::WhiteOnBlack)
-            requires std::is_same_v<std::remove_all_extents_t<T>, char> || std::is_same_v<std::remove_all_extents_t<T>, uint8_t>
         {
             for (size_t i = 0; str[i] != '\0'; ++i)
             {
-                size_t pos = s_cursorPos.y * s_extent.width + s_cursorPos.x;
-                writeChar(pos, str[i], attr);
-                ++s_cursorPos.x;
-                if (s_cursorPos.x >= s_extent.width || str[i] == '\n')
-                {
-                    s_cursorPos.x = 0;
-                    ++s_cursorPos.y;
-                    if (s_cursorPos.y >= s_extent.height)
-                        scrollDown(1);
-                }
+                putChar(str[i], attr);
             }
-            updateHardwareCursor();
         }
 
-        template <std::IntegralType T>
+        template <std::integral T>
         static void putNumBin(T val, Attributes attr = Attributes::WhiteOnBlack)
         {
             putString("0b", attr);
             const auto bits = sizeof(T) * 8;
-            size_t pos = s_cursorPos.y * s_extent.width + s_cursorPos.x;
             size_t i = 0;
             size_t offset = 0;
             for (; i < bits; ++i, ++offset)
@@ -123,61 +128,47 @@ namespace Kernel
             }
             for (; i < bits; ++i)
             {
-                writeChar(i + pos - offset, '0' + (val >> (bits - 1)), attr);
+                putChar('0' + (val >> (bits - 1)), attr);
                 val <<= 1;
             }
-            s_cursorPos.x = (pos - offset + bits) % s_extent.width;
-            s_cursorPos.y = (pos - offset + bits) / s_extent.width;
-            updateHardwareCursor();
         }
 
-        template <std::IntegralType T>
+        template <std::integral T>
         static void putNumDec(T val, Attributes attr = Attributes::WhiteOnBlack)
         {
+            char buff[20]; // 64-bit integer can have a maximum of 20 digits
             if (val == 0)
             {
                 putChar('0', attr);
                 return;
             }
-            size_t pos = s_cursorPos.y * s_extent.width + s_cursorPos.x;
-            if (val < 0)
+
+            if constexpr (std::is_signed_v<T>)
             {
-                writeChar(pos, '-', attr);
-                ++pos;
-                val = -val;
+                if (val < 0)
+                {
+                    putChar('-', attr);
+                    val = -val;
+                }
             }
             size_t count = 0;
 
             while (val != 0)
             {
-                writeChar(count + pos, '0' + val % 10, attr);
+                buff[count] = '0' + val % 10;
                 val /= 10;
                 ++count;
             }
 
-            VgaChar buffer;
-
-            for (size_t i = 0; i < count / 2; ++i)
-            {
-                buffer.character = s_vgaAddress[count + pos - i - 1].character;
-                buffer.attr = s_vgaAddress[count + pos - i - 1].attr;
-                s_vgaAddress[count + pos - i - 1].character = s_vgaAddress[pos + i].character;
-                s_vgaAddress[count + pos - i - 1].attr = s_vgaAddress[pos + i].attr;
-                s_vgaAddress[pos + i].character = buffer.character;
-                s_vgaAddress[pos + i].attr = buffer.attr;
-            }
-
-            s_cursorPos.x = (pos + count) % s_extent.width;
-            s_cursorPos.y = (pos + count) / s_extent.width;
-            updateHardwareCursor();
+            for (size_t i = 0; i < count; ++i)
+                putChar(buff[count - i - 1], attr);
         }
 
-        template <std::IntegralType T>
+        template <std::integral T>
         static void putNumHex(T val, Attributes attr = Attributes::WhiteOnBlack)
         {
             putString("0x", attr);
             const auto bits = sizeof(T) * 8;
-            size_t pos = s_cursorPos.y * s_extent.width + s_cursorPos.x;
             size_t i = 0;
             size_t offset = 0;
             for (; i < bits / 4; ++i, ++offset)
@@ -188,15 +179,24 @@ namespace Kernel
             }
             for (; i < bits / 4; ++i)
             {
-                writeChar(i - offset + pos, "0123456789ABCDEF"[(val >> (bits - 4)) & 0xF], attr);
+                putChar("0123456789ABCDEF"[(val >> (bits - 4)) & 0xF], attr);
                 val <<= 4;
             }
-            s_cursorPos.x = (pos - offset + bits / 4) % s_extent.width;
-            s_cursorPos.y = (pos - offset + bits / 4) / s_extent.width;
-            updateHardwareCursor();
         }
 
     private:
+        template <typename T>
+        static inline const auto integralCheck = std::is_integral_v<std::remove_cv_t<std::remove_reference_t<T>>>;
+
+        template <typename T>
+        static inline const auto charCheck = std::is_convertible_v<T, uint8_t> && sizeof(T) == 1;
+
+        template <typename T>
+        static inline const auto pointerCheck = std::is_pointer_v<std::remove_cv_t<std::remove_reference_t<T>>>;
+
+        template <typename T>
+        static inline const auto strCheck = std::is_convertible_v<T, const int8_t *> || std::is_convertible_v<T, const uint8_t *> || std::is_convertible_v<T, const char *> || std::is_convertible_v<T, const unsigned char *>;
+
         template <typename... Ts>
         static void printImpl(const char *str, Attributes attr, Ts &&...vals)
         {
@@ -210,7 +210,7 @@ namespace Kernel
                         switch (*(++str))
                         {
                         case 'd':
-                            if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
+                            if constexpr (integralCheck<T>)
                             {
                                 putNumDec(val, attr);
                             }
@@ -221,7 +221,7 @@ namespace Kernel
                             }
                             break;
                         case 'b':
-                            if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
+                            if constexpr (integralCheck<T>)
                             {
                                 putNumBin(val, attr);
                             }
@@ -232,7 +232,7 @@ namespace Kernel
                             }
                             break;
                         case 'x':
-                            if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>)
+                            if constexpr (integralCheck<T>)
                             {
                                 putNumHex(val, attr);
                             }
@@ -243,7 +243,7 @@ namespace Kernel
                             }
                             break;
                         case 'c':
-                            if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char>)
+                            if constexpr (charCheck<T>)
                             {
                                 putChar(val, attr);
                             }
@@ -254,9 +254,9 @@ namespace Kernel
                             }
                             break;
                         case 'p':
-                            if constexpr (std::is_ptr_v<std::remove_all_extents_t<T>>)
+                            if constexpr (pointerCheck<T>)
                             {
-                                putNumHex((size_t)val, attr);
+                                putNumHex(reinterpret_cast<uint64_t>(val), attr);
                             }
                             else
                             {
@@ -265,9 +265,7 @@ namespace Kernel
                             }
                             break;
                         case 's': 
-                            if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char*>
-                                || std::is_same_v<std::remove_all_extents_t<T>, const char*>
-                                || std::is_array_v<std::remove_all_extents_t<T>>)
+                            if constexpr (strCheck<T>)
                             {
                                 putString(val, attr);
                             }
@@ -278,16 +276,17 @@ namespace Kernel
                             }
                             break;
                         case 'v':
-                            if constexpr (std::is_integral_v<std::remove_all_extents_t<T>>) {
-                                putNumDec(val, attr);
-                            } else if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char>) {
+                            if constexpr (charCheck<T>) {
                                 putChar(val, attr);
-                            } else if constexpr (std::is_ptr_v<std::remove_all_extents_t<T>>) {
-                                putNumHex(reinterpret_cast<uint64_t>(val), attr);
-                            } else if constexpr (std::is_same_v<std::remove_all_extents_t<T>, char*>
-                                || std::is_same_v<std::remove_all_extents_t<T>, const char*>
-                                || std::is_array_v<std::remove_all_extents_t<T>>) {
+                            }
+                            else if constexpr (integralCheck<T>) {
+                                putNumDec(val, attr);
+                            }
+                            else if constexpr (strCheck<T>) {
                                 putString(val, attr);
+                            }
+                            else if constexpr (pointerCheck<T>) {
+                                putNumHex(reinterpret_cast<uint64_t>(val), attr);
                             }
                             else 
                             {
@@ -327,6 +326,9 @@ namespace Kernel
             {
                 printImpl(str, Attributes::WhiteOnBlack, vals...);
             }
+            clampDisplayToCursor();
+            updateCursor();
+            flushToVga();
         }
 
         template <typename... Ts>
@@ -340,6 +342,9 @@ namespace Kernel
             {
                 printImpl(str, atr, vals...);
             }
+            clampDisplayToCursor();
+            updateCursor();
+            flushToVga();
         }
 
         // these change the cursor
@@ -361,10 +366,19 @@ namespace Kernel
         static const size_t &getWindowCapacity() { return s_windowCapacity; }
 
         static void scrollDown(size_t lines);
+        static void scrollUp(size_t lines);
 
-        static uint64_t cursorPosToIndex(CursorPos pos);
+        static void enableCursor();
+        static void disableCursor();
 
-        static void flushToVga(size_t lineIndex);
+        static void setDisplayLine(size_t line);
+
+        static void clampDisplayToCursor();
+
+    private:
+        static void flushToVga();
+        static void updateCursor();
+        static bool cursorInScreenBounds(volatile CursorPos &pos);
     };
 } // namespace Kernel
 

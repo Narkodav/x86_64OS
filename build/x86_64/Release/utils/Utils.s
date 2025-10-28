@@ -6,7 +6,7 @@
 	.type	memset, @function
 memset:
 .LVL0:
-.LFB34:
+.LFB35:
 	.file 1 "src/utils/Utils.cpp"
 	.loc 1 6 5 view -0
 	.cfi_startproc
@@ -42,13 +42,13 @@ memset:
 	.loc 1 11 5 is_stmt 0 view .LVU13
 	ret
 	.cfi_endproc
-.LFE34:
+.LFE35:
 	.size	memset, .-memset
 	.globl	memcpy
 	.type	memcpy, @function
 memcpy:
 .LVL7:
-.LFB35:
+.LFB36:
 	.loc 1 14 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 14 5 is_stmt 0 view .LVU15
@@ -84,13 +84,13 @@ memcpy:
 	.loc 1 20 5 is_stmt 0 view .LVU28
 	ret
 	.cfi_endproc
-.LFE35:
+.LFE36:
 	.size	memcpy, .-memcpy
 	.globl	memmove
 	.type	memmove, @function
 memmove:
 .LVL14:
-.LFB36:
+.LFB37:
 	.loc 1 23 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 23 5 is_stmt 0 view .LVU30
@@ -155,13 +155,13 @@ memmove:
 	.loc 1 39 5 is_stmt 0 view .LVU53
 	ret
 	.cfi_endproc
-.LFE36:
+.LFE37:
 	.size	memmove, .-memmove
 	.globl	memcmp
 	.type	memcmp, @function
 memcmp:
 .LVL27:
-.LFB37:
+.LFB38:
 	.loc 1 42 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 43 9 view .LVU55
@@ -215,13 +215,13 @@ memcmp:
 	.loc 1 54 5 view .LVU76
 	ret
 	.cfi_endproc
-.LFE37:
+.LFE38:
 	.size	memcmp, .-memcmp
 	.globl	strlen
 	.type	strlen, @function
 strlen:
 .LVL35:
-.LFB38:
+.LFB39:
 	.loc 1 57 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 58 9 view .LVU78
@@ -252,13 +252,13 @@ strlen:
 	movq	%rdi, %rax
 	jmp	.L24
 	.cfi_endproc
-.LFE38:
+.LFE39:
 	.size	strlen, .-strlen
 	.globl	strcpy
 	.type	strcpy, @function
 strcpy:
 .LVL40:
-.LFB39:
+.LFB40:
 	.loc 1 65 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 65 5 is_stmt 0 view .LVU89
@@ -304,13 +304,13 @@ strcpy:
 	movq	%rdi, %rcx
 	jmp	.L29
 	.cfi_endproc
-.LFE39:
+.LFE40:
 	.size	strcpy, .-strcpy
 	.globl	strcmp
 	.type	strcmp, @function
 strcmp:
 .LVL46:
-.LFB40:
+.LFB41:
 	.loc 1 74 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 75 9 view .LVU109
@@ -357,7 +357,7 @@ strcmp:
 	subl	%edx, %eax
 	ret
 	.cfi_endproc
-.LFE40:
+.LFE41:
 	.size	strcmp, .-strcmp
 .Letext0:
 	.file 2 "src/utils/../../include/Types.h"
@@ -441,8 +441,8 @@ strcmp:
 	.byte	0x49
 	.byte	0x9
 	.long	0x7b
-	.quad	.LFB40
-	.quad	.LFE40-.LFB40
+	.quad	.LFB41
+	.quad	.LFE41-.LFB41
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0xe2
@@ -474,8 +474,8 @@ strcmp:
 	.byte	0x40
 	.byte	0xb
 	.long	0x14c
-	.quad	.LFB39
-	.quad	.LFE39-.LFB39
+	.quad	.LFB40
+	.quad	.LFE40-.LFB40
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x14c
@@ -508,8 +508,8 @@ strcmp:
 	.byte	0x38
 	.byte	0xc
 	.long	0x32
-	.quad	.LFB38
-	.quad	.LFE38-.LFB38
+	.quad	.LFB39
+	.quad	.LFE39-.LFB39
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x191
@@ -533,8 +533,8 @@ strcmp:
 	.byte	0x29
 	.byte	0x9
 	.long	0x7b
-	.quad	.LFB37
-	.quad	.LFE37-.LFB37
+	.quad	.LFB38
+	.quad	.LFE38-.LFB38
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x204
@@ -584,8 +584,8 @@ strcmp:
 	.byte	0x16
 	.byte	0xb
 	.long	0x89
-	.quad	.LFB36
-	.quad	.LFE36-.LFB36
+	.quad	.LFB37
+	.quad	.LFE37-.LFB37
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x286
@@ -632,8 +632,8 @@ strcmp:
 	.byte	0xd
 	.byte	0xb
 	.long	0x89
-	.quad	.LFB35
-	.quad	.LFE35-.LFB35
+	.quad	.LFB36
+	.quad	.LFE36-.LFB36
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x302
@@ -679,8 +679,8 @@ strcmp:
 	.byte	0x5
 	.byte	0xb
 	.long	0x89
-	.quad	.LFB34
-	.quad	.LFE34-.LFB34
+	.quad	.LFB35
+	.quad	.LFE35-.LFB35
 	.uleb128 0x1
 	.byte	0x9c
 	.uleb128 0x9
@@ -986,7 +986,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL47-.Ltext0
-	.uleb128 .LFE40-.Ltext0
+	.uleb128 .LFE41-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
@@ -1003,7 +1003,7 @@ strcmp:
 	.byte	0x54
 	.byte	0x4
 	.uleb128 .LVL48-.Ltext0
-	.uleb128 .LFE40-.Ltext0
+	.uleb128 .LFE41-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
@@ -1020,7 +1020,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL42-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE40-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1037,7 +1037,7 @@ strcmp:
 	.byte	0x54
 	.byte	0x4
 	.uleb128 .LVL43-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE40-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
@@ -1061,7 +1061,7 @@ strcmp:
 	.byte	0x52
 	.byte	0x4
 	.uleb128 .LVL45-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE40-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1085,7 +1085,7 @@ strcmp:
 	.byte	0x50
 	.byte	0x4
 	.uleb128 .LVL39-.Ltext0
-	.uleb128 .LFE38-.Ltext0
+	.uleb128 .LFE39-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
@@ -1164,7 +1164,7 @@ strcmp:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL34-.Ltext0
-	.uleb128 .LFE37-.Ltext0
+	.uleb128 .LFE38-.Ltext0
 	.uleb128 0x3
 	.byte	0x71
 	.sleb128 -1
@@ -1233,7 +1233,7 @@ strcmp:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL34-.Ltext0
-	.uleb128 .LFE37-.Ltext0
+	.uleb128 .LFE38-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
@@ -1300,7 +1300,7 @@ strcmp:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL34-.Ltext0
-	.uleb128 .LFE37-.Ltext0
+	.uleb128 .LFE38-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
@@ -1317,7 +1317,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL17-.Ltext0
-	.uleb128 .LFE36-.Ltext0
+	.uleb128 .LFE37-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1621,7 +1621,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL13-.Ltext0
-	.uleb128 .LFE35-.Ltext0
+	.uleb128 .LFE36-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1793,7 +1793,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL3-.Ltext0
-	.uleb128 .LFE34-.Ltext0
+	.uleb128 .LFE35-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0

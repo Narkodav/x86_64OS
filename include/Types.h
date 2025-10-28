@@ -21,15 +21,20 @@ typedef void *uintptr_t;
 
 namespace std
 {
-    struct false_type
+    template <typename T, T v>
+    struct integral_constant
     {
-        static constexpr bool value = false;
+        static constexpr T value = v;
+        using value_type = T;
+        using type = integral_constant;
+        constexpr operator value_type() const noexcept { return value; }
     };
 
-    struct true_type
-    {
-        static constexpr bool value = true;
-    };
+    template <bool v>
+    using bool_constant = integral_constant<bool, v>;
+
+    using true_type = integral_constant<bool, true>;
+    using false_type = integral_constant<bool, false>;
 
     template <typename T>
     struct type_identity
@@ -192,7 +197,7 @@ namespace std
     static const bool is_integral_v = is_integral<T>::value;
 
     template <typename T>
-    concept IntegralType = is_integral_v<T>;
+    concept integral = is_integral_v<T>;
 
     template <>
     struct is_integral<size_t> : public true_type
@@ -293,22 +298,12 @@ namespace std
     };
 
     template <typename T>
-    struct remove_array : public type_identity<T>
-    {
-    };
-
-    template <typename T, size_t N>
-    struct remove_array<T[N]> : public type_identity<T>
+    struct remove_all_extents : public type_identity<T>
     {
     };
 
     template <typename T>
-    struct remove_array<T[]> : public type_identity<T>
-    {
-    };
-
-    template <typename T>
-    struct remove_all_extents : public type_identity<typename remove_cv<typename remove_reference<T>::type>::type>
+    struct remove_all_extents<T[]> : public type_identity<remove_all_extents<T>>
     {
     };
 
@@ -319,12 +314,12 @@ namespace std
     };
 
     template <typename T>
-    struct is_ptr : public false_type
+    struct is_pointer : public false_type
     {
     };
 
     template <typename T>
-    struct is_ptr<T *> : public true_type
+    struct is_pointer<T *> : public true_type
     {
     };
 
@@ -368,11 +363,58 @@ namespace std
     concept EnumType = is_enum_v<T>;
 
     template <typename T>
-    static const bool is_ptr_v = is_ptr<T>::value;
+    static const bool is_pointer_v = is_pointer<T>::value;
 
     template <typename T>
-    concept PtrType = is_ptr_v<T>;
+    concept pointer = is_pointer_v<T>;
 
+    template <typename T>
+    static const bool is_void_v = is_same_v<remove_cv_t<T>, void>;
+
+    template <typename T>
+    struct is_void : bool_constant<is_void_v<T>>
+    {
+    };
+
+    template <typename T>
+    T &&declval() noexcept;
+
+    // stolen from https://en.cppreference.com/w/cpp/types/is_convertible.html
+    // no idea how it works
+    namespace detail
+    {
+        template <typename T>
+        auto test_returnable(int) -> decltype(void(static_cast<T (*)()>(nullptr)), std::true_type{});
+        template <typename>
+        auto test_returnable(...) -> std::false_type;
+
+        template <typename From, typename To>
+        auto test_implicitly_convertible(int) -> decltype(void(declval<void (&)(To)>()(declval<From>())), std::true_type{});
+        template <typename, typename>
+        auto test_implicitly_convertible(...) -> std::false_type;
+    } // namespace detail
+
+    template <typename From, typename To>
+    struct is_convertible : std::integral_constant<bool,
+                                                   (decltype(detail::test_returnable<To>(0))::value &&
+                                                    decltype(detail::test_implicitly_convertible<From, To>(0))::value) ||
+                                                       (std::is_void<From>::value && std::is_void<To>::value)>
+    {
+    };
+
+    template <typename From, typename To>
+    static const bool is_convertible_v = is_convertible<From, To>::value;
+
+    template <typename From, typename To>
+    concept convertible_to = is_convertible_v<From, To>;
+
+    template <typename T>
+    struct is_signed : std::integral_constant<bool, numeric_limits<T>::is_signed>
+    {
+    };
+
+    template <typename T>
+    static const bool is_signed_v = is_signed<T>::value;
 }
 
 #endif // TYPES_H
