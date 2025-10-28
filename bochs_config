@@ -1,0 +1,38 @@
+# Bochs configuration for kernel debugging
+megs: 512
+romimage: file=$BXSHARE/BIOS-bochs-latest
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+
+# Boot from ISO
+boot: cdrom
+ata0-master: type=cdrom, path="build/x86_64/Release/kernel.iso", status=inserted
+
+# CPU configuration
+# cpu: model=corei7_sandy_bridge_2600k, count=1, ips=50000000, reset_on_triple_fault=1
+
+# Memory and chipset
+# chipset: i440fx
+# clock: sync=realtime
+
+# Display
+display_library: sdl2, options="gui_debug"
+# vga: extension=vbe, update_freq=60
+
+# Debug options
+magic_break: enabled=1
+debug: action=report
+info: action=report
+error: action=ask
+panic: action=ask
+# debug_symbols: file="build/x86_64/Release/kernel.elf"
+magic_break: enabled=1
+
+# GDB stub for debugging
+# gdbstub: enabled=1, port=1234, text_base=0, data_base=0, bss_base=0
+
+plugin_ctrl: speaker=0
+
+# Log file
+log: bochs.log
+logprefix: %t%e%d
+debugger_log: debugger.log
