@@ -2,15 +2,24 @@ global long_mode_start
 extern stack_top
 extern stack_bottom
 extern kernel_main
+extern gdt64
 
 extern __bss_start
 extern __bss_end
 
+extern switch_data_segment_to_kernel
+extern switch_data_segment_to_user
+
 section .text
 bits 64
 
+%include "include/boot/setup_tss.asm"
+
 long_mode_start:
     mov r8, rdi  ; Save multiboot2 info pointer
+
+    call switch_data_segment_to_kernel
+    call setup_tss
 
     ; zero bss
     mov rdi, __bss_start

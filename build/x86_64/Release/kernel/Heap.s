@@ -28,12 +28,12 @@ _ZNV6Kernel14HeapLinkedList10initializeEPvS1_:
 .LVL1:
 .LBB86:
 .LBI86:
-	.file 2 "src/kernel/../../include/Heap.h"
+	.file 2 "src/kernel/../../include/kernel/Heap.h"
 	.loc 2 33 18 view .LVU10
 	.loc 2 35 17 view .LVU11
 .LBB87:
 .LBI87:
-	.file 3 "src/kernel/../../include/Utils.h"
+	.file 3 "src/kernel/../../include/kernel/../utils/Utils.h"
 	.loc 3 47 14 view .LVU12
 .LBB88:
 	.loc 3 49 21 is_stmt 0 view .LVU13
@@ -871,7 +871,7 @@ _GLOBAL__sub_I__ZNV6Kernel14HeapLinkedList10initializeEPvS1_:
 .LBI164:
 	.loc 1 133 1 view .LVU310
 .LBB165:
-	.file 4 "src/kernel/../../include/Console.h"
+	.file 4 "src/kernel/../../include/kernel/Console.h"
 	.loc 4 72 95 is_stmt 0 view .LVU311
 	cmpb	$0, _ZGVN6Kernel7Console12s_charBufferE(%rip)
 	jne	.L40
@@ -880,7 +880,7 @@ _GLOBAL__sub_I__ZNV6Kernel14HeapLinkedList10initializeEPvS1_:
 .LVL74:
 .LBB166:
 .LBI166:
-	.file 5 "src/kernel/../../include/RollingWindow.h"
+	.file 5 "src/kernel/../../include/kernel/../utils/RollingWindow.h"
 	.loc 5 14 5 is_stmt 1 view .LVU313
 .LBB167:
 .LBB168:
@@ -954,8 +954,8 @@ _ZN6Kernel7Console12s_charBufferE:
 	.zero	327696
 	.text
 .Letext0:
-	.file 6 "src/kernel/../../include/Types.h"
-	.file 7 "src/kernel/../../include/Array.h"
+	.file 6 "src/kernel/../../include/kernel/../utils/Types.h"
+	.file 7 "src/kernel/../../include/kernel/../utils/Array.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
 	.long	0x1a2d
@@ -6221,6 +6221,10 @@ _ZN6Kernel7Console12s_charBufferE:
 	.byte	0x3
 	.uleb128 0x6
 	.uleb128 0x3
+	.byte	0x3
+	.uleb128 0x1
+	.uleb128 0x6
+	.byte	0x4
 	.byte	0x5
 	.uleb128 0x3
 	.long	.LASF436

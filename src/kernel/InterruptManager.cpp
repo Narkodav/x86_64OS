@@ -1,5 +1,5 @@
 // interrupts.cpp
-#include "../../include/InterruptManager.h"
+#include "../../include/kernel/InterruptManager.h"
 
 namespace Kernel
 {
@@ -155,7 +155,7 @@ namespace Kernel
 
     void InterruptManager::initialize()
     {
-        Console::print("Interrupt Manager : Initialising\n");
+        Console::print("Interrupt Manager : Initialising\n", Console::Attributes::CyanOnBlack);
         setupIdt();
     }
 
@@ -191,7 +191,7 @@ namespace Kernel
 extern "C" void isr_handler(Kernel::InterruptFrame *frame)
 {
     Kernel::InterruptManager::handleInterrupt(*frame);
-    asm volatile("cli \n hlt");
+    halt();
 }
 
 // extern "C" void irq_handler(Kernel::InterruptFrame *frame)

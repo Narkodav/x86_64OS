@@ -1,4 +1,4 @@
-#include "../../include/Keyboard.h"
+#include "../../include/kernel/Keyboard.h"
 namespace Kernel
 {
     StateTracker<volatile uint64_t, static_cast<size_t>(Keyboard::Key::Num)> Keyboard::s_keyStates;
@@ -55,7 +55,10 @@ namespace Kernel
         if (scancode == result)
         {
             event.getFlags().set(Event::Flag::Pressed);
-            s_keyStates.set(static_cast<uint8_t>(event.getKey()));
+            if (s_keyStates.get(static_cast<uint8_t>(event.getKey())))
+                event.getFlags().set(Event::Flag::Repeated);
+            else
+                s_keyStates.set(static_cast<uint8_t>(event.getKey()));
         }
         else
             s_keyStates.clear(static_cast<uint8_t>(event.getKey()));
@@ -115,8 +118,205 @@ namespace Kernel
         return Key::Num;
     }
 
+    uint8_t Keyboard::Event::getChar() const
+    {
+        uint8_t character;
+        if (m_flags.get(Flag::LShift) || m_flags.get(Flag::RShift))
+        {
+            character = getCharShift();
+            if (m_flags.get(Flag::CapsLock) && character >= 'A' && character <= 'Z')
+                character -= 'A' - 'a';
+        }
+        else
+        {
+            character = getCharDefault();
+            if (m_flags.get(Flag::CapsLock) && character >= 'a' && character <= 'z')
+                character += 'A' - 'a';
+        }
+        return character;
+    }
+
+    uint8_t Keyboard::Event::getCharDefault() const
+    {
+        switch (m_key)
+        {
+        case Key::_0:
+            return '0';
+        case Key::_1:
+            return '1';
+        case Key::_2:
+            return '2';
+        case Key::_3:
+            return '3';
+        case Key::_4:
+            return '4';
+        case Key::_5:
+            return '5';
+        case Key::_6:
+            return '6';
+        case Key::_7:
+            return '7';
+        case Key::_8:
+            return '8';
+        case Key::_9:
+            return '9';
+        case Key::A:
+            return 'a';
+        case Key::B:
+            return 'b';
+        case Key::C:
+            return 'c';
+        case Key::D:
+            return 'd';
+        case Key::E:
+            return 'e';
+        case Key::F:
+            return 'f';
+        case Key::G:
+            return 'g';
+        case Key::H:
+            return 'h';
+        case Key::I:
+            return 'i';
+        case Key::J:
+            return 'j';
+        case Key::K:
+            return 'k';
+        case Key::L:
+            return 'l';
+        case Key::M:
+            return 'm';
+        case Key::N:
+            return 'n';
+        case Key::O:
+            return 'o';
+        case Key::P:
+            return 'p';
+        case Key::Q:
+            return 'q';
+        case Key::R:
+            return 'r';
+        case Key::S:
+            return 's';
+        case Key::T:
+            return 't';
+        case Key::U:
+            return 'u';
+        case Key::V:
+            return 'v';
+        case Key::W:
+            return 'w';
+        case Key::X:
+            return 'x';
+        case Key::Y:
+            return 'y';
+        case Key::Z:
+            return 'z';
+        case Key::Space:
+            return ' ';
+        case Key::Enter:
+            return '\n';
+        case Key::Backspace:
+            return '\b';
+        case Key::Tab:
+            return '\t';
+        default:
+            return 0;
+        }
+    }
+
+    uint8_t Keyboard::Event::getCharShift() const
+    {
+        switch (m_key)
+        {
+        case Key::_0:
+            return ')';
+        case Key::_1:
+            return '!';
+        case Key::_2:
+            return '@';
+        case Key::_3:
+            return '#';
+        case Key::_4:
+            return '$';
+        case Key::_5:
+            return '%';
+        case Key::_6:
+            return '^';
+        case Key::_7:
+            return '&';
+        case Key::_8:
+            return '*';
+        case Key::_9:
+            return '(';
+        case Key::A:
+            return 'A';
+        case Key::B:
+            return 'B';
+        case Key::C:
+            return 'C';
+        case Key::D:
+            return 'D';
+        case Key::E:
+            return 'E';
+        case Key::F:
+            return 'F';
+        case Key::G:
+            return 'G';
+        case Key::H:
+            return 'H';
+        case Key::I:
+            return 'I';
+        case Key::J:
+            return 'J';
+        case Key::K:
+            return 'K';
+        case Key::L:
+            return 'L';
+        case Key::M:
+            return 'M';
+        case Key::N:
+            return 'N';
+        case Key::O:
+            return 'O';
+        case Key::P:
+            return 'P';
+        case Key::Q:
+            return 'Q';
+        case Key::R:
+            return 'R';
+        case Key::S:
+            return 'S';
+        case Key::T:
+            return 'T';
+        case Key::U:
+            return 'U';
+        case Key::V:
+            return 'V';
+        case Key::W:
+            return 'W';
+        case Key::X:
+            return 'X';
+        case Key::Y:
+            return 'Y';
+        case Key::Z:
+            return 'Z';
+        case Key::Space:
+            return ' ';
+        case Key::Enter:
+            return '\n';
+        case Key::Backspace:
+            return '\b';
+        case Key::Tab:
+            return '\t';
+        default:
+            return 0;
+        }
+    }
+
     void Keyboard::initialise()
     {
+        Console::print("Keyboard : Initialising\n", Console::Attributes::CyanOnBlack);
         InterruptManager::registerInterruptCallback(
             InterruptManager::InterruptVector::irqKeyboard, interruptHandler);
 

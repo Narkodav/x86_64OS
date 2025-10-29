@@ -1,9 +1,10 @@
-#include "../../include/Timer.h"
+#include "../../include/kernel/Timer.h"
 
 namespace Kernel
 {
     void Timer::initialise()
     {
+        Console::print("Timer : Initialising\n", Console::Attributes::CyanOnBlack);
         s_systicks = 0;
 
         InterruptManager::registerInterruptCallback(

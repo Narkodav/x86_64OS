@@ -1,4 +1,4 @@
-#include "../../include/Console.h"
+#include "../../include/kernel/Console.h"
 
 namespace Kernel
 {

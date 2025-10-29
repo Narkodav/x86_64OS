@@ -96,5 +96,5 @@ error:
     hlt
     jmp .loop
 
-%include "include/setup_paging.asm"
-%include "include/data.asm"
+%include "include/boot/setup_paging.asm"
+%include "include/boot/data.asm"

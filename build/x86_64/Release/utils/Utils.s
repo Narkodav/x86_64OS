@@ -360,7 +360,7 @@ strcmp:
 .LFE41:
 	.size	strcmp, .-strcmp
 .Letext0:
-	.file 2 "src/utils/../../include/Types.h"
+	.file 2 "src/utils/../../include/utils/Types.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
 	.long	0x362
@@ -1918,7 +1918,7 @@ strcmp:
 	.byte	0x3
 	.uleb128 0
 	.uleb128 0x1
-	.file 3 "src/utils/../../include/Utils.h"
+	.file 3 "src/utils/../../include/utils/Utils.h"
 	.byte	0x3
 	.uleb128 0x1
 	.uleb128 0x3

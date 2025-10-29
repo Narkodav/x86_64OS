@@ -18,7 +18,7 @@ _ZN6Kernel7Console9writeCharEmmhNS0_10AttributesE:
 .LVL1:
 .LBB50:
 .LBI50:
-	.file 2 "src/kernel/../../include/RollingWindow.h"
+	.file 2 "src/kernel/../../include/kernel/../utils/RollingWindow.h"
 	.loc 2 74 8 view .LVU3
 .LBB51:
 	.loc 2 76 24 is_stmt 0 view .LVU4
@@ -35,7 +35,7 @@ _ZN6Kernel7Console9writeCharEmmhNS0_10AttributesE:
 .LBE50:
 .LBB52:
 .LBI52:
-	.file 3 "src/kernel/../../include/Array.h"
+	.file 3 "src/kernel/../../include/kernel/../utils/Array.h"
 	.loc 3 25 12 is_stmt 1 view .LVU8
 	.loc 3 25 12 is_stmt 0 view .LVU9
 .LBE52:
@@ -1091,7 +1091,7 @@ _GLOBAL__sub_I__ZN6Kernel7Console12updateCursorEv:
 .LBI102:
 	.loc 1 225 1 view .LVU331
 .LBB103:
-	.file 4 "src/kernel/../../include/Console.h"
+	.file 4 "src/kernel/../../include/kernel/Console.h"
 	.loc 4 72 95 is_stmt 0 view .LVU332
 	cmpb	$0, _ZGVN6Kernel7Console12s_charBufferE(%rip)
 	jne	.L68
@@ -1173,8 +1173,8 @@ _ZN6Kernel7Console12s_charBufferE:
 	.zero	327696
 	.text
 .Letext0:
-	.file 5 "src/kernel/../../include/Types.h"
-	.file 6 "src/kernel/../../include/Utils.h"
+	.file 5 "src/kernel/../../include/kernel/../utils/Types.h"
+	.file 6 "src/kernel/../../include/kernel/../utils/Utils.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
 	.long	0x1449
@@ -5386,6 +5386,10 @@ _ZN6Kernel7Console12s_charBufferE:
 	.byte	0x3
 	.uleb128 0x6
 	.uleb128 0x6
+	.byte	0x3
+	.uleb128 0x1
+	.uleb128 0x5
+	.byte	0x4
 	.byte	0x5
 	.uleb128 0x3
 	.long	.LASF436

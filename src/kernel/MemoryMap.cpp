@@ -1,4 +1,4 @@
-#include "../../include/MemoryMap.h"
+#include "../../include/kernel/MemoryMap.h"
 
 namespace Kernel
 {
@@ -67,15 +67,7 @@ namespace Kernel
 
     void MemoryMap::initialise(uint64_t multibootInfoAddr, HeapLinkedList &heap)
     {
-        if (!supportsGb1Pages())
-        {
-            Console::print("Memory Map : GB1 pages not supported\n");
-            // panic probably
-            return;
-        }
-
-        Console::print("Memory Map : Initialising\n");
-
+        Console::print("Memory Map : Initialising\n", Console::Attributes::CyanOnBlack);
         Console::print("Kernel memory region:\n");
         Console::print("  Start: %x\n", s_kernelMemoryRegion.kernelStartAddr);
         Console::print("  End:   %x\n", s_kernelMemoryRegion.kernelEndAddr);
@@ -130,16 +122,10 @@ namespace Kernel
         size_t regionAfterKernel = 0;
 
         MultibootMmapEntry *entry = reinterpret_cast<MultibootMmapEntry *>(s_multibootMmapTag + 1);
-        Console::print("Entry storage ptr: %p\n", &entry);
 
         uint32_t i = 0;
         for (; i < entryCount; ++i)
         {
-            Console::print("Entry ptr: %p\n", entry);
-            Console::print("s_availibleRegions ptr: %p\n", s_availibleRegionEntries);
-            Console::print("s_availibleRegions ptr ptr: %p\n", &s_availibleRegionEntries);
-            Console::print("s_availibleRegionCount ptr: %p\n", &s_availibleRegionCount);
-
             if (entry->type == MultibootMemoryType::Available)
             {
                 s_availibleRegionEntries[s_availibleRegionCount] = entry;
@@ -171,7 +157,7 @@ namespace Kernel
             entry = reinterpret_cast<MultibootMmapEntry *>(reinterpret_cast<uint8_t *>(entry) + entrySize);
         }
 
-        Console::print("Initilialising kernel heap\n");
+        Console::print("Initilialising kernel heap\n", Console::Attributes::CyanOnBlack);
         uint64_t startAddr = (reinterpret_cast<uint64_t>(s_availibleRegionEntries) + s_availibleRegionCount * sizeof(s_availibleRegionEntries) + 7) & ~7;
         uint64_t endAddr = s_availibleRegionEntries[regionAfterKernel]->len + s_availibleRegionEntries[regionAfterKernel]->addr;
 
