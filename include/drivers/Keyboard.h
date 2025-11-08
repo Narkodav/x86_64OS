@@ -334,13 +334,15 @@ namespace Kernel
         static bool popEvent(Event &event)
         {
             if (s_keyBuffer.empty())
+            {
                 return false;
+            }
             event = s_keyBuffer.front();
             s_keyBuffer.popFront();
             return true;
         }
 
-        static const RollingWindow<Event, 256> &getEventBuffer()
+        static const volatile RollingWindow<Event, 256> &getEventBuffer()
         {
             return s_keyBuffer;
         }

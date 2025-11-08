@@ -1,10 +1,13 @@
 #include "../../include/utils/Types.h"
-#include "../../include/kernel/InterruptManager.h"
-#include "../../include/kernel/Console.h"
+#include "../../include/drivers/InterruptManager.h"
+#include "../../include/drivers/Console.h"
 #include "../../include/kernel/MemoryMap.h"
-#include "../../include/kernel/Keyboard.h"
-#include "../../include/kernel/Timer.h"
+#include "../../include/drivers/Keyboard.h"
+#include "../../include/drivers/Timer.h"
 #include "../../include/kernel/KernelData.h"
+#include "../../include/kernel/UserProcessManager.h"
+#include "../../include/user_code/SomeCode.h"
+#include "../../include/kernel/SystemCallManager.h"
 
 extern "C" void __cxa_pure_virtual()
 {
@@ -28,36 +31,24 @@ extern "C" void kernel_main(uint64_t multibootInfoAddr)
     InterruptManager::initialize();
     Keyboard::initialise();
     Timer::initialise();
+    SystemCallManager::initialise();
 
     MemoryMap::initialise(multibootInfoAddr, s_kernelHeap);
+    Console::print("Availible heap size: %d\n", s_kernelHeap.availibleSize());
 
     Console::print("64-bit Kernel Booted Successfully!\n");
 
-    size_t **dynamicDatas = s_kernelHeap.allocate<size_t *>(12);
+    Console::print("Executing user process\n");
+    InterruptManager::enableInterrupts();
 
-    Console::print("Allocated memory: %p\n", dynamicDatas);
+    int result = 3;
+    result = UserProcessManager::executeUserProcess(user_main);
 
-    if (dynamicDatas == nullptr)
-    {
-        Console::print("Failed to allocate memory\n");
-        while (1)
-            ;
-    }
-    for (size_t i = 0; i < 12; ++i)
-    {
-        dynamicDatas[i] = s_kernelHeap.allocate<size_t>(100);
-        for (size_t j = 0; j < 100; ++j)
-            dynamicDatas[i][j] = i;
-    }
-    s_kernelHeap.printBlocks();
-    for (size_t i = 0; i < 12; ++i)
-    {
-        s_kernelHeap.free(dynamicDatas[i]);
-    }
-    s_kernelHeap.free(dynamicDatas);
+    Console::print("User process result: %d\n", result);
+    // InterruptManager::disableInterrupts();
+    // InterruptManager::enableInterrupts();
 
-    Console::print("\n");
-    s_kernelHeap.printBlocks();
+    // InterruptManager::triggerInterrupt(InterruptManager::InterruptVector::debug);
 
     Keyboard::Event event;
 
@@ -67,10 +58,12 @@ extern "C" void kernel_main(uint64_t multibootInfoAddr)
         {
             if (event.getKey() == Keyboard::Key::ArrowUp && event.getFlags().get(Keyboard::Event::Flag::Pressed))
             {
+                // Console::print("Scroll up\n");
                 Console::scrollUp(1);
             }
             else if (event.getKey() == Keyboard::Key::ArrowDown && event.getFlags().get(Keyboard::Event::Flag::Pressed))
             {
+                // Console::print("Scroll down\n");
                 Console::scrollDown(1);
             }
         }

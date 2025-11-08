@@ -19,7 +19,6 @@ long_mode_start:
     mov r8, rdi  ; Save multiboot2 info pointer
 
     call switch_data_segment_to_kernel
-    call setup_tss
 
     ; zero bss
     mov rdi, __bss_start
@@ -33,6 +32,8 @@ long_mode_start:
     rep stosb
 
 .skip_bss:
+
+    call setup_tss
 
     ; make stack 64 bit
     mov rsp, stack_top

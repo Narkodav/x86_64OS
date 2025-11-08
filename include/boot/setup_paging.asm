@@ -4,7 +4,7 @@ bits 32
 setup_page_tables:
     ; Setup PML4 entries pointing to ranges in PDPT
     mov eax, page_table_l1
-    or eax, 0b11        ; present, writable
+    or eax, 0b111       ; present, writable, user
     mov ecx, 0
 .pml4_loop:
     mov [page_table_l2 + ecx * 8], eax
@@ -23,7 +23,7 @@ setup_page_tables:
     mul ebx             ; Result in EDX:EAX
     
     ; Handle overflow - if EDX != 0, we have high bits
-    or eax, 0b10000011  ; Add flags to low part
+    or eax, 0b10000111  ; present, writable, user, huge page
     mov [page_table_l1 + ecx * 8], eax      ; Store low 32 bits
 
     and edx, 0x000FFFFF  ; Keep only bits 51:32 (physical address)

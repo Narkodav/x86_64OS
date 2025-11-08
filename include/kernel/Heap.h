@@ -4,7 +4,7 @@
 
 #include "../utils/Types.h"
 #include "../utils/Utils.h"
-#include "Console.h"
+#include "../drivers/Console.h"
 
 namespace Kernel
 {
@@ -96,6 +96,15 @@ namespace Kernel
                 block = block->next;
             }
         }
+
+        size_t usedSize() const { return m_usedSize; }
+        size_t availibleSize() const { return m_availibleSize; }
+        size_t allocatedSize() const { return m_allocatedSize; }
+        size_t totalSize() const { return reinterpret_cast<uint8_t *>(m_endAddr) - reinterpret_cast<uint8_t *>(m_startAddr); }
+        size_t usedPercentage() const { return (float)(m_usedSize * 100) / totalSize(); }
+        size_t availiblePercentage() const { return (float)(m_availibleSize * 100) / totalSize(); }
+        size_t allocatedPercentage() const { return (float)(m_allocatedSize * 100) / totalSize(); }
+        size_t freePercentage() const { return 100 - usedPercentage(); }
 
     private:
         static size_t align(size_t size) { return (size + 7) & ~7; }

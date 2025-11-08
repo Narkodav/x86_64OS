@@ -1,4 +1,4 @@
-#include "../../include/kernel/Timer.h"
+#include "../../include/drivers/Timer.h"
 
 namespace Kernel
 {

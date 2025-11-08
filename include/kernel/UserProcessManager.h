@@ -1,9 +1,12 @@
+#ifndef USER_PROCESS_MANAGER_H
+#define USER_PROCESS_MANAGER_H
+
 #include "../utils/Types.h"
 #include "KernelData.h"
 
 extern "C"
 {
-    int call_in_user_mode(uintptr_t entry_point, uintptr_t user_stack_top);
+    int call_user_mode(int (*entry)(void), uintptr_t userStack, uint64_t stackSize);
 }
 
 namespace Kernel
@@ -19,36 +22,13 @@ namespace Kernel
         {
             void *userStack;
             size_t userStackSize;
-            void *kernelStack;
-            uintptr_t entryPoint;
+            UserMain entryPoint;
         };
 
     public:
-        static int startUserProcess(UserMain userMain, size_t stackSize = 4096 * 4)
-        {
-            UserContext context;
-            context.userStackSize = stackSize;
-            context.entryPoint = reinterpret_cast<uintptr_t>(userMain);
-            context.kernelStack = stack_top;
-            context.userStack = s_kernelHeap.allocate(stackSize);
-            if (!context.userStack)
-                return 1;
-
-            int exitCode = callInUserMode(context);
-
-            s_kernelHeap.free(context.userStack);
-            return exitCode;
-        }
+        static int executeUserProcess(UserMain userMain, size_t stackSize = 4096 * 4);
 
     private:
-        [[noreturn]] static int callInUserMode(const UserContext &userContext)
-        {
-            // Calculate stack top (stacks grow downward)
-            uintptr_t userStackTop = reinterpret_cast<uintptr_t>(userContext.userStack) + userContext.userStackSize;
-
-            return call_in_user_mode(userContext.entryPoint, userStackTop);
-        }
-
         // will be used when i setup multiple async process execution
         static void setup_tss_kernel_stack(uintptr_t stackTop)
         {
@@ -58,3 +38,5 @@ namespace Kernel
         }
     };
 }
+
+#endif // USER_PROCESS_MANAGER_H

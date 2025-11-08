@@ -67,13 +67,13 @@ namespace Kernel
 
     void MemoryMap::initialise(uint64_t multibootInfoAddr, HeapLinkedList &heap)
     {
-        Console::print("Memory Map : Initialising\n", Console::Attributes::CyanOnBlack);
-        Console::print("Kernel memory region:\n");
-        Console::print("  Start: %x\n", s_kernelMemoryRegion.kernelStartAddr);
-        Console::print("  End:   %x\n", s_kernelMemoryRegion.kernelEndAddr);
-        Console::print("  Size:  %d B\n", s_kernelMemoryRegion.kernelEndAddr - s_kernelMemoryRegion.kernelStartAddr);
+        // Console::print("Memory Map : Initialising\n", Console::Attributes::CyanOnBlack);
+        // Console::print("Kernel memory region:\n");
+        // Console::print("  Start: %x\n", s_kernelMemoryRegion.kernelStartAddr);
+        // Console::print("  End:   %x\n", s_kernelMemoryRegion.kernelEndAddr);
+        // Console::print("  Size:  %d B\n", s_kernelMemoryRegion.kernelEndAddr - s_kernelMemoryRegion.kernelStartAddr);
 
-        Console::print("Multiboot info address: %x\n", multibootInfoAddr);
+        // Console::print("Multiboot info address: %x\n", multibootInfoAddr);
         s_multibootHeader = reinterpret_cast<MultibootHeader *>(multibootInfoAddr);
         MultibootTag *tag = reinterpret_cast<MultibootTag *>(multibootInfoAddr + sizeof(MultibootHeader));
 
@@ -84,13 +84,13 @@ namespace Kernel
         else
             s_kernelEndDynamic = s_kernelMemoryRegion.kernelEndAddr;
 
-        Console::print("Multiboot header end: %p\n", s_multibootHeader + s_multibootHeader->totalSize);
+        // Console::print("Multiboot header end: %p\n", s_multibootHeader + s_multibootHeader->totalSize);
 
         while (tag->type != TagType::End)
         {
-            Console::print("Memory Map : Tag %d (%s)\n",
-                           static_cast<uint32_t>(tag->type),
-                           s_multibootTagNames[static_cast<uint32_t>(tag->type)]);
+            // Console::print("Memory Map : Tag %d (%s)\n",
+            //                static_cast<uint32_t>(tag->type),
+            //                s_multibootTagNames[static_cast<uint32_t>(tag->type)]);
 
             if (tag->type == TagType::Mmap)
             {
@@ -117,7 +117,7 @@ namespace Kernel
         uint32_t entrySize = s_multibootMmapTag->entrySize;
         uint32_t entryCount = dataSize / entrySize;
 
-        Console::print("Memory Map : %d entries, entry size: %d\n", entryCount, entrySize);
+        // Console::print("Memory Map : %d entries, entry size: %d\n", entryCount, entrySize);
 
         size_t regionAfterKernel = 0;
 
@@ -132,26 +132,26 @@ namespace Kernel
                 if (entry->addr <= s_kernelEndDynamic)
                     regionAfterKernel = s_availibleRegionCount;
             }
-            if (entry->len < 1024)
-                Console::print("Region %d: %x - %x (%d B) [%s]\n",
-                               i, entry->addr, entry->addr + entry->len,
-                               entry->len,
-                               s_multibootMemoryTypeNames[static_cast<uint32_t>(entry->type)]);
-            else if (entry->len < 1024 * 1024)
-                Console::print("Region %d: %x - %x (%d KB) [%s]\n",
-                               i, entry->addr, entry->addr + entry->len,
-                               entry->len / 1024,
-                               s_multibootMemoryTypeNames[static_cast<uint32_t>(entry->type)]);
-            else if (entry->len < 1024 * 1024 * 1024)
-                Console::print("Region %d: %x - %x (%d MB) [%s]\n",
-                               i, entry->addr, entry->addr + entry->len,
-                               entry->len / (1024 * 1024),
-                               s_multibootMemoryTypeNames[static_cast<uint32_t>(entry->type)]);
-            else
-                Console::print("Region %d: %x - %x (%d GB) [%s]\n",
-                               i, entry->addr, entry->addr + entry->len,
-                               entry->len / (1024 * 1024 * 1024),
-                               s_multibootMemoryTypeNames[static_cast<uint32_t>(entry->type)]);
+            // if (entry->len < 1024)
+            //     Console::print("Region %d: %x - %x (%d B) [%s]\n",
+            //                    i, entry->addr, entry->addr + entry->len,
+            //                    entry->len,
+            //                    s_multibootMemoryTypeNames[static_cast<uint32_t>(entry->type)]);
+            // else if (entry->len < 1024 * 1024)
+            //     Console::print("Region %d: %x - %x (%d KB) [%s]\n",
+            //                    i, entry->addr, entry->addr + entry->len,
+            //                    entry->len / 1024,
+            //                    s_multibootMemoryTypeNames[static_cast<uint32_t>(entry->type)]);
+            // else if (entry->len < 1024 * 1024 * 1024)
+            //     Console::print("Region %d: %x - %x (%d MB) [%s]\n",
+            //                    i, entry->addr, entry->addr + entry->len,
+            //                    entry->len / (1024 * 1024),
+            //                    s_multibootMemoryTypeNames[static_cast<uint32_t>(entry->type)]);
+            // else
+            //     Console::print("Region %d: %x - %x (%d GB) [%s]\n",
+            //                    i, entry->addr, entry->addr + entry->len,
+            //                    entry->len / (1024 * 1024 * 1024),
+            //                    s_multibootMemoryTypeNames[static_cast<uint32_t>(entry->type)]);
 
             // Move to next entry
             entry = reinterpret_cast<MultibootMmapEntry *>(reinterpret_cast<uint8_t *>(entry) + entrySize);

@@ -14,15 +14,19 @@ stack_top:
 section .rodata
 
 gdt64:
-    dq 0
-.code_segment: equ $ - gdt64
-    dq (1 << 43) | (1 << 44) | (1 << 47) | (1 << 53) ; 0x08: Kernel code (Ring 1)
-.data_segment: equ $ - gdt64  
-    dq (1<<44) | (1<<47) | (1<<41)          ; 0x10: Kernel data (Ring 1)
-.user_code_segment: equ $ - gdt64
-    dq (1<<43) | (1<<44) | (1<<47) | (1<<53) | (3<<45) ; | (1<<46)  ; 0x20: User code (Ring 3)
-.user_data_segment: equ $ - gdt64
-    dq (1<<44) | (1<<47) | (1<<41) | (3<<45) ; | (1<<46)  ; 0x18: User data (Ring 3)
+    dq 0                                    ; Index 0: Null descriptor
+.code_segment: equ $ - gdt64               ; Index 1: Selector = 1 << 3 = 0x08
+    dq (1 << 43) | (1 << 44) | (1 << 47) | (1 << 53) ; Kernel code (Ring 0)
+    ; Bits: P=1(47), DPL=0(45-46), S=1(44), Type=1010(43,41,40) = Executable/Readable
+.data_segment: equ $ - gdt64               ; Index 2: Selector = 2 << 3 = 0x10  
+    dq (1<<44) | (1<<47) | (1<<41)          ; Kernel data (Ring 0)
+    ; Bits: P=1(47), DPL=0(45-46), S=1(44), Type=0010(41) = Writable
+.user_code_segment: equ $ - gdt64          ; Index 3: Selector = 3 << 3 | 3 = 0x1B
+    dq (1<<43) | (1<<44) | (1<<47) | (1<<53) | (3<<45) ; User code (Ring 3)
+    ; Bits: P=1(47), DPL=3(45-46), S=1(44), Type=1010(43,41,40) = Executable/Readable
+.user_data_segment: equ $ - gdt64          ; Index 4: Selector = 4 << 3 | 3 = 0x23
+    dq (1<<44) | (1<<47) | (1<<41) | (3<<45) ; User data (Ring 3)
+    ; Bits: P=1(47), DPL=3(45-46), S=1(44), Type=0010(41) = Writable
 .tss_segment: equ $ - gdt64
     ; TSS Descriptor (special system segment)
     dw 104 - 1                              ; Limit (low)

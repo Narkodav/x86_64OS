@@ -2,7 +2,7 @@
 #define MEMORY_MAP_H
 #include "../utils/Types.h"
 #include "../utils/Utils.h"
-#include "Console.h"
+#include "../drivers/Console.h"
 #include "Heap.h"
 #include "KernelData.h"
 

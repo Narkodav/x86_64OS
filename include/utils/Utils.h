@@ -20,6 +20,8 @@ extern "C"
     extern void port_out_word(uint16_t port, uint16_t value);
     extern uint32_t port_in_dword(uint16_t port);
     extern void port_out_dword(uint16_t port, uint32_t value);
+
+    extern void halt();
 }
 
 namespace Utils

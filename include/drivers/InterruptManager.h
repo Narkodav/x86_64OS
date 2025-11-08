@@ -111,6 +111,54 @@ extern "C"
 
     __attribute__((used, noinline)) extern void halt();
 
+    __attribute__((used, noinline)) extern void trigger_interrupt1();
+    __attribute__((used, noinline)) extern void trigger_interrupt2();
+    __attribute__((used, noinline)) extern void trigger_interrupt3();
+    __attribute__((used, noinline)) extern void trigger_interrupt4();
+    __attribute__((used, noinline)) extern void trigger_interrupt5();
+    __attribute__((used, noinline)) extern void trigger_interrupt6();
+    __attribute__((used, noinline)) extern void trigger_interrupt7();
+    __attribute__((used, noinline)) extern void trigger_interrupt8();
+    __attribute__((used, noinline)) extern void trigger_interrupt9();
+    __attribute__((used, noinline)) extern void trigger_interrupt10();
+    __attribute__((used, noinline)) extern void trigger_interrupt11();
+    __attribute__((used, noinline)) extern void trigger_interrupt12();
+    __attribute__((used, noinline)) extern void trigger_interrupt13();
+    __attribute__((used, noinline)) extern void trigger_interrupt14();
+    __attribute__((used, noinline)) extern void trigger_interrupt15();
+    __attribute__((used, noinline)) extern void trigger_interrupt16();
+    __attribute__((used, noinline)) extern void trigger_interrupt17();
+    __attribute__((used, noinline)) extern void trigger_interrupt18();
+    __attribute__((used, noinline)) extern void trigger_interrupt19();
+    __attribute__((used, noinline)) extern void trigger_interrupt20();
+    __attribute__((used, noinline)) extern void trigger_interrupt21();
+    __attribute__((used, noinline)) extern void trigger_interrupt22();
+    __attribute__((used, noinline)) extern void trigger_interrupt23();
+    __attribute__((used, noinline)) extern void trigger_interrupt24();
+    __attribute__((used, noinline)) extern void trigger_interrupt25();
+    __attribute__((used, noinline)) extern void trigger_interrupt26();
+    __attribute__((used, noinline)) extern void trigger_interrupt27();
+    __attribute__((used, noinline)) extern void trigger_interrupt28();
+    __attribute__((used, noinline)) extern void trigger_interrupt29();
+    __attribute__((used, noinline)) extern void trigger_interrupt30();
+    __attribute__((used, noinline)) extern void trigger_interrupt31();
+    __attribute__((used, noinline)) extern void trigger_interrupt32();
+    __attribute__((used, noinline)) extern void trigger_interrupt33();
+    __attribute__((used, noinline)) extern void trigger_interrupt34();
+    __attribute__((used, noinline)) extern void trigger_interrupt35();
+    __attribute__((used, noinline)) extern void trigger_interrupt36();
+    __attribute__((used, noinline)) extern void trigger_interrupt37();
+    __attribute__((used, noinline)) extern void trigger_interrupt38();
+    __attribute__((used, noinline)) extern void trigger_interrupt39();
+    __attribute__((used, noinline)) extern void trigger_interrupt40();
+    __attribute__((used, noinline)) extern void trigger_interrupt41();
+    __attribute__((used, noinline)) extern void trigger_interrupt42();
+    __attribute__((used, noinline)) extern void trigger_interrupt43();
+    __attribute__((used, noinline)) extern void trigger_interrupt44();
+    __attribute__((used, noinline)) extern void trigger_interrupt45();
+    __attribute__((used, noinline)) extern void trigger_interrupt46();
+    __attribute__((used, noinline)) extern void trigger_interrupt47();
+
     extern const uint16_t gdt64_code_segment;
 }
 
@@ -186,7 +234,7 @@ namespace Kernel
         static inline const size_t s_exceptionCount = 32;
         static inline const size_t s_interruptCount = 16;
 
-        volatile static const char *s_exceptionMessages[s_exceptionCount];
+        static const char *s_exceptionMessages[s_exceptionCount];
 
         __attribute__((aligned(0x10))) static IDTEntry s_idtEntries[s_tableSize];
         static IDTPtr s_idtPtr;
@@ -197,6 +245,10 @@ namespace Kernel
         static void initialize();
         static void registerInterruptCallback(uint8_t index, InterruptHandler handler);
         static void registerInterruptCallback(InterruptVector intVector, InterruptHandler handler);
+
+        static void triggerInterrupt(InterruptVector intVector);
+        static void enableInterrupts();
+        static void disableInterrupts();
 
     private:
         static void setIdtGate(uint8_t index, IsrPtr_t interruptServiceRoutine,

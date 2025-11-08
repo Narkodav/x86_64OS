@@ -1,9 +1,9 @@
 // interrupts.cpp
-#include "../../include/kernel/InterruptManager.h"
+#include "../../include/drivers/InterruptManager.h"
 
 namespace Kernel
 {
-    volatile const char *InterruptManager::s_exceptionMessages[s_exceptionCount] = {
+    const char *InterruptManager::s_exceptionMessages[s_exceptionCount] = {
         "Division By Zero",
         "Debug",
         "Non Maskable Interrupt",
@@ -116,7 +116,6 @@ namespace Kernel
         setIdtGate(47, irq15, 0, s_entryFlags);
 
         loadIdt();
-        asm volatile("sti");
     }
 
     void InterruptManager::loadIdt()
@@ -184,6 +183,164 @@ namespace Kernel
     void InterruptManager::registerInterruptCallback(InterruptVector intVector, InterruptHandler handler)
     {
         s_interruptHandlers[static_cast<uint8_t>(intVector)] = handler;
+    }
+
+    void InterruptManager::triggerInterrupt(InterruptVector intVector)
+    {
+        switch (static_cast<uint8_t>(intVector))
+        {
+        case 1:
+            trigger_interrupt1();
+            break;
+        case 2:
+            trigger_interrupt2();
+            break;
+        case 3:
+            trigger_interrupt3();
+            break;
+        case 4:
+            trigger_interrupt4();
+            break;
+        case 5:
+            trigger_interrupt5();
+            break;
+        case 6:
+            trigger_interrupt6();
+            break;
+        case 7:
+            trigger_interrupt7();
+            break;
+        case 8:
+            trigger_interrupt8();
+            break;
+        case 9:
+            trigger_interrupt9();
+            break;
+        case 10:
+            trigger_interrupt10();
+            break;
+        case 11:
+            trigger_interrupt11();
+            break;
+        case 12:
+            trigger_interrupt12();
+            break;
+        case 13:
+            trigger_interrupt13();
+            break;
+        case 14:
+            trigger_interrupt14();
+            break;
+        case 15:
+            trigger_interrupt15();
+            break;
+        case 16:
+            trigger_interrupt16();
+            break;
+        case 17:
+            trigger_interrupt17();
+            break;
+        case 18:
+            trigger_interrupt18();
+            break;
+        case 19:
+            trigger_interrupt19();
+            break;
+        case 20:
+            trigger_interrupt20();
+            break;
+        case 21:
+            trigger_interrupt21();
+            break;
+        case 22:
+            trigger_interrupt22();
+            break;
+        case 23:
+            trigger_interrupt23();
+            break;
+        case 24:
+            trigger_interrupt24();
+            break;
+        case 25:
+            trigger_interrupt25();
+            break;
+        case 26:
+            trigger_interrupt26();
+            break;
+        case 27:
+            trigger_interrupt27();
+            break;
+        case 28:
+            trigger_interrupt28();
+            break;
+        case 29:
+            trigger_interrupt29();
+            break;
+        case 30:
+            trigger_interrupt30();
+            break;
+        case 31:
+            trigger_interrupt31();
+            break;
+        case 32:
+            trigger_interrupt32();
+            break;
+        case 33:
+            trigger_interrupt33();
+            break;
+        case 34:
+            trigger_interrupt34();
+            break;
+        case 35:
+            trigger_interrupt35();
+            break;
+        case 36:
+            trigger_interrupt36();
+            break;
+        case 37:
+            trigger_interrupt37();
+            break;
+        case 38:
+            trigger_interrupt38();
+            break;
+        case 39:
+            trigger_interrupt39();
+            break;
+        case 40:
+            trigger_interrupt40();
+            break;
+        case 41:
+            trigger_interrupt41();
+            break;
+        case 42:
+            trigger_interrupt42();
+            break;
+        case 43:
+            trigger_interrupt43();
+            break;
+        case 44:
+            trigger_interrupt44();
+            break;
+        case 45:
+            trigger_interrupt45();
+            break;
+        case 46:
+            trigger_interrupt46();
+            break;
+        case 47:
+            trigger_interrupt47();
+            break;
+        }
+    }
+
+    void InterruptManager::enableInterrupts()
+    {
+        asm volatile("sti");
+    }
+
+    void InterruptManager::disableInterrupts()
+    {
+        asm volatile("cli");
     }
 
 } // namespace Kernel

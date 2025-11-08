@@ -1,3 +1,6 @@
+#ifndef KERNEL_DATA_H
+#define KERNEL_DATA_H
+
 #include "../utils/Types.h"
 #include "../utils/Utils.h"
 #include "Heap.h"
@@ -35,6 +38,8 @@ extern "C"
 
 namespace Kernel
 {
-    static inline HeapLinkedList s_kernelHeap;
+    extern HeapLinkedList s_kernelHeap;
 
 }
+
+#endif // KERNEL_DATA_H

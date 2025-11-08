@@ -1,4 +1,4 @@
-#include "../../include/kernel/Mouse.h"
+#include "../../include/drivers/Mouse.h"
 namespace Kernel
 {
     void Mouse::initialise()

@@ -1,14 +1,14 @@
 	.file	"Console.cpp"
 	.text
 .Ltext0:
-	.file 0 "/mnt/a/myOsX64" "src/kernel/Console.cpp"
+	.file 0 "/mnt/a/myOsX64" "src/drivers/Console.cpp"
 	.align 2
 	.globl	_ZN6Kernel7Console9writeCharEmmhNS0_10AttributesE
 	.type	_ZN6Kernel7Console9writeCharEmmhNS0_10AttributesE, @function
 _ZN6Kernel7Console9writeCharEmmhNS0_10AttributesE:
 .LVL0:
 .LFB75:
-	.file 1 "src/kernel/Console.cpp"
+	.file 1 "src/drivers/Console.cpp"
 	.loc 1 39 5 view -0
 	.cfi_startproc
 	.loc 1 39 5 is_stmt 0 view .LVU1
@@ -18,7 +18,7 @@ _ZN6Kernel7Console9writeCharEmmhNS0_10AttributesE:
 .LVL1:
 .LBB50:
 .LBI50:
-	.file 2 "src/kernel/../../include/kernel/../utils/RollingWindow.h"
+	.file 2 "src/drivers/../../include/drivers/../utils/RollingWindow.h"
 	.loc 2 74 8 view .LVU3
 .LBB51:
 	.loc 2 76 24 is_stmt 0 view .LVU4
@@ -35,7 +35,7 @@ _ZN6Kernel7Console9writeCharEmmhNS0_10AttributesE:
 .LBE50:
 .LBB52:
 .LBI52:
-	.file 3 "src/kernel/../../include/kernel/../utils/Array.h"
+	.file 3 "src/drivers/../../include/drivers/../utils/Array.h"
 	.loc 3 25 12 is_stmt 1 view .LVU8
 	.loc 3 25 12 is_stmt 0 view .LVU9
 .LBE52:
@@ -1091,7 +1091,7 @@ _GLOBAL__sub_I__ZN6Kernel7Console12updateCursorEv:
 .LBI102:
 	.loc 1 225 1 view .LVU331
 .LBB103:
-	.file 4 "src/kernel/../../include/kernel/Console.h"
+	.file 4 "src/drivers/../../include/drivers/Console.h"
 	.loc 4 72 95 is_stmt 0 view .LVU332
 	cmpb	$0, _ZGVN6Kernel7Console12s_charBufferE(%rip)
 	jne	.L68
@@ -1173,8 +1173,8 @@ _ZN6Kernel7Console12s_charBufferE:
 	.zero	327696
 	.text
 .Letext0:
-	.file 5 "src/kernel/../../include/kernel/../utils/Types.h"
-	.file 6 "src/kernel/../../include/kernel/../utils/Utils.h"
+	.file 5 "src/drivers/../../include/drivers/../utils/Types.h"
+	.file 6 "src/drivers/../../include/drivers/../utils/Utils.h"
 	.section	.debug_info,"",@progbits
 .Ldebug_info0:
 	.long	0x1449
@@ -1705,7 +1705,7 @@ _ZN6Kernel7Console12s_charBufferE:
 	.uleb128 0x24
 	.long	.LASF541
 	.byte	0x6
-	.byte	0x19
+	.byte	0x1b
 	.long	0x693
 	.uleb128 0x3c
 	.long	.LASF565
@@ -7947,8 +7947,8 @@ _ZN6Kernel7Console12s_charBufferE:
 .LASF215:
 	.string	"__GCC_IEC_559 2"
 	.section	.debug_line_str,"MS",@progbits,1
+.LASF0:
+	.string	"src/drivers/Console.cpp"
 .LASF1:
 	.string	"/mnt/a/myOsX64"
-.LASF0:
-	.string	"src/kernel/Console.cpp"
 	.ident	"GCC: (GNU) 13.2.0"

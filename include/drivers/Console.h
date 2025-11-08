@@ -189,13 +189,13 @@ namespace Kernel
         static inline const auto integralCheck = std::is_integral_v<std::remove_cv_t<std::remove_reference_t<T>>>;
 
         template <typename T>
-        static inline const auto charCheck = std::is_convertible_v<T, uint8_t> && sizeof(T) == 1;
+        static inline const auto charCheck = std::is_convertible_v<std::remove_volatile_t<T>, uint8_t> && sizeof(T) == 1;
 
         template <typename T>
         static inline const auto pointerCheck = std::is_pointer_v<std::remove_cv_t<std::remove_reference_t<T>>>;
 
         template <typename T>
-        static inline const auto strCheck = std::is_convertible_v<T, const int8_t *> || std::is_convertible_v<T, const uint8_t *> || std::is_convertible_v<T, const char *> || std::is_convertible_v<T, const unsigned char *>;
+        static inline const auto strCheck = std::is_convertible_v<std::remove_volatile_t<T>, const int8_t *> || std::is_convertible_v<std::remove_volatile_t<T>, const uint8_t *> || std::is_convertible_v<std::remove_volatile_t<T>, const char *> || std::is_convertible_v<std::remove_volatile_t<T>, const unsigned char *>;
 
         template <typename... Ts>
         static void printImpl(const char *str, Attributes attr, Ts &&...vals)

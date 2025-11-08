@@ -1,4 +1,4 @@
-#include "../../include/kernel/Keyboard.h"
+#include "../../include/drivers/Keyboard.h"
 namespace Kernel
 {
     StateTracker<volatile uint64_t, static_cast<size_t>(Keyboard::Key::Num)> Keyboard::s_keyStates;
@@ -63,6 +63,7 @@ namespace Kernel
         else
             s_keyStates.clear(static_cast<uint8_t>(event.getKey()));
         s_keyBuffer.pushBack(event);
+        // Console::print("Hello World!\n");
     }
 
     Keyboard::Key Keyboard::scancodeToKey(uint8_t scancode)

@@ -1,3 +1,5 @@
+global tss_entry
+
 section .bss
 align 16
 tss_entry:
