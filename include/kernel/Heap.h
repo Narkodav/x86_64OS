@@ -81,21 +81,7 @@ namespace Kernel
         void *reallocate(void *ptr, size_t size);
         void free(void *ptr);
 
-        void printBlocks() const
-        {
-            Block *block = m_head;
-            while (block)
-            {
-                Console::print("Block: %p\n", block);
-                Console::print(" Size: %d\n", block->size());
-                Console::print(" Used: ");
-                if (block->isUsed())
-                    Console::print("true\n");
-                else
-                    Console::print("false\n");
-                block = block->next;
-            }
-        }
+        void printBlocks() const;
 
         size_t usedSize() const { return m_usedSize; }
         size_t availibleSize() const { return m_availibleSize; }

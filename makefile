@@ -35,10 +35,11 @@ src_dir = src
 grub_cfg = $(release_iso_dir)/boot/grub/grub.cfg
 ld_config = $(build_dir)/linker.ld
 
-cxx_flags = -ffreestanding -fno-exceptions -fno-rtti -fno-builtin -fno-stack-protector -nostdlib -mno-red-zone -mcmodel=kernel -fpermissive
+cxx_flags = -ffreestanding -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-builtin -fno-stack-protector  -fno-rtti 
+cxx_flags += -fpermissive -nostdlib -mno-red-zone -mcmodel=kernel -mcmodel=large
 cxx_flags += -I$(src_dir) -O1 -std=c++20 -g -ggdb3 #-fno-strict-aliasing
 asm_flags = -f elf64
-ld_flags = -n
+ld_flags = -n -Map=kernel.map --warn-section-align --warn-common --verbose
 qemu_flags = -m 8G -cpu EPYC -cdrom $(release_dir)/kernel.iso
 
 x86_64_asm_sources = $(shell find $(src_dir)/ -name *.asm)

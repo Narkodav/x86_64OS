@@ -15,7 +15,8 @@ call_user_mode:
     push r14
     push r15
 
-    mov [temp_kernel_rsp], rsp
+    mov r12, temp_kernel_rsp
+    mov [r12], rsp
 
     ; rdi = entry point, rsi = userStack (bottom), rdx = stackSize
     

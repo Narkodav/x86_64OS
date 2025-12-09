@@ -1,6 +1,6 @@
-#include "Types.h"
 #ifndef UTILS_H
 #define UTILS_H
+#include "Types.h"
 
 extern "C"
 {
@@ -41,6 +41,44 @@ namespace Utils
         FlagMap &operator=(const FlagMap &other) = default;
         FlagMap(FlagMap &&other) = default;
         FlagMap &operator=(FlagMap &&other) = default;
+
+        void set(E flag)
+        {
+            m_flags |= static_cast<T>(flag);
+        }
+        void clear(E flag)
+        {
+            m_flags &= ~static_cast<T>(flag);
+        }
+        bool get(E flag) const
+        {
+            return (m_flags & static_cast<T>(flag)) != 0;
+        }
+        void set(T flags)
+        {
+            m_flags = flags;
+        }
+        T get() const
+        {
+            return m_flags;
+        }
+    };
+
+    template <std::EnumType E, std::integral T>
+    class FlagMapVolatile
+    {
+    private:
+        volatile T m_flags;
+
+    public:
+        FlagMapVolatile() : m_flags(0) {};
+        ~FlagMapVolatile() = default;
+        FlagMapVolatile(T flags) : m_flags(flags) {};
+
+        FlagMapVolatile(const FlagMapVolatile &other) = default;
+        FlagMapVolatile &operator=(const FlagMapVolatile &other) = default;
+        FlagMapVolatile(FlagMapVolatile &&other) = default;
+        FlagMapVolatile &operator=(FlagMapVolatile &&other) = default;
 
         void set(E flag)
         {

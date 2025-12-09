@@ -4,7 +4,6 @@ namespace Kernel
 {
     void Timer::initialise()
     {
-        Console::print("Timer : Initialising\n", Console::Attributes::CyanOnBlack);
         s_systicks = 0;
 
         InterruptManager::registerInterruptCallback(
@@ -20,5 +19,4 @@ namespace Kernel
     {
         ++s_systicks;
     }
-
 }

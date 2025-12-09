@@ -35,23 +35,23 @@ namespace Kernel
         "Bad RAM"};
 
     const MemoryMap::KernelMemoryRegion MemoryMap::s_kernelMemoryRegion = {
-        .kernelStartAddr = reinterpret_cast<uint64_t>(__kernel_start),
-        .kernelEndAddr = reinterpret_cast<uint64_t>(__kernel_end),
+        .kernelStartAddr = reinterpret_cast<uint64_t>(__kernel_start_),
+        .kernelEndAddr = reinterpret_cast<uint64_t>(__kernel_end_),
 
-        .multibootHeaderStartAddr = reinterpret_cast<uint64_t>(__multiboot_header_start),
-        .multibootHeaderEndAddr = reinterpret_cast<uint64_t>(__multiboot_header_end),
+        .multibootHeaderStartAddr = reinterpret_cast<uint64_t>(__multiboot_header_start_),
+        .multibootHeaderEndAddr = reinterpret_cast<uint64_t>(__multiboot_header_end_),
 
-        .textStartAddr = reinterpret_cast<uint64_t>(__text_start),
-        .textEndAddr = reinterpret_cast<uint64_t>(__text_end),
+        .textStartAddr = reinterpret_cast<uint64_t>(__text_start_),
+        .textEndAddr = reinterpret_cast<uint64_t>(__text_end_),
 
-        .dataStartAddr = reinterpret_cast<uint64_t>(__data_start),
-        .dataEndAddr = reinterpret_cast<uint64_t>(__data_end),
+        .dataStartAddr = reinterpret_cast<uint64_t>(__data_start_),
+        .dataEndAddr = reinterpret_cast<uint64_t>(__data_end_),
 
-        .rodataStartAddr = reinterpret_cast<uint64_t>(__rodata_start),
-        .rodataEndAddr = reinterpret_cast<uint64_t>(__rodata_end),
+        .rodataStartAddr = reinterpret_cast<uint64_t>(__rodata_start_),
+        .rodataEndAddr = reinterpret_cast<uint64_t>(__rodata_end_),
 
-        .bssStartAddr = reinterpret_cast<uint64_t>(__bss_start),
-        .bssdataEndAddr = reinterpret_cast<uint64_t>(__bss_end),
+        .bssStartAddr = reinterpret_cast<uint64_t>(__bss_start_),
+        .bssdataEndAddr = reinterpret_cast<uint64_t>(__bss_end_),
 
         .stackTopAddr = reinterpret_cast<uint64_t>(stack_top),
         .stackBottomAddr = reinterpret_cast<uint64_t>(stack_bottom)};
@@ -67,11 +67,11 @@ namespace Kernel
 
     void MemoryMap::initialise(uint64_t multibootInfoAddr, HeapLinkedList &heap)
     {
-        // Console::print("Memory Map : Initialising\n", Console::Attributes::CyanOnBlack);
-        // Console::print("Kernel memory region:\n");
-        // Console::print("  Start: %x\n", s_kernelMemoryRegion.kernelStartAddr);
-        // Console::print("  End:   %x\n", s_kernelMemoryRegion.kernelEndAddr);
-        // Console::print("  Size:  %d B\n", s_kernelMemoryRegion.kernelEndAddr - s_kernelMemoryRegion.kernelStartAddr);
+        Console::print("Memory Map : Initialising\n", Console::Attributes::CyanOnBlack);
+        Console::print("Kernel memory region:\n");
+        Console::print("  Start: %x\n", s_kernelMemoryRegion.kernelStartAddr);
+        Console::print("  End:   %x\n", s_kernelMemoryRegion.kernelEndAddr);
+        Console::print("  Size:  %d B\n", s_kernelMemoryRegion.kernelEndAddr - s_kernelMemoryRegion.kernelStartAddr);
 
         // Console::print("Multiboot info address: %x\n", multibootInfoAddr);
         s_multibootHeader = reinterpret_cast<MultibootHeader *>(multibootInfoAddr);
@@ -103,7 +103,7 @@ namespace Kernel
         }
         if (s_multibootMmapTag == nullptr)
         {
-            Console::print("Memory Map : No memory map tag found\n");
+            // Console::print("Memory Map : No memory map tag found\n");
         }
     }
 
@@ -159,7 +159,7 @@ namespace Kernel
 
         Console::print("Initilialising kernel heap\n", Console::Attributes::CyanOnBlack);
         uint64_t startAddr = (reinterpret_cast<uint64_t>(s_availibleRegionEntries) + s_availibleRegionCount * sizeof(s_availibleRegionEntries) + 7) & ~7;
-        uint64_t endAddr = s_availibleRegionEntries[regionAfterKernel]->len + s_availibleRegionEntries[regionAfterKernel]->addr;
+        uint64_t endAddr = s_availibleRegionEntries[regionAfterKernel]->len + s_availibleRegionEntries[regionAfterKernel]->addr + s_higherHalfBase;
 
         Console::print("Kernel heap start addr %x\n", startAddr);
         Console::print("Kernel heap end addr %x\n", endAddr);

@@ -67,9 +67,9 @@ namespace Kernel
     private:
         static constexpr Extent s_extent = {80, 25};
         using VgaScreen = VgaChar[s_extent.height][s_extent.width];
-        static inline volatile VgaScreen &s_vgaScreen = *reinterpret_cast<VgaScreen *>(0xB8000);
+        static inline volatile VgaScreen &s_vgaScreen = *reinterpret_cast<VgaScreen *>(0xB8000 + 0xFFFF800000000000);
         static constexpr size_t s_bufferLineCount = 2048;
-        static inline RollingWindow<Utils::Array<VgaChar, s_extent.width>, s_bufferLineCount> s_charBuffer;
+        static inline RollingWindowVolatile<Utils::Array<VgaChar, s_extent.width>, s_bufferLineCount> s_charBuffer;
         static constexpr size_t s_windowCapacity = s_extent.width * s_extent.height;
         static inline volatile CursorPos s_cursorPos = {0, 0};
         static inline volatile size_t s_displayLine = 0;
@@ -374,6 +374,9 @@ namespace Kernel
         static void setDisplayLine(size_t line);
 
         static void clampDisplayToCursor();
+
+        // prints directly to VGA
+        static void printInterrupt(const char *str, size_t size, size_t offset, Attributes attr = Attributes::WhiteOnBlack);
 
     private:
         static void flushToVga();

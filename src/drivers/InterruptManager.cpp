@@ -1,4 +1,4 @@
-// interrupts.cpp
+// InterruptManager.cpp
 #include "../../include/drivers/InterruptManager.h"
 
 namespace Kernel
@@ -49,7 +49,7 @@ namespace Kernel
     {
         auto &entry = s_idtEntries[index];
         entry.isrLow = reinterpret_cast<uint64_t>(interruptServiceRoutine) & 0xFFFF;
-        entry.kernelCs = reinterpret_cast<uint16_t>(&gdt64_code_segment);
+        entry.kernelCs = 0x08;
         entry.ist = interruptStackTable;
         entry.attributes = flags;
         entry.isrMid = (reinterpret_cast<uint64_t>(interruptServiceRoutine) >> 16) & 0xFFFF;
@@ -165,6 +165,10 @@ namespace Kernel
 
     void InterruptManager::handleException(InterruptFrame &frame)
     {
+        Kernel::Console::printInterrupt(s_exceptionMessages[frame.interrupt_number],
+                                        strlen(s_exceptionMessages[frame.interrupt_number]), 0,
+                                        Kernel::Console::Attributes::RedOnBlack);
+
         Console::print("Interrupt: %s\n", Console::Attributes::RedOnBlack,
                        s_exceptionMessages[frame.interrupt_number]);
         Console::print("  RIP: %x\n", frame.rip);
@@ -350,16 +354,6 @@ extern "C" void isr_handler(Kernel::InterruptFrame *frame)
     Kernel::InterruptManager::handleInterrupt(*frame);
     halt();
 }
-
-// extern "C" void irq_handler(Kernel::InterruptFrame *frame)
-// {
-//     Kernel::InterruptManager::handleInterrupt(*frame);
-//     if (frame->interrupt_number >= 40)
-//     {
-//         port_out_byte(0xA0, 0x20); // Send EOI to slave PIC
-//     }
-//     port_out_byte(0x20, 0x20); // Send EOI to master PIC
-// }
 
 extern "C" void master_irq_handler(Kernel::InterruptFrame *frame)
 {

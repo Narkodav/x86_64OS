@@ -3,9 +3,10 @@ extern stack_top
 extern stack_bottom
 extern kernel_main
 extern gdt64
+extern page_table_l1_physical
 
-extern __bss_start
-extern __bss_end
+extern __bss_start_
+extern __bss_end_
 
 extern switch_data_segment_to_kernel
 extern switch_data_segment_to_user
@@ -15,28 +16,26 @@ bits 64
 
 %include "include/boot/setup_tss.asm"
 
+section .text
+
 long_mode_start:
-    mov r8, rdi  ; Save multiboot2 info pointer
+    mov rsp, stack_top ; make stack 64 bit
+    push rbx
 
-    call switch_data_segment_to_kernel
+;     ; zero bss
+;     mov rdi, __bss_start_
+;     mov rcx, __bss_end_
 
-    ; zero bss
-    mov rdi, __bss_start
-    mov rcx, __bss_end
+;     cmp rcx, rdi
+;     jle .skip_bss
 
-    cmp rcx, rdi
-    jle .skip_bss
+;     sub rcx, rdi
+;     xor rax, rax
+;     rep stosb
 
-    sub rcx, rdi
-    xor rax, rax
-    rep stosb
-
-.skip_bss:
+; .skip_bss:    
 
     call setup_tss
-
-    ; make stack 64 bit
-    mov rsp, stack_top
 
     ; clear segment registers
     mov ax, 0
@@ -46,8 +45,10 @@ long_mode_start:
     mov fs, ax
     mov gs, ax
 
-    mov rdi, rbx  ; First argument: multiboot info pointer
-
+    pop rbx
+    mov rax, 0xFFFF800000000000
+    add rbx, rax
+    mov rdi, rbx
     call kernel_main
     
 .loop:

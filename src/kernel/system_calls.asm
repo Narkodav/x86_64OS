@@ -37,10 +37,12 @@ global syscall_handler
 syscall_handler:
     ; Switch to kernel stack
     ; Save user stack pointer first
-    mov [temp_user_rsp], rsp
+    mov rdx, temp_user_rsp
+    mov [rdx], rsp
     
     ; Use kernel stack
-    mov rsp, [temp_kernel_rsp]
+    mov rdx, temp_kernel_rsp
+    mov rsp, [rdx]
     
     ; Save ALL registers that might be clobbered or contain important data
     push rcx    ; Save user RIP (clobbered by syscall)
@@ -61,7 +63,9 @@ syscall_handler:
     ; rdi, rsi, rdx, r8, r9 are already correct
     
     ; Get function pointer and call it
-    mov rbx, [syscall_handlers + rax * 8]
+    
+    mov rdx, syscall_handlers
+    mov rbx, [rdx + rax * 8]
     call rbx
     
     ; Restore and return
@@ -75,7 +79,8 @@ syscall_handler:
     pop rcx     ; Restore user RIP for sysret
 
     ; Restore user stack
-    mov rsp, [temp_user_rsp]
+    mov rdx, temp_user_rsp
+    mov rsp, [rdx]
     o64 sysret
 
 ; Temporary storage for user RSP

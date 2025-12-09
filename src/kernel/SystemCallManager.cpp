@@ -1,6 +1,6 @@
 #include "../../include/kernel/SystemCallManager.h"
 
-Kernel::SystemCallHandler syscall_handlers[static_cast<uint64_t>(Kernel::SystemCall::num)] = {nullptr};
+volatile Kernel::SystemCallHandler syscall_handlers[static_cast<uint64_t>(Kernel::SystemCall::num)] = {nullptr};
 
 namespace Kernel
 {

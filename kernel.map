@@ -1,0 +1,1019 @@
+
+Discarded input sections
+
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Console.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Console.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Console.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Console.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Console.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Console.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/Console.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/Console.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/InterruptManager.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/drivers/InterruptManager.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/drivers/InterruptManager.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/drivers/InterruptManager.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/drivers/InterruptManager.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/drivers/InterruptManager.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/drivers/InterruptManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/Keyboard.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/Keyboard.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/drivers/Keyboard.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/drivers/Keyboard.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/drivers/Keyboard.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/drivers/Keyboard.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/drivers/Keyboard.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/drivers/Keyboard.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/Mouse.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/drivers/Mouse.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/drivers/Mouse.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/drivers/Mouse.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/drivers/Mouse.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/drivers/Mouse.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/drivers/Mouse.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/drivers/Mouse.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/drivers/Timer.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/drivers/Timer.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/drivers/Timer.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/drivers/Timer.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/drivers/Timer.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/drivers/Timer.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/drivers/Timer.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/drivers/Timer.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/Heap.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/Heap.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/Heap.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/Heap.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/Heap.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/kernel/Heap.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/kernel/Heap.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/kernel/Heap.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/kernel/Heap.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/kernel.o
+ .text._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0x0000000000000000      0x402 build/x86_64/Release/kernel/kernel.o
+ .rodata._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0x0000000000000000       0xb8 build/x86_64/Release/kernel/kernel.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .bss._ZN6Kernel5Timer10s_systicksE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/kernel.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/kernel.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/kernel.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/kernel/kernel.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/kernel/kernel.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/kernel/kernel.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/kernel/kernel.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/KernelData.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/KernelData.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/KernelData.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/KernelData.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/KernelData.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/KernelData.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/KernelData.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/KernelData.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/KernelData.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/KernelData.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/KernelData.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/KernelData.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/kernel/KernelData.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/kernel/KernelData.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/kernel/KernelData.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/kernel/KernelData.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/MemoryMap.o
+ .text._ZZN6Kernel7Console9printImplIJRyEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0x0000000000000000      0x402 build/x86_64/Release/kernel/MemoryMap.o
+ .rodata._ZZN6Kernel7Console9printImplIJRyEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0x0000000000000000       0xb8 build/x86_64/Release/kernel/MemoryMap.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/MemoryMap.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/MemoryMap.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/kernel/MemoryMap.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/kernel/MemoryMap.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/kernel/MemoryMap.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/kernel/MemoryMap.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/SystemCallManager.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/SystemCallManager.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/SystemCallManager.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/kernel/SystemCallManager.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/kernel/SystemCallManager.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000       0x14 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/kernel/UserProcessManager.o
+ .text._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0x0000000000000000      0x402 build/x86_64/Release/kernel/UserProcessManager.o
+ .rodata._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0x0000000000000000       0xb8 build/x86_64/Release/kernel/UserProcessManager.o
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/UserProcessManager.o
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0x0000000000000000        0x1 build/x86_64/Release/kernel/UserProcessManager.o
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0x0000000000000000        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0x0000000000000000       0x10 build/x86_64/Release/kernel/UserProcessManager.o
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0x0000000000000000    0x50010 build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/kernel/UserProcessManager.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/user_code/SomeCode.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/user_code/SomeCode.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/utils/Utils.o
+ .group         0x0000000000000000        0xc build/x86_64/Release/utils/Utils.o
+ .debug_macro   0x0000000000000000      0xa1e build/x86_64/Release/utils/Utils.o
+ .debug_macro   0x0000000000000000       0x10 build/x86_64/Release/utils/Utils.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0xffff800000000000                HIGHER_HALF_BASE = 0xffff800000000000
+                0xffff800000000000                _higher_half_base_ = HIGHER_HALF_BASE
+                0x0000000000100000                . = 0x100000
+
+.boot           0x0000000000100000      0x1b4
+                0x0000000000100000                __boot_start_ = .
+ *(.multiboot_header)
+ .multiboot_header
+                0x0000000000100000       0x28 build/x86_64/Release/boot/header.o
+                0x0000000000100000                __multiboot_header_start_
+                0x0000000000100028                __multiboot_header_end_
+ *(.boot_text)
+ .boot_text     0x0000000000100028      0x14a build/x86_64/Release/boot/main.o
+                0x0000000000100028                start
+ *(.boot_rodata)
+ .boot_rodata   0x0000000000100172       0x42 build/x86_64/Release/boot/main.o
+                0x0000000000100172                gdt64
+                0x00000000001001aa                gdt64_pointer
+                0x00000000001001b4                __boot_end_ = .
+                0xffff8000001001b4                . = (. + HIGHER_HALF_BASE)
+                0xffff8000001001b4                __kernel_start_ = .
+
+.text           0xffff800000101000     0x60ee load address 0x0000000000101000
+                0xffff800000101000                __text_start_ = .
+ *(.text)
+ .text          0xffff800000101000       0x99 build/x86_64/Release/boot/main64.o
+                0xffff800000101061                long_mode_start
+ *fill*         0xffff800000101099        0x7 
+ .text          0xffff8000001010a0      0x27e build/x86_64/Release/drivers/interrupts.o
+                0xffff8000001010a0                isr0
+                0xffff8000001010aa                isr1
+                0xffff8000001010b4                isr2
+                0xffff8000001010be                isr3
+                0xffff8000001010c8                isr4
+                0xffff8000001010d2                isr5
+                0xffff8000001010dc                isr6
+                0xffff8000001010e6                isr7
+                0xffff8000001010f0                isr8
+                0xffff8000001010f8                isr9
+                0xffff800000101102                isr10
+                0xffff80000010110a                isr11
+                0xffff800000101112                isr12
+                0xffff80000010111a                isr13
+                0xffff800000101122                isr14
+                0xffff80000010112a                isr15
+                0xffff800000101134                isr16
+                0xffff80000010113e                isr17
+                0xffff800000101146                isr18
+                0xffff800000101150                isr19
+                0xffff80000010115a                isr20
+                0xffff800000101164                isr21
+                0xffff80000010116c                isr22
+                0xffff800000101176                isr23
+                0xffff800000101180                isr24
+                0xffff80000010118a                isr25
+                0xffff800000101194                isr26
+                0xffff80000010119e                isr27
+                0xffff8000001011a8                isr28
+                0xffff8000001011b2                isr29
+                0xffff8000001011bc                isr30
+                0xffff8000001011c6                isr31
+                0xffff8000001011d0                irq0
+                0xffff8000001011da                irq1
+                0xffff8000001011e4                irq2
+                0xffff8000001011ee                irq3
+                0xffff8000001011f8                irq4
+                0xffff800000101202                irq5
+                0xffff80000010120c                irq6
+                0xffff800000101216                irq7
+                0xffff800000101220                irq8
+                0xffff80000010122a                irq9
+                0xffff800000101234                irq10
+                0xffff80000010123e                irq11
+                0xffff800000101248                irq12
+                0xffff800000101252                irq13
+                0xffff80000010125c                irq14
+                0xffff800000101263                irq15
+ *fill*         0xffff80000010131e        0x2 
+ .text          0xffff800000101320       0xfd build/x86_64/Release/kernel/system_calls.o
+                0xffff800000101320                setup_syscall
+                0xffff80000010135f                syscall_handler
+                0xffff8000001013be                syscall_exit
+                0xffff8000001013f0                dispatch_syscall
+ *fill*         0xffff80000010141d        0x3 
+ .text          0xffff800000101420       0x66 build/x86_64/Release/kernel/user_process.o
+                0xffff800000101420                temp_kernel_rsp
+                0xffff800000101428                call_user_mode
+                0xffff80000010147a                user_return_trampoline
+ .text          0xffff800000101486      0x81c build/x86_64/Release/drivers/Console.o
+                0xffff800000101486                Kernel::Console::writeChar(unsigned long, unsigned long, unsigned char, Kernel::Console::Attributes)
+                0xffff8000001014d8                Kernel::Console::putChar(unsigned char, Kernel::Console::Attributes)
+                0xffff800000101658                Kernel::Console::clearLine(unsigned long, unsigned char, Kernel::Console::Attributes)
+                0xffff8000001016b4                Kernel::Console::flushToVga()
+                0xffff800000101832                Kernel::Console::cursorInScreenBounds(Kernel::Console::CursorPos volatile&)
+                0xffff800000101866                Kernel::Console::updateCursor()
+                0xffff80000010193e                Kernel::Console::enableCursor()
+                0xffff80000010195e                Kernel::Console::disableCursor()
+                0xffff80000010197e                Kernel::Console::setCursor(Kernel::Console::CursorPos)
+                0xffff8000001019a2                Kernel::Console::clearLine(unsigned char, Kernel::Console::Attributes)
+                0xffff8000001019ea                Kernel::Console::clear(unsigned char, Kernel::Console::Attributes)
+                0xffff800000101ae0                Kernel::Console::setDisplayLine(unsigned long)
+                0xffff800000101b0c                Kernel::Console::clampDisplayToCursor()
+                0xffff800000101b3e                Kernel::Console::scrollDown(unsigned long)
+                0xffff800000101bca                Kernel::Console::scrollUp(unsigned long)
+                0xffff800000101c1e                Kernel::Console::printInterrupt(char const*, unsigned long, unsigned long, Kernel::Console::Attributes)
+ .text          0xffff800000101ca2     0x106f build/x86_64/Release/drivers/InterruptManager.o
+                0xffff800000101ca2                Kernel::InterruptManager::setIdtGate(unsigned char, void (*)(), unsigned char, unsigned char)
+                0xffff800000101cfc                Kernel::InterruptManager::loadIdt()
+                0xffff800000101d1e                Kernel::InterruptManager::remapPic()
+                0xffff800000101dc8                Kernel::InterruptManager::setupIdt()
+                0xffff80000010230a                Kernel::InterruptManager::initialize()
+                0xffff800000102378                Kernel::InterruptManager::registerInterruptCallback(unsigned char, void (*)(Kernel::InterruptFrame&))
+                0xffff80000010238c                Kernel::InterruptManager::registerInterruptCallback(Kernel::InterruptManager::InterruptVector, void (*)(Kernel::InterruptFrame&))
+                0xffff8000001023a0                Kernel::InterruptManager::triggerInterrupt(Kernel::InterruptManager::InterruptVector)
+                0xffff8000001026c2                Kernel::InterruptManager::enableInterrupts()
+                0xffff8000001026c4                Kernel::InterruptManager::disableInterrupts()
+                0xffff8000001026c6                isr_handler
+                0xffff8000001026ec                master_irq_handler
+                0xffff80000010271c                slave_irq_handler
+                0xffff800000102762                Kernel::InterruptManager::handleException(Kernel::InterruptFrame&)
+ *fill*         0xffff800000102d11        0x1 
+ .text          0xffff800000102d12      0x6df build/x86_64/Release/drivers/Keyboard.o
+                0xffff800000102d12                Kernel::Keyboard::scancodeToKey(unsigned char)
+                0xffff800000102d16                Kernel::Keyboard::extededScancodeToKey(unsigned char)
+                0xffff800000102da8                Kernel::Keyboard::interruptHandler(Kernel::InterruptFrame&)
+                0xffff800000102fe8                Kernel::Keyboard::Event::getCharDefault() const
+                0xffff8000001030fa                Kernel::Keyboard::Event::getCharShift() const
+                0xffff80000010320c                Kernel::Keyboard::Event::getChar() const
+                0xffff800000103278                Kernel::Keyboard::initialise()
+ *fill*         0xffff8000001033f1        0x1 
+ .text          0xffff8000001033f2      0x13b build/x86_64/Release/drivers/Mouse.o
+                0xffff8000001033f2                Kernel::Mouse::interruptHandler(Kernel::InterruptFrame&)
+                0xffff800000103460                Kernel::Mouse::initialise()
+ *fill*         0xffff80000010352d        0x1 
+ .text          0xffff80000010352e       0xd3 build/x86_64/Release/drivers/Timer.o
+                0xffff80000010352e                Kernel::Timer::interruptHandler(Kernel::InterruptFrame&)
+                0xffff800000103544                Kernel::Timer::initialise()
+ *fill*         0xffff800000103601        0x1 
+ .text          0xffff800000103602      0x5e1 build/x86_64/Release/kernel/Heap.o
+                0xffff800000103602                Kernel::HeapLinkedList::initialize(void*, void*) volatile
+                0xffff800000103646                Kernel::HeapLinkedList::allocate(unsigned long)
+                0xffff800000103706                Kernel::HeapLinkedList::free(void*)
+                0xffff800000103796                Kernel::HeapLinkedList::reallocate(void*, unsigned long)
+                0xffff800000103950                Kernel::HeapLinkedList::printBlocks() const
+ .text          0xffff800000103be3      0x33d build/x86_64/Release/kernel/kernel.o
+                0xffff800000103be3                __cxa_pure_virtual
+                0xffff800000103be5                kernel_main
+ .text          0xffff800000103f20       0x54 build/x86_64/Release/kernel/KernelData.o
+ .text          0xffff800000103f74      0x6d5 build/x86_64/Release/kernel/MemoryMap.o
+                0xffff800000103f74                Kernel::MemoryMap::supportsGb1Pages()
+                0xffff800000103fa8                Kernel::MemoryMap::map128TbIdentity(unsigned long long*, unsigned long long*, unsigned int)
+                0xffff800000104030                Kernel::MemoryMap::parseMemoryMapTag(Kernel::HeapLinkedList&)
+                0xffff8000001042ce                Kernel::MemoryMap::initialise(unsigned long long, Kernel::HeapLinkedList&)
+ *fill*         0xffff800000104649        0x1 
+ .text          0xffff80000010464a      0x45f build/x86_64/Release/kernel/SystemCallManager.o
+                0xffff80000010464a                Kernel::SystemCallManager::syscallUnimplemented(unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long)
+                0xffff8000001046b4                Kernel::SystemCallManager::initialise()
+                0xffff800000104782                Kernel::SystemCallManager::registerSystemCall(Kernel::SystemCall, unsigned long long (*)(unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long))
+                0xffff800000104792                Kernel::SystemCallManager::syscallWrite(unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long)
+                0xffff8000001048f4                Kernel::SystemCallManager::syscallRead(unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long)
+ *fill*         0xffff800000104aa9        0x1 
+ .text          0xffff800000104aaa      0x208 build/x86_64/Release/kernel/UserProcessManager.o
+                0xffff800000104aaa                Kernel::UserProcessManager::executeUserProcess(int (*)(), unsigned long)
+ .text          0xffff800000104cb2       0x1d build/x86_64/Release/user_code/SomeCode.o
+                0xffff800000104cb2                user_main
+ .text          0xffff800000104ccf      0x121 build/x86_64/Release/utils/Utils.o
+                0xffff800000104ccf                memset
+                0xffff800000104ceb                memcpy
+                0xffff800000104d0b                memmove
+                0xffff800000104d4a                memcmp
+                0xffff800000104d82                strlen
+                0xffff800000104d9c                strcpy
+                0xffff800000104dc4                strcmp
+ *(.text.*)
+ .text.utility  0xffff800000104df0       0xf3 build/x86_64/Release/utils/utility.o
+                0xffff800000104df0                cpuid
+                0xffff800000104e00                port_in_byte
+                0xffff800000104e09                port_out_byte
+                0xffff800000104e11                port_in_word
+                0xffff800000104e1b                port_out_word
+                0xffff800000104e24                port_in_dword
+                0xffff800000104e29                port_out_dword
+                0xffff800000104e30                load_page_tables
+                0xffff800000104e34                halt
+                0xffff800000104e38                switch_data_segment_to_kernel
+                0xffff800000104e47                switch_data_segment_to_user
+                0xffff800000104e56                trigger_interrupt1
+                0xffff800000104e59                trigger_interrupt2
+                0xffff800000104e5c                trigger_interrupt3
+                0xffff800000104e5f                trigger_interrupt4
+                0xffff800000104e62                trigger_interrupt5
+                0xffff800000104e65                trigger_interrupt6
+                0xffff800000104e68                trigger_interrupt7
+                0xffff800000104e6b                trigger_interrupt8
+                0xffff800000104e6e                trigger_interrupt9
+                0xffff800000104e71                trigger_interrupt10
+                0xffff800000104e74                trigger_interrupt11
+                0xffff800000104e77                trigger_interrupt12
+                0xffff800000104e7a                trigger_interrupt13
+                0xffff800000104e7d                trigger_interrupt14
+                0xffff800000104e80                trigger_interrupt15
+                0xffff800000104e83                trigger_interrupt16
+                0xffff800000104e86                trigger_interrupt17
+                0xffff800000104e89                trigger_interrupt18
+                0xffff800000104e8c                trigger_interrupt19
+                0xffff800000104e8f                trigger_interrupt20
+                0xffff800000104e92                trigger_interrupt21
+                0xffff800000104e95                trigger_interrupt22
+                0xffff800000104e98                trigger_interrupt23
+                0xffff800000104e9b                trigger_interrupt24
+                0xffff800000104e9e                trigger_interrupt25
+                0xffff800000104ea1                trigger_interrupt26
+                0xffff800000104ea4                trigger_interrupt27
+                0xffff800000104ea7                trigger_interrupt28
+                0xffff800000104eaa                trigger_interrupt29
+                0xffff800000104ead                trigger_interrupt30
+                0xffff800000104eb0                trigger_interrupt31
+                0xffff800000104eb3                trigger_interrupt32
+                0xffff800000104eb6                trigger_interrupt33
+                0xffff800000104eb9                trigger_interrupt34
+                0xffff800000104ebc                trigger_interrupt35
+                0xffff800000104ebf                trigger_interrupt36
+                0xffff800000104ec2                trigger_interrupt37
+                0xffff800000104ec5                trigger_interrupt38
+                0xffff800000104ec8                trigger_interrupt39
+                0xffff800000104ecb                trigger_interrupt40
+                0xffff800000104ece                trigger_interrupt41
+                0xffff800000104ed1                trigger_interrupt42
+                0xffff800000104ed4                trigger_interrupt43
+                0xffff800000104ed7                trigger_interrupt44
+                0xffff800000104eda                trigger_interrupt45
+                0xffff800000104edd                trigger_interrupt46
+                0xffff800000104ee0                trigger_interrupt47
+ *fill*         0xffff800000104ee3        0x1 
+ .text._ZZN6Kernel7Console9printImplIJRPKcEEEvS3_NS0_10AttributesEDpOT_ENKUlOT_E_clIS4_EEDaSA_
+                0xffff800000104ee4      0x2e9 build/x86_64/Release/drivers/InterruptManager.o
+                0xffff800000104ee4                auto Kernel::Console::printImpl<char const*&>(char const*, Kernel::Console::Attributes, char const*&)::{lambda(auto:1&&)#1}::operator()<char const*&>(char const*&) const
+ *fill*         0xffff8000001051cd        0x1 
+ .text._ZZN6Kernel7Console9printImplIJRyEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0xffff8000001051ce      0x402 build/x86_64/Release/drivers/InterruptManager.o
+                0xffff8000001051ce                auto Kernel::Console::printImpl<unsigned long long&>(char const*, Kernel::Console::Attributes, unsigned long long&)::{lambda(auto:1&&)#1}::operator()<unsigned long long&>(unsigned long long&) const
+ .text._ZZN6Kernel7Console9printImplIJRPNS_14HeapLinkedList5BlockEEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS5_EEDaSD_
+                0xffff8000001055d0      0x336 build/x86_64/Release/kernel/Heap.o
+                0xffff8000001055d0                auto Kernel::Console::printImpl<Kernel::HeapLinkedList::Block*&>(char const*, Kernel::Console::Attributes, Kernel::HeapLinkedList::Block*&)::{lambda(auto:1&&)#1}::operator()<Kernel::HeapLinkedList::Block*&>(Kernel::HeapLinkedList::Block*&) const
+ .text._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0xffff800000105906      0x402 build/x86_64/Release/kernel/Heap.o
+                0xffff800000105906                auto Kernel::Console::printImpl<unsigned long&>(char const*, Kernel::Console::Attributes, unsigned long&)::{lambda(auto:1&&)#1}::operator()<unsigned long&>(unsigned long&) const
+ .text._ZN6Kernel7Console5printIJEEEvPKcNS0_10AttributesEDpT_
+                0xffff800000105d08       0x69 build/x86_64/Release/kernel/kernel.o
+                0xffff800000105d08                void Kernel::Console::print<>(char const*, Kernel::Console::Attributes)
+ *fill*         0xffff800000105d71        0x1 
+ .text._ZZN6Kernel7Console9printImplIJRiEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0xffff800000105d72      0x440 build/x86_64/Release/kernel/kernel.o
+                0xffff800000105d72                auto Kernel::Console::printImpl<int&>(char const*, Kernel::Console::Attributes, int&)::{lambda(auto:1&&)#1}::operator()<int&>(int&) const
+ .text._ZZN6Kernel7Console9printImplIJRyS2_S2_EEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0xffff8000001061b2      0x402 build/x86_64/Release/kernel/SystemCallManager.o
+                0xffff8000001061b2                auto Kernel::Console::printImpl<unsigned long long&, unsigned long long&, unsigned long long&>(char const*, Kernel::Console::Attributes, unsigned long long&, unsigned long long&, unsigned long long&)::{lambda(auto:1&&)#1}::operator()<unsigned long long&>(unsigned long long&) const
+ .text._ZZN6Kernel7Console9printImplIJRyS2_S2_EEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E0_clIS2_EEDaSA_
+                0xffff8000001065b4      0x402 build/x86_64/Release/kernel/SystemCallManager.o
+                0xffff8000001065b4                auto Kernel::Console::printImpl<unsigned long long&, unsigned long long&, unsigned long long&>(char const*, Kernel::Console::Attributes, unsigned long long&, unsigned long long&, unsigned long long&)::{lambda(auto:1&&)#2}::operator()<unsigned long long&>(unsigned long long&) const
+ .text._ZZN6Kernel7Console9printImplIJRyS2_S2_EEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E1_clIS2_EEDaSA_
+                0xffff8000001069b6      0x402 build/x86_64/Release/kernel/SystemCallManager.o
+                0xffff8000001069b6                auto Kernel::Console::printImpl<unsigned long long&, unsigned long long&, unsigned long long&>(char const*, Kernel::Console::Attributes, unsigned long long&, unsigned long long&, unsigned long long&)::{lambda(auto:1&&)#3}::operator()<unsigned long long&>(unsigned long long&) const
+ .text._ZZN6Kernel7Console9printImplIJRPvEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS3_EEDaSB_
+                0xffff800000106db8      0x336 build/x86_64/Release/kernel/UserProcessManager.o
+                0xffff800000106db8                auto Kernel::Console::printImpl<void*&>(char const*, Kernel::Console::Attributes, void*&)::{lambda(auto:1&&)#1}::operator()<void*&>(void*&) const
+                0xffff8000001070ee                __text_end_ = .
+
+.iplt           0xffff8000001070ee        0x0 load address 0x00000000001070ee
+ .iplt          0xffff8000001070ee        0x0 build/x86_64/Release/boot/header.o
+
+.data           0xffff800000108000      0x1e8 load address 0x0000000000108000
+                0xffff800000108000                __data_start_ = .
+ *(.data)
+ .data          0xffff800000108000        0x0 build/x86_64/Release/drivers/Console.o
+ .data          0xffff800000108000      0x100 build/x86_64/Release/drivers/InterruptManager.o
+                0xffff800000108000                Kernel::InterruptManager::s_exceptionMessages
+ .data          0xffff800000108100        0x0 build/x86_64/Release/drivers/Keyboard.o
+ .data          0xffff800000108100        0x0 build/x86_64/Release/drivers/Mouse.o
+ .data          0xffff800000108100        0x0 build/x86_64/Release/drivers/Timer.o
+ .data          0xffff800000108100        0x0 build/x86_64/Release/kernel/Heap.o
+ .data          0xffff800000108100        0x0 build/x86_64/Release/kernel/kernel.o
+ .data          0xffff800000108100        0x0 build/x86_64/Release/kernel/KernelData.o
+ .data          0xffff800000108100       0xe8 build/x86_64/Release/kernel/MemoryMap.o
+                0xffff800000108100                Kernel::MemoryMap::s_multibootMemoryTypeNames
+                0xffff800000108140                Kernel::MemoryMap::s_multibootTagNames
+ .data          0xffff8000001081e8        0x0 build/x86_64/Release/kernel/SystemCallManager.o
+ .data          0xffff8000001081e8        0x0 build/x86_64/Release/kernel/UserProcessManager.o
+ .data          0xffff8000001081e8        0x0 build/x86_64/Release/user_code/SomeCode.o
+ .data          0xffff8000001081e8        0x0 build/x86_64/Release/utils/Utils.o
+ *(.data.*)
+                0xffff8000001081e8                __data_end_ = .
+
+.got            0xffff8000001081e8        0x0 load address 0x00000000001081e8
+ .got           0xffff8000001081e8        0x0 build/x86_64/Release/boot/header.o
+
+.got.plt        0xffff8000001081e8        0x0 load address 0x00000000001081e8
+ .got.plt       0xffff8000001081e8        0x0 build/x86_64/Release/boot/header.o
+
+.igot.plt       0xffff8000001081e8        0x0 load address 0x00000000001081e8
+ .igot.plt      0xffff8000001081e8        0x0 build/x86_64/Release/boot/header.o
+
+.ctors          0xffff8000001081e8       0x58 load address 0x00000000001081e8
+ .ctors         0xffff8000001081e8        0x8 build/x86_64/Release/drivers/Console.o
+ .ctors         0xffff8000001081f0        0x8 build/x86_64/Release/drivers/InterruptManager.o
+ .ctors         0xffff8000001081f8        0x8 build/x86_64/Release/drivers/Keyboard.o
+ .ctors         0xffff800000108200        0x8 build/x86_64/Release/drivers/Mouse.o
+ .ctors         0xffff800000108208        0x8 build/x86_64/Release/drivers/Timer.o
+ .ctors         0xffff800000108210        0x8 build/x86_64/Release/kernel/Heap.o
+ .ctors         0xffff800000108218        0x8 build/x86_64/Release/kernel/kernel.o
+ .ctors         0xffff800000108220        0x8 build/x86_64/Release/kernel/KernelData.o
+ .ctors         0xffff800000108228        0x8 build/x86_64/Release/kernel/MemoryMap.o
+ .ctors         0xffff800000108230        0x8 build/x86_64/Release/kernel/SystemCallManager.o
+ .ctors         0xffff800000108238        0x8 build/x86_64/Release/kernel/UserProcessManager.o
+
+.rodata         0xffff800000109000     0x1362 load address 0x0000000000109000
+                0xffff800000109000                __rodata_start_ = .
+ *(.rodata)
+ .rodata        0xffff800000109000      0x180 build/x86_64/Release/drivers/InterruptManager.o
+ .rodata        0xffff800000109180      0x5a0 build/x86_64/Release/drivers/Keyboard.o
+ .rodata        0xffff800000109720       0x70 build/x86_64/Release/kernel/MemoryMap.o
+                0xffff800000109720                Kernel::MemoryMap::s_kernelMemoryRegion
+ *(.rodata.*)
+ .rodata.str1.8
+                0xffff800000109790       0x22 build/x86_64/Release/drivers/InterruptManager.o
+ .rodata._ZZN6Kernel7Console9printImplIJRPKcEEEvS3_NS0_10AttributesEDpOT_ENKUlOT_E_clIS4_EEDaSA_.str1.1
+                0xffff8000001097b2       0x14 build/x86_64/Release/drivers/InterruptManager.o
+ *fill*         0xffff8000001097c6        0x2 
+ .rodata._ZZN6Kernel7Console9printImplIJRPKcEEEvS3_NS0_10AttributesEDpOT_ENKUlOT_E_clIS4_EEDaSA_
+                0xffff8000001097c8       0xb8 build/x86_64/Release/drivers/InterruptManager.o
+ .rodata._ZZN6Kernel7Console9printImplIJRyEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_.str1.1
+                0xffff800000109880        0x3 build/x86_64/Release/drivers/InterruptManager.o
+ *fill*         0xffff800000109883        0x5 
+ .rodata._ZZN6Kernel7Console9printImplIJRyEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0xffff800000109888       0xb8 build/x86_64/Release/drivers/InterruptManager.o
+ .rodata.str1.1
+                0xffff800000109940      0x197 build/x86_64/Release/drivers/InterruptManager.o
+ .rodata.str1.1
+                0xffff800000109ad7       0x19 build/x86_64/Release/drivers/Keyboard.o
+ .rodata._ZZN6Kernel7Console9printImplIJRPNS_14HeapLinkedList5BlockEEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS5_EEDaSD_.str1.1
+                0xffff800000109af0       0x14 build/x86_64/Release/kernel/Heap.o
+ .rodata._ZZN6Kernel7Console9printImplIJRPNS_14HeapLinkedList5BlockEEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS5_EEDaSD_
+                0xffff800000109af0       0xb8 build/x86_64/Release/kernel/Heap.o
+ .rodata._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_.str1.1
+                0xffff800000109ba8        0x3 build/x86_64/Release/kernel/Heap.o
+ .rodata._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0xffff800000109ba8       0xb8 build/x86_64/Release/kernel/Heap.o
+ .rodata.str1.1
+                0xffff800000109c60       0x2b build/x86_64/Release/kernel/Heap.o
+ .rodata._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_.str1.1
+                0xffff800000109c8b       0x17 build/x86_64/Release/kernel/kernel.o
+ *fill*         0xffff800000109c8b        0x5 
+ .rodata._ZZN6Kernel7Console9printImplIJRiEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0xffff800000109c90       0xb8 build/x86_64/Release/kernel/kernel.o
+ .rodata.str1.1
+                0xffff800000109d48       0x61 build/x86_64/Release/kernel/kernel.o
+ *fill*         0xffff800000109da9        0x7 
+ .rodata.str1.8
+                0xffff800000109db0       0x24 build/x86_64/Release/kernel/kernel.o
+ .rodata._ZZN6Kernel7Console9printImplIJRyEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_.str1.1
+                0xffff800000109dd4       0x17 build/x86_64/Release/kernel/MemoryMap.o
+ .rodata.str1.1
+                0xffff800000109dd4      0x1f5 build/x86_64/Release/kernel/MemoryMap.o
+                                        0x1fe (size before relaxing)
+ .rodata.str1.1
+                0xffff800000109fc9       0x57 build/x86_64/Release/kernel/SystemCallManager.o
+ .rodata.str1.8
+                0xffff80000010a020       0x24 build/x86_64/Release/kernel/SystemCallManager.o
+ .rodata._ZZN6Kernel7Console9printImplIJRyS2_S2_EEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_.str1.1
+                0xffff80000010a044       0x17 build/x86_64/Release/kernel/SystemCallManager.o
+ *fill*         0xffff80000010a044        0x4 
+ .rodata._ZZN6Kernel7Console9printImplIJRyS2_S2_EEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_
+                0xffff80000010a048       0xb8 build/x86_64/Release/kernel/SystemCallManager.o
+ .rodata._ZZN6Kernel7Console9printImplIJRyS2_S2_EEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E0_clIS2_EEDaSA_
+                0xffff80000010a100       0xb8 build/x86_64/Release/kernel/SystemCallManager.o
+ .rodata._ZZN6Kernel7Console9printImplIJRyS2_S2_EEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E1_clIS2_EEDaSA_
+                0xffff80000010a1b8       0xb8 build/x86_64/Release/kernel/SystemCallManager.o
+ .rodata._ZZN6Kernel7Console9printImplIJRmEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS2_EEDaSA_.str1.1
+                0xffff80000010a270       0x17 build/x86_64/Release/kernel/UserProcessManager.o
+ .rodata._ZZN6Kernel7Console9printImplIJRPvEEEvPKcNS0_10AttributesEDpOT_ENKUlOT_E_clIS3_EEDaSB_
+                0xffff80000010a270       0xb8 build/x86_64/Release/kernel/UserProcessManager.o
+ .rodata.str1.1
+                0xffff80000010a328       0x14 build/x86_64/Release/kernel/UserProcessManager.o
+ *fill*         0xffff80000010a33c        0x4 
+ .rodata.str1.8
+                0xffff80000010a340       0x22 build/x86_64/Release/kernel/UserProcessManager.o
+                0xffff80000010a362                __rodata_end_ = .
+
+.rela.dyn       0xffff80000010a368        0x0 load address 0x000000000010a368
+ .rela.got      0xffff80000010a368        0x0 build/x86_64/Release/boot/header.o
+ .rela.iplt     0xffff80000010a368        0x0 build/x86_64/Release/boot/header.o
+ .rela.boot_text
+                0xffff80000010a368        0x0 build/x86_64/Release/boot/header.o
+ .rela.text     0xffff80000010a368        0x0 build/x86_64/Release/boot/header.o
+ .rela.rodata   0xffff80000010a368        0x0 build/x86_64/Release/boot/header.o
+
+.bss            0xffff80000010b000   0x158000 load address 0x000000000010b000
+                0xffff80000010b000                __bss_start_ = .
+ *(.bss)
+ .bss           0xffff80000010b000       0x68 build/x86_64/Release/boot/main64.o
+                0xffff80000010b000                tss_entry
+ .bss           0xffff80000010b068        0x0 build/x86_64/Release/drivers/Console.o
+ *fill*         0xffff80000010b068       0x18 
+ .bss           0xffff80000010b080     0x1810 build/x86_64/Release/drivers/InterruptManager.o
+                0xffff80000010b080                Kernel::InterruptManager::s_interruptHandlers
+                0xffff80000010b880                Kernel::InterruptManager::s_idtPtr
+                0xffff80000010b890                Kernel::InterruptManager::s_idtEntries
+ *fill*         0xffff80000010c890       0x10 
+ .bss           0xffff80000010c8a0      0x440 build/x86_64/Release/drivers/Keyboard.o
+                0xffff80000010c8a0                Kernel::Keyboard::s_nextExtended
+                0xffff80000010c8c0                Kernel::Keyboard::s_keyBuffer
+                0xffff80000010ccd0                Kernel::Keyboard::s_keyStates
+ .bss           0xffff80000010cce0        0x0 build/x86_64/Release/drivers/Mouse.o
+ .bss           0xffff80000010cce0        0x0 build/x86_64/Release/drivers/Timer.o
+ .bss           0xffff80000010cce0        0x0 build/x86_64/Release/kernel/Heap.o
+ .bss           0xffff80000010cce0        0x0 build/x86_64/Release/kernel/kernel.o
+ .bss           0xffff80000010cce0       0x30 build/x86_64/Release/kernel/KernelData.o
+                0xffff80000010cce0                Kernel::s_kernelHeap
+ .bss           0xffff80000010cd10       0x28 build/x86_64/Release/kernel/MemoryMap.o
+                0xffff80000010cd10                Kernel::MemoryMap::s_availibleRegionCount
+                0xffff80000010cd18                Kernel::MemoryMap::s_availibleRegionEntries
+                0xffff80000010cd20                Kernel::MemoryMap::s_kernelEndDynamic
+                0xffff80000010cd28                Kernel::MemoryMap::s_multibootMmapTag
+                0xffff80000010cd30                Kernel::MemoryMap::s_multibootHeader
+ *fill*         0xffff80000010cd38        0x8 
+ .bss           0xffff80000010cd40      0x800 build/x86_64/Release/kernel/SystemCallManager.o
+                0xffff80000010cd40                syscall_handlers
+ .bss           0xffff80000010d540        0x0 build/x86_64/Release/kernel/UserProcessManager.o
+ .bss           0xffff80000010d540        0x0 build/x86_64/Release/user_code/SomeCode.o
+ .bss           0xffff80000010d540        0x0 build/x86_64/Release/utils/Utils.o
+ *(.bss.*)
+ .bss._ZGVN6Kernel7Console12s_charBufferE
+                0xffff80000010d540        0x8 build/x86_64/Release/drivers/Console.o
+                0xffff80000010d540                guard variable for Kernel::Console::s_charBuffer
+ .bss._ZN6Kernel7Console13s_shouldFlushE
+                0xffff80000010d548        0x1 build/x86_64/Release/drivers/Console.o
+                0xffff80000010d548                Kernel::Console::s_shouldFlush
+ .bss._ZN6Kernel7Console15s_cursorEnabledE
+                0xffff80000010d549        0x1 build/x86_64/Release/drivers/Console.o
+                0xffff80000010d549                Kernel::Console::s_cursorEnabled
+ *fill*         0xffff80000010d54a        0x6 
+ .bss._ZN6Kernel7Console13s_displayLineE
+                0xffff80000010d550        0x8 build/x86_64/Release/drivers/Console.o
+                0xffff80000010d550                Kernel::Console::s_displayLine
+ *fill*         0xffff80000010d558        0x8 
+ .bss._ZN6Kernel7Console11s_cursorPosE
+                0xffff80000010d560       0x10 build/x86_64/Release/drivers/Console.o
+                0xffff80000010d560                Kernel::Console::s_cursorPos
+ *fill*         0xffff80000010d570       0x10 
+ .bss._ZN6Kernel7Console12s_charBufferE
+                0xffff80000010d580    0x50010 build/x86_64/Release/drivers/Console.o
+                0xffff80000010d580                Kernel::Console::s_charBuffer
+ .bss._ZN6Kernel5Mouse12s_mouseBytesE
+                0xffff80000015d590        0x3 build/x86_64/Release/drivers/Mouse.o
+                0xffff80000015d590                Kernel::Mouse::s_mouseBytes
+ .bss._ZN6Kernel5Mouse7s_cycleE
+                0xffff80000015d593        0x1 build/x86_64/Release/drivers/Mouse.o
+                0xffff80000015d593                Kernel::Mouse::s_cycle
+ *fill*         0xffff80000015d594        0x4 
+ .bss._ZN6Kernel5Timer10s_systicksE
+                0xffff80000015d598        0x8 build/x86_64/Release/drivers/Timer.o
+                0xffff80000015d598                Kernel::Timer::s_systicks
+ *(COMMON)
+                0xffff80000015e000                . = ALIGN (0x1000)
+ *fill*         0xffff80000015d5a0      0xa60 
+                0xffff80000015e000                stack_bottom = .
+                0xffff800000162000                . = (. + 0x4000)
+ *fill*         0xffff80000015e000     0x4000 
+                0xffff800000162000                stack_top = .
+                0xffff800000162000                . = ALIGN (0x1000)
+                0xffff800000162000                page_table_l1 = .
+                0xffff800000163000                . = (. + 0x1000)
+ *fill*         0xffff800000162000     0x1000 
+                0xffff800000163000                . = ALIGN (0x1000)
+                0xffff800000163000                page_table_l2 = .
+                0xffff800000263000                . = (. + 0x100000)
+ *fill*         0xffff800000163000   0x100000 
+                0xffff800000263000                __bss_end_ = .
+                0xffff800000263000                __kernel_end_ = .
+                0x00000000001001b4                __kernel_start_physical_ = (__kernel_start_ - HIGHER_HALF_BASE)
+                0x0000000000263000                __kernel_end_physical_ = (__kernel_end_ - HIGHER_HALF_BASE)
+                0x0000000000162000                PROVIDE (stack_top_physical = (stack_top - HIGHER_HALF_BASE))
+                [!provide]                        PROVIDE (stack_bottom_physical = (stack_bottom - HIGHER_HALF_BASE))
+                0x0000000000162000                PROVIDE (page_table_l1_physical = (page_table_l1 - HIGHER_HALF_BASE))
+                0x0000000000163000                PROVIDE (page_table_l2_physical = (page_table_l2 - HIGHER_HALF_BASE))
+LOAD build/x86_64/Release/boot/header.o
+LOAD build/x86_64/Release/boot/main.o
+LOAD build/x86_64/Release/boot/main64.o
+LOAD build/x86_64/Release/drivers/interrupts.o
+LOAD build/x86_64/Release/kernel/system_calls.o
+LOAD build/x86_64/Release/kernel/user_process.o
+LOAD build/x86_64/Release/utils/utility.o
+LOAD build/x86_64/Release/drivers/Console.o
+LOAD build/x86_64/Release/drivers/InterruptManager.o
+LOAD build/x86_64/Release/drivers/Keyboard.o
+LOAD build/x86_64/Release/drivers/Mouse.o
+LOAD build/x86_64/Release/drivers/Timer.o
+LOAD build/x86_64/Release/kernel/Heap.o
+LOAD build/x86_64/Release/kernel/kernel.o
+LOAD build/x86_64/Release/kernel/KernelData.o
+LOAD build/x86_64/Release/kernel/MemoryMap.o
+LOAD build/x86_64/Release/kernel/SystemCallManager.o
+LOAD build/x86_64/Release/kernel/UserProcessManager.o
+LOAD build/x86_64/Release/user_code/SomeCode.o
+LOAD build/x86_64/Release/utils/Utils.o
+OUTPUT(build/x86_64/Release/kernel.elf elf64-x86-64)
+
+.debug_info     0x0000000000000000    0x180e5
+ .debug_info    0x0000000000000000     0x15ca build/x86_64/Release/drivers/Console.o
+ .debug_info    0x00000000000015ca     0x378c build/x86_64/Release/drivers/InterruptManager.o
+ .debug_info    0x0000000000004d56     0x2a05 build/x86_64/Release/drivers/Keyboard.o
+ .debug_info    0x000000000000775b     0x1042 build/x86_64/Release/drivers/Mouse.o
+ .debug_info    0x000000000000879d      0xf72 build/x86_64/Release/drivers/Timer.o
+ .debug_info    0x000000000000970f     0x2c9a build/x86_64/Release/kernel/Heap.o
+ .debug_info    0x000000000000c3a9     0x3934 build/x86_64/Release/kernel/kernel.o
+ .debug_info    0x000000000000fcdd      0xf55 build/x86_64/Release/kernel/KernelData.o
+ .debug_info    0x0000000000010c32     0x2901 build/x86_64/Release/kernel/MemoryMap.o
+ .debug_info    0x0000000000013533     0x271e build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_info    0x0000000000015c51     0x20b2 build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_info    0x0000000000017d03       0x7c build/x86_64/Release/user_code/SomeCode.o
+ .debug_info    0x0000000000017d7f      0x366 build/x86_64/Release/utils/Utils.o
+
+.debug_abbrev   0x0000000000000000     0x4daf
+ .debug_abbrev  0x0000000000000000      0x50e build/x86_64/Release/drivers/Console.o
+ .debug_abbrev  0x000000000000050e      0x7e7 build/x86_64/Release/drivers/InterruptManager.o
+ .debug_abbrev  0x0000000000000cf5      0x832 build/x86_64/Release/drivers/Keyboard.o
+ .debug_abbrev  0x0000000000001527      0x511 build/x86_64/Release/drivers/Mouse.o
+ .debug_abbrev  0x0000000000001a38      0x509 build/x86_64/Release/drivers/Timer.o
+ .debug_abbrev  0x0000000000001f41      0x79e build/x86_64/Release/kernel/Heap.o
+ .debug_abbrev  0x00000000000026df      0xa93 build/x86_64/Release/kernel/kernel.o
+ .debug_abbrev  0x0000000000003172      0x461 build/x86_64/Release/kernel/KernelData.o
+ .debug_abbrev  0x00000000000035d3      0x830 build/x86_64/Release/kernel/MemoryMap.o
+ .debug_abbrev  0x0000000000003e03      0x70e build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_abbrev  0x0000000000004511      0x74b build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_abbrev  0x0000000000004c5c       0x56 build/x86_64/Release/user_code/SomeCode.o
+ .debug_abbrev  0x0000000000004cb2       0xfd build/x86_64/Release/utils/Utils.o
+
+.debug_loclists
+                0x0000000000000000     0x62b4
+ .debug_loclists
+                0x0000000000000000      0x52e build/x86_64/Release/drivers/Console.o
+ .debug_loclists
+                0x000000000000052e      0xfca build/x86_64/Release/drivers/InterruptManager.o
+ .debug_loclists
+                0x00000000000014f8      0x688 build/x86_64/Release/drivers/Keyboard.o
+ .debug_loclists
+                0x0000000000001b80       0x5e build/x86_64/Release/drivers/Mouse.o
+ .debug_loclists
+                0x0000000000001bde       0x1f build/x86_64/Release/drivers/Timer.o
+ .debug_loclists
+                0x0000000000001bfd     0x101b build/x86_64/Release/kernel/Heap.o
+ .debug_loclists
+                0x0000000000002c18      0xb6c build/x86_64/Release/kernel/kernel.o
+ .debug_loclists
+                0x0000000000003784       0x1d build/x86_64/Release/kernel/KernelData.o
+ .debug_loclists
+                0x00000000000037a1      0xc97 build/x86_64/Release/kernel/MemoryMap.o
+ .debug_loclists
+                0x0000000000004438     0x111b build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_loclists
+                0x0000000000005553      0x9a6 build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_loclists
+                0x0000000000005ef9      0x3bb build/x86_64/Release/utils/Utils.o
+
+.debug_aranges  0x0000000000000000      0x340
+ .debug_aranges
+                0x0000000000000000       0x30 build/x86_64/Release/drivers/Console.o
+ .debug_aranges
+                0x0000000000000030       0x50 build/x86_64/Release/drivers/InterruptManager.o
+ .debug_aranges
+                0x0000000000000080       0x30 build/x86_64/Release/drivers/Keyboard.o
+ .debug_aranges
+                0x00000000000000b0       0x30 build/x86_64/Release/drivers/Mouse.o
+ .debug_aranges
+                0x00000000000000e0       0x30 build/x86_64/Release/drivers/Timer.o
+ .debug_aranges
+                0x0000000000000110       0x50 build/x86_64/Release/kernel/Heap.o
+ .debug_aranges
+                0x0000000000000160       0x60 build/x86_64/Release/kernel/kernel.o
+ .debug_aranges
+                0x00000000000001c0       0x30 build/x86_64/Release/kernel/KernelData.o
+ .debug_aranges
+                0x00000000000001f0       0x40 build/x86_64/Release/kernel/MemoryMap.o
+ .debug_aranges
+                0x0000000000000230       0x60 build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_aranges
+                0x0000000000000290       0x50 build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_aranges
+                0x00000000000002e0       0x30 build/x86_64/Release/user_code/SomeCode.o
+ .debug_aranges
+                0x0000000000000310       0x30 build/x86_64/Release/utils/Utils.o
+
+.debug_rnglists
+                0x0000000000000000      0x563
+ .debug_rnglists
+                0x0000000000000000       0x87 build/x86_64/Release/drivers/Console.o
+ .debug_rnglists
+                0x0000000000000087       0x8b build/x86_64/Release/drivers/InterruptManager.o
+ .debug_rnglists
+                0x0000000000000112       0x38 build/x86_64/Release/drivers/Keyboard.o
+ .debug_rnglists
+                0x000000000000014a      0x137 build/x86_64/Release/kernel/Heap.o
+ .debug_rnglists
+                0x0000000000000281       0xe1 build/x86_64/Release/kernel/kernel.o
+ .debug_rnglists
+                0x0000000000000362       0x7f build/x86_64/Release/kernel/MemoryMap.o
+ .debug_rnglists
+                0x00000000000003e1       0xe4 build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_rnglists
+                0x00000000000004c5       0x9e build/x86_64/Release/kernel/UserProcessManager.o
+
+.debug_macro    0x0000000000000000      0xf23
+ .debug_macro   0x0000000000000000       0x4a build/x86_64/Release/drivers/Console.o
+ .debug_macro   0x000000000000004a      0xa1e build/x86_64/Release/drivers/Console.o
+ .debug_macro   0x0000000000000a68       0x10 build/x86_64/Release/drivers/Console.o
+ .debug_macro   0x0000000000000a78       0x54 build/x86_64/Release/drivers/InterruptManager.o
+ .debug_macro   0x0000000000000acc       0x68 build/x86_64/Release/drivers/Keyboard.o
+ .debug_macro   0x0000000000000b34       0x68 build/x86_64/Release/drivers/Mouse.o
+ .debug_macro   0x0000000000000b9c       0x68 build/x86_64/Release/drivers/Timer.o
+ .debug_macro   0x0000000000000c04       0x60 build/x86_64/Release/kernel/Heap.o
+ .debug_macro   0x0000000000000c64       0xce build/x86_64/Release/kernel/kernel.o
+ .debug_macro   0x0000000000000d32       0x6a build/x86_64/Release/kernel/KernelData.o
+ .debug_macro   0x0000000000000d9c       0x74 build/x86_64/Release/kernel/MemoryMap.o
+ .debug_macro   0x0000000000000e10       0x60 build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_macro   0x0000000000000e70       0x74 build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_macro   0x0000000000000ee4       0x1b build/x86_64/Release/user_code/SomeCode.o
+ .debug_macro   0x0000000000000eff       0x24 build/x86_64/Release/utils/Utils.o
+
+.debug_line     0x0000000000000000     0x554a
+ .debug_line    0x0000000000000000      0x78e build/x86_64/Release/drivers/Console.o
+ .debug_line    0x000000000000078e      0xee9 build/x86_64/Release/drivers/InterruptManager.o
+ .debug_line    0x0000000000001677      0xa09 build/x86_64/Release/drivers/Keyboard.o
+ .debug_line    0x0000000000002080      0x13c build/x86_64/Release/drivers/Mouse.o
+ .debug_line    0x00000000000021bc       0xf4 build/x86_64/Release/drivers/Timer.o
+ .debug_line    0x00000000000022b0      0xc42 build/x86_64/Release/kernel/Heap.o
+ .debug_line    0x0000000000002ef2      0x93c build/x86_64/Release/kernel/kernel.o
+ .debug_line    0x000000000000382e       0xc2 build/x86_64/Release/kernel/KernelData.o
+ .debug_line    0x00000000000038f0      0x888 build/x86_64/Release/kernel/MemoryMap.o
+ .debug_line    0x0000000000004178      0xb47 build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_line    0x0000000000004cbf      0x63f build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_line    0x00000000000052fe       0x76 build/x86_64/Release/user_code/SomeCode.o
+ .debug_line    0x0000000000005374      0x1d6 build/x86_64/Release/utils/Utils.o
+
+.debug_str      0x0000000000000000     0x8b1d
+ .debug_str     0x0000000000000000     0x465a build/x86_64/Release/drivers/Console.o
+                                       0x4747 (size before relaxing)
+ .debug_str     0x000000000000465a     0x131d build/x86_64/Release/drivers/InterruptManager.o
+                                       0x5a49 (size before relaxing)
+ .debug_str     0x0000000000005977     0x1100 build/x86_64/Release/drivers/Keyboard.o
+                                       0x609e (size before relaxing)
+ .debug_str     0x0000000000006a77       0xf4 build/x86_64/Release/drivers/Mouse.o
+                                       0x4fe0 (size before relaxing)
+ .debug_str     0x0000000000006b6b      0x104 build/x86_64/Release/drivers/Timer.o
+                                       0x4fdc (size before relaxing)
+ .debug_str     0x0000000000006c6f      0xc61 build/x86_64/Release/kernel/Heap.o
+                                       0x5506 (size before relaxing)
+ .debug_str     0x00000000000078d0      0x6ae build/x86_64/Release/kernel/kernel.o
+                                       0x7130 (size before relaxing)
+ .debug_str     0x0000000000007f7e       0x29 build/x86_64/Release/kernel/KernelData.o
+                                       0x4f29 (size before relaxing)
+ .debug_str     0x0000000000007fa7      0x5ec build/x86_64/Release/kernel/MemoryMap.o
+                                       0x5aff (size before relaxing)
+ .debug_str     0x0000000000008593      0x359 build/x86_64/Release/kernel/SystemCallManager.o
+                                       0x4e34 (size before relaxing)
+ .debug_str     0x00000000000088ec      0x1e8 build/x86_64/Release/kernel/UserProcessManager.o
+                                       0x5538 (size before relaxing)
+ .debug_str     0x0000000000008ad4        0xc build/x86_64/Release/user_code/SomeCode.o
+                                       0x33c4 (size before relaxing)
+ .debug_str     0x0000000000008ae0       0x3d build/x86_64/Release/utils/Utils.o
+                                       0x34aa (size before relaxing)
+
+.debug_line_str
+                0x0000000000000000      0x414
+ .debug_line_str
+                0x0000000000000000       0xb2 build/x86_64/Release/drivers/Console.o
+                                         0xe5 (size before relaxing)
+ .debug_line_str
+                0x00000000000000b2       0x34 build/x86_64/Release/drivers/InterruptManager.o
+                                        0x113 (size before relaxing)
+ .debug_line_str
+                0x00000000000000e6       0x33 build/x86_64/Release/drivers/Keyboard.o
+                                        0x115 (size before relaxing)
+ .debug_line_str
+                0x0000000000000119       0x1e build/x86_64/Release/drivers/Mouse.o
+                                        0x109 (size before relaxing)
+ .debug_line_str
+                0x0000000000000137       0x1e build/x86_64/Release/drivers/Timer.o
+                                        0x109 (size before relaxing)
+ .debug_line_str
+                0x0000000000000155       0xce build/x86_64/Release/kernel/Heap.o
+                                        0x14b (size before relaxing)
+ .debug_line_str
+                0x0000000000000223       0xf0 build/x86_64/Release/kernel/kernel.o
+                                        0x246 (size before relaxing)
+ .debug_line_str
+                0x0000000000000313       0x1a build/x86_64/Release/kernel/KernelData.o
+                                        0x16a (size before relaxing)
+ .debug_line_str
+                0x000000000000032d       0x19 build/x86_64/Release/kernel/MemoryMap.o
+                                        0x173 (size before relaxing)
+ .debug_line_str
+                0x0000000000000346       0x21 build/x86_64/Release/kernel/SystemCallManager.o
+                                        0x17f (size before relaxing)
+ .debug_line_str
+                0x0000000000000367       0x22 build/x86_64/Release/kernel/UserProcessManager.o
+                                        0x197 (size before relaxing)
+ .debug_line_str
+                0x0000000000000389       0x4f build/x86_64/Release/user_code/SomeCode.o
+                                         0xa0 (size before relaxing)
+ .debug_line_str
+                0x00000000000003d8       0x3c build/x86_64/Release/utils/Utils.o
+                                         0x88 (size before relaxing)
+
+.comment        0x0000000000000000       0x12
+ .comment       0x0000000000000000       0x12 build/x86_64/Release/drivers/Console.o
+                                         0x13 (size before relaxing)
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/drivers/InterruptManager.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/drivers/Keyboard.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/drivers/Mouse.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/drivers/Timer.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/kernel/Heap.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/kernel/kernel.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/kernel/KernelData.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/kernel/MemoryMap.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/kernel/SystemCallManager.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/kernel/UserProcessManager.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/user_code/SomeCode.o
+ .comment       0x0000000000000012       0x13 build/x86_64/Release/utils/Utils.o
+
+.debug_frame    0x0000000000000000      0xf40
+ .debug_frame   0x0000000000000000      0x280 build/x86_64/Release/drivers/Console.o
+ .debug_frame   0x0000000000000280      0x2b8 build/x86_64/Release/drivers/InterruptManager.o
+ .debug_frame   0x0000000000000538      0x120 build/x86_64/Release/drivers/Keyboard.o
+ .debug_frame   0x0000000000000658       0x88 build/x86_64/Release/drivers/Mouse.o
+ .debug_frame   0x00000000000006e0       0x78 build/x86_64/Release/drivers/Timer.o
+ .debug_frame   0x0000000000000758      0x178 build/x86_64/Release/kernel/Heap.o
+ .debug_frame   0x00000000000008d0      0x128 build/x86_64/Release/kernel/kernel.o
+ .debug_frame   0x00000000000009f8       0x30 build/x86_64/Release/kernel/KernelData.o
+ .debug_frame   0x0000000000000a28      0x140 build/x86_64/Release/kernel/MemoryMap.o
+ .debug_frame   0x0000000000000b68      0x1e8 build/x86_64/Release/kernel/SystemCallManager.o
+ .debug_frame   0x0000000000000d50       0xf0 build/x86_64/Release/kernel/UserProcessManager.o
+ .debug_frame   0x0000000000000e40       0x40 build/x86_64/Release/user_code/SomeCode.o
+ .debug_frame   0x0000000000000e80       0xc0 build/x86_64/Release/utils/Utils.o

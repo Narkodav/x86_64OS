@@ -1,3 +1,6 @@
+#ifndef ARRAY_H
+#define ARRAY_H
+
 #include "Types.h"
 #include "Utils.h"
 
@@ -33,3 +36,5 @@ namespace Utils
         const T *end() const { return m_data + N; }
     };
 }
+
+#endif // ARRAY_H

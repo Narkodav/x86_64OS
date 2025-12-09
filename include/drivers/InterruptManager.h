@@ -158,8 +158,6 @@ extern "C"
     __attribute__((used, noinline)) extern void trigger_interrupt45();
     __attribute__((used, noinline)) extern void trigger_interrupt46();
     __attribute__((used, noinline)) extern void trigger_interrupt47();
-
-    extern const uint16_t gdt64_code_segment;
 }
 
 namespace Kernel

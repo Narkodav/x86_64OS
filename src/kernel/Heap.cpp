@@ -130,4 +130,20 @@ namespace Kernel
             m_usedSize -= sizeof(Block);
         }
     }
+
+    void HeapLinkedList::printBlocks() const
+    {
+        Block *block = m_head;
+        while (block)
+        {
+            Console::print("Block: %p\n", block);
+            Console::print(" Size: %d\n", block->size());
+            Console::print(" Used: ");
+            if (block->isUsed())
+                Console::print("true\n");
+            else
+                Console::print("false\n");
+            block = block->next;
+        }
+    }
 }

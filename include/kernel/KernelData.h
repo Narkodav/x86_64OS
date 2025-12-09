@@ -13,23 +13,23 @@ extern "C"
     extern uint8_t stack_bottom[];
     extern uint8_t stack_top[];
 
-    extern uint8_t __kernel_start[];
-    extern uint8_t __kernel_end[];
+    extern uint8_t __kernel_start_[];
+    extern uint8_t __kernel_end_[];
 
-    extern uint8_t __multiboot_header_start[];
-    extern uint8_t __multiboot_header_end[];
+    extern uint8_t __multiboot_header_start_[];
+    extern uint8_t __multiboot_header_end_[];
 
-    extern uint8_t __text_start[];
-    extern uint8_t __text_end[];
+    extern uint8_t __text_start_[];
+    extern uint8_t __text_end_[];
 
-    extern uint8_t __data_start[];
-    extern uint8_t __data_end[];
+    extern uint8_t __data_start_[];
+    extern uint8_t __data_end_[];
 
-    extern uint8_t __rodata_start[];
-    extern uint8_t __rodata_end[];
+    extern uint8_t __rodata_start_[];
+    extern uint8_t __rodata_end_[];
 
-    extern uint8_t __bss_start[];
-    extern uint8_t __bss_end[];
+    extern uint8_t __bss_start_[];
+    extern uint8_t __bss_end_[];
 
     extern void *tss_entry;
 

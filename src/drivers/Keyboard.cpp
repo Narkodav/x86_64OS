@@ -1,13 +1,14 @@
 #include "../../include/drivers/Keyboard.h"
 namespace Kernel
 {
-    StateTracker<volatile uint64_t, static_cast<size_t>(Keyboard::Key::Num)> Keyboard::s_keyStates;
-    RollingWindow<Keyboard::Event, 256> Keyboard::s_keyBuffer;
+    StateTrackerVolatile<uint64_t, static_cast<size_t>(Keyboard::Key::Num)> Keyboard::s_keyStates;
+    RollingWindowVolatile<Keyboard::Event, 256> Keyboard::s_keyBuffer;
     volatile bool Keyboard::s_nextExtended = false;
 
     void Keyboard::interruptHandler(InterruptFrame &frame)
     {
-        uint8_t result = port_in_byte(0x60);
+        // Console::print("Keyboard interrupt\n");
+        volatile uint8_t result = port_in_byte(0x60);
         if (result == 0xE0)
         {
             s_nextExtended = true;
@@ -63,7 +64,6 @@ namespace Kernel
         else
             s_keyStates.clear(static_cast<uint8_t>(event.getKey()));
         s_keyBuffer.pushBack(event);
-        // Console::print("Hello World!\n");
     }
 
     Keyboard::Key Keyboard::scancodeToKey(uint8_t scancode)

@@ -258,11 +258,11 @@ namespace Kernel
                 ScrollLock = 1 << 13
             };
 
-            using Flags = Utils::FlagMap<Flag, uint16_t>;
+            using Flags = Utils::FlagMapVolatile<Flag, uint16_t>;
 
         private:
-            uint8_t m_scancode;
-            Key m_key;
+            volatile uint8_t m_scancode;
+            volatile Key m_key;
             Flags m_flags;
 
         public:
@@ -274,12 +274,12 @@ namespace Kernel
             Event(Event &&other) = default;
             Event &operator=(Event &&other) = default;
 
-            const uint8_t &getScancode() const { return m_scancode; };
-            const Key &getKey() const { return m_key; };
+            const volatile uint8_t &getScancode() const { return m_scancode; };
+            const volatile Key &getKey() const { return m_key; };
             const Flags &getFlags() const { return m_flags; };
 
-            uint8_t &getScancode() { return m_scancode; };
-            Key &getKey() { return m_key; };
+            volatile uint8_t &getScancode() { return m_scancode; };
+            volatile Key &getKey() { return m_key; };
             Flags &getFlags() { return m_flags; };
 
             Event &setScancode(uint8_t scancode)
@@ -306,8 +306,8 @@ namespace Kernel
         };
 
     private:
-        static StateTracker<volatile uint64_t, static_cast<size_t>(Key::Num)> s_keyStates;
-        static RollingWindow<Event, 256> s_keyBuffer;
+        static StateTrackerVolatile<uint64_t, static_cast<size_t>(Key::Num)> s_keyStates;
+        static RollingWindowVolatile<Event, 256> s_keyBuffer;
         static volatile bool s_nextExtended;
 
     public:
@@ -342,7 +342,7 @@ namespace Kernel
             return true;
         }
 
-        static const volatile RollingWindow<Event, 256> &getEventBuffer()
+        static const RollingWindowVolatile<Event, 256> &getEventBuffer()
         {
             return s_keyBuffer;
         }

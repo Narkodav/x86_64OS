@@ -1,12 +1,13 @@
 	.file	"Utils.cpp"
 	.text
 .Ltext0:
+	.cfi_sections	.debug_frame
 	.file 0 "/mnt/a/myOsX64" "src/utils/Utils.cpp"
 	.globl	memset
 	.type	memset, @function
 memset:
 .LVL0:
-.LFB35:
+.LFB42:
 	.file 1 "src/utils/Utils.cpp"
 	.loc 1 6 5 view -0
 	.cfi_startproc
@@ -42,13 +43,13 @@ memset:
 	.loc 1 11 5 is_stmt 0 view .LVU13
 	ret
 	.cfi_endproc
-.LFE35:
+.LFE42:
 	.size	memset, .-memset
 	.globl	memcpy
 	.type	memcpy, @function
 memcpy:
 .LVL7:
-.LFB36:
+.LFB43:
 	.loc 1 14 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 14 5 is_stmt 0 view .LVU15
@@ -84,13 +85,13 @@ memcpy:
 	.loc 1 20 5 is_stmt 0 view .LVU28
 	ret
 	.cfi_endproc
-.LFE36:
+.LFE43:
 	.size	memcpy, .-memcpy
 	.globl	memmove
 	.type	memmove, @function
 memmove:
 .LVL14:
-.LFB37:
+.LFB44:
 	.loc 1 23 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 23 5 is_stmt 0 view .LVU30
@@ -155,13 +156,13 @@ memmove:
 	.loc 1 39 5 is_stmt 0 view .LVU53
 	ret
 	.cfi_endproc
-.LFE37:
+.LFE44:
 	.size	memmove, .-memmove
 	.globl	memcmp
 	.type	memcmp, @function
 memcmp:
 .LVL27:
-.LFB38:
+.LFB45:
 	.loc 1 42 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 43 9 view .LVU55
@@ -215,13 +216,13 @@ memcmp:
 	.loc 1 54 5 view .LVU76
 	ret
 	.cfi_endproc
-.LFE38:
+.LFE45:
 	.size	memcmp, .-memcmp
 	.globl	strlen
 	.type	strlen, @function
 strlen:
 .LVL35:
-.LFB39:
+.LFB46:
 	.loc 1 57 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 58 9 view .LVU78
@@ -252,13 +253,13 @@ strlen:
 	movq	%rdi, %rax
 	jmp	.L24
 	.cfi_endproc
-.LFE39:
+.LFE46:
 	.size	strlen, .-strlen
 	.globl	strcpy
 	.type	strcpy, @function
 strcpy:
 .LVL40:
-.LFB40:
+.LFB47:
 	.loc 1 65 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 65 5 is_stmt 0 view .LVU89
@@ -304,13 +305,13 @@ strcpy:
 	movq	%rdi, %rcx
 	jmp	.L29
 	.cfi_endproc
-.LFE40:
+.LFE47:
 	.size	strcpy, .-strcpy
 	.globl	strcmp
 	.type	strcmp, @function
 strcmp:
 .LVL46:
-.LFB41:
+.LFB48:
 	.loc 1 74 5 is_stmt 1 view -0
 	.cfi_startproc
 	.loc 1 75 9 view .LVU109
@@ -357,7 +358,7 @@ strcmp:
 	subl	%edx, %eax
 	ret
 	.cfi_endproc
-.LFE41:
+.LFE48:
 	.size	strcmp, .-strcmp
 .Letext0:
 	.file 2 "src/utils/../../include/utils/Types.h"
@@ -441,8 +442,8 @@ strcmp:
 	.byte	0x49
 	.byte	0x9
 	.long	0x7b
-	.quad	.LFB41
-	.quad	.LFE41-.LFB41
+	.quad	.LFB48
+	.quad	.LFE48-.LFB48
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0xe2
@@ -474,8 +475,8 @@ strcmp:
 	.byte	0x40
 	.byte	0xb
 	.long	0x14c
-	.quad	.LFB40
-	.quad	.LFE40-.LFB40
+	.quad	.LFB47
+	.quad	.LFE47-.LFB47
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x14c
@@ -508,8 +509,8 @@ strcmp:
 	.byte	0x38
 	.byte	0xc
 	.long	0x32
-	.quad	.LFB39
-	.quad	.LFE39-.LFB39
+	.quad	.LFB46
+	.quad	.LFE46-.LFB46
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x191
@@ -533,8 +534,8 @@ strcmp:
 	.byte	0x29
 	.byte	0x9
 	.long	0x7b
-	.quad	.LFB38
-	.quad	.LFE38-.LFB38
+	.quad	.LFB45
+	.quad	.LFE45-.LFB45
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x204
@@ -584,8 +585,8 @@ strcmp:
 	.byte	0x16
 	.byte	0xb
 	.long	0x89
-	.quad	.LFB37
-	.quad	.LFE37-.LFB37
+	.quad	.LFB44
+	.quad	.LFE44-.LFB44
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x286
@@ -632,8 +633,8 @@ strcmp:
 	.byte	0xd
 	.byte	0xb
 	.long	0x89
-	.quad	.LFB36
-	.quad	.LFE36-.LFB36
+	.quad	.LFB43
+	.quad	.LFE43-.LFB43
 	.uleb128 0x1
 	.byte	0x9c
 	.long	0x302
@@ -679,8 +680,8 @@ strcmp:
 	.byte	0x5
 	.byte	0xb
 	.long	0x89
-	.quad	.LFB35
-	.quad	.LFE35-.LFB35
+	.quad	.LFB42
+	.quad	.LFE42-.LFB42
 	.uleb128 0x1
 	.byte	0x9c
 	.uleb128 0x9
@@ -986,7 +987,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL47-.Ltext0
-	.uleb128 .LFE41-.Ltext0
+	.uleb128 .LFE48-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
@@ -1003,7 +1004,7 @@ strcmp:
 	.byte	0x54
 	.byte	0x4
 	.uleb128 .LVL48-.Ltext0
-	.uleb128 .LFE41-.Ltext0
+	.uleb128 .LFE48-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
@@ -1020,7 +1021,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL42-.Ltext0
-	.uleb128 .LFE40-.Ltext0
+	.uleb128 .LFE47-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1037,7 +1038,7 @@ strcmp:
 	.byte	0x54
 	.byte	0x4
 	.uleb128 .LVL43-.Ltext0
-	.uleb128 .LFE40-.Ltext0
+	.uleb128 .LFE47-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
@@ -1061,7 +1062,7 @@ strcmp:
 	.byte	0x52
 	.byte	0x4
 	.uleb128 .LVL45-.Ltext0
-	.uleb128 .LFE40-.Ltext0
+	.uleb128 .LFE47-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1085,7 +1086,7 @@ strcmp:
 	.byte	0x50
 	.byte	0x4
 	.uleb128 .LVL39-.Ltext0
-	.uleb128 .LFE39-.Ltext0
+	.uleb128 .LFE46-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
@@ -1164,7 +1165,7 @@ strcmp:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL34-.Ltext0
-	.uleb128 .LFE38-.Ltext0
+	.uleb128 .LFE45-.Ltext0
 	.uleb128 0x3
 	.byte	0x71
 	.sleb128 -1
@@ -1233,7 +1234,7 @@ strcmp:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL34-.Ltext0
-	.uleb128 .LFE38-.Ltext0
+	.uleb128 .LFE45-.Ltext0
 	.uleb128 0x1
 	.byte	0x55
 	.byte	0
@@ -1300,7 +1301,7 @@ strcmp:
 	.byte	0x9f
 	.byte	0x4
 	.uleb128 .LVL34-.Ltext0
-	.uleb128 .LFE38-.Ltext0
+	.uleb128 .LFE45-.Ltext0
 	.uleb128 0x1
 	.byte	0x54
 	.byte	0
@@ -1317,7 +1318,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL17-.Ltext0
-	.uleb128 .LFE37-.Ltext0
+	.uleb128 .LFE44-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1621,7 +1622,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL13-.Ltext0
-	.uleb128 .LFE36-.Ltext0
+	.uleb128 .LFE43-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1793,7 +1794,7 @@ strcmp:
 	.byte	0x55
 	.byte	0x4
 	.uleb128 .LVL3-.Ltext0
-	.uleb128 .LFE35-.Ltext0
+	.uleb128 .LFE42-.Ltext0
 	.uleb128 0x1
 	.byte	0x50
 	.byte	0
@@ -1922,19 +1923,19 @@ strcmp:
 	.byte	0x3
 	.uleb128 0x1
 	.uleb128 0x3
+	.byte	0x5
+	.uleb128 0x2
+	.long	.LASF433
 	.byte	0x3
-	.uleb128 0x1
+	.uleb128 0x3
 	.uleb128 0x2
 	.byte	0x7
 	.long	.Ldebug_macro3
 	.byte	0x4
-	.byte	0x5
-	.uleb128 0x3
-	.long	.LASF435
 	.byte	0x4
 	.byte	0x4
 	.byte	0
-	.section	.debug_macro,"G",@progbits,wm4.0.fcd621f2a7e3597d4fe7ec232229cc14,comdat
+	.section	.debug_macro,"G",@progbits,wm4.0.165eaf55c77c8c917655c53714e5dbbb,comdat
 .Ldebug_macro2:
 	.value	0x5
 	.byte	0
@@ -3238,10 +3239,10 @@ strcmp:
 	.byte	0
 	.byte	0x5
 	.uleb128 0x2
-	.long	.LASF433
+	.long	.LASF434
 	.byte	0x5
 	.uleb128 0x14
-	.long	.LASF434
+	.long	.LASF435
 	.byte	0
 	.section	.debug_line,"",@progbits
 .Ldebug_line0:
@@ -3280,6 +3281,8 @@ strcmp:
 	.string	"__FLT128_MANT_DIG__ 113"
 .LASF452:
 	.string	"strlen"
+.LASF67:
+	.string	"__INT_FAST16_TYPE__ int"
 .LASF14:
 	.string	"__ATOMIC_RELEASE 3"
 .LASF340:
@@ -3408,7 +3411,7 @@ strcmp:
 	.string	"__SIZEOF_INT128__ 16"
 .LASF445:
 	.string	"bool"
-.LASF435:
+.LASF433:
 	.string	"UTILS_H "
 .LASF332:
 	.string	"__FLT128_HAS_QUIET_NAN__ 1"
@@ -3556,8 +3559,8 @@ strcmp:
 	.string	"__FLT64_MIN_10_EXP__ (-307)"
 .LASF412:
 	.string	"__amd64__ 1"
-.LASF67:
-	.string	"__INT_FAST16_TYPE__ int"
+.LASF460:
+	.string	"GNU C++20 13.2.0 -mno-red-zone -mcmodel=kernel -mcmodel=large -mtune=generic -march=x86-64 -g -ggdb3 -O1 -std=c++20 -ffreestanding -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-builtin -fno-stack-protector -fno-rtti -fpermissive"
 .LASF272:
 	.string	"__FLT16_MIN_EXP__ (-13)"
 .LASF197:
@@ -3670,8 +3673,6 @@ strcmp:
 	.string	"__FLT32_MAX_EXP__ 128"
 .LASF139:
 	.string	"__STDCPP_DEFAULT_NEW_ALIGNMENT__ 16"
-.LASF422:
-	.string	"__code_model_kernel__ 1"
 .LASF181:
 	.string	"__INT8_C(c) c"
 .LASF10:
@@ -3916,8 +3917,6 @@ strcmp:
 	.string	"__CHAR8_TYPE__ unsigned char"
 .LASF155:
 	.string	"__SCHAR_WIDTH__ 8"
-.LASF460:
-	.string	"GNU C++20 13.2.0 -mno-red-zone -mcmodel=kernel -mtune=generic -march=x86-64 -g -ggdb3 -O1 -std=c++20 -ffreestanding -fno-exceptions -fno-rtti -fno-builtin -fno-stack-protector -fpermissive"
 .LASF453:
 	.string	"memcmp"
 .LASF56:
@@ -4010,7 +4009,7 @@ strcmp:
 	.string	"__FLT_MIN__ 1.17549435082228750796873653722224568e-38F"
 .LASF123:
 	.string	"__cpp_constexpr_in_decltype 201711L"
-.LASF433:
+.LASF434:
 	.string	"TYPES_H "
 .LASF219:
 	.string	"__DEC_EVAL_METHOD__ 2"
@@ -4018,7 +4017,7 @@ strcmp:
 	.string	"__cpp_inheriting_constructors 201511L"
 .LASF426:
 	.string	"__FXSR__ 1"
-.LASF434:
+.LASF435:
 	.string	"NULL ((void *)0)"
 .LASF188:
 	.string	"__INT_LEAST32_WIDTH__ 32"
@@ -4066,6 +4065,8 @@ strcmp:
 	.string	"__cpp_delegating_constructors 200604L"
 .LASF84:
 	.string	"__cpp_user_defined_literals 200809L"
+.LASF422:
+	.string	"__code_model_large__ 1"
 .LASF442:
 	.string	"signed char"
 .LASF415:

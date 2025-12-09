@@ -1,6 +1,7 @@
 	.file	"SomeCode.cpp"
 	.text
 .Ltext0:
+	.cfi_sections	.debug_frame
 	.file 0 "/mnt/a/myOsX64" "src/user_code/SomeCode.cpp"
 	.globl	user_main
 	.type	user_main, @function
@@ -206,7 +207,7 @@ user_main:
 	.byte	0x4
 	.byte	0x4
 	.byte	0
-	.section	.debug_macro,"G",@progbits,wm4.0.fcd621f2a7e3597d4fe7ec232229cc14,comdat
+	.section	.debug_macro,"G",@progbits,wm4.0.165eaf55c77c8c917655c53714e5dbbb,comdat
 .Ldebug_macro2:
 	.value	0x5
 	.byte	0
@@ -1897,8 +1898,8 @@ user_main:
 	.string	"__k8__ 1"
 .LASF252:
 	.string	"__DBL_IS_IEC_60559__ 1"
-.LASF110:
-	.string	"__cpp_capture_star_this 201603L"
+.LASF436:
+	.string	"GNU C++20 13.2.0 -mno-red-zone -mcmodel=kernel -mcmodel=large -mtune=generic -march=x86-64 -g -ggdb3 -O1 -std=c++20 -ffreestanding -fno-exceptions -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-builtin -fno-stack-protector -fno-rtti -fpermissive"
 .LASF153:
 	.string	"__PTRDIFF_MAX__ 0x7fffffffffffffffL"
 .LASF59:
@@ -1907,8 +1908,6 @@ user_main:
 	.string	"__FLT32_MAX_EXP__ 128"
 .LASF139:
 	.string	"__STDCPP_DEFAULT_NEW_ALIGNMENT__ 16"
-.LASF422:
-	.string	"__code_model_kernel__ 1"
 .LASF181:
 	.string	"__INT8_C(c) c"
 .LASF10:
@@ -2143,8 +2142,6 @@ user_main:
 	.string	"__WINT_MAX__ 0xffffffffU"
 .LASF46:
 	.string	"__CHAR8_TYPE__ unsigned char"
-.LASF436:
-	.string	"GNU C++20 13.2.0 -mno-red-zone -mcmodel=kernel -mtune=generic -march=x86-64 -g -ggdb3 -O1 -std=c++20 -ffreestanding -fno-exceptions -fno-rtti -fno-builtin -fno-stack-protector -fpermissive"
 .LASF56:
 	.string	"__UINT32_TYPE__ unsigned int"
 .LASF210:
@@ -2285,6 +2282,8 @@ user_main:
 	.string	"__cpp_delegating_constructors 200604L"
 .LASF84:
 	.string	"__cpp_user_defined_literals 200809L"
+.LASF422:
+	.string	"__code_model_large__ 1"
 .LASF415:
 	.string	"__SIZEOF_FLOAT80__ 16"
 .LASF348:
@@ -2295,8 +2294,8 @@ user_main:
 	.string	"__GCC_ATOMIC_INT_LOCK_FREE 2"
 .LASF391:
 	.string	"__GCC_ATOMIC_CHAR_LOCK_FREE 2"
-.LASF424:
-	.string	"__SSE__ 1"
+.LASF110:
+	.string	"__cpp_capture_star_this 201603L"
 .LASF102:
 	.string	"__cpp_unicode_characters 201411L"
 .LASF30:
@@ -2373,6 +2372,8 @@ user_main:
 	.string	"__cpp_generic_lambdas 201707L"
 .LASF238:
 	.string	"__DBL_DIG__ 15"
+.LASF424:
+	.string	"__SSE__ 1"
 .LASF233:
 	.string	"__FLT_HAS_DENORM__ 1"
 .LASF207:

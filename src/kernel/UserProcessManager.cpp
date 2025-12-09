@@ -8,9 +8,8 @@ namespace Kernel
         UserContext context;
         context.userStackSize = stackSize;
         context.entryPoint = userMain;
-        Console::print("Availible size: %v\n", s_kernelHeap.availibleSize());
         context.userStack = s_kernelHeap.allocate(stackSize);
-        Console::print("Allocated user stack address: %v\n", context.userStack);
+
         if (!context.userStack)
             return -1;
 

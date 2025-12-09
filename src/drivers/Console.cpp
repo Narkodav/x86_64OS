@@ -112,12 +112,6 @@ namespace Kernel
             s_charBuffer[line][j].character = clearValue;
             s_charBuffer[line][j].attr = attr;
         }
-        if (line >= s_displayLine && line < s_displayLine + s_extent.height)
-            for (size_t j = 0; j < s_extent.width; ++j)
-            {
-                s_vgaScreen[line - s_displayLine][j].character = clearValue;
-                s_vgaScreen[line - s_displayLine][j].attr = attr;
-            }
     }
 
     // void Console::clearSpan(CursorPos pos, size_t length, uint8_t clearValue //= '\0'
@@ -221,5 +215,16 @@ namespace Kernel
             s_displayLine -= lines;
         updateCursor();
         flushToVga();
+    }
+
+    void Console::printInterrupt(const char *str, size_t size, size_t offset, Attributes attr //= Attributes::WhiteOnBlack
+    )
+    {
+        volatile VgaChar *vga = reinterpret_cast<volatile VgaChar *>(s_vgaScreen);
+        for (size_t i = 0; i < size; ++i)
+        {
+            vga[i + offset].character = str[i];
+            vga[i + offset].attr = attr;
+        }
     }
 }

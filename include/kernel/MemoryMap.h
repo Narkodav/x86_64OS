@@ -2,7 +2,7 @@
 #define MEMORY_MAP_H
 #include "../utils/Types.h"
 #include "../utils/Utils.h"
-#include "../drivers/Console.h"
+// #include "../drivers/Console.h"
 #include "Heap.h"
 #include "KernelData.h"
 
@@ -127,6 +127,7 @@ namespace Kernel
         static inline const uint64_t s_1MB = s_1KB * 1024; // 1 KB
         static inline const uint64_t s_1GB = s_1MB * 1024; // 1 KB
         static inline const uint64_t s_1TB = s_1GB * 1024; // 1 KB
+        static inline const uint64_t s_higherHalfBase = 0xFFFF800000000000ULL;
 
         static const KernelMemoryRegion s_kernelMemoryRegion;
 
@@ -145,21 +146,23 @@ namespace Kernel
 
         // x86-64 Virtual Address Breakdown (48-bit addressing):
         // [63:48] - Sign extension (unused, must match bit 47)
-        // [47:39] - PML4 index  (9 bits, 512 entries) - Level 1
-        // [38:30] - PDPT index  (9 bits, 512 entries) - Level 2
-        // [29:21] - PD index    (9 bits, 512 entries) - Level 3
-        // [20:12] - PT index    (9 bits, 512 entries) - Level 4
+        // [47:39] - PML4 index  (9 bits, 512 entries) - Level 1 → Points to PDPT
+        // [38:30] - PDPT index  (9 bits, 512 entries) - Level 2 → Points to PD
+        // [29:21] - PD index    (9 bits, 512 entries) - Level 3 → Points to PT
+        // [20:12] - PT index    (9 bits, 512 entries) - Level 4 → Points to 4KB Page
         // [11:0]  - Page offset (12 bits, 4KB pages)
 
         // For 2MB pages (skip PT level):
-        // [47:39] - PML4 index  (9 bits)
-        // [38:30] - PDPT index  (9 bits)
-        // [29:21] - PD index    (9 bits)
+        // [63:48] - Sign extension (unused, must match bit 47)
+        // [47:39] - PML4 index  (9 bits) - Level 1 → Points to PDPT
+        // [38:30] - PDPT index  (9 bits) - Level 2 → Points to PD
+        // [29:21] - PD index    (9 bits) - Level 3 → Points to 2MB Page (uses PTE_PS flag)
         // [20:0]  - Page offset (21 bits, 2MB pages)
 
         // For 1GB pages (skip PD and PT levels):
-        // [47:39] - PML4 index  (9 bits)
-        // [38:30] - PDPT index  (9 bits)
+        // [63:48] - Sign extension (unused, must match bit 47)
+        // [47:39] - PML4 index  (9 bits) - Level 1 → Points to PDPT
+        // [38:30] - PDPT index  (9 bits) - Level 2 → Points to 1GB Page (uses PTE_PS flag)
         // [29:0]  - Page offset (30 bits, 1GB pages)
 
         static void map128TbIdentity(uint64_t *PML4, uint64_t *PDPT, uint32_t flags = 0);

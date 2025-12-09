@@ -11,13 +11,13 @@ namespace Kernel
     class Timer
     {
     private:
-        static inline volatile uint64_t s_systicks;
         static inline const float s_frequency = 1000.f; // Hz
+        static inline volatile uint64_t s_systicks;
 
     public:
         static void initialise();
 
-        uint64_t getSystemTime()
+        static uint64_t getSystemTicks()
         {
             return s_systicks;
         }

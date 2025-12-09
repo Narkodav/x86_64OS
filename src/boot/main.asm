@@ -1,18 +1,20 @@
 global start
-global page_table_l2
-global page_table_l1
-global stack_bottom
-global stack_top
+extern page_table_l2_physical
+extern page_table_l1_physical
+extern stack_bottom_physical
+extern stack_top_physical
 global gdt64
 global gdt64_code_segment
 gdt64_code_segment: equ gdt64.code_segment
+global gdt64_pointer
+gdt64_pointer: equ gdt64.pointer
 extern long_mode_start
 
-section .text
+section .boot_text
 bits 32
 
 start:
-    mov esp, stack_top
+    mov esp, stack_top_physical
 
     call check_multiboot
     push ebx        ; Save multiboot info
@@ -23,11 +25,12 @@ start:
 
     call setup_page_tables
     call enable_paging
+    
 
-    lgdt [gdt64.pointer] ; enable gdt
+    lgdt [gdt64.pointer] ; enable gdt    
 
     pop ebx ; Restore before jumping to long mode
-    jmp gdt64.code_segment:long_mode_start
+    jmp gdt64.code_segment:long_mode_start_trampoline
 
 check_multiboot:
     cmp eax, 0x36d76289
@@ -98,3 +101,9 @@ error:
 
 %include "include/boot/setup_paging.asm"
 %include "include/boot/data.asm"
+
+section .boot_text
+bits 64
+long_mode_start_trampoline:
+    mov rax, long_mode_start
+    jmp rax

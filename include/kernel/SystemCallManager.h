@@ -29,7 +29,7 @@ namespace Kernel
 };
 
 // Global array accessible from assembly
-extern Kernel::SystemCallHandler syscall_handlers[static_cast<uint64_t>(Kernel::SystemCall::num)];
+extern volatile Kernel::SystemCallHandler syscall_handlers[static_cast<uint64_t>(Kernel::SystemCall::num)];
 
 namespace Kernel
 {

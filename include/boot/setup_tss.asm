@@ -26,6 +26,7 @@ endstruc
 section .text
 setup_tss:
     ; Zero out the TSS
+
     mov rdi, tss_entry
     mov rcx, 104 / 8    ; 104 bytes in quadwords
     xor rax, rax
@@ -33,19 +34,21 @@ setup_tss:
 
     ; Set Ring 0 stack pointer (most important field!)
     mov rax, stack_top
-    mov [tss_entry + 4], rax    ; rsp0 at offset 4
+    mov rax, [rax]
+    mov [rdi + 4], rax    ; rsp0 at offset 4
 
     ; Disable I/O permission bitmap
-    mov word [tss_entry + 102], 104  ; iomap_base = TSS size (no bitmap)
+    mov word [rdi + 102], 104  ; iomap_base = TSS size (no bitmap)
 
-    mov rax, tss_entry          ; Address of actual TSS
-    mov [gdt64 + 0x28 + 2], ax  ; Set base low (bytes 2-3)
+    mov rax, tss_entry       ; Address of actual TSS
+    mov rdi, gdt64
+    mov [rdi + 0x28 + 2], ax  ; Set base low (bytes 2-3)
     shr rax, 16
-    mov [gdt64 + 0x28 + 4], al  ; Set base mid (byte 4)
+    mov [rdi + 0x28 + 4], al  ; Set base mid (byte 4)
     shr rax, 8  
-    mov [gdt64 + 0x28 + 7], al  ; Set base high (byte 7)
+    mov [rdi + 0x28 + 7], al  ; Set base high (byte 7)
     shr rax, 8
-    mov [gdt64 + 0x28 + 8], eax ; Set base upper (bytes 8-11)
+    mov [rdi + 0x28 + 8], eax ; Set base upper (bytes 8-11)
 
     ; Load Task Register with TSS selector
     mov ax, 0x28                  ; TSS selector in GDT
